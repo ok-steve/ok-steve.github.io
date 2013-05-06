@@ -1,0 +1,31 @@
+/* =========================================================================
+   Base - Reset CSS
+   Adapted from http://github.com/necolas/normalize.css
+   ========================================================================= */
+
+// Display in IE6-9 and FF3
+// -------------------------
+
+@include reset-html5;
+
+// Base settings
+// -------------------------
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+a {
+  // Focus states
+  &:focus {
+    @include tab-focus;
+  }
+
+  // Hover & Active
+  &:hover,
+  &:active {
+    @include reset-focus;
+  }
+}

@@ -1,0 +1,31 @@
+// ==========================================================================
+// Mixins - Typography
+// ==========================================================================
+
+// Variables
+// -------------------------
+
+$horizontal-component-offset  : 180px !default;
+
+// Horizontal elements
+
+@mixin horizontal-element($breakpoint, $label-selector, $body-selector, $float: left, $offset: $horizontal-component-offset) {
+  #{$label-selector} {
+    @include ellipsis;
+  }
+
+  @include at-breakpoint($breakpoint) {
+    @include pie-clearfix; // Ensure element clears floats if empty body elements present
+
+    #{$label-selector} {
+      float: #{$float};
+      width: $offset - 20;
+      clear: #{$float};
+      text-align: #{opposite-position($float)};
+    }
+
+    #{$body-selector} {
+      margin-#{$float}: $offset;
+    }
+  }
+}
