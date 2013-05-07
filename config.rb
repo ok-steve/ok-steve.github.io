@@ -84,5 +84,5 @@ configure :build do
   # set :http_path, "/Content/images/"
 
   # Compress text files
-  activate :gzip
+  # activate :gzip
 end
