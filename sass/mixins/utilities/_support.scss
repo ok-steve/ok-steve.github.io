@@ -1,0 +1,34 @@
+// ==========================================================================
+// Mixins - Cross-browser support
+// ==========================================================================
+
+// Remove text-shadow in selection highlight: h5bp.com/i
+
+@mixin selection($color, $background-color) {
+  ::-webkit-selection {
+    color: $color;
+    background: $background-color;
+    text-shadow: none;
+  }
+
+  ::-moz-selection {
+    color: $color;
+    background: $background-color;
+    text-shadow: none;
+  }
+
+  ::selection {
+    color: $color;
+    background: $background-color;
+    text-shadow: none;
+  }
+}
+
+// Webkit-style focus
+
+@mixin tab-focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color {
+    offset: -2px;
+  }
+}

@@ -1,1 +1,3 @@
-(function(){try{Typekit.load()}catch(e){}}).call(this);
+(function(){
+  try{Typekit.load()}catch(e){}
+}).call(this);
