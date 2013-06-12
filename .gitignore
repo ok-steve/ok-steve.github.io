@@ -1,2 +1,4 @@
 .sass-cache
 /build
+*.sublime-workspace
+*.sublime-project

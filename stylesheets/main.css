@@ -1,0 +1,16 @@
+body {
+  font-family: Merriweather, Georgia, serif;
+}
+
+a {
+  color: #9d261d;
+}
+
+a:hover,
+a:focus {
+  color: #7A1E17;
+}
+
+.brand a:hover {
+  text-decoration: none;
+}
