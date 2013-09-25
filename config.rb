@@ -9,13 +9,13 @@ activate :blog do |blog|
   blog.permalink = ":title.html"
   # blog.sources = ":year-:month-:day-:title.html"
   # blog.taglink = "tags/:tag.html"
-  # blog.layout = "layout"
+  blog.layout = "blog"
   # blog.summary_separator = /(READMORE)/
   # blog.summary_length = 250
   # blog.year_link = ":year.html"
   # blog.month_link = ":year/:month.html"
   # blog.day_link = ":year/:month/:day.html"
-  blog.default_extension = ".md"
+  blog.default_extension = ".md.erb"
 
   blog.tag_template = "templates/tag.html"
   blog.calendar_template = "templates/calendar.html"
@@ -89,6 +89,8 @@ set :js_dir, 'javascripts'
 set :images_dir, 'images'
 
 set :fonts_dir, 'fonts'
+
+set :markdown, :smartypants => true
 
 # Build-specific configuration
 configure :build do
