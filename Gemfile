@@ -18,3 +18,5 @@ end
 
 # For feed.xml.builder
 gem "builder", "~> 3.0"
+
+gem "nokogiri", "~>1.5.0"
