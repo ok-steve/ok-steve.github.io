@@ -23,20 +23,17 @@
   </head>
   <body class="<%= page_classes %>">
     <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <header role="banner">
-            <h1 class="brand"><%= link_to "Cherry on Top", "/index.html" %></h1>
-          </header>
+      <header role="banner">
+        <h1><%= link_to "Cherry on Top", "/index.html" %></h1>
+      </header>
 
-          <section role="main">
-            <%= yield %>
-          </section>
+      <section role="main">
+        <%= yield %>
+      </section>
 
-          <footer role="contentinfo">
-            <p>Cherry on Top is the online home of Steve Cherry. All content is licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
-        </footer>
-      </div>
+      <footer role="contentinfo">
+        <p>Cherry on Top is the online home of Steve Cherry. All content is licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
+      </footer>
     </div>
 
     <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.1/jquery.min.js", "//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/js/bootstrap.min.js", "main" %>

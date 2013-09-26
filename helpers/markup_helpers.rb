@@ -1,4 +1,19 @@
 module MarkupHelpers
+  # Thumbnail tag with information
+  def thumbnail(src, caption, *args)
+    options = args.extract_options!
+
+    # Set variables
+    href = options[:href] ? options[:href] : src
+    alt = options[:alt] ? options[:caption] : caption
+    title = options[:title] ? options[:title] : alt
+
+    figure = link_to image_tag(src, :alt => alt, :title => title, :class => "img-responsive"), href
+    figure += content_tag :div, caption, :class => "caption"
+
+    content_tag :div, figure, :class => "thumbnail"
+  end
+
   # Audio tag helper much like the image_tag helper
   def audio(src, type = nil)
     content_tag :audio, :controls => "controls" do
