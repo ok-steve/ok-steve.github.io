@@ -20,3 +20,4 @@ end
 gem "builder", "~> 3.0"
 
 gem "nokogiri", "~>1.5.0"
+gem "middleman-deploy", "~>0.1.0"
