@@ -15,10 +15,12 @@
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
+    <link rel="alternate" type="application/rss+xml" title="Cherry on Top » Feed" href="/feed.xml">
+
     <%= stylesheet_link_tag "//netdna.bootstrapcdn.com/bootswatch/3.0.0/readable/bootstrap.min.css", "main" %>
     <%= yield_content :css %>
 
-    <%#= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js" %>
+    <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js" %>
     <%= yield_content :head_js %>
   </head>
   <body class="<%= page_classes %>">
