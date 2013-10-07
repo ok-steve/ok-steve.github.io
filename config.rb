@@ -41,10 +41,6 @@ end
 # Compass
 ###
 
-# Susy grids in Compass
-# First: gem install susy
-# require 'susy'
-
 # Change Compass configuration
 # compass_config do |config|
 #   config.output_style = :compact
@@ -67,10 +63,9 @@ end
 #   page "/admin/*"
 # end
 
-# Proxy (fake) files
-# page "/this-page-has-no-template.html", :proxy => "/template-file.html" do
-#   @which_fake_page = "Rendering a fake page with a variable"
-# end
+# Proxy pages (http://middlemanapp.com/dynamic-pages/)
+# proxy "/this-page-has-no-template.html", "/template-file.html", :locals => {
+#  :which_fake_page => "Rendering a fake page with a local variable" }
 
 ###
 # Helpers
@@ -78,12 +73,11 @@ end
 
 activate :directory_indexes
 
-if not RUBY_PLATFORM.downcase =~ /mswin/ and not RUBY_PLATFORM.downcase =~ /mingw/
-  activate :livereload
-end
-
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
+
+# Reload the browser automatically whenever files change
+activate :livereload
 
 # Methods defined in the helpers block are available in templates
 # helpers do
@@ -111,16 +105,11 @@ configure :build do
   # activate :minify_javascript
 
   # Enable cache buster
-  # activate :cache_buster
+  # activate :asset_hash
 
   # Use relative URLs
   # activate :relative_assets
 
-  # Compress PNGs after build
-  # First: gem install middleman-smusher
-  # require "middleman-smusher"
-  # activate :smusher
-
   # Or use a different image path
-  # set :http_path, "/Content/images/"
+  # set :http_prefix, "/Content/images/"
 end
