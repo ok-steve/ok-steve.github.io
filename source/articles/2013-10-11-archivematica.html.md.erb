@@ -4,41 +4,37 @@ date: 2013-10-11
 tags: tutorials
 ---
 
-INTRO
+### Install Ubuntu
 
-- [TODO-makesure these directions are actuall right]
-- using .10 beta
-- assume you can use a Unix terminal and vim
-- won't name every step (like logging in)
+1. [Install Ubuntu from ISO](http://youtu.be/hK-oggHEetc)
+1. Install Synaptic via the Ubuntu Software Center
+1. [Install Guest Additions](http://virtualboxes.org/doc/installing-guest-additions-on-ubuntu), except the location of the *.run file is different, VBOXADDITIONS_4.2.18_88780 (reboot and try again - window rescaling - if doesn't work)
 
-### Install on VirtualBox
+### Install Archivematica
 
-Setting up the virtual appliance went mostly according to the [provided directions](https://www.archivematica.org/wiki/Virtual_appliance_instructions), but I had one hitch. In the the main VirtualBox preferences I had to set up a host network before I could add a host-only adapter in the Archivematica virtual machine preferences. [TODO-more detail]. Unfortunately that's where the installation instructions end, but I needed to do much more work to actually make a usable system.
+1. [Install Archivematica](https://www.archivematica.org/wiki/Multi_Node_Install), except don't add the gpg key, u=root, p=PASSWORD-need to set, "otherwise leave as is/unless the client is on the same server", don't fiddle with mysql, also install the client, mail - use defaults, no fstab
+1. Check clamdscan; In Synaptic reinstall clamav-daemon
 
-### Configure networking
+### Configure Shared Directories
 
-The first major problem I encountered was that Archivematica didn't actually connect to the network. To fix this I had to edit `/etc/network/interfaces` and change all instances of `eth0` to `eth2` and `eth1` to `eth3`.
+1. Shared folders (permanent)
+1. sudo gpasswd -a USERNAME archivematica
+1. reboot
+1. Create folder under /home (Transform), move transferBacklog to ~/Documents
+1. `id -u archivematica; id -g archivematica`, 333:333
+1. `sudo gedit /etc/rc.local` and add the lines `mount -t vboxsf -o uid=333,gid=333 SHAREDFOLDERNAME /home/FOLDERNAME` and `mount -t vboxsf -o uid=333,gid=333 SHAREDFOLDERNAME /var/archivematica/sharedDirectory/www/AIPsStore`
+1. reboot
+1. Move transferBacklog back to AIPsStore (on host computer)
+1. sudo gpasswd -d USERMNAME archivematica
+1. Browser - select transfer directory
 
-This should make your IP address to 196.168.56.104, but you might need to change that last number. You can type `ifconfig` to check the IP address (and the eth2/eth3).
+[Normalize for access]
 
-### Install guest additions
+1. Go to "localhost" and install site
+1. Add transfer directory
 
-The next problem was that Archivematica only had access to its own file system, which is fine for running a demo, but completely useless for doing actual work. To solve this I made use of VirtualBox's Guest Additions, which---among other features--allows a virtual machine to access the host's file system.
+Other
+-----
 
-First select "Install Guest Additions" from the Devices menu of the virtual machine. Next run the command `find "VBox*"` to find the location where the ISO is installed because it won't be in the usual `/media` folder---mine was in `/usr/share/virtualbox`.
-
-Once you've located the iso file you'll need to mount it---`mount -o loop NAMEOFFILE.iso /media/cdrom`. [TODO-created a folder under `/media`]. Then `cd` to that folder and run the installation script `sudo sh VBoxLinuxAdditions.run`.
-
-`sudo usermod -aG vboxsf demo`
-
-Restart the VM.
-
-Devices > Shared Folders
-
-Select the folder you want to use for digital objects. Name the folder SHAREDFOLDERNAME and make it permanent.
-
-`sudo vim /etc/rc.local` and add the lines
-
-Create folders under /home/demo (Transform) and /var (Archive)
-
-`mount -t vboxsf SHAREDFOLDERNAME FOLDERLOCATION` in /etc/rc.local
+1. [Create MySQL user](LINK) and change database permissions
+1. sharedDirectory/rejected - stored files
