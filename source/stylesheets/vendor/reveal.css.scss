@@ -1,0 +1,166 @@
+/* =========================================================================
+   Reveal.js theme
+   ========================================================================= */
+
+@import "compass";
+
+// Reset
+// --------------------------------------------------
+
+[role="banner"],
+[role="contentinfo"],
+hr,
+[role="main"] > h2 {
+  display: none;
+}
+
+.container {
+  padding: 0;
+  max-width: none;
+}
+
+.container,
+[role="main"] {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+// Global styles
+// --------------------------------------------------
+
+body {
+  background-color: #ff7518;
+}
+
+.reveal {
+  font-family: "Open Sans", Calibri, Candara, Arial, sans-serif;
+  font-size: 36px;
+  //font-weight: 200;
+  //letter-spacing: -0.02em;
+  color: #fff;
+}
+
+::selection {
+  //color: white;
+  //background: #ff5e99;
+  //text-shadow: none;
+}
+
+// Headers
+// --------------------------------------------------
+
+.reveal {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0 0 20px 0;
+    //color: #eee;
+    //font-family: "League Gothic", Impact, sans-serif;
+    line-height: 0.9em;
+    //letter-spacing: 0.02em;
+    //text-transform: uppercase;
+    //text-shadow: 0px 0px 6px rgba(#000, 0.2);
+  }
+
+  h1 {
+    //text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(#000, 0.1), 0 0 5px rgba(#000, 0.1), 0 1px 3px rgba(#000, 0.3), 0 3px 5px rgba(#000, 0.2), 0 5px 10px rgba(#000, 0.25), 0 20px 20px rgba(#000, 0.15);
+  }
+}
+
+// Links
+// --------------------------------------------------
+
+.reveal {
+  a:not(.image) {
+    //color: #13daec;
+    //text-decoration: none;
+    //@include transition(color .15s ease);
+
+    &:hover {
+      //color: #71e9f4;
+      //text-shadow: none;
+      //border: none;
+    }
+  }
+
+  .roll span:after {
+    //color: #fff;
+    //background: #0d99a5;
+  }
+}
+
+// Images
+// --------------------------------------------------
+
+.reveal {
+  section img {
+    //margin: 15px 0px;
+    //background: rgba(#fff, 0.12);
+    //border: 4px solid #eee;
+    //box-shadow: 0 0 10px rgba(#000, 0.15);
+    //@include transition(all .2s linear);
+  }
+
+  a:hover img {
+    //background: rgba(#fff, 0.2);
+    //border-color: #13daec;
+    //box-shadow: 0 0 20px rgba(#000, 0.55);
+  }
+}
+
+// Navigation controls
+// --------------------------------------------------
+
+.reveal .controls div {
+  &.navigate-left,
+  &.navigate-left.enabled {
+    //border-right-color: #13daec;
+  }
+
+  &.navigate-right,
+  &.navigate-right.enabled {
+    //border-left-color: #13daec;
+  }
+
+  &.navigate-up,
+  &.navigate-up.enabled {
+    //border-bottom-color: #13daec;
+  }
+
+  &.navigate-down,
+  &.navigate-down.enabled {
+    //border-top-color: #13daec;
+  }
+
+  &.navigate-left.enabled:hover {
+    //border-right-color: #71e9f4;
+  }
+
+  &.navigate-right.enabled:hover {
+    //border-left-color: #71e9f4;
+  }
+
+  &.navigate-up.enabled:hover {
+    //border-bottom-color: #71e9f4;
+  }
+
+  &.navigate-down.enabled:hover {
+    //border-top-color: #71e9f4;
+  }
+}
+
+// Progress bar
+// --------------------------------------------------
+
+.reveal .progress {
+  //background: rgba(#000, 0.2);
+
+  span {
+    //background: #13daec;
+    //@include transition(width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985));
+  }
+}
