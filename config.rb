@@ -101,17 +101,27 @@ set :markdown, :smartypants => true
 # Build-specific configuration
 configure :build do
   # For example, change the Compass output style for deployment
-  # activate :minify_css
+  activate :minify_css
 
   # Minify Javascript on build
-  # activate :minify_javascript
+  require "uglifier"
+  activate :minify_javascript, :compressor => Uglifier.new(:mangle => false)
+
+  # Minify HTML on build
+  activate :minify_html
+
+  # Gzip files
+  # activate :gzip
 
   # Enable cache buster
   # activate :asset_hash
 
   # Use relative URLs
-  # activate :relative_assets
+  activate :relative_assets
+  set :relative_links, true
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
+
+  activate :favicon_maker
 end
