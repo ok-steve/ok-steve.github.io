@@ -4,22 +4,26 @@
   <%= yield %>
 
   <% content_for :css do %>
-    <% if current_page.data.libraries.include? "mediaelement" %>
-      <%= stylesheet_link_tag "//cdnjs.cloudflare.com/ajax/libs/mediaelement/2.11.3/css/mediaelementplayer.min.css" %>
-    <% end %>
+    <% unless current_page.data.libraries.nil? %>
+      <% if current_page.data.libraries.include? "mediaelement" %>
+        <%= stylesheet_link_tag "//cdnjs.cloudflare.com/ajax/libs/mediaelement/2.11.3/css/mediaelementplayer.min.css" %>
+      <% end %>
 
-    <% if current_page.data.libraries.include? "reveal" %>
-      <%= stylesheet_link_tag "//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.5/css/reveal.min.css", "vendor/reveal" %>
+      <% if current_page.data.libraries.include? "reveal" %>
+        <%= stylesheet_link_tag "//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.5/css/reveal.min.css", "vendor/reveal" %>
+      <% end %>
     <% end %>
   <% end %>
 
   <% content_for :js do %>
-    <% if current_page.data.libraries.include? "mediaelement" %>
-      <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/mediaelement/2.11.3/js/mediaelement-and-player.min.js", "vendor/mediaelement" %>
-    <% end %>
+    <% unless current_page.data.libraries.nil? %>
+      <% if current_page.data.libraries.include? "mediaelement" %>
+        <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/mediaelement/2.11.3/js/mediaelement-and-player.min.js", "vendor/mediaelement" %>
+      <% end %>
 
-    <% if current_page.data.libraries.include? "reveal" %>
-      <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.5/js/reveal.min.js", "vendor/reveal" %>
+      <% if current_page.data.libraries.include? "reveal" %>
+        <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.5/js/reveal.min.js", "vendor/reveal" %>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>
