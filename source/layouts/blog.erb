@@ -1,16 +1,25 @@
 <% wrap_layout :layout do %>
-  <h2><%= data.page.title %></h2>
+  <article>
+    <h2><%= current_page.data.title %></h2>
 
-  <%= yield %>
+    <%= yield %>
+  </article>
 
   <% content_for :css do %>
     <% unless current_page.data.libraries.nil? %>
       <% if current_page.data.libraries.include? "mediaelement" %>
-        <%= stylesheet_link_tag "//cdnjs.cloudflare.com/ajax/libs/mediaelement/2.11.3/css/mediaelementplayer.min.css" %>
+        <%= stylesheet_link_tag "http://server1.localhost.io/~sc/cdnjs/ajax/libs/mediaelement/2.13.1/build/mediaelementplayer.min.css" %>
+        <%#= stylesheet_link_tag "//cdnjs.cloudflare.com/ajax/libs/mediaelement/2.13.1/css/mediaelementplayer.min.css" %>
+      <% end %>
+
+      <% if current_page.data.libraries.include? "prettify" %>
+        <%= stylesheet_link_tag "http://server1.localhost.io/~sc/cdnjs/ajax/libs/prettify/r298/prettify.min.css" %>
+        <%#= stylesheet_link_tag "//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.css" %>
       <% end %>
 
       <% if current_page.data.libraries.include? "reveal" %>
-        <%= stylesheet_link_tag "//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.5/css/reveal.min.css", "vendor/reveal" %>
+        <%= stylesheet_link_tag "http://server1.localhost.io/~sc/cdnjs/ajax/libs/reveal.js/2.5/css/reveal.min.css", "vendor/reveal" %>
+        <%#= stylesheet_link_tag "//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.5/css/reveal.min.css", "vendor/reveal" %>
       <% end %>
     <% end %>
   <% end %>
@@ -18,11 +27,18 @@
   <% content_for :js do %>
     <% unless current_page.data.libraries.nil? %>
       <% if current_page.data.libraries.include? "mediaelement" %>
-        <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/mediaelement/2.11.3/js/mediaelement-and-player.min.js", "vendor/mediaelement" %>
+        <%= javascript_include_tag "http://server1.localhost.io/~sc/cdnjs/ajax/libs/mediaelement/2.13.1/build/mediaelement-and-player.min.js", "vendor/mediaelement" %>
+        <%#= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/mediaelement/2.13.1/js/mediaelement-and-player.min.js", "vendor/mediaelement" %>
+      <% end %>
+
+      <% if current_page.data.libraries.include? "prettify" %>
+        <%= javascript_include_tag "http://server1.localhost.io/~sc/cdnjs/ajax/libs/prettify/r298/run_prettify.min.js", "vendor/prettify" %>
+        <%#= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/prettify/r298/run_prettify.min.js", "vendor/prettify" %>
       <% end %>
 
       <% if current_page.data.libraries.include? "reveal" %>
-        <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.5/js/reveal.min.js", "vendor/reveal" %>
+        <%= javascript_include_tag "http://server1.localhost.io/~sc/cdnjs/ajax/libs/reveal.js/2.5/js/reveal.min.js", "vendor/reveal" %>
+        <%#= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.5/js/reveal.min.js", "vendor/reveal" %>
       <% end %>
     <% end %>
   <% end %>
