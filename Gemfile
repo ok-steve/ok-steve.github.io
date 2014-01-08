@@ -14,6 +14,8 @@ gem "middleman-livereload", "~> 3.1.0"
 # For faster file watcher updates on Windows:
 gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
 
+gem "nokogiri", "~>1.6.0"
 gem "middleman-minify-html", "~>3.1.0"
 gem "middleman-favicon-maker", "~>3.0"
+gem "modular-scale", "~>1.0.0"
 gem "middleman-deploy", "~>0.1.0"
