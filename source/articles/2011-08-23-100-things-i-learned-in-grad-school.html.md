@@ -36,11 +36,11 @@ So, I decided to make a list, 5 things from each class I took plus 5 from work p
 
 ### MUSICOL 506: Music and Media
 
-- Translate, transform, and transport: three ways media influences music
-- As technology progressed albums became more artificial constructions than records of what musicians actually played
-- Early jazz solos weren't really improvised: recording was costly, you couldn't afford to screw up
-- YouTube can teach me to play the harmonica
-- If you post something online, someone will find it in a day no matter how obscure, niche, or wonky it is
+1. Translate, transform, and transport: three ways media influences music
+1. As technology progressed albums became more artificial constructions than records of what musicians actually played
+1. Early jazz solos weren't really improvised: recording was costly, you couldn't afford to screw up
+1. YouTube can teach me to play the harmonica
+1. If you post something online, someone will find it in a day no matter how obscure, niche, or wonky it is
 {: start="16" }
 
 ### SI 519: Intellectual Property and Information Law
