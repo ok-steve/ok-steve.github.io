@@ -1,5 +1,5 @@
 (function($) {
   $(document).ready(function() {
-    $('video, audio').mediaelementplayer();
+    $('pre').addClass('prettyprint');
   });
 })(jQuery);

@@ -1,0 +1,71 @@
+/* =========================================================================
+   Modules
+   ========================================================================= */
+
+// Icons
+// --------------------------------------------------
+
+[class*="icon-"]:before {
+  font-family: $font-family-icon;
+  line-height: 1;
+  speak: none;
+}
+
+.icon-email:before {
+  content: "\f0e0";
+}
+
+.icon-twitter:before {
+  content: "\f081";
+}
+
+.icon-linkedin:before {
+  content: "\f08c";
+}
+
+.icon-github:before {
+  content: "\f092";
+}
+
+.icon-arrow-left:before {
+  content: "\f060";
+}
+
+.icon-arrow-right:before {
+  content: "\f061";
+}
+
+// Wells
+// --------------------------------------------------
+
+.well {
+  background-color: $white-smoke;
+
+  a {
+    @include link-colors(mix($red, $white-smoke, 60%), $red);
+  }
+}
+
+// Pager
+// --------------------------------------------------
+
+.pager {
+  @include clearfix;
+  padding-left: 0;
+
+  li {
+    list-style: none;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  [rel="prev"] {
+    float: left;
+  }
+
+  [rel="next"] {
+    float: right;
+  }
+}

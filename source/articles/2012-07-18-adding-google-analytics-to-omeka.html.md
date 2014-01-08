@@ -2,6 +2,7 @@
 title: Adding Google Analytics to Omeka
 date: 2012-07-18
 tags: tutorials
+libraries: prettify
 ---
 
 At my job we use Google Analytics on almost all of our sites. For many of the systems we use there is a plugin available to make Google Analytics configuration easier, like for [Wordpress](http://wordpress.org/extend/plugins/google-analytics-for-wordpress) and [Drupal](http://drupal.org/project/google_analytics). Unfortunately there is not a similar plugin for Omeka.
