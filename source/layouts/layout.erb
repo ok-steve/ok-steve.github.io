@@ -13,11 +13,11 @@
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
+    <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic|Source+Code+Pro" %>
     <%= stylesheet_link_tag "main", :media => "all" %>
     <%= yield_content :css %>
 
-    <%= javascript_include_tag "http://server1.localhost.io/~sc/cdnjs/ajax/libs/modernizr/2.7.1/modernizr.min.js" %>
-    <%#= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js" %>
+    <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js" %>
     <%= yield_content :head_js %>
   </head>
   <body class="<%= page_classes %>">
@@ -50,8 +50,7 @@
       </footer>
     </div>
 
-    <%= javascript_include_tag "http://server1.localhost.io/~sc/cdnjs/ajax/libs/jquery/1.10.2/jquery.min.js", "main" %>
-    <%#= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js", "main" %>
+    <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js", "main" %>
     <%= yield_content :js %>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
