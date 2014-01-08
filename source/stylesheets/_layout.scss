@@ -1,0 +1,99 @@
+/* =========================================================================
+   Layout
+   ========================================================================= */
+
+// Grid
+// --------------------------------------------------
+
+.container {
+	margin: 0 auto;
+	max-width: $measure;
+}
+
+// Browse happy
+// --------------------------------------------------
+
+.browsehappy {
+  background-color: $gray-dark;
+  color: $white;
+  padding: rhythm(.5);
+}
+
+// Banner
+// --------------------------------------------------
+
+header {
+  @include clearfix;
+  @include trailer();
+  @include trailing-border(1px, .5);
+  border-color: $red;
+
+  h1 {
+    margin: 0;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  nav {
+    @include clearfix;
+    background-color: $white-smoke;
+
+    ul {
+      margin-bottom: 0;
+      padding-left: 0;
+    }
+
+    li {
+      list-style: none;
+      float: left;
+    }
+
+    a {
+      padding: rhythm(.5);
+      display: block;
+    }
+  }
+
+  @media #{$default-layout} {
+    @include leader();
+
+    h1 {
+      float: left;
+    }
+
+    nav {
+      float: right;
+    }
+  }
+
+  @if $legacy-support-for-ie8 {
+    .lt-ie9 & {
+      @include leader();
+
+      h1 {
+        float: left;
+      }
+
+      nav {
+        float: right;
+      }
+    }
+  }
+}
+
+// Main
+// --------------------------------------------------
+
+// Footer
+// --------------------------------------------------
+
+footer {
+  padding: rhythm(.5);
+  background-color: $white-smoke;
+
+  p {
+    margin-bottom: 0;
+  }
+}
