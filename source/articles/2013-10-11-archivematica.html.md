@@ -5,6 +5,8 @@ tags: tutorials
 published: false
 ---
 
+So I had quite an ordeal to install Archivematica as a production system. So I decided to document what I did to get a working system.
+
 ### Install Ubuntu
 
 1. [Install Ubuntu from ISO](http://youtu.be/hK-oggHEetc)

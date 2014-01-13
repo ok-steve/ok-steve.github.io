@@ -1,23 +1,18 @@
 ---
 title: Home
 pageable: true
-per_page: 10
+per_page: 5
 ---
 
-<% page_articles.each_with_index do |article, i| %>
-  <article>
-    <h2><%= link_to article.title, article %></h2>
-    <%= article.summary(250) %>
-  </article>
-<% end %>
+<div class="jumbotron">
+  <p>The online home of Steve Cherry, Electronic Services Librarian at the Catholic University of America.</p>
+</div>
 
 <% if paginate && num_pages > 1 %>
-  <!--<p><%= page_number %> of <%= num_pages %></p>-->
-
   <ul class="pager">
     <% if prev_page %>
       <li>
-        <% link_to prev_page, :rel => "prev" do %>
+        <% link_to prev_page, :rel => "prev", :title => "Previous page" do %>
           <span class="icon-arrow-left"></span>
         <% end %>
       </li>
@@ -25,10 +20,43 @@ per_page: 10
 
     <% if next_page %>
       <li>
-        <% link_to next_page, :rel => "next" do %>
+        <% link_to next_page, :rel => "next", :title => "Next page" do %>
           <span class="icon-arrow-right"></span>
         <% end %>
       </li>
     <% end %>
+
+    <li><%= page_number %> of <%= num_pages %></li>
+  </ul>
+<% end %>
+
+<% page_articles.each_with_index do |article, i| %>
+  <article>
+    <% link_to article do %>
+      <h2><%= article.title %></h2>
+      <%= article.summary(100) %>
+    <% end %>
+  </article>
+<% end %>
+
+<% if paginate && num_pages > 1 %>
+  <ul class="pager">
+    <% if prev_page %>
+      <li>
+        <% link_to prev_page, :rel => "prev", :title => "Previous page" do %>
+          <span class="icon-arrow-left"></span>
+        <% end %>
+      </li>
+    <% end %>
+
+    <% if next_page %>
+      <li>
+        <% link_to next_page, :rel => "next", :title => "Next page" do %>
+          <span class="icon-arrow-right"></span>
+        <% end %>
+      </li>
+    <% end %>
+
+    <li><%= page_number %> of <%= num_pages %></li>
   </ul>
 <% end %>

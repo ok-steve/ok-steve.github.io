@@ -45,30 +45,28 @@
   content: "\f061";
 }
 
-// Wells
-// --------------------------------------------------
-
-.well {
-  background-color: $white-smoke;
-
-  a {
-    @include link-colors(mix($red, $white-smoke, 60%), $red);
-  }
-}
-
 // Pager
 // --------------------------------------------------
 
 .pager {
   @include clearfix;
+  margin-bottom: 0;
   padding-left: 0;
+  background-color: $red;
+  color: $white;
 
   li {
     list-style: none;
+    text-align: center;
   }
 
-  a:hover {
-    text-decoration: none;
+  a {
+    padding: 0 5px;
+    @include link-colors($white, $white-smoke);
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   [rel="prev"] {
@@ -77,5 +75,44 @@
 
   [rel="next"] {
     float: right;
+  }
+}
+
+// Article list
+// --------------------------------------------------
+
+article {
+  > a {
+    @include link-colors($gray-dark, $gray-dark);
+    display: block;
+    padding: rhythm();
+
+    h2,
+    p {
+      margin: 0;
+    }
+
+    &:hover {
+      background-color: $white-smoke;
+      text-decoration: none;
+    }
+  }
+
+  + article {
+    border-top: 1px solid $white-smoke;
+  }
+}
+
+// Jumbotron
+// --------------------------------------------------
+
+.jumbotron {
+  @include leader(2);
+  @include trailer(2);
+
+  p {
+    @include adjust-font-size-to(ms(2), 1.5);
+    margin-bottom: 0;
+    color: $red;
   }
 }

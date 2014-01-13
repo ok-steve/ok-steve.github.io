@@ -6,7 +6,7 @@ libraries: reveal
 published: false
 ---
 
-Summary of the styleguide
+Summary of the styleguide which needs to be a certain number of characters long so the rest of the content doesn't display.
 
 <div class="reveal">
   <div class="slides">

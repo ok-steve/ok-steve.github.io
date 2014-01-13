@@ -24,7 +24,6 @@
 
 header {
   @include clearfix;
-  @include trailer();
   @include trailing-border(1px, .5);
   border-color: $red;
 
@@ -51,6 +50,7 @@ header {
     }
 
     a {
+      @include link-colors(mix($red, $white-smoke, 60%), $red);
       padding: rhythm(.5);
       display: block;
     }
@@ -90,8 +90,8 @@ header {
 // --------------------------------------------------
 
 footer {
-  padding: rhythm(.5);
-  background-color: $white-smoke;
+  @include leading-border(1px, .5);
+  border-color: $red;
 
   p {
     margin-bottom: 0;
