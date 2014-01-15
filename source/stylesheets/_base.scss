@@ -20,15 +20,9 @@ body {
 
 @include reset-html5;
 
-@if $experimental-support-for-mozilla {
-  ::-moz-selection {
-    background: $blue;
-    text-shadow: none;
-  }
-}
-
-::selection {
+@include selection {
   background: $blue;
+  color: $white;
   text-shadow: none;
 }
 

@@ -1,3 +1,15 @@
 // =========================================================================
 // Mixins
 // =========================================================================
+
+@mixin selection {
+  @if $experimental-support-for-mozilla {
+    ::-moz-selection {
+      @content
+    }
+  }
+
+  ::selection {
+    @content
+  }
+}
