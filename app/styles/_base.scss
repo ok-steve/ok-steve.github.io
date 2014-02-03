@@ -1,0 +1,291 @@
+/* =========================================================================
+   Base
+   ========================================================================= */
+
+// Section
+// --------------------------------------------------
+
+@include establish-baseline();
+
+html {
+    @include experimental(text-size-adjust, 100%, false, $o: false, $official: false);
+}
+
+body {
+    margin: 0;
+    font-family: $font-family-sans;
+    background-color: $white;
+    color: $gray-dark;
+}
+
+@include reset-html5;
+
+@include selection {
+    background: $blue;
+    color: $white;
+    text-shadow: none;
+}
+
+// Text
+// --------------------------------------------------
+
+%hN {
+    font-weight: 700;
+    text-rendering: optimizeLegibility;
+}
+
+h1 {
+    @extend %hN;
+    @include adjust-font-size-to(ms(3));
+    margin: rhythm(1, ms(3)) 0;
+}
+
+h2 {
+    @extend %hN;
+    @include adjust-font-size-to(ms(2));
+    margin: rhythm(1, ms(2)) 0;
+}
+
+h3 {
+    @extend %hN;
+    @include adjust-font-size-to(ms(1));
+    margin: rhythm(1, ms(1)) 0;
+}
+
+h4 {
+    @extend %hN;
+    @include adjust-font-size-to(ms(0));
+    margin: rhythm(1, ms(0)) 0;
+}
+
+h5 {
+    @extend %hN;
+    @include adjust-font-size-to(ms(-1));
+    margin: rhythm(1, ms(-1)) 0;
+}
+
+h6 {
+    @extend %hN;
+    @include adjust-font-size-to(ms(-2));
+    margin: rhythm(1, ms(-2)) 0;
+}
+
+p {
+    margin: 0 0 rhythm();
+
+    + p {
+        text-indent: $default-indent;
+    }
+}
+
+dl,
+ol,
+ul {
+    margin: 0 0 rhythm();
+}
+
+ol,
+ul,
+dd {
+    padding: 0 0 0 $default-indent;
+}
+
+ol,
+ul {
+    ol,
+    ul {
+        margin-bottom: 0;
+        font-size: 1em;
+    }
+}
+
+dt {
+    font-weight: 700;
+}
+
+dd {
+    margin-left: 0;
+}
+
+blockquote {
+    @include adjust-font-size-to(ms(1));
+    margin: rhythm(1, ms(1)) $default-indent;
+
+    p {
+        font-size: 1em;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+cite {
+    font-style: normal;
+}
+
+hr {
+    display: block;
+    margin: rhythm($offset: 1px) 0 rhythm();
+    padding: 0;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid $gray-dark;
+}
+
+a {
+    @include link-colors($red, darken($red, 7%));
+    @include hover-link;
+    background: transparent;
+
+    &:focus {
+        outline: thin dotted;
+    }
+
+    &:active,
+    &:hover {
+        @include reset-focus;
+    }
+}
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+b,
+strong {
+    font-weight: 700;
+}
+
+small {
+    font-size: 80%;
+}
+
+q {
+    quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+mark {
+    background: #ff0;
+    color: $black;
+}
+
+dfn {
+    font-style: italic;
+}
+
+.footnotes {
+    font-size: 80%;
+}
+
+// Code
+// --------------------------------------------------
+
+code,
+kbd,
+pre,
+samp {
+    font-family: $font-family-mono;
+    font-size: 1em;
+}
+
+pre {
+    white-space: pre-wrap;
+    background-color: $white-smoke;
+    overflow: auto;
+}
+
+// Embed
+// --------------------------------------------------
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+audio,
+canvas,
+video {
+    display: inline-block;
+}
+
+figure {
+    margin: 0;
+}
+
+img {
+    border: 0;
+    max-width: 100%;
+    height: auto;
+
+    @if $legacy-support-for-ie8 {
+        .lt-ie8 & {
+            width: auto;
+        }
+    }
+}
+
+audio {
+    width: 100%;
+
+    &:not([controls]) {
+        display: none;
+        height: 0;
+    }
+}
+
+video {
+    max-width: 100%;
+    //height: auto;
+}
+
+.intrinsic-ratio {
+    position: relative;
+    margin-bottom: rhythm();
+    padding-bottom: percentage(9/16);
+    height: 0;
+
+    iframe {
+        border: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.thumbnail img {
+    margin: 0 auto;
+}
+
+.mejs-container {
+    @include trailer();
+}
+
+// Tables
+// --------------------------------------------------
+
+table {
+    @include reset-table;
+}
