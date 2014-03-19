@@ -1,0 +1,108 @@
+/* =========================================================================
+   Modules
+   ========================================================================= */
+
+// Icons
+// --------------------------------------------------
+
+@include font-face($font-family-icon, font-files(
+        "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/fonts/fontawesome-webfont.woff", woff,
+        "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/fonts/fontawesome-webfont.ttf", truetype,
+        "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/fonts/fontawesome-webfont.svg", svg
+    ),
+    "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/fonts/fontawesome-webfont.eot",
+    normal,
+    normal
+);
+
+%icon:before {
+    font-family: $font-family-icon;
+    line-height: 1;
+    speak: none;
+    vertical-align: middle;
+}
+
+[class*="icon-"] {
+    @extend %icon;
+}
+
+.icon-email:before {
+    content: "\f0e0";
+}
+
+.icon-twitter:before {
+    content: "\f081";
+}
+
+.icon-linkedin:before {
+    content: "\f08c";
+}
+
+.icon-github:before {
+    content: "\f092";
+}
+
+.icon-arrow-left:before {
+    content: "\f060";
+}
+
+.icon-arrow-right:before {
+    content: "\f061";
+}
+
+// Jumbotron
+// --------------------------------------------------
+
+.jumbotron {
+    @include leader(2);
+    @include trailer(2);
+
+    p {
+        @include adjust-font-size-to($font-size-h2, 1.5);
+        margin-bottom: 0;
+        color: $red;
+    }
+}
+
+// Lifestream
+// --------------------------------------------------
+
+.lifestream {
+    @include clearfix;
+    padding-left: 0;
+
+    li {
+        @extend %icon;
+        position: relative;
+        display: block;
+        padding: rhythm(.5);
+        padding-left: rhythm(2);
+
+        &:before {
+            position: absolute;
+            left: rhythm(.5, $base-line-height);
+            font-size: rhythm();
+            color: $red;
+        }
+
+        &:hover {
+            background-color: $white-smoke;
+        }
+
+        + li {
+            border-top: 1px solid $white-smoke;
+        }
+    }
+}
+
+.lifestream-github {
+    @extend .icon-github;
+}
+
+.lifestream-linkedin {
+    @extend .icon-linkedin;
+}
+
+.lifestream-twitter {
+    @extend .icon-twitter;
+}
