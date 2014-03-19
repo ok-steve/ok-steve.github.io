@@ -142,7 +142,6 @@ module.exports = function (grunt) {
         // Compiles Sass to CSS and generates necessary files if requested
         compass: {
             options: {
-                require: 'modular-scale',
                 sassDir: '<%= yeoman.app %>/styles',
                 cssDir: '.tmp/styles',
                 generatedImagesDir: '.tmp/images/generated',

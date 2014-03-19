@@ -8,7 +8,12 @@
 // Font size
 // -------------------------
 
-$base-size  : $base-font-size $base-line-height;
+$font-size-h1:            floor(($base-font-size * 2.6));
+$font-size-h2:            floor(($base-font-size * 2.15));
+$font-size-h3:            ceil(($base-font-size * 1.7));
+$font-size-h4:            ceil(($base-font-size * 1.25));
+$font-size-h5:            $base-font-size;
+$font-size-h6:            ceil(($base-font-size * 0.85));
 
 // Font families
 // -------------------------

@@ -15,10 +15,15 @@
     normal
 );
 
-[class*="icon-"]:before {
+%icon:before {
     font-family: $font-family-icon;
     line-height: 1;
     speak: none;
+    vertical-align: middle;
+}
+
+[class*="icon-"] {
+    @extend %icon;
 }
 
 .icon-email:before {
@@ -53,8 +58,51 @@
     @include trailer(2);
 
     p {
-        @include adjust-font-size-to(ms(2), 1.5);
+        @include adjust-font-size-to($font-size-h2, 1.5);
         margin-bottom: 0;
         color: $red;
     }
+}
+
+// Lifestream
+// --------------------------------------------------
+
+.lifestream {
+    @include clearfix;
+    padding-left: 0;
+
+    li {
+        @extend %icon;
+        position: relative;
+        display: block;
+        padding: rhythm(.5);
+        padding-left: rhythm(2);
+
+        &:before {
+            position: absolute;
+            left: rhythm(.5, $base-line-height);
+            font-size: rhythm();
+            color: $red;
+        }
+
+        &:hover {
+            background-color: $white-smoke;
+        }
+
+        + li {
+            border-top: 1px solid $white-smoke;
+        }
+    }
+}
+
+.lifestream-github {
+    @extend .icon-github;
+}
+
+.lifestream-linkedin {
+    @extend .icon-linkedin;
+}
+
+.lifestream-twitter {
+    @extend .icon-twitter;
 }
