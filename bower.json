@@ -3,7 +3,8 @@
   "private": true,
   "dependencies": {
     "modernizr": "~2.6.2",
-    "jquery": "~1.10.2"
+    "jquery": "~1.10.2",
+    "jquery-lifestream": "~0.4.3"
   },
   "devDependencies": {}
 }
