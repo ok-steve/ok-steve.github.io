@@ -24,22 +24,27 @@
 
 [class*="icon-"] {
     @extend %icon;
+    color: $red;
 }
 
 .icon-email:before {
     content: "\f0e0";
+    color: #245DC1;
 }
 
 .icon-twitter:before {
     content: "\f081";
+    color: #00ACED;
 }
 
 .icon-linkedin:before {
     content: "\f08c";
+    color: #007FB1;
 }
 
 .icon-github:before {
     content: "\f092";
+    color: #4183C4;
 }
 
 .icon-arrow-left:before {
@@ -82,7 +87,6 @@
             position: absolute;
             left: rhythm(.5, $base-line-height);
             font-size: rhythm();
-            color: $red;
         }
 
         &:hover {

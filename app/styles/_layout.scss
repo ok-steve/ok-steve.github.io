@@ -50,9 +50,13 @@ header {
         }
 
         a {
-            @include link-colors(mix($red, $white-smoke, 60%), $red);
+            @include opacity(.7);
             padding: rhythm(.5);
             display: block;
+
+            &:hover {
+                @include opacity(1);
+            }
         }
     }
 
