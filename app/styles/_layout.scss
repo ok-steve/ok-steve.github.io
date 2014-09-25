@@ -7,7 +7,7 @@
 
 .container {
   margin: 0 auto;
-  max-width: $measure;
+  max-width: map-get($breakpoints, sm);
 }
 
 // Browse happy
@@ -60,7 +60,7 @@ header {
     }
   }
 
-  @media #{$default-layout} {
+  @media (min-width: map-get($breakpoints, sm)) {
     @include leader();
 
     h1 {
