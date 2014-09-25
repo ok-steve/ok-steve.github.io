@@ -384,7 +384,7 @@ module.exports = function (grunt) {
           branch: 'master'
         }
       }
-    },
+    }
   });
 
 
