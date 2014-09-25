@@ -4,7 +4,8 @@
   "dependencies": {
     "jquery": "~1.11.1",
     "modernizr": "~2.8.2",
-    "jquery-lifestream": "~0.5.2"
+    "jquery-lifestream": "~0.5.2",
+    "ursatz": "git@github.com:sccherry/ursatz.git#develop"
   },
   "overrides": {
     "jquery-lifestream": {
