@@ -14,8 +14,8 @@
 // --------------------------------------------------
 
 .browsehappy {
-  background-color: $gray-dark;
-  color: $white;
+  background-color: map-get($colors, gray-dark);
+  color: map-get($colors, white);
   padding: rhythm(.5);
 }
 
@@ -25,7 +25,7 @@
 header {
   @include clearfix;
   @include trailing-border(1px, .5);
-  border-color: $red;
+  border-color: map-get($colors, red);
 
   h1 {
     margin: 0;
@@ -37,7 +37,7 @@ header {
 
   nav {
     @include clearfix;
-    background-color: $white-smoke;
+    background-color: map-get($colors, white-smoke);
 
     ul {
       margin-bottom: 0;
@@ -95,7 +95,7 @@ header {
 
 footer {
   @include leading-border(1px, .5);
-  border-color: $red;
+  border-color: map-get($colors, red);
 
   p {
     margin-bottom: 0;
