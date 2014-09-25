@@ -6,103 +6,107 @@
 // --------------------------------------------------
 
 @include font-face($font-family-icon, font-files(
-        "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/fonts/fontawesome-webfont.woff", woff,
-        "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/fonts/fontawesome-webfont.ttf", truetype,
-        "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/fonts/fontawesome-webfont.svg", svg
-    ),
-    "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/fonts/fontawesome-webfont.eot",
-    normal,
-    normal
+    "//weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.woff", woff,
+    "//weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.ttf", truetype,
+    "//weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.svg", svg
+  ),
+  "//weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.eot",
+  normal,
+  normal
 );
 
 %icon:before {
-    font-family: $font-family-icon;
-    line-height: 1;
-    speak: none;
-    vertical-align: middle;
+  font-family: $font-family-icon;
+  line-height: 1;
+  speak: none;
+  vertical-align: middle;
 }
 
 [class*="icon-"] {
-    @extend %icon;
+  @extend %icon;
+  color: $red;
 }
 
 .icon-email:before {
-    content: "\f0e0";
+  content: "\f0e0";
+  color: #245DC1;
 }
 
 .icon-twitter:before {
-    content: "\f081";
+  content: "\f081";
+  color: #00ACED;
 }
 
 .icon-linkedin:before {
-    content: "\f08c";
+  content: "\f08c";
+  color: #007FB1;
 }
 
 .icon-github:before {
-    content: "\f092";
+  content: "\f092";
+  color: #4183C4;
 }
 
 .icon-arrow-left:before {
-    content: "\f060";
+  content: "\f060";
 }
 
 .icon-arrow-right:before {
-    content: "\f061";
+  content: "\f061";
 }
 
 // Jumbotron
 // --------------------------------------------------
 
 .jumbotron {
-    @include leader(2);
-    @include trailer(2);
+  @include leader(2);
+  @include trailer(2);
 
-    p {
-        @include adjust-font-size-to($font-size-h2, 1.5);
-        margin-bottom: 0;
-        color: $red;
-    }
+  p {
+    @include adjust-font-size-to($font-size-h2, 1.5);
+    margin-bottom: 0;
+    color: $red;
+  }
 }
 
 // Lifestream
 // --------------------------------------------------
 
 .lifestream {
-    @include clearfix;
-    padding-left: 0;
+  @include clearfix;
+  padding-left: 0;
 
-    li {
-        @extend %icon;
-        position: relative;
-        display: block;
-        padding: rhythm(.5);
-        padding-left: rhythm(2);
+  li {
+    @extend %icon;
+    position: relative;
+    display: block;
+    padding: rhythm(.5);
+    padding-left: rhythm(2);
 
-        &:before {
-            position: absolute;
-            left: rhythm(.5, $base-line-height);
-            font-size: rhythm();
-            color: $red;
-        }
-
-        &:hover {
-            background-color: $white-smoke;
-        }
-
-        + li {
-            border-top: 1px solid $white-smoke;
-        }
+    &:before {
+      position: absolute;
+      left: rhythm(.5, $base-line-height);
+      font-size: rhythm();
     }
+
+    &:hover {
+      background-color: $white-smoke;
+    }
+
+    + li {
+      border-top: 1px solid $white-smoke;
+    }
+  }
 }
 
 .lifestream-github {
-    @extend .icon-github;
+  @extend .icon-github;
 }
 
 .lifestream-linkedin {
-    @extend .icon-linkedin;
+  @extend .icon-linkedin;
 }
 
 .lifestream-twitter {
-    @extend .icon-twitter;
+  @extend .icon-twitter;
 }
