@@ -34,6 +34,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sccherry/sccherry.github.io.git"
+    "url": "git@github.com:sccherry/sccherry.github.io.git"
   }
 }
