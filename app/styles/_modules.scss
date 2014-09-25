@@ -58,7 +58,7 @@
   @include trailer(2);
 
   p {
-    @include adjust-font-size-to($font-size-h2, 1.5);
+    @include adjust-font-size-to(ms(2), 1.5);
     margin-bottom: 0;
     color: $red;
   }
