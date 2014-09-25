@@ -1,16 +1,11 @@
 // bower:scss
+@import "ursatz/app/styles/ursatz/_ursatz.scss";
 // endbower
 
 @import
-  "compass",
-
   "variables",
-  "mixins",
 
   "base",
   "layout",
   "modules",
-  "theme",
-
-  "utilities",
-  "print";
+  "theme";

@@ -5,18 +5,13 @@
 // Icons
 // --------------------------------------------------
 
-@include font-face($font-family-icon, font-files(
-    "//weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.woff", woff,
-    "//weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.ttf", truetype,
-    "//weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.svg", svg
-  ),
-  "//weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.eot",
-  normal,
-  normal
-);
+@font-face {
+  font-family: map-get($font-families, icon);
+  src: url(//weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.woff);
+}
 
 %icon:before {
-  font-family: $font-family-icon;
+  font-family: map-get($font-families, icon);
   line-height: 1;
   speak: none;
   vertical-align: middle;
@@ -24,7 +19,7 @@
 
 [class*="icon-"] {
   @extend %icon;
-  color: $red;
+  color: map-get($colors, red);
 }
 
 .icon-email:before {
@@ -63,9 +58,9 @@
   @include trailer(2);
 
   p {
-    @include adjust-font-size-to($font-size-h2, 1.5);
+    @include adjust-font-size-to(ms(2), 1.5);
     margin-bottom: 0;
-    color: $red;
+    color: map-get($colors, red);
   }
 }
 
@@ -90,11 +85,11 @@
     }
 
     &:hover {
-      background-color: $white-smoke;
+      background-color: map-get($colors, white-smoke);
     }
 
     + li {
-      border-top: 1px solid $white-smoke;
+      border-top: 1px solid map-get($colors, white-smoke);
     }
   }
 }

@@ -7,16 +7,16 @@
 
 .container {
   margin: 0 auto;
-  max-width: $measure;
+  max-width: map-get($breakpoints, sm);
 }
 
 // Browse happy
 // --------------------------------------------------
 
 .browsehappy {
-  background-color: $gray-dark;
-  color: $white;
-  padding: rhythm(.5);
+  @extend %browsehappy;
+  background-color: map-get($colors, gray-dark);
+  color: map-get($colors, white);
 }
 
 // Banner
@@ -25,7 +25,7 @@
 header {
   @include clearfix;
   @include trailing-border(1px, .5);
-  border-color: $red;
+  border-color: map-get($colors, red);
 
   h1 {
     margin: 0;
@@ -37,7 +37,7 @@ header {
 
   nav {
     @include clearfix;
-    background-color: $white-smoke;
+    background-color: map-get($colors, white-smoke);
 
     ul {
       margin-bottom: 0;
@@ -50,17 +50,17 @@ header {
     }
 
     a {
-      @include opacity(.7);
+      opacity: .7;
       padding: rhythm(.5);
       display: block;
 
       &:hover {
-        @include opacity(1);
+        opacity: 1;
       }
     }
   }
 
-  @media #{$default-layout} {
+  @media (min-width: map-get($breakpoints, sm)) {
     @include leader();
 
     h1 {
@@ -95,7 +95,7 @@ header {
 
 footer {
   @include leading-border(1px, .5);
-  border-color: $red;
+  border-color: map-get($colors, red);
 
   p {
     margin-bottom: 0;
