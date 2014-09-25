@@ -7,18 +7,11 @@
 
 @include establish-baseline();
 
-html {
-  text-size-adjust: 100%;
-}
-
 body {
-  margin: 0;
   font-family: $font-family-sans;
   background-color: $white;
   color: $gray-dark;
 }
-
-@include reset-html5;
 
 ::selection {
   background: $blue;
@@ -136,58 +129,14 @@ hr {
 a {
   @include link-colors($red, darken($red, 7%));
   @include hover-link;
-  background: transparent;
 
   &:focus {
     outline: thin dotted;
   }
-
-  &:active,
-  &:hover {
-    @include reset-focus;
-  }
-}
-
-abbr[title] {
-  border-bottom: 1px dotted;
-}
-
-b,
-strong {
-  font-weight: 700;
-}
-
-small {
-  font-size: 80%;
 }
 
 q {
   quotes: "\201C" "\201D" "\2018" "\2019";
-}
-
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sup {
-  top: -0.5em;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-mark {
-  background: #ff0;
-  color: $black;
-}
-
-dfn {
-  font-style: italic;
 }
 
 .footnotes {
@@ -202,13 +151,11 @@ kbd,
 pre,
 samp {
   font-family: $font-family-mono;
-  font-size: 1em;
 }
 
 pre {
   white-space: pre-wrap;
   background-color: $white-smoke;
-  overflow: auto;
 }
 
 // Embed
@@ -221,18 +168,11 @@ video {
   vertical-align: middle;
 }
 
-audio,
-canvas,
-video {
-  display: inline-block;
-}
-
 figure {
   margin: 0;
 }
 
 img {
-  border: 0;
   max-width: 100%;
   height: auto;
 
@@ -245,11 +185,6 @@ img {
 
 audio {
   width: 100%;
-
-  &:not([controls]) {
-    display: none;
-    height: 0;
-  }
 }
 
 video {
@@ -281,11 +216,4 @@ video {
 
 .mejs-container {
   @include trailer();
-}
-
-// Tables
-// --------------------------------------------------
-
-table {
-  @include reset-table;
 }
