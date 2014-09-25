@@ -5,15 +5,10 @@
 // Icons
 // --------------------------------------------------
 
-@include font-face($font-family-icon, font-files(
-    "//weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.woff", woff,
-    "//weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.ttf", truetype,
-    "//weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.svg", svg
-  ),
-  "//weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.eot",
-  normal,
-  normal
-);
+@font-face {
+  font-family: $font-family-icon;
+  src: url(//weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.woff);
+}
 
 %icon:before {
   font-family: $font-family-icon;

@@ -8,7 +8,7 @@
 @include establish-baseline();
 
 html {
-  @include experimental(text-size-adjust, 100%, false, $o: false, $official: false);
+  text-size-adjust: 100%;
 }
 
 body {
@@ -20,7 +20,7 @@ body {
 
 @include reset-html5;
 
-@include selection {
+::selection {
   background: $blue;
   color: $white;
   text-shadow: none;

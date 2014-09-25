@@ -3,7 +3,7 @@
   background-color: $blue;
   color: $white;
 
-  @include selection {
+  ::selection {
     background: $white;
     color: $blue;
     text-shadow: none;
@@ -73,8 +73,8 @@
     white-space: nowrap;
     cursor: pointer;
     background-color: $white-smoke;
-    @include background-image(linear-gradient(rgba($white,0), $white-smoke));
-    @include experimental(appearance, none, $o: false, $ms: false);
+    background-image: linear-gradient(rgba($white,0), $white-smoke);
+    appearance: none;
 
     .lt-ie7 {
       overflow: visible;

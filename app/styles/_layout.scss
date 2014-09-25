@@ -50,12 +50,12 @@ header {
     }
 
     a {
-      @include opacity(.7);
+      opacity: .7;
       padding: rhythm(.5);
       display: block;
 
       &:hover {
-        @include opacity(1);
+        opacity: 1;
       }
     }
   }
