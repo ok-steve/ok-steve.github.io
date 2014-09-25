@@ -2,9 +2,6 @@
    Base
    ========================================================================= */
 
-// Section
-// --------------------------------------------------
-
 body {
   font-family: map-get($font-families, sans-serif);
   background-color: map-get($colors, white);
@@ -16,25 +13,9 @@ body {
   color: map-get($colors, white);
 }
 
-// Text
-// --------------------------------------------------
-
 %hN {
   font-weight: 700;
   margin: rhythm() 0;
-}
-
-blockquote {
-  margin: rhythm() $default-indent;
-}
-
-cite {
-  font-style: normal;
-}
-
-hr {
-  display: block;
-  padding: 0;
 }
 
 a {
@@ -43,63 +24,4 @@ a {
   &:focus {
     outline: thin dotted;
   }
-}
-
-q {
-  quotes: "\201C" "\201D" "\2018" "\2019";
-}
-
-.footnotes {
-  @extend %footnotes;
-}
-
-// Code
-// --------------------------------------------------
-
-code,
-kbd,
-pre,
-samp {
-  font-family: map-get($font-families, monospace);
-}
-
-pre {
-  white-space: pre-wrap;
-  background-color: map-get($colors, white-smoke);
-}
-
-// Embed
-// --------------------------------------------------
-
-figure {
-  margin: 0;
-}
-
-img {
-  @if $legacy-support-for-ie8 {
-    .lt-ie8 & {
-      width: auto;
-    }
-  }
-}
-
-audio {
-  width: 100%;
-}
-
-.intrinsic-ratio {
-  @extend %aspect-ratio;
-  margin-bottom: rhythm();
-
-  iframe {
-    @extend %aspect-ratio__object;
-  }
-}
-
-.thumbnail img {
-  margin: 0 auto;
-}
-
-.mejs-container {
-  @include trailer();
 }
