@@ -27,6 +27,7 @@ module.exports = function (grunt) {
 
     // Project settings
     config: config,
+    pkg: grunt.file.readJSON('package.json'),
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -368,7 +369,22 @@ module.exports = function (grunt) {
         'imagemin',
         'svgmin'
       ]
-    }
+    },
+
+    // Push dist files to a separate Git branch
+    buildcontrol: {
+      options: {
+        dir: '<%= config.dist %>',
+        commit: true,
+        push: true
+      },
+      dist: {
+        options: {
+          remote: '<%= pkg.repository.url %>',
+          branch: 'master'
+        }
+      }
+    },
   });
 
 
@@ -409,6 +425,11 @@ module.exports = function (grunt) {
       'mocha'
     ]);
   });
+
+  grunt.registerTask('deploy', [
+    'build',
+    'buildcontrol'
+  ]);
 
   grunt.registerTask('build', [
     'clean:dist',
