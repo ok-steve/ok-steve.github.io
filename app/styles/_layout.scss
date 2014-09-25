@@ -6,85 +6,85 @@
 // --------------------------------------------------
 
 .container {
-    margin: 0 auto;
-    max-width: $measure;
+  margin: 0 auto;
+  max-width: $measure;
 }
 
 // Browse happy
 // --------------------------------------------------
 
 .browsehappy {
-    background-color: $gray-dark;
-    color: $white;
-    padding: rhythm(.5);
+  background-color: $gray-dark;
+  color: $white;
+  padding: rhythm(.5);
 }
 
 // Banner
 // --------------------------------------------------
 
 header {
-    @include clearfix;
-    @include trailing-border(1px, .5);
-    border-color: $red;
+  @include clearfix;
+  @include trailing-border(1px, .5);
+  border-color: $red;
 
-    h1 {
-        margin: 0;
+  h1 {
+    margin: 0;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  nav {
+    @include clearfix;
+    background-color: $white-smoke;
+
+    ul {
+      margin-bottom: 0;
+      padding-left: 0;
     }
 
-    a:hover {
-        text-decoration: none;
+    li {
+      list-style: none;
+      float: left;
+    }
+
+    a {
+      @include opacity(.7);
+      padding: rhythm(.5);
+      display: block;
+
+      &:hover {
+        @include opacity(1);
+      }
+    }
+  }
+
+  @media #{$default-layout} {
+    @include leader();
+
+    h1 {
+      float: left;
     }
 
     nav {
-        @include clearfix;
-        background-color: $white-smoke;
-
-        ul {
-            margin-bottom: 0;
-            padding-left: 0;
-        }
-
-        li {
-            list-style: none;
-            float: left;
-        }
-
-        a {
-            @include opacity(.7);
-            padding: rhythm(.5);
-            display: block;
-
-            &:hover {
-                @include opacity(1);
-            }
-        }
+      float: right;
     }
+  }
 
-    @media #{$default-layout} {
-        @include leader();
+  @if $legacy-support-for-ie8 {
+    .lt-ie9 & {
+      @include leader();
 
-        h1 {
-            float: left;
-        }
+      h1 {
+        float: left;
+      }
 
-        nav {
-            float: right;
-        }
+      nav {
+        float: right;
+      }
     }
-
-    @if $legacy-support-for-ie8 {
-        .lt-ie9 & {
-            @include leader();
-
-            h1 {
-                float: left;
-            }
-
-            nav {
-                float: right;
-            }
-        }
-    }
+  }
 }
 
 // Main
@@ -94,10 +94,10 @@ header {
 // --------------------------------------------------
 
 footer {
-    @include leading-border(1px, .5);
-    border-color: $red;
+  @include leading-border(1px, .5);
+  border-color: $red;
 
-    p {
-        margin-bottom: 0;
-    }
+  p {
+    margin-bottom: 0;
+  }
 }

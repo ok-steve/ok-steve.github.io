@@ -1,92 +1,92 @@
 .not-found {
+  font-family: $font-family-mono;
+  background-color: $blue;
+  color: $white;
+
+  @include selection {
+    background: $white;
+    color: $blue;
+    text-shadow: none;
+  }
+
+  p + p {
+    text-indent: 0;
+  }
+
+  input {
     font-family: $font-family-mono;
-    background-color: $blue;
-    color: $white;
 
-    @include selection {
-        background: $white;
-        color: $blue;
-        text-shadow: none;
+    &::-moz-focus-inner {
+      padding: 0;
+      border: 0;
+    }
+  }
+
+  .container {
+    margin-top: rhythm(3);
+  }
+
+  // google search
+
+  #goog-fixurl {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
 
-    p + p {
-        text-indent: 0;
+    form {
+      margin: 0;
+    }
+  }
+
+  #goog-wm-qt,
+  #goog-wm-sb {
+    border: 1px solid #bbb;
+    font-size: $base-font-size;
+    line-height: normal;
+    vertical-align: top;
+    color: $gray-dark;
+    border-radius: 0;
+  }
+
+  #goog-wm-qt {
+    width: 220px;
+    height: 20px;
+    padding: 5px;
+    margin: 5px 10px 0 0;
+    box-shadow: inset 0 1px 1px darken($white-smoke, 10%);
+
+    &:hover,
+    &:focus {
+      border-color: #105cb6;
+      outline: 0;
+      color: darken($gray-dark, 10%);
+    }
+  }
+
+  #goog-wm-sb {
+    display: inline-block;
+    height: 32px;
+    padding: 0 10px;
+    margin: 5px 0 0;
+    white-space: nowrap;
+    cursor: pointer;
+    background-color: $white-smoke;
+    @include background-image(linear-gradient(rgba($white,0), $white-smoke));
+    @include experimental(appearance, none, $o: false, $ms: false);
+
+    .lt-ie7 {
+      overflow: visible;
+      display: inline;
+      zoom: 1;
     }
 
-    input {
-        font-family: $font-family-mono;
-
-        &::-moz-focus-inner {
-            padding: 0;
-            border: 0;
-        }
+    &:hover,
+    &:focus {
+      border-color: #aaa;
+      box-shadow: 0 1px 1px rgba($black, 0.1);
+      background-color: #f8f8f8;
     }
-
-    .container {
-        margin-top: rhythm(3);
-    }
-
-    // google search
-
-    #goog-fixurl {
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        form {
-            margin: 0;
-        }
-    }
-
-    #goog-wm-qt,
-    #goog-wm-sb {
-        border: 1px solid #bbb;
-        font-size: $base-font-size;
-        line-height: normal;
-        vertical-align: top;
-        color: $gray-dark;
-        border-radius: 0;
-    }
-
-    #goog-wm-qt {
-        width: 220px;
-        height: 20px;
-        padding: 5px;
-        margin: 5px 10px 0 0;
-        box-shadow: inset 0 1px 1px darken($white-smoke, 10%);
-
-        &:hover,
-        &:focus {
-            border-color: #105cb6;
-            outline: 0;
-            color: darken($gray-dark, 10%);
-        }
-    }
-
-    #goog-wm-sb {
-        display: inline-block;
-        height: 32px;
-        padding: 0 10px;
-        margin: 5px 0 0;
-        white-space: nowrap;
-        cursor: pointer;
-        background-color: $white-smoke;
-        @include background-image(linear-gradient(rgba($white,0), $white-smoke));
-        @include experimental(appearance, none, $o: false, $ms: false);
-
-        .lt-ie7 {
-            overflow: visible;
-            display: inline;
-            zoom: 1;
-        }
-
-        &:hover,
-        &:focus {
-            border-color: #aaa;
-            box-shadow: 0 1px 1px rgba($black, 0.1);
-            background-color: #f8f8f8;
-        }
-    }
+  }
 }
