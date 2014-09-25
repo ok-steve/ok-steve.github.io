@@ -14,9 +14,9 @@
 // --------------------------------------------------
 
 .browsehappy {
+  @extend %browsehappy;
   background-color: map-get($colors, gray-dark);
   color: map-get($colors, white);
-  padding: rhythm(.5);
 }
 
 // Banner
