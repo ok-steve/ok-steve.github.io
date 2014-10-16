@@ -73,7 +73,7 @@ module.exports = function (grunt) {
     connect: {
       options: {
         port: 9000,
-        open: false,
+        open: true,
         livereload: 35729,
         // Change this to '0.0.0.0' to access the server from outside
         hostname: 'localhost'
@@ -391,6 +391,7 @@ module.exports = function (grunt) {
   grunt.registerTask('serve', 'start the server and preview your app, --allow-remote for remote access', function (target) {
     if (grunt.option('allow-remote')) {
       grunt.config.set('connect.options.hostname', '0.0.0.0');
+      grunt.config.set('connect.options.open', false);
     }
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
