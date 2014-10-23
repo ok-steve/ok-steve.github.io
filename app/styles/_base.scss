@@ -4,8 +4,6 @@
 
 body {
   font-family: map-get($font-families, sans-serif);
-  background-color: map-get($colors, white);
-  color: map-get($colors, gray-dark);
 }
 
 ::selection {
@@ -13,15 +11,11 @@ body {
   color: map-get($colors, white);
 }
 
-%hN {
-  font-weight: 700;
-  margin: rhythm() 0;
-}
-
 a {
-  @include link-colors(map-get($colors, red), darken(map-get($colors, red), 7%));
+  color: map-get($colors, red);
 
+  &:hover,
   &:focus {
-    outline: thin dotted;
+    color: darken(map-get($colors, red), 7%);
   }
 }

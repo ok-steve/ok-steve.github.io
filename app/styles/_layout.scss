@@ -6,83 +6,63 @@
 // --------------------------------------------------
 
 .container {
-  margin: 0 auto;
   max-width: map-get($breakpoints, sm);
+
+  @extend %container;
 }
 
 // Browse happy
 // --------------------------------------------------
 
 .browsehappy {
-  @extend %browsehappy;
-  background-color: map-get($colors, gray-dark);
   color: map-get($colors, white);
+  background-color: map-get($colors, gray-dark);
+
+  @extend %browsehappy;
 }
 
 // Banner
 // --------------------------------------------------
 
 header {
-  @include clearfix;
-  @include trailing-border(1px, .5);
-  border-color: map-get($colors, red);
+  padding-bottom: lines(.5);
 
+  border-bottom: 1px solid map-get($colors, red);
   h1 {
     margin: 0;
   }
-
   a:hover {
     text-decoration: none;
   }
-
   nav {
-    @include clearfix;
     background-color: map-get($colors, white-smoke);
-
     ul {
       margin-bottom: 0;
       padding-left: 0;
     }
-
     li {
-      list-style: none;
       float: left;
-    }
 
+      list-style: none;
+    }
     a {
-      opacity: .7;
-      padding: rhythm(.5);
       display: block;
 
+      padding: lines(.5);
+
+      opacity: .7;
       &:hover {
         opacity: 1;
       }
     }
   }
-
   @media (min-width: map-get($breakpoints, sm)) {
-    @include leader();
-
+    margin-top: lines();
     h1 {
       float: left;
     }
-
     nav {
       float: right;
-    }
-  }
-
-  @if $legacy-support-for-ie8 {
-    .lt-ie9 & {
-      @include leader();
-
-      h1 {
-        float: left;
-      }
-
-      nav {
-        float: right;
-      }
     }
   }
 }
@@ -94,9 +74,9 @@ header {
 // --------------------------------------------------
 
 footer {
-  @include leading-border(1px, .5);
-  border-color: map-get($colors, red);
+  padding-top: lines(.5);
 
+  border-top: 1px solid map-get($colors, red);
   p {
     margin-bottom: 0;
   }
