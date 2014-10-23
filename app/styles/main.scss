@@ -2,10 +2,8 @@
 @import "ursatz/app/styles/ursatz/_ursatz.scss";
 // endbower
 
-@import
-  "variables",
-
-  "base",
-  "layout",
-  "modules",
-  "theme";
+@import "variables";
+@import "base";
+@import "layout";
+@import "modules";
+@import "theme";

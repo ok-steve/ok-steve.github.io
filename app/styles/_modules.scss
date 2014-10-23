@@ -7,7 +7,7 @@
 
 @font-face {
   font-family: map-get($font-families, icon);
-  src: url(//weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.woff);
+  src: url("//weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.woff");
 }
 
 %icon:before {
@@ -46,11 +46,12 @@
 // --------------------------------------------------
 
 .jumbotron {
-  @include leader(2);
-  @include trailer(2);
+  margin-top: lines(2);
+  margin-bottom: lines(2);
 
   p {
-    @include adjust-font-size-to(ms(2), 1.5);
+    font-size: ms(2);
+    line-height: lines(1.5);
     margin-bottom: 0;
     color: map-get($colors, red);
   }
@@ -60,20 +61,19 @@
 // --------------------------------------------------
 
 .lifestream {
-  @include clearfix;
   padding-left: 0;
 
   li {
     @extend %icon;
     position: relative;
     display: block;
-    padding: rhythm(.5);
-    padding-left: rhythm(2);
+    padding: lines(.5);
+    padding-left: lines(2);
 
     &:before {
       position: absolute;
-      left: rhythm(.5, $base-line-height);
-      font-size: rhythm();
+      left: lines(.5);
+      font-size: lines();
     }
 
     &:hover {
