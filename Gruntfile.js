@@ -380,7 +380,8 @@ module.exports = function (grunt) {
       dist: {
         options: {
           remote: '<%= pkg.repository.url %>',
-          branch: 'master'
+          branch: 'master',
+          tag: '<%= pkg.version %>+<%= grunt.template.today("yyyymmdd") %>'
         }
       }
     }
