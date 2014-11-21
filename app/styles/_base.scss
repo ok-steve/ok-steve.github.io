@@ -3,19 +3,19 @@
    ========================================================================= */
 
 body {
-  font-family: map-get($font-families, sans-serif);
+  font-family: config($theme, font-family, sans-serif);
 }
 
 ::selection {
-  background: map-get($colors, blue);
-  color: map-get($colors, white);
+  color: config($theme, color, white);
+  background: config($theme, color, blue);
 }
 
 a {
-  color: map-get($colors, red);
+  color: config($theme, color, red);
 
   &:hover,
   &:focus {
-    color: darken(map-get($colors, red), 7%);
+    color: darken(config($theme, color, red), 7%);
   }
 }
