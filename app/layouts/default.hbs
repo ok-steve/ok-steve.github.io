@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>The online home of Steve Cherry | Cherry on Top</title>
+    <title>{{#if title}}{{title}}{{else}}The online home of Steve Cherry{{/if}} | Cherry on Top</title>
     <meta name="description" content="The online home of Steve Cherry.">
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/favicon.ico">
@@ -45,10 +45,7 @@
       </header>
 
       <section role="main">
-        <div class="jumbotron">
-          <p>The online home of Steve Cherry, Electronic Services Librarian at the Catholic University of America.</p>
-        </div>
-        <div id="lifestream"></div>
+        {{>body}}
       </section>
 
       <footer role="contentinfo">
@@ -76,5 +73,5 @@
     <!-- build:js({app,.tmp}) scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
-</body>
+  </body>
 </html>

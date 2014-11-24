@@ -14,7 +14,7 @@ module.exports = function (grunt) {
   require('time-grunt')(grunt);
 
   // Load grunt tasks automatically
-  require('load-grunt-tasks')(grunt);
+  require('load-grunt-tasks')(grunt, { pattern: ['grunt-*', 'assemble'] });
 
   // Configurable paths
   var config = {
@@ -64,8 +64,13 @@ module.exports = function (grunt) {
         files: [
           '<%= config.app %>/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
-          '<%= config.app %>/images/{,*/}*'
+          '<%= config.app %>/images/{,*/}*',
+          '.tmp/*.html'
         ]
+      },
+      assemble: {
+        files: ['<%= config.app %>/{layouts,pages,partials}/{,*/}*.hbs'],
+        tasks: ['assemble']
       }
     },
 
@@ -193,8 +198,8 @@ module.exports = function (grunt) {
     // Automatically inject Bower components into the HTML file
     wiredep: {
       app: {
-        ignorePath: /^\/|\.\.\//,
-        src: ['<%= config.app %>/index.html']
+        ignorePath: /^\/|\.\.\/\.\.\//,
+        src: ['<%= config.app %>/layouts/default.hbs']
       },
       sass: {
         src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
@@ -224,7 +229,9 @@ module.exports = function (grunt) {
       options: {
         dest: '<%= config.dist %>'
       },
-      html: '<%= config.app %>/index.html'
+      html: [
+        '.tmp/index.html'
+      ]
     },
 
     // Performs rewrites based on rev and the useminPrepare configuration
@@ -232,7 +239,7 @@ module.exports = function (grunt) {
       options: {
         assetsDirs: ['<%= config.dist %>', '<%= config.dist %>/images']
       },
-      html: ['<%= config.dist %>/{,*/}*.html'],
+      html: ['.tmp/{,*/}*.html'],
       css: ['<%= config.dist %>/styles/{,*/}*.css']
     },
 
@@ -274,7 +281,7 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: '<%= config.dist %>',
+          cwd: '.tmp',
           src: '{,*/}*.html',
           dest: '<%= config.dist %>'
         }]
@@ -357,13 +364,15 @@ module.exports = function (grunt) {
     concurrent: {
       server: [
         'sass:server',
-        'copy:styles'
+        'copy:styles',
+        'assemble'
       ],
       test: [
         'copy:styles'
       ],
       dist: [
         'sass',
+        'assemble',
         'copy:styles',
         'imagemin',
         'svgmin'
@@ -382,6 +391,22 @@ module.exports = function (grunt) {
           remote: '<%= pkg.repository.url %>',
           branch: 'master',
           tag: '<%= pkg.version %>+<%= grunt.template.today("yyyymmdd") %>'
+        }
+      }
+    },
+
+    // Generate static site
+    assemble: {
+      options: {
+        flatten: true,
+        layout: 'default.hbs',
+        layoutdir: '<%= config.app %>/layouts',
+        assets: '<%= config.dist %>/images',
+        partials: ['<%= config.app %>/partials/*.hbs']
+      },
+      pages: {
+        files: {
+          '.tmp/': ['<%= config.app %>/pages/*.hbs']
         }
       }
     }
@@ -435,8 +460,8 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
-    'useminPrepare',
     'concurrent:dist',
+    'useminPrepare',
     'autoprefixer',
     'concat',
     'cssmin',
