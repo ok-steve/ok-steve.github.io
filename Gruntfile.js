@@ -401,12 +401,19 @@ module.exports = function (grunt) {
         flatten: true,
         layout: 'default.hbs',
         layoutdir: '<%= config.app %>/layouts',
-        assets: '<%= config.dist %>/images',
         partials: ['<%= config.app %>/partials/*.hbs']
       },
       pages: {
         files: {
           '.tmp/': ['<%= config.app %>/pages/*.hbs']
+        }
+      },
+      posts: {
+        options: {
+          assets: '../'
+        },
+        files: {
+          '.tmp/blog/': ['<%= config.app %>/pages/blog/*.hbs']
         }
       }
     }
