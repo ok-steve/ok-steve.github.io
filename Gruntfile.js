@@ -199,7 +199,7 @@ module.exports = function (grunt) {
     wiredep: {
       app: {
         ignorePath: /^\/|\.\.\/\.\.\//,
-        src: ['<%= config.app %>/layouts/default.hbs']
+        src: ['<%= config.app %>/layouts/base.hbs']
       },
       sass: {
         src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
@@ -410,6 +410,7 @@ module.exports = function (grunt) {
       },
       posts: {
         options: {
+          layout: 'blog.hbs',
           assets: '../'
         },
         files: {
