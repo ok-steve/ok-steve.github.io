@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>The online home of Steve Cherry | Cherry on Top</title>
+    <title>{{#if title}}{{title}}{{else}}The online home of Steve Cherry{{/if}} | Cherry on Top</title>
     <meta name="description" content="The online home of Steve Cherry.">
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/favicon.ico">
@@ -18,10 +18,10 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="{{assets}}/styles/main.css">
     <!-- endbuild -->
     <!-- build:js scripts/vendor/modernizr.js -->
-    <script src="bower_components/modernizr/modernizr.js"></script>
+    <script src="{{assets}}/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
 
   </head>
@@ -36,20 +36,15 @@
 
         <nav role="navigation">
           <ul>
-            <li><a href="mailto:stevenccherry@gmail.com"><span class="icon-email"></span></a></li>
-            <li><a href="http://twitter.com/stevenccherry"><span class="icon-twitter"></span></a></li>
-            <li><a href="http://www.linkedin.com/in/sccherry"><span class="icon-linkedin"></span></a></li>
+            <li><a href="mailto:stevenccherry@gmail.com"></a></li>
+            <li><a href="http://twitter.com/stevenccherry"></a></li>
+            <li><a href="http://www.linkedin.com/in/sccherry"></a></li>
             <li><a href="https://github.com/sccherry"><span class="icon-github"></span></a></li>
           </ul>
         </nav>
       </header>
 
-      <section role="main">
-        <div class="jumbotron">
-          <p>The online home of Steve Cherry, Electronic Services Librarian at the Catholic University of America.</p>
-        </div>
-        <div id="lifestream"></div>
-      </section>
+      {{>body}}
 
       <footer role="contentinfo">
         <p>All content licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
@@ -58,9 +53,9 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/jquery-lifestream/jquery.lifestream.js"></script>
-    <script src="bower_components/ursatz/app/scripts/ursatz/fluidity.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -75,7 +70,7 @@
     </script>
 
     <!-- build:js({app,.tmp}) scripts/main.js -->
-    <script src="scripts/main.js"></script>
+    <script src="{{assets}}/scripts/main.js"></script>
     <!-- endbuild -->
-</body>
+  </body>
 </html>
