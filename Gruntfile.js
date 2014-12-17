@@ -200,7 +200,7 @@ module.exports = function (grunt) {
     wiredep: {
       app: {
         ignorePath: /^\/|\.\.\/\.\.\//,
-        src: ['<%= config.app %>/layouts/base.hbs']
+        src: ['<%= config.app %>/layouts/default.hbs']
       },
       sass: {
         src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
@@ -404,18 +404,11 @@ module.exports = function (grunt) {
         layoutdir: '<%= config.app %>/layouts',
         partials: ['<%= config.app %>/partials/*.hbs']
       },
-      pages: {
+      dist: {
         files: {
-          '.tmp/': ['<%= config.app %>/pages/*.hbs']
-        }
-      },
-      posts: {
-        options: {
-          layout: 'blog.hbs',
-          assets: '../'
-        },
-        files: {
-          '.tmp/blog/': ['<%= config.app %>/pages/blog/*.hbs']
+          '.tmp/': [
+            '<%= config.app %>/pages/{,*/}*.hbs'
+          ]
         }
       }
     }
