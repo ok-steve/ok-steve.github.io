@@ -1,0 +1,148 @@
+.Container {
+  max-width: config($breakpoints, sm);
+
+  @extend %Container;
+}
+
+.BrowseHappy {
+  @extend %BrowseHappy;
+}
+
+[role="banner"] {
+  border-color: config($theme, color, red);
+
+  @include trailing-border($lines: .5);
+
+  h1 {
+    @extend %Banner_brand;
+  }
+
+  nav {
+    margin-top: 0;
+
+    background-color: config($theme, color, white-smoke);
+
+    ul {
+      display: flex;
+
+      @extend %Nav;
+
+      a {
+        padding: rhythm(.5); // For specificity
+      }
+    }
+
+    a {
+      opacity: .7;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  @media (min-width: config($breakpoints, sm)) {
+    display: flex;
+
+    justify-content: space-between;
+
+    @include leader();
+  }
+}
+
+[role="contentinfo"] {
+  border-color: config($theme, color, red);
+
+  @include leading-border($lines: .5);
+}
+
+[role="navigation"] {
+  [href^="mailto:"] {
+    @extend %Icon;
+    @extend %Icon-mail;
+
+    &:before {
+      color: #245dc1;
+    }
+  }
+
+  [href*="twitter.com"] {
+    @extend %Icon;
+    @extend %Icon-twitter;
+
+    &:before {
+      content: "\f081";
+    }
+  }
+
+  [href*="linkedin.com"] {
+    @extend %Icon;
+    @extend %Icon-linkedin;
+
+    &:before {
+      content: "\f08c";
+    }
+  }
+
+  [href*="github.com"] {
+    @extend %Icon;
+    @extend %Icon-github;
+
+    &:before {
+      content: "\f092";
+    }
+  }
+}
+
+.Hero {
+  @include leader(2);
+  @include trailer(2);
+
+  p {
+    color: config($theme, color, red);
+
+    @include adjust-font-size-to(ms(2), 1.5);
+  }
+}
+
+.lifestream {
+  padding-left: 0;
+
+  li {
+    position: relative;
+
+    display: block;
+
+    padding: rhythm(.5);
+    padding-left: rhythm(2);
+
+    @extend %Icon;
+
+    &:before {
+      font-size: rhythm();
+
+      position: absolute;
+      left: rhythm(.5);
+    }
+
+    &:hover {
+      background-color: config($theme, color, white-smoke);
+    }
+
+    + li {
+      border-top: 1px solid config($theme, color, white-smoke);
+    }
+  }
+}
+
+.lifestream-github {
+  @extend %Icon-github;
+}
+
+.lifestream-linkedin {
+  @extend %Icon-linkedin;
+}
+
+.lifestream-twitter {
+  @extend %Icon-twitter;
+}
