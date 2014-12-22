@@ -10,6 +10,14 @@
   @extend %BrowseHappy;
 }
 
+.StickyFooter {
+  @extend %StickyFooter;
+}
+
+.StickyFooter--content {
+  @extend %StickyFooter--content;
+}
+
 [role="banner"] {
   border-color: config($theme, color, red);
 
