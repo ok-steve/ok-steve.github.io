@@ -6,9 +6,17 @@
   @extend %Container-lg;
 }
 
+
+
+
+
 .BrowseHappy {
   @extend %BrowseHappy;
 }
+
+
+
+
 
 .StickyFooter {
   @extend %StickyFooter;
@@ -18,10 +26,18 @@
   @extend %StickyFooter--content;
 }
 
+
+
+
+
 nav > ul {
   @extend %Nav;
   display: flex;
 }
+
+
+
+
 
 .Icon {
   @extend %Icon;
@@ -58,6 +74,10 @@ nav > ul {
     content: "\f092";
   }
 }
+
+
+
+
 
 [role="banner"] {
   border-color: config($theme, color, red);
@@ -97,11 +117,19 @@ nav > ul {
   }
 }
 
+
+
+
+
 [role="contentinfo"] {
   border-color: config($theme, color, red);
 
   @include leading-border($lines: .5);
 }
+
+
+
+
 
 .Hero {
   @include leader(2);
