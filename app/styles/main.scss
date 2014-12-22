@@ -6,6 +6,12 @@
 @import "ursatz/app/styles/ursatz/_ursatz.scss";
 // endbower
 
+// Ursatz
+
+html {
+  margin-left: 0;
+}
+
 @import "variables";
 @import "base";
 @import "components";
