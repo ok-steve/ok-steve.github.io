@@ -6,6 +6,10 @@
 @import "ursatz/app/styles/ursatz/_ursatz.scss";
 // endbower
 
+.Card {
+  padding: 0;
+}
+
 @import "variables";
 @import "base";
 @import "utilities";

@@ -1,3 +1,7 @@
 .u-hideVisually {
   @extend %u-hideVisually;
 }
+
+.u-show {
+  @extend %u-xs-show;
+}
