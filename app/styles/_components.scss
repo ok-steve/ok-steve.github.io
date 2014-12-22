@@ -1,7 +1,9 @@
 .Container {
-  max-width: config($breakpoints, sm);
-
   @extend %Container;
+}
+
+.Container-lg {
+  @extend %Container-lg;
 }
 
 .BrowseHappy {
@@ -14,7 +16,7 @@
   @include trailing-border($lines: .5);
 
   h1 {
-    @extend %Banner_brand;
+    @extend %Banner--brand;
   }
 
   nav {
