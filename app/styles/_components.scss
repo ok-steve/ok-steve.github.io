@@ -86,8 +86,14 @@ nav > ul {
 
 
 [role="banner"] {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+
+  min-height: rhythm(3);
+
   background-color: config($theme, color, white);
-  box-shadow: 0 1px 2px rgba(#000,.5);
+  box-shadow: 0 3px 4px rgba(#000,.5);
 
   h1 {
     @extend %Banner--brand;
@@ -178,6 +184,7 @@ nav > ul {
 .Figure--caption {
   margin-top: 0;
   padding: rhythm(.5);
+  width: 100%;
 
   .Figure-image & {
     position: absolute;
