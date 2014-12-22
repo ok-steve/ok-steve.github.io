@@ -18,6 +18,47 @@
   @extend %StickyFooter--content;
 }
 
+nav > ul {
+  @extend %Nav;
+  display: flex;
+}
+
+.Icon {
+  @extend %Icon;
+}
+
+[href^="mailto:"] {
+  @extend %Icon-mail;
+
+  &:before {
+    color: #245dc1;
+  }
+}
+
+[href*="twitter.com"] {
+  @extend %Icon-twitter;
+
+  &:before {
+    content: "\f081";
+  }
+}
+
+[href*="linkedin.com"] {
+  @extend %Icon-linkedin;
+
+  &:before {
+    content: "\f08c";
+  }
+}
+
+[href*="github.com"] {
+  @extend %Icon-github;
+
+  &:before {
+    content: "\f092";
+  }
+}
+
 [role="banner"] {
   border-color: config($theme, color, red);
 
@@ -33,10 +74,6 @@
     background-color: config($theme, color, white-smoke);
 
     ul {
-      display: flex;
-
-      @extend %Nav;
-
       a {
         padding: rhythm(.5); // For specificity
       }
@@ -64,44 +101,6 @@
   border-color: config($theme, color, red);
 
   @include leading-border($lines: .5);
-}
-
-[role="navigation"] {
-  [href^="mailto:"] {
-    @extend %Icon;
-    @extend %Icon-mail;
-
-    &:before {
-      color: #245dc1;
-    }
-  }
-
-  [href*="twitter.com"] {
-    @extend %Icon;
-    @extend %Icon-twitter;
-
-    &:before {
-      content: "\f081";
-    }
-  }
-
-  [href*="linkedin.com"] {
-    @extend %Icon;
-    @extend %Icon-linkedin;
-
-    &:before {
-      content: "\f08c";
-    }
-  }
-
-  [href*="github.com"] {
-    @extend %Icon;
-    @extend %Icon-github;
-
-    &:before {
-      content: "\f092";
-    }
-  }
 }
 
 .Hero {
