@@ -8,13 +8,20 @@ title: Home
   </div>
 </div>
 
+<ul >
+</ul >
+
 <div class="Flex">
-  <div class="Flex--item">
-    <a href="#" class="Card u-show">
-      <figure class="Figure Figure-image">
-        <img class="Figure--body" src="http://placehold.it/100x100" alt="image">
-        <figcaption class="Figure--caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</figcaption>
-      </figure>
-    </a>
-  </div>
+  {{#each pages}}
+    {{#if data.date}}
+      <div class="Flex--item">
+        <a href="{{filename}}" class="u-show">
+          <figure class="Figure Figure-image">
+            <img class="Figure--body" src="images/projects/{{basename}}-tn.jpg" alt="{{data.title}} main image">
+            <figcaption class="Figure--caption">{{data.summary}}</figcaption>
+          </figure>
+        </a>
+      </div>
+    {{/if}}
+  {{/each}}
 </div>
