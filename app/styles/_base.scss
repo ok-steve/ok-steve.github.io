@@ -1,11 +1,6 @@
 body {
   font-family: config($theme, font-family, sans-serif);
-
-  background-color: #eee;
-
-  @include padding-leader(4);
 }
-
 
 ::selection {
   color: config($theme, color, white);

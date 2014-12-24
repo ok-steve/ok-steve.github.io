@@ -77,23 +77,10 @@ nav > ul {
 
 
 
-.Card {
-  @extend %Card;
-}
-
-
-
 
 
 [role="banner"] {
-  position: fixed;
-  z-index: 100;
-  top: 0;
-
-  min-height: rhythm(3);
-
-  background-color: config($theme, color, white);
-  box-shadow: 0 3px 4px rgba(#000,.5);
+  padding: rhythm(.5) rhythm();
 
   h1 {
     @extend %Banner--brand;
