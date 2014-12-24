@@ -83,27 +83,9 @@ nav > ul {
   padding: rhythm(.5) rhythm();
 
   h1 {
-    @extend %Banner--brand;
-  }
-
-  nav {
     margin-top: 0;
 
-    background-color: config($theme, color, white-smoke);
-
-    ul {
-      a {
-        padding: rhythm(.5); // For specificity
-      }
-    }
-
-    a {
-      opacity: .7;
-
-      &:hover {
-        opacity: 1;
-      }
-    }
+    @extend %Banner--brand;
   }
 }
 
