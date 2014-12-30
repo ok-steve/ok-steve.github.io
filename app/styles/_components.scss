@@ -112,17 +112,13 @@
 
 
 .Flex {
-  @extend %Flex;
   flex-wrap: wrap;
+
+  @extend %Flex;
 }
 
 .Flex--item {
   flex: 1;
-  padding: rhythm(.5);
-
-  img {
-    width: 100%;
-  }
 
   @media (min-width: config($breakpoints, sm)) {
     flex-basis: 50%;
@@ -140,9 +136,16 @@
 
 
 
+.Figure {
+  margin: rhythm(.5);
+}
 
 .Figure-image {
   position: relative;
+
+  .Figure--body {
+    width: 100%;
+  }
 }
 
 .Figure--caption {
