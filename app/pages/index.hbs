@@ -2,26 +2,40 @@
 title: Home
 ---
 
-<div class="Hero Flex u-alignCenter">
+<section id="top" class="Hero Flex u-alignCenter">
   <div class="Container Container-lg">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dolor possimus, deleniti tempore magnam mollitia sequi quod soluta consequuntur aliquam ab, cum excepturi eveniet et itaque delectus corporis officiis nesciunt.</p>
   </div>
-</div>
+</section>
 
-<ul >
-</ul >
 
-<div class="Flex">
-  {{#each pages}}
-    {{#if data.date}}
-      <div class="Flex--item">
-        <a href="{{filename}}" class="u-show">
+
+
+
+<section id="work">
+  <div class="Container Container-lg">
+    <h1 class="u-textCenter">Work</h1>
+
+    <div class="Flex Flex-grid">
+      {{#each work}}
+        <div class="Flex--item">
           <figure class="Figure Figure-image">
-            <img class="Figure--body" src="images/projects/{{basename}}-tn.jpg" alt="{{data.title}} main image">
-            <figcaption class="Figure--caption">{{data.summary}}</figcaption>
+            <img class="Figure--body" src="{{image.src}}" alt="{{image.alt}}">
+            <figcaption class="Figure--caption">{{summary}}</figcaption>
           </figure>
-        </a>
-      </div>
-    {{/if}}
-  {{/each}}
-</div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section id="bio">
+  <div class="Container Container-sm">
+    <h1 class="u-textCenter">Bio</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, tempora ipsam hic facere laboriosam dolore! Quo ut ab, adipisci velit consequatur nisi vero repellat, neque aut nemo. Perspiciatis dignissimos, autem?</p>
+  </div>
+</section>

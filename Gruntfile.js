@@ -69,7 +69,7 @@ module.exports = function (grunt) {
         ]
       },
       assemble: {
-        files: ['<%= config.app %>/{layouts,pages,partials}/{,*/}*.hbs'],
+        files: ['<%= config.app %>/{layouts,pages,partials,data}/{,*/}*.hbs'],
         tasks: ['assemble']
       }
     },
@@ -199,7 +199,7 @@ module.exports = function (grunt) {
     // Automatically inject Bower components into the HTML file
     wiredep: {
       app: {
-        ignorePath: /^<%= config.app %>\/|\.\.\/\.\.\//,
+        ignorePath: /^<%= config.app %>\/|(\.\.\/){1,2}/,
         src: ['<%= config.app %>/layouts/default.hbs']
       },
       sass: {
@@ -402,6 +402,7 @@ module.exports = function (grunt) {
         flatten: true,
         layout: 'default.hbs',
         layoutdir: '<%= config.app %>/layouts',
+        data: '<%= config.app %>/data/*.{json,yml}',
         partials: ['<%= config.app %>/partials/*.hbs']
       },
       dist: {

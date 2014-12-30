@@ -30,42 +30,41 @@
       <p class="BrowseHappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <header role="banner">
-      <img src="http://placehold.it/48" alt="Logo" class="Logo">
-      <h1><a href="/index.html">Cherry on Top</a></h1>
+    <header class="Banner Container" role="banner">
+      <h1 class="Banner--brand"><a href="#top">Steve Cherry</a></h1>
+      <nav class="Banner--nav" role="navivation">
+        <ul class="Nav">
+          <li><a href="#work">Work</a></li>
+          <li><a href="#bio">Bio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </header>
 
     <div class="StickyFooter--content">
       {{>body}}
     </div>
 
-    <footer role="contentinfo" class="Container">
-      <nav role="navigation">
-        <ul>
-          <li>
-            <a href="mailto:stevenccherry@gmail.com" class="Icon">
-              <span class="u-hideVisually">Email</span>
-            </a>
-          </li>
-          <li>
-            <a rel="external" href="https://twitter.com/stevenccherry" class="Icon">
-              <span class="u-hideVisually">Twitter</span>
-            </a>
-          </li>
-          <li>
-            <a rel="external" href="https://www.linkedin.com/in/sccherry" class="Icon">
-              <span class="u-hideVisually">LinkedIn</span>
-            </a>
-          </li>
-          <li>
-            <a rel="external" href="https://github.com/sccherry" class="Icon">
-              <span class="u-hideVisually">Github</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+    <footer id="contact" class="ContentInfo" role="contentinfo">
+      <div class="Container Container-lg">
+        <h1 class="u-textCenter">Contact</h1>
 
-      <p>All content licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
+        <div class="Flex Flex-contact">
+          {{#each contact}}
+            <div class="Media Flex--item">
+              <a href="{{url}}" class="Icon Media--object"></a>
+              <div class="Media--body">
+                <h2 class="Media--heading">{{name}}</h2>
+                <p class="Media--text"><a href="{{url}}">{{username}}</a></p>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+
+      <div class="Container">
+        <p>All content licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
+      </div>
     </footer>
 
     <!-- build:js(.) scripts/vendor.js -->
