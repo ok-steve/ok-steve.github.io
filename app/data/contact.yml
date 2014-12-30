@@ -1,0 +1,8 @@
+- name: Email,
+  url: mailto:stevenccherry@gmail.com
+- name: Twitter,
+  url: https://twitter.com/stevenccherry
+- name: LinkedIn,
+  url: https://www.linkedin.com/in/sccherry
+- name: Github,
+  url: https://github.com/sccherry

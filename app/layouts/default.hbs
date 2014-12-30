@@ -46,29 +46,16 @@
       {{>body}}
     </div>
 
-    <footer class="Container" role="contentinfo">
+    <footer id="contact" class="Container" role="contentinfo">
       <nav role="navigation">
         <ul class="Nav">
-          <li>
-            <a href="mailto:stevenccherry@gmail.com" class="Icon">
-              <span class="u-hideVisually">Email</span>
-            </a>
-          </li>
-          <li>
-            <a rel="external" href="https://twitter.com/stevenccherry" class="Icon">
-              <span class="u-hideVisually">Twitter</span>
-            </a>
-          </li>
-          <li>
-            <a rel="external" href="https://www.linkedin.com/in/sccherry" class="Icon">
-              <span class="u-hideVisually">LinkedIn</span>
-            </a>
-          </li>
-          <li>
-            <a rel="external" href="https://github.com/sccherry" class="Icon">
-              <span class="u-hideVisually">Github</span>
-            </a>
-          </li>
+          {{#each contact}}
+            <li>
+              <a href="{{url}}" class="Icon">
+                <span class="u-hideVisually">{{name}}</span>
+              </a>
+            </li>
+          {{/each}}
         </ul>
       </nav>
 
