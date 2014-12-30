@@ -10,18 +10,3 @@ title: Home
 
 <ul >
 </ul >
-
-<div class="Flex">
-  {{#each pages}}
-    {{#if data.date}}
-      <div class="Flex--item">
-        <a href="{{filename}}" class="u-show">
-          <figure class="Figure Figure-image">
-            <img class="Figure--body" src="images/projects/{{basename}}-tn.jpg" alt="{{data.title}} main image">
-            <figcaption class="Figure--caption">{{data.summary}}</figcaption>
-          </figure>
-        </a>
-      </div>
-    {{/if}}
-  {{/each}}
-</div>
