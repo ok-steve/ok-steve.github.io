@@ -24,15 +24,20 @@
 
 .StickyFooter--content {
   @extend %StickyFooter--content;
+
+  @media (min-width: config($breakpoints, md)) {
+    margin-top: 0;
+  }
 }
 
 
 
 
 
-nav > ul {
-  @extend %Nav;
+.Nav {
   display: flex;
+
+  @extend %Nav;
 }
 
 
@@ -80,11 +85,7 @@ nav > ul {
 
 
 [role="banner"] {
-  padding: rhythm(.5) rhythm();
-
   h1 {
-    margin-top: 0;
-
     @extend %Banner--brand;
   }
 }
@@ -158,3 +159,33 @@ nav > ul {
   }
 }
 
+
+
+
+
+.Navbar {
+  background-color: rgba(#000,.5);
+
+  a {
+    color: #fff;
+  }
+
+  @media (min-width: config($breakpoints, md)) {
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: rhythm();
+    padding-right: rhythm();
+    min-height: rhythm(3);
+  }
+}
+
+.Navbar--nav {
+  @media (min-width: config($breakpoints, md)) {
+    margin-top: 0;
+  }
+}
