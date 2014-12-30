@@ -171,16 +171,20 @@
   }
 
   @media (min-width: config($breakpoints, md)) {
-    top: 0;
-    left: 0;
-    right: 0;
     position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    left: 0;
+
     display: flex;
+
+    min-height: rhythm(3);
+    padding-right: rhythm();
+    padding-left: rhythm();
+
     align-items: center;
     justify-content: space-between;
-    padding-left: rhythm();
-    padding-right: rhythm();
-    min-height: rhythm(3);
   }
 }
 
