@@ -96,6 +96,8 @@ nav > ul {
 .Hero {
   color: config($theme, color, white);
   background-color: config($theme, color, red);
+  background-image: url("http://placehold.it/420x270");
+  background-size: cover;
 
   @extend %Hero;
 
