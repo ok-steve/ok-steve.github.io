@@ -2,6 +2,10 @@
   @extend %Container;
 }
 
+.Container-sm {
+  @extend %Container-sm;
+}
+
 .Container-lg {
   @extend %Container-lg;
 }
@@ -46,37 +50,37 @@
 
 .Icon {
   @extend %Icon;
-}
 
-[href^="mailto:"] {
-  @extend %Icon-mail;
+  &[href^="mailto:"] {
+    @extend %Icon-mail;
 
-  &:before {
-    color: #245dc1;
+    &:before {
+      color: #245dc1;
+    }
   }
-}
 
-[href*="twitter.com"] {
-  @extend %Icon-twitter;
+  &[href*="twitter.com"] {
+    @extend %Icon-twitter;
 
-  &:before {
-    content: "\f081";
+    &:before {
+      content: "\f081";
+    }
   }
-}
 
-[href*="linkedin.com"] {
-  @extend %Icon-linkedin;
+  &[href*="linkedin.com"] {
+    @extend %Icon-linkedin;
 
-  &:before {
-    content: "\f08c";
+    &:before {
+      content: "\f08c";
+    }
   }
-}
 
-[href*="github.com"] {
-  @extend %Icon-github;
+  &[href*="github.com"] {
+    @extend %Icon-github;
 
-  &:before {
-    content: "\f092";
+    &:before {
+      content: "\f092";
+    }
   }
 }
 
@@ -120,18 +124,25 @@
 .Flex--item {
   flex: 1;
 
-  @media (min-width: config($breakpoints, sm)) {
+  .Flex-grid & {
+    @media (min-width: config($breakpoints, sm)) {
+      flex-basis: 50%;
+    }
+
+    @media (min-width: config($breakpoints, md)) {
+      flex-basis: percentage(1 / 3);
+    }
+
+    @media (min-width: config($breakpoints, md)) {
+      flex-basis: 25%;
+    }
+  }
+
+  .Flex-contact & {
     flex-basis: 50%;
   }
-
-  @media (min-width: config($breakpoints, md)) {
-    flex-basis: percentage(1 / 3);
-  }
-
-  @media (min-width: config($breakpoints, md)) {
-    flex-basis: 25%;
-  }
 }
+
 
 
 
@@ -183,8 +194,6 @@
     display: flex;
 
     min-height: rhythm(3);
-    padding-right: rhythm();
-    padding-left: rhythm();
 
     align-items: center;
     justify-content: space-between;
@@ -196,3 +205,36 @@
     margin-top: 0;
   }
 }
+
+
+
+
+
+.Media {
+  @extend %Media;
+}
+
+.Media--object {
+  display: block;
+
+  @extend %Media--object;
+
+  &.Icon {
+    @include adjust-font-size-to(ms(3));
+  }
+}
+
+.Media--body {
+  margin-top: 0;
+
+  @extend %Media--body;
+}
+
+.Media--heading {
+  line-height: 1.1;
+}
+
+.Media--text {
+  margin-top: 0;
+}
+

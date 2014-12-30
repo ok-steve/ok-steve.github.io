@@ -30,7 +30,7 @@
       <p class="BrowseHappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <header class="Navbar" role="banner">
+    <header class="Navbar Container" role="banner">
       <h1><a href="#top">Steve Cherry</a></h1>
       <nav class="Navbar--nav" role="navivation">
         <ul class="Nav">
@@ -45,20 +45,26 @@
       {{>body}}
     </div>
 
-    <footer id="contact" class="Container" role="contentinfo">
-      <nav role="navigation">
-        <ul class="Nav">
-          {{#each contact}}
-            <li>
-              <a href="{{url}}" class="Icon">
-                <span class="u-hideVisually">{{name}}</span>
-              </a>
-            </li>
-          {{/each}}
-        </ul>
-      </nav>
+    <footer id="contact" role="contentinfo">
+      <div class="Container Container-sm">
+        <h1 class="u-textCenter">Contact</h1>
 
-      <p>All content licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
+        <div class="Flex Flex-contact">
+          {{#each contact}}
+            <div class="Media Flex--item">
+              <a href="{{url}}" class="Icon Media--object"></a>
+              <div class="Media--body">
+                <h2 class="Media--heading">{{name}}</h2>
+                <p class="Media--text"><a href="{{url}}">{{username}}</a></p>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+
+      <div class="Container">
+        <p>All content licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
+      </div>
     </footer>
 
     <!-- build:js(.) scripts/vendor.js -->
