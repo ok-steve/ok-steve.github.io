@@ -27,11 +27,9 @@
 }
 
 .StickyFooter--content {
-  @extend %StickyFooter--content;
+  margin-top: 0;
 
-  @media (min-width: config($breakpoints, md)) {
-    margin-top: 0;
-  }
+  @extend %StickyFooter--content;
 }
 
 
@@ -88,20 +86,11 @@
 
 
 
-[role="banner"] {
-  h1 {
-    @extend %Banner--brand;
-  }
-}
-
-
-
-
-
 .Hero {
   color: config($theme, color, white);
   background-color: config($theme, color, red);
   background-image: url("http://placehold.it/420x270");
+  background-position: center center;
   background-size: cover;
 
   @extend %Hero;
@@ -125,6 +114,8 @@
   flex: 1;
 
   .Flex-grid & {
+    flex-basis: 100%;
+
     @media (min-width: config($breakpoints, sm)) {
       flex-basis: 50%;
     }
@@ -133,13 +124,21 @@
       flex-basis: percentage(1 / 3);
     }
 
-    @media (min-width: config($breakpoints, md)) {
+    @media (min-width: config($breakpoints, lg)) {
       flex-basis: 25%;
     }
   }
 
   .Flex-contact & {
-    flex-basis: 50%;
+    flex-basis: 100%;
+
+    @media (min-width: config($breakpoints, sm)) {
+      flex-basis: 50%;
+    }
+
+    @media (min-width: config($breakpoints, lg)) {
+      flex-basis: 25%;
+    }
   }
 }
 
@@ -177,8 +176,8 @@
 
 
 
-.Navbar {
-  background-color: rgba(#000,.5);
+.Banner {
+  background-color: config($theme, color, red);
 
   a {
     color: #fff;
@@ -200,7 +199,13 @@
   }
 }
 
-.Navbar--nav {
+.Banner--brand {
+  @extend %Banner--brand;
+}
+
+.Banner--nav {
+  margin-top: rhythm(.5);
+
   @media (min-width: config($breakpoints, md)) {
     margin-top: 0;
   }
@@ -238,3 +243,12 @@
   margin-top: 0;
 }
 
+
+
+
+
+.ContentInfo {
+  padding-top: rhythm(.5);
+
+  background-color: config($theme, color, white-smoke);
+}
