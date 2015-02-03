@@ -10,10 +10,11 @@ module.exports = {
     partials: ['<%= config.app %>/partials/*.hbs']
   },
   dist: {
-    files: {
-      '.tmp/': [
-        '<%= config.app %>/pages/{,*/}*.hbs'
-      ]
-    }
+    files: [{
+      expand: true,
+      cwd: '<%= config.app %>/pages',
+      src: '{,*/}*.hbs',
+      dest: '.tmp'
+    }]
   }
 };
