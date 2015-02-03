@@ -13,14 +13,18 @@ title: Home
 
 
 <section id="work">
-  <div class="Container Container--lg">
+  <div class="Container Container--lg"
+    ng-app="portfolioApp" ng-controller="ProjectController as projectCtrl">
     <h1 class="u-textCenter">Work</h1>
+
+    <div ng-bind-html="project"></div>
 
     <div class="Flex Flex--grid">
       {{#withSort pages 'data.order'}}
         {{#contains dirname 'projects'}}
         <div class="Flex-item">
-          <figure class="Figure Figure--image">
+          <figure class="Figure Figure--image"
+            ng-click="projectCtrl.set('{{basename}}')">
             <img class="Figure-body" src="{{data.image.src}}" alt="{{data.image.alt}}">
             <figcaption class="Figure-caption">{{data.summary}}</figcaption>
           </figure>

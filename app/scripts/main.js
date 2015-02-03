@@ -1,9 +1,27 @@
 'use strict';
 
-(function ($) {
-  $('[rel="external"]').click(function (e)  {
-    e.preventDefault();
-    e.stopPropagation();
-    window.open(this.href, '_blank');
-  });
-})(jQuery);
+(function () {
+  var app = angular.module('portfolioApp', []);
+
+  app.controller('ProjectController', [
+    '$scope',
+    '$http',
+    '$sce',
+
+    function ($scope, $http, $sce) {
+      $scope.projectPath = null;
+
+      $scope.$watch('projectPath', function () {
+        if ($scope.projectPath !== null) {
+          $http.get('projects/' + $scope.projectPath + '.html').success(function (data, status, headers, config) {
+            $scope.project = $sce.trustAsHtml(data);
+          });
+        }
+      });
+
+      this.set = function (path) {
+        $scope.projectPath = path;
+      };
+    }
+  ]);
+})();
