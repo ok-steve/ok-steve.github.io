@@ -31,8 +31,8 @@
     <![endif]-->
 
     <header class="Banner Container" role="banner">
-      <h1 class="Banner--brand"><a href="#top">Steve Cherry</a></h1>
-      <nav class="Banner--nav" role="navivation">
+      <h1 class="Banner-brand"><a href="#top">Steve Cherry</a></h1>
+      <nav class="Banner-nav" role="navivation">
         <ul class="Nav">
           <li><a href="#work">Work</a></li>
           <li><a href="#bio">Bio</a></li>
@@ -41,21 +41,21 @@
       </nav>
     </header>
 
-    <div class="StickyFooter--content">
+    <div class="StickyFooter-content">
       {{>body}}
     </div>
 
     <footer id="contact" class="ContentInfo" role="contentinfo">
-      <div class="Container Container-lg">
+      <div class="Container Container--lg">
         <h1 class="u-textCenter">Contact</h1>
 
-        <div class="Flex Flex-contact">
+        <div class="Flex Flex--contact">
           {{#each contact}}
-            <div class="Media Flex--item">
-              <a href="{{url}}" class="Icon Media--object"></a>
-              <div class="Media--body">
-                <h2 class="Media--heading">{{name}}</h2>
-                <p class="Media--text"><a href="{{url}}">{{username}}</a></p>
+            <div class="Media Flex-item">
+              <a href="{{url}}" class="Icon Media-object"></a>
+              <div class="Media-body">
+                <h2 class="Media-heading">{{name}}</h2>
+                <p class="Media-text"><a href="{{url}}">{{username}}</a></p>
               </div>
             </div>
           {{/each}}
