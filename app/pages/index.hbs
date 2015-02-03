@@ -17,14 +17,16 @@ title: Home
     <h1 class="u-textCenter">Work</h1>
 
     <div class="Flex Flex--grid">
-      {{#each work}}
+      {{#withSort pages 'data.order'}}
+        {{#contains dirname 'projects'}}
         <div class="Flex-item">
           <figure class="Figure Figure--image">
-            <img class="Figure-body" src="{{image.src}}" alt="{{image.alt}}">
-            <figcaption class="Figure-caption">{{summary}}</figcaption>
+            <img class="Figure-body" src="{{data.image.src}}" alt="{{data.image.alt}}">
+            <figcaption class="Figure-caption">{{data.summary}}</figcaption>
           </figure>
         </div>
-      {{/each}}
+        {{/contains}}
+      {{/withSort}}
     </div>
   </div>
 </section>
