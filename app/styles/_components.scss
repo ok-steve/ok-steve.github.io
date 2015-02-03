@@ -2,12 +2,12 @@
   @extend %Container;
 }
 
-.Container-sm {
-  @extend %Container-sm;
+.Container--sm {
+  @extend %Container--sm;
 }
 
-.Container-lg {
-  @extend %Container-lg;
+.Container--lg {
+  @extend %Container--lg;
 }
 
 
@@ -26,10 +26,10 @@
   @extend %StickyFooter;
 }
 
-.StickyFooter--content {
+.StickyFooter-content {
   margin-top: 0;
 
-  @extend %StickyFooter--content;
+  @extend %StickyFooter-content;
 }
 
 
@@ -50,7 +50,7 @@
   @extend %Icon;
 
   &[href^="mailto:"] {
-    @extend %Icon-mail;
+    @extend %Icon--mail;
 
     &:before {
       color: #245dc1;
@@ -58,7 +58,7 @@
   }
 
   &[href*="twitter.com"] {
-    @extend %Icon-twitter;
+    @extend %Icon--twitter;
 
     &:before {
       content: "\f081";
@@ -66,7 +66,7 @@
   }
 
   &[href*="linkedin.com"] {
-    @extend %Icon-linkedin;
+    @extend %Icon--linkedin;
 
     &:before {
       content: "\f08c";
@@ -74,7 +74,7 @@
   }
 
   &[href*="github.com"] {
-    @extend %Icon-github;
+    @extend %Icon--github;
 
     &:before {
       content: "\f092";
@@ -110,10 +110,10 @@
   @extend %Flex;
 }
 
-.Flex--item {
+.Flex-item {
   flex: 1;
 
-  .Flex-grid & {
+  .Flex--grid & {
     flex-basis: 100%;
 
     @media (min-width: config($breakpoints, sm)) {
@@ -129,7 +129,7 @@
     }
   }
 
-  .Flex-contact & {
+  .Flex--contact & {
     flex-basis: 100%;
 
     @media (min-width: config($breakpoints, sm)) {
@@ -150,20 +150,20 @@
   margin: rhythm(.5);
 }
 
-.Figure-image {
+.Figure--image {
   position: relative;
 
-  .Figure--body {
+  .Figure-body {
     width: 100%;
   }
 }
 
-.Figure--caption {
+.Figure-caption {
   margin-top: 0;
   padding: rhythm(.5);
   width: 100%;
 
-  .Figure-image & {
+  .Figure--image & {
     position: absolute;
     bottom: 0;
 
@@ -199,11 +199,11 @@
   }
 }
 
-.Banner--brand {
-  @extend %Banner--brand;
+.Banner-brand {
+  @extend %Banner-brand;
 }
 
-.Banner--nav {
+.Banner-nav {
   margin-top: rhythm(.5);
 
   @media (min-width: config($breakpoints, md)) {
@@ -219,27 +219,27 @@
   @extend %Media;
 }
 
-.Media--object {
+.Media-object {
   display: block;
 
-  @extend %Media--object;
+  @extend %Media-object;
 
   &.Icon {
     @include adjust-font-size-to(ms(3));
   }
 }
 
-.Media--body {
+.Media-body {
   margin-top: 0;
 
-  @extend %Media--body;
+  @extend %Media-body;
 }
 
-.Media--heading {
+.Media-heading {
   line-height: 1.1;
 }
 
-.Media--text {
+.Media-text {
   margin-top: 0;
 }
 
