@@ -38,5 +38,6 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:sccherry/sccherry.github.io.git"
-  }
+  },
+  "license": "GPL-3.0+"
 }
