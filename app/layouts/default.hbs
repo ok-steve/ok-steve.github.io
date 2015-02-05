@@ -11,10 +11,10 @@
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/favicon.ico">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic|Source+Code+Pro">
     <!-- build:css(.) styles/vendor.css -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.2/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -25,49 +25,61 @@
     <!-- endbuild -->
 
   </head>
-  <body class="StickyFooter">
-    <!--[if lt IE 10]>
-      <p class="BrowseHappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <body>
+    <!--[if lt IE 9]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <header class="Banner Container" role="banner">
-      <h1 class="Banner-brand"><a href="#top">Steve Cherry</a></h1>
-      <nav class="Banner-nav" role="navivation">
-        <ul class="Nav">
+    <header class="navbar navbar-fixed-top navbar-inverse" role="banner">
+      <div class="container-fluid">
+      <div class="navbar-header">
+        <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="#top" class="navbar-brand">Steve Cherry</a>
+      </div>
+
+      <nav class="collapse navbar-collapse" role="navigation">
+        <ul class="nav navbar-nav navbar-right">
           <li><a href="#work">Work</a></li>
           <li><a href="#bio">Bio</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
+      </div>
     </header>
 
-    <div class="StickyFooter-content">
-      {{>body}}
-    </div>
+    {{>body}}
 
-    <footer id="contact" class="ContentInfo" role="contentinfo">
-      <div class="Container Container--lg">
-        <h1 class="u-textCenter">Contact</h1>
+    <footer id="contact" class="bg-primary" role="contentinfo">
+      <div class="container-fluid">
+        <h1 class="text-center">Contact</h1>
 
-        <div class="Flex Flex--contact">
+        <div class="row">
           {{#each contact}}
-            <div class="Media Flex-item">
-              <a href="{{url}}" class="Icon Media-object"></a>
-              <div class="Media-body">
-                <h2 class="Media-heading">{{name}}</h2>
-                <p class="Media-text"><a href="{{url}}">{{username}}</a></p>
+            <div class="media col-md-3">
+              <a href="{{url}}" class="media-left">
+                <span class="fa fa-{{lowercase name}}"></span>
+              </a>
+              <div class="media-body">
+                <h2 class="media-heading">{{name}}</h2>
+                <p><a href="{{url}}">{{username}}</a></p>
               </div>
             </div>
           {{/each}}
         </div>
       </div>
 
-      <div class="Container">
+      <div class="container-fluid">
         <p>All content licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
       </div>
     </footer>
 
     <!-- build:js(.) scripts/vendor.js -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
     <!-- endbower -->

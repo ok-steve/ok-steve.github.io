@@ -1,17 +1,3 @@
 body {
-  font-family: config($theme, font-family, sans-serif);
-}
-
-::selection {
-  color: config($theme, color, white);
-  background: config($theme, color, blue);
-}
-
-a {
-  color: config($theme, color, red);
-
-  &:hover,
-  &:focus {
-    color: darken(config($theme, color, red), 7%);
-  }
+  padding-top: 50px;
 }
