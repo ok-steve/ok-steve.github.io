@@ -3,7 +3,6 @@
 // Compiles Sass to CSS and generates necessary files if requested
 module.exports = {
   options: {
-    compass: true,
     loadPath: 'bower_components'
   },
   dist: {

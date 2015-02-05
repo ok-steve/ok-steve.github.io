@@ -2,8 +2,8 @@
 title: Home
 ---
 
-<section id="top" class="Hero Flex u-alignCenter">
-  <div class="Container Container--lg">
+<section id="top" class="jumbotron Flex u-alignCenter">
+  <div class="container">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dolor possimus, deleniti tempore magnam mollitia sequi quod soluta consequuntur aliquam ab, cum excepturi eveniet et itaque delectus corporis officiis nesciunt.</p>
   </div>
 </section>
@@ -13,17 +13,17 @@ title: Home
 
 
 <section id="work">
-  <div class="Container Container--lg"
+  <div class="container"
     ng-app="portfolioApp" ng-controller="ProjectController as projectCtrl">
-    <h1 class="u-textCenter">Work</h1>
+    <h1 class="text-center">Work</h1>
 
     <div ng-bind-html="project"></div>
 
-    <div class="Flex Flex--grid">
+    <div class="row">
       {{#withSort pages 'data.order'}}
         {{#contains dirname 'projects'}}
-        <div class="Flex-item">
-          <figure class="Figure Figure--image"
+        <div class="col-sm-4">
+          <figure class="thumbnail"
             ng-click="projectCtrl.set('{{basename}}')">
             <img class="Figure-body" src="{{data.image.src}}" alt="{{data.image.alt}}">
             <figcaption class="Figure-caption">{{data.summary}}</figcaption>
@@ -40,8 +40,8 @@ title: Home
 
 
 <section id="bio">
-  <div class="Container Container--sm">
-    <h1 class="u-textCenter">Bio</h1>
+  <div class="container">
+    <h1 class="text-center">Bio</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, tempora ipsam hic facere laboriosam dolore! Quo ut ab, adipisci velit consequatur nisi vero repellat, neque aut nemo. Perspiciatis dignissimos, autem?</p>
   </div>
 </section>
