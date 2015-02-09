@@ -2,8 +2,8 @@
 title: Home
 ---
 
-<section id="top" class="jumbotron Flex u-alignCenter">
-  <div class="container">
+<section id="top" class="Jumbotron">
+  <div class="Container">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dolor possimus, deleniti tempore magnam mollitia sequi quod soluta consequuntur aliquam ab, cum excepturi eveniet et itaque delectus corporis officiis nesciunt.</p>
   </div>
 </section>
@@ -13,20 +13,20 @@ title: Home
 
 
 <section id="work">
-  <div class="container"
+  <div class="Container"
     ng-app="portfolioApp" ng-controller="ProjectController as projectCtrl">
-    <h1 class="text-center">Work</h1>
+    <h1 class="u-alignCenter">Work</h1>
 
     <div ng-bind-html="project"></div>
 
-    <div class="row">
+    <div class="Grid-row">
       {{#withSort pages 'data.order'}}
         {{#contains dirname 'projects'}}
-        <div class="col-sm-4">
-          <figure class="thumbnail"
+        <div class="Grid-cell u-sm-size4of12">
+          <figure class="Thumbnail"
             ng-click="projectCtrl.set('{{basename}}')">
-            <img class="Figure-body" src="{{data.image.src}}" alt="{{data.image.alt}}">
-            <figcaption class="Figure-caption">{{data.summary}}</figcaption>
+            <img src="{{data.image.src}}" alt="{{data.image.alt}}" class="Image--responsive">
+            <figcaption class="Thumbnail-caption">{{data.summary}}</figcaption>
           </figure>
         </div>
         {{/contains}}
@@ -40,8 +40,8 @@ title: Home
 
 
 <section id="bio">
-  <div class="container">
-    <h1 class="text-center">Bio</h1>
+  <div class="Container">
+    <h1 class="u-alignCenter">Bio</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, tempora ipsam hic facere laboriosam dolore! Quo ut ab, adipisci velit consequatur nisi vero repellat, neque aut nemo. Perspiciatis dignissimos, autem?</p>
   </div>
 </section>

@@ -1,0 +1,9 @@
+.Collapse {
+  display: none;
+  visibility: hidden;
+
+  &.is-expanded {
+    display: block;
+    visibility: visible;
+  }
+}

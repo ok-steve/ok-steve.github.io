@@ -1,0 +1,39 @@
+// Variables
+
+$nav-link: (
+  padding:  10px 15px,
+  hover-bg: $gray-lighter
+);
+
+
+// Styles
+
+.Nav {
+  margin-bottom: 0;
+  padding-left: 0;
+
+  list-style: none;
+
+  @include clearfix;
+
+  > li {
+    position: relative;
+
+    display: block;
+
+    > a {
+      position: relative;
+
+      display: block;
+
+      padding: map-get($nav-link, padding);
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+
+        background-color: map-get($nav-link, hover-bg);
+      }
+    }
+  }
+}

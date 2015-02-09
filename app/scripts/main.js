@@ -1,6 +1,11 @@
 'use strict';
 
 (function () {
+  $('.Navbar-toggle').click(function () {
+    $('.Navbar-collapse').toggleClass('is-expanded');
+  });
+
+
   var app = angular.module('portfolioApp', []);
 
   app.controller('ProjectController', [

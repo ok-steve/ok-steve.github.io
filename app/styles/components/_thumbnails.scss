@@ -1,0 +1,32 @@
+// Variables
+
+$thumbnail: (
+  padding:           4px,
+  border:            #ddd,
+  caption-padding:   9px
+);
+
+
+// Styles
+
+.Thumbnail {
+  line-height: $line-height-base;
+
+  display: block;
+
+  margin-bottom: $line-height-computed;
+  padding: map-get($thumbnail, padding);
+
+  transition: border .2s ease-in-out;
+
+  border: 1px solid map-get($thumbnail, border);
+
+  > img {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.Thumbnail-caption {
+  padding: map-get($thumbnail, caption-padding);
+}
