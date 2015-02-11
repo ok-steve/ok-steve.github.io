@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Home
 ---
 
@@ -13,24 +14,20 @@ title: Home
 
 
 <section id="work">
-  <div class="Container"
-    ng-app="portfolioApp" ng-controller="ProjectController as projectCtrl">
+  <div class="Container">
     <h1 class="u-alignCenter">Work</h1>
 
-    <div ng-bind-html="project"></div>
-
     <div class="Grid-row">
-      {{#withSort pages 'data.order'}}
-        {{#contains dirname 'projects'}}
+      {% for post in site.posts %}
         <div class="Grid-cell u-sm-size4of12">
-          <figure class="Thumbnail"
-            ng-click="projectCtrl.set('{{basename}}')">
-            <img src="{{data.image.src}}" alt="{{data.image.alt}}" class="Image--responsive">
-            <figcaption class="Thumbnail-caption">{{data.summary}}</figcaption>
+          <figure class="Thumbnail">
+            <img src="{{ post.image.src }}" alt="{{ post.image.alt }}" class="Image--responsive">
+            <figcaption class="Thumbnail-caption">
+              <a href="{{ post.url | prepend: site.baseurl }}">{{ post.summary }}</a>
+            </figcaption>
           </figure>
         </div>
-        {{/contains}}
-      {{/withSort}}
+      {% endfor %}
     </div>
   </div>
 </section>

@@ -1,0 +1,65 @@
+<footer id="contact" role="contentinfo">
+  <div class="Container--fluid"> <!-- TODO: .Container.Container--fluid -->
+    <h1 class="u-alignCenter">Contact</h1>
+
+    <div class="Grid-row">
+      <div class="grid-cell u-md-size3of12">
+        <div class="Media">
+          <a href="mailto:{{ site.email }}" class="Media-left">
+            <span class="Icon Icon--google"></span>
+          </a>
+          <div class="Media-body">
+            <h2 class="Media-heading">Email</h2>
+            <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+          </div>
+        </div>
+      </div>
+
+      {% if site.github_username %}
+        <div class="grid-cell u-md-size3of12">
+          <div class="Media">
+            <a href="https://github.com/{{ site.github_username }}" class="Media-left">
+              <span class="Icon Icon--github"></span>
+            </a>
+            <div class="Media-body">
+              <h2 class="Media-heading">Github</h2>
+              <p><a href="https://github.com/{{ site.github_username }}">{{ site.github_username }}</a></p>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if site.twitter_username %}
+        <div class="grid-cell u-md-size3of12">
+          <div class="Media">
+            <a href="https://twitter.com/{{ site.twitter_username }}" class="Media-left">
+              <span class="Icon Icon--twitter"></span>
+            </a>
+            <div class="Media-body">
+              <h2 class="Media-heading">Twitter</h2>
+              <p><a href="https://twitter.com/{{ site.twitter_username }}">{{ site.twitter_username }}</a></p>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if site.linkedin_username %}
+        <div class="grid-cell u-md-size3of12">
+          <div class="Media">
+            <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="Media-left">
+              <span class="Icon Icon--linkedin"></span>
+            </a>
+            <div class="Media-body">
+              <h2 class="Media-heading">LinkedIn</h2>
+              <p><a href="https://linkedin.com/in/{{ site.linkedin_username }}">{{ site.linkedin_username }}</a></p>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="Container--fluid">
+    <p>All content licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
+  </div>
+</footer>

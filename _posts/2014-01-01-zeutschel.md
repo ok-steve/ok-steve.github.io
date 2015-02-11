@@ -1,11 +1,12 @@
 ---
+layout: post
 title: Zeutschel
-order: 3
+date:   2014-01-01 00:00:00
+categories: projects
 summary: Zeutschel summary
 image:
   src: http://placehold.it/420x270
   alt: Zeutschel alt text.
-layout: false
 ---
 
-<p>This is the actual Zeutschel page.</p>
+This is the actual Zeutschel page.
