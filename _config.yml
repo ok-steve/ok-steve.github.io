@@ -12,7 +12,7 @@ linkedin_username:  sccherry
 
 safe: true
 
-permalink: pretty
+permalink: /:categories/:title/
 
 defaults:
   - scope:
