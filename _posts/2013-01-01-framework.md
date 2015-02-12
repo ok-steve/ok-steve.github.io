@@ -1,6 +1,6 @@
 ---
 title: Responsive framework
-date: {}
+date: "2013-01-01"
 category: projects
 summary: Responsive framework summary
 image: "http://placehold.it/420x270"
