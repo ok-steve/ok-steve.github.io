@@ -14,7 +14,55 @@ safe: true
 
 permalink: pretty
 
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+
 # Build settings
 markdown: kramdown
 
 exclude: ["README.md", "*.sublime-*"]
+
+host: 0.0.0.0
+
+
+# Prose.io
+
+prose:
+  rooturl: "_posts"
+  siteurl: "http://stevecherry.net"
+  media: "img"
+  ignore:
+    - _config.yml
+    - /_layouts
+    - /_includes
+    - /css
+    - /js
+  metadata:
+    _posts:
+      - name: "title"
+        field:
+          element: "text"
+          label: "Title"
+      - name: "category"
+        field:
+          element: "select"
+          label: "Category"
+          placeholder: "Choose a category"
+          options:
+            - name: "Projects"
+              value: "projects"
+      - name: "summary"
+        field:
+          element: "textarea"
+          label: "Summary"
+          placeholder: "Write a summary"
