@@ -21,7 +21,7 @@ title: Home
       {% for post in site.posts %}
         <div class="col-sm-4">
           <figure class="thumbnail">
-            <img src="{{ post.image.src }}" alt="{{ post.image.alt }}">
+            <img src="{{ post.image }}" alt="{{ post.summary }}">
             <figcaption class="caption">
               <a href="{{ post.url | prepend: site.baseurl }}">{{ post.summary }}</a>
             </figcaption>
