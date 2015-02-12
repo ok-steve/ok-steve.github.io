@@ -41,12 +41,6 @@ prose:
   rooturl: "_posts"
   siteurl: "http://stevecherry.net"
   media: "img"
-  ignore:
-    - _config.yml
-    - /_layouts
-    - /_includes
-    - /css
-    - /js
   metadata:
     _posts:
       - name: "title"
@@ -63,6 +57,10 @@ prose:
               value: "projects"
       - name: "summary"
         field:
-          element: "textarea"
+          element: "text"
           label: "Summary"
           placeholder: "Write a summary"
+      - name: "image"
+        field:
+          element: "text"
+          label: "Image"
