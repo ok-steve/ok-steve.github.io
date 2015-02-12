@@ -1,9 +1,10 @@
 ---
 title: Responsive framework
-date:   2013-01-01 00:00:00
+date: {}
 category: projects
 summary: Responsive framework summary
-image: http://placehold.it/420x270
+image: "http://placehold.it/420x270"
+published: true
 ---
 
 This is the actual responsive framework page.
