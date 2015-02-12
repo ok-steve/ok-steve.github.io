@@ -1,6 +1,5 @@
 ---
 title: Zeutschel
-date: {}
 category: projects
 summary: null
 image: http://placehold.it/420x270
