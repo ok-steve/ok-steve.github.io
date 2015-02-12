@@ -64,3 +64,7 @@ prose:
         field:
           element: "text"
           label: "Image"
+      - name: "date"
+        field:
+          element: "text"
+          label: "Date"
