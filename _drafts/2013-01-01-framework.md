@@ -1,5 +1,5 @@
 ---
-title: ""
+title: Responsive Framework
 date: "2013-01-01"
 category: projects
 summary: Responsive framework summary
