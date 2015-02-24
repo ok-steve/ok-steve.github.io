@@ -1,7 +1,9 @@
 ---
 published: false
-title: Automatic Deployment
+title: Responsive Framework
 category: projects
+summary: Responsive framework summary
+image: "http://placehold.it/420x270"
 ---
 
 ## A New Post
