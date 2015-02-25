@@ -1,0 +1,23 @@
+html {
+  position: relative;
+
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: $sticky-footer-height;
+}
+
+.sticky-footer {
+  position: absolute;
+  bottom: 0;
+
+  width: 100%;
+  height: $sticky-footer-height;
+
+  background-color: $sticky-footer-bg;
+
+  p {
+    margin-top: $line-height-computed;
+  }
+}

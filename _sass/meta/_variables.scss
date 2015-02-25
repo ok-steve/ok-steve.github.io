@@ -1,0 +1,6 @@
+$font-size-base:        15px;
+$line-height-base:      1.428571429;
+$line-height-computed:  floor(($font-size-base * $line-height-base));
+
+$sticky-footer-height:  ($line-height-computed * 3);
+$sticky-footer-bg:      #f5f5f5;
