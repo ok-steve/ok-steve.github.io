@@ -2,10 +2,12 @@
 published: false
 title: Geolocation
 category: projects
-summary: Geolocation summary
+summary: Create a walking tour in Omeka.
 image: "http://placehold.it/420x270"
 ---
 
-## A New Post
+See the finished site:
+http://cuexhibits.wrlc.org/geolocation/map/browse
 
-Enter text in [Markdown](http://daringfireball.net/projects/markdown/). Use the toolbar above, or click the **?** button for formatting help.
+View the customization code:
+{% gist sccherry/4dab0972be22303379bf %}
