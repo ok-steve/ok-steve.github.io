@@ -1,9 +1,8 @@
 ---
-published: false
 title: Geolocation
 category: projects
-summary: Create a walking tour in Omeka.
-image: "http://placehold.it/420x270"
+summary: I created a mobile walking tour for Omeka.
+image: http://placehold.it/420x270
 ---
 
 See the finished site:
