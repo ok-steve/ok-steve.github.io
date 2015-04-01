@@ -17,7 +17,5 @@ body {
 
   background-color: $sticky-footer-bg;
 
-  p {
-    margin-top: $line-height-computed;
-  }
+  padding-top: $line-height-computed;
 }

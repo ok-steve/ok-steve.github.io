@@ -4,7 +4,7 @@ title: Home
 ---
 
 <section class="jumbotron">
-  <div class="container">
+  <div class="container container-fixed">
     <p>I&rsquo;m a librarian who works on computers and plays the tuba I&rsquo;m continuously trying to increase the nerdiness in my life.</p>
   </div>
 </section>
@@ -14,14 +14,14 @@ title: Home
 
 
 <section id="work">
-  <div class="container">
+  <div class="container container-fixed">
     <h1 class="text-center">Work</h1>
 
     <div class="row">
       {% for post in site.posts %}
         <div class="col-sm-4">
           <figure class="thumbnail" resource="{{ post.url }}" typeof="schema:BlogPosting">
-            <img src="{{ post.image }}" alt="{{ post.summary }}" property="schema:image">
+            <img src="{{ post.image }}" alt="{{ post.summary }}" class="img-responsive" property="schema:image">
             <figcaption class="caption" property="schema:description">
               {{ post.summary }}
             </figcaption>
@@ -37,7 +37,7 @@ title: Home
 
 
 <section id="bio">
-  <div class="container">
+  <div class="container container-fixed">
     <h1 class="text-center">Bio</h1>
     <p>I begin my library journey as a student of the University of Michigan School of Information where I focused my studies on digital archiving and programming. I have a particular interest in usability.</p>
     <p>I currently work as the Catholic University of America where I oversee all aspects of our library&rsquo;s web presence. I have been involved with a number of web develop projects, including creating a unified responsive theme for most of our public sites.
