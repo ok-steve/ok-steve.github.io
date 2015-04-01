@@ -2,19 +2,30 @@
 // Component animations
 // --------------------------------------------------
 
+
 .collapse {
   display: none;
 
-  &.in      { display: block; }
-  // [converter] extracted tr&.in to tr.collapse.in
-  // [converter] extracted tbody&.in to tbody.collapse.in
+  .collapse-toggle:checked ~ & {
+    display: block;
+  }
 }
 
-.collapsing {
-  position: relative;
-  height: 0;
-  overflow: hidden;
-  @include transition-property(height, visibility);
-  @include transition-duration(.35s);
-  @include transition-timing-function(ease);
+.collapse-toggle {
+  display: none;
+}
+
+// http://timpietrusky.com/advanced-checkbox-hack
+body {
+  -webkit-animation: bugfix infinite 1s;
+}
+
+@-webkit-keyframes bugfix {
+  from {
+    padding: 0;
+  }
+
+  to {
+    padding: 0;
+  }
 }
