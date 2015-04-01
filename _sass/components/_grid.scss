@@ -3,19 +3,26 @@
 // --------------------------------------------------
 
 
+$container: (
+  sm:   (720px + $grid-gutter-width),
+  md:   (940px + $grid-gutter-width),
+  lg:   (1140px + $grid-gutter-width)
+) !default;
+
+
 // Container widths
 //
 // Set the container width, and override it for fixed navbars in media queries.
 
 .container-fixed {
   @media (min-width: $screen-sm-min) {
-    width: $container-sm;
+    width: map-get($container, sm);
   }
   @media (min-width: $screen-md-min) {
-    width: $container-md;
+    width: map-get($container, md);
   }
   @media (min-width: $screen-lg-min) {
-    width: $container-lg;
+    width: map-get($container, lg);
   }
 }
 
@@ -30,7 +37,6 @@
   margin-left: auto;
   padding-left:  ($grid-gutter-width / 2);
   padding-right: ($grid-gutter-width / 2);
-  @include clearfix;
 }
 
 
@@ -41,7 +47,6 @@
 .row {
   margin-left:  ($grid-gutter-width / -2);
   margin-right: ($grid-gutter-width / -2);
-  @include clearfix;
 }
 
 

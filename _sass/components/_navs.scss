@@ -3,27 +3,39 @@
 // --------------------------------------------------
 
 
-// Base class
-// --------------------------------------------------
+$nav: (
+  padding:  10px 15px,
 
+  hover: (
+    background-color:   $gray-lighter
+  )
+) !default;
+
+
+// Base class
 .nav {
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
+
   list-style: none;
-  @include clearfix;
 
   > li {
     position: relative;
+
     display: block;
 
     > a {
       position: relative;
+
       display: block;
-      padding: $nav-link-padding;
+
+      padding: map-get($nav, padding);
+
       &:hover,
       &:focus {
         text-decoration: none;
-        background-color: $nav-link-hover-bg;
+
+        background-color: map-get(map-get($nav, hover), background-color);
       }
     }
   }

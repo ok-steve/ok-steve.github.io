@@ -3,23 +3,25 @@
 // --------------------------------------------------
 
 
+$jumbotron: (
+  padding:            30px,
+  background-color:   $gray-lighter,
+  font-size:          ceil(($font-size-base * 1.5))
+) !default;
+
+
 .jumbotron {
-  padding: $jumbotron-padding ($jumbotron-padding / 2);
-  margin-bottom: $jumbotron-padding;
-  color: $jumbotron-color;
-  background-color: $jumbotron-bg;
+  padding: map-get($jumbotron, padding) (map-get($jumbotron, padding) / 2);
+  margin-bottom: map-get($jumbotron, padding);
+  background-color: map-get($jumbotron, background-color);
 
   p {
-    margin-bottom: ($jumbotron-padding / 2);
-    font-size: $jumbotron-font-size;
-    font-weight: 200;
-  }
-
-  .container {
-    max-width: 100%;
+    margin-bottom: (map-get($jumbotron, padding) / 2);
+    font-size: map-get($jumbotron, font-size);
+    font-weight: 300;
   }
 
   @media screen and (min-width: $screen-sm-min) {
-    padding: ($jumbotron-padding * 1.6) 0;
+    padding: (map-get($jumbotron, padding) * 1.6) 0;
   }
 }

@@ -3,29 +3,36 @@
 // --------------------------------------------------
 
 
+$thumbnail: (
+  padding:        4px,
+  border-color:   #ddd,
+
+  caption: (
+    padding:  9px
+  )
+) !default;
+
+
 // Mixin and adjust the regular image class
 .thumbnail {
   display: block;
-  padding: $thumbnail-padding;
+
   margin-bottom: $line-height-computed;
-  line-height: $line-height-base;
-  background-color: $thumbnail-bg;
-  border: 1px solid $thumbnail-border;
-  border-radius: $thumbnail-border-radius;
+  padding: map-get($thumbnail, padding);
+
+  border: 1px solid map-get($thumbnail, border-color);
+
   @include transition(border .2s ease-in-out);
 
   > img,
   a > img {
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
   }
-
-  // [converter] extracted a&:hover, a&:focus, a&.active to a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active
 
   // Image captions
   .caption {
-    padding: $thumbnail-caption-padding;
-    color: $thumbnail-caption-color;
+    padding: map-get(map-get($thumbnail, caption), padding);
   }
 }
 
