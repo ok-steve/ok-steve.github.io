@@ -64,6 +64,20 @@ p {
   margin: 0 0 ($line-height-computed / 2);
 }
 
+@media print {
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
 .lead {
   font-size: floor($font-size-base * 1.15);
   font-weight: 300;
@@ -233,5 +247,10 @@ blockquote {
     &:before {
       content: "\2014 \00A0"; // em dash, nbsp
     }
+  }
+
+  @media print {
+    border: 1px solid #999;
+    page-break-inside: avoid;
   }
 }
