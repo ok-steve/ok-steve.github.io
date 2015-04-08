@@ -4,24 +4,41 @@
 
 
 $jumbotron: (
-  padding:            30px,
-  background-color:   $gray-lighter,
-  font-size:          ceil(($font-size-base * 1.5))
+  color:              #fff,
+  background-color:   lighten($brand-primary, 15%),
+  font-size:          ceil(($font-size-base * 2))
 ) !default;
 
 
 .jumbotron {
-  padding: map-get($jumbotron, padding) (map-get($jumbotron, padding) / 2);
   margin-bottom: map-get($jumbotron, padding);
-  background-color: map-get($jumbotron, background-color);
+
+  background: map-get($jumbotron, background-color) url("https://farm4.staticflickr.com/3905/14896983706_12cf48e02f.jpg") no-repeat;
+  background-size: cover;
+
+  .container {
+    display: table;
+    height: 56.25vw;
+  }
 
   p {
-    margin-bottom: (map-get($jumbotron, padding) / 2);
     font-size: map-get($jumbotron, font-size);
     font-weight: 300;
+
+    display: table-cell;
+
+    text-align: center;
+    vertical-align: middle;
+
+    color: map-get($jumbotron, color);
   }
 
-  @media screen and (min-width: $screen-sm-min) {
-    padding: (map-get($jumbotron, padding) * 1.6) 0;
+  @media screen and (min-width: $screen-sm-min), screen and (max-width: ($screen-lg-min - 1)) {
+    background-image: url("https://farm4.staticflickr.com/3905/14896983706_12cf48e02f_b.jpg");
+  }
+
+  @media screen and (min-width: $screen-lg-min) {
+    background-image: url("https://farm4.staticflickr.com/3905/14896983706_dec88b6591_h.jpg");
   }
 }
+
