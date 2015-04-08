@@ -6,7 +6,7 @@
 .collapse {
   display: none;
 
-  .collapse-toggle:checked ~ & {
+  input[type="checkbox"]:checked ~ & {
     display: block;
   }
 }
