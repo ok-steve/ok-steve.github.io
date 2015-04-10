@@ -3,6 +3,9 @@
 // --------------------------------------------------
 
 
+$hr-border:                   $gray-lighter !default;
+
+
 // Reset the box-sizing
 //
 // Heads up! This reset may cause conflicts with some third-party widgets.
@@ -42,8 +45,6 @@ body {
   font-family: $font-family-base;
   font-size: $font-size-base;
   line-height: $line-height-base;
-
-  margin-top: $navbar-height;
 
   color: $text-color;
 

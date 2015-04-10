@@ -3,6 +3,23 @@
 // --------------------------------------------------
 
 
+//** Blockquote small color
+$blockquote-footer-color:      $gray-light !default;
+//** Blockquote font size
+$blockquote-font-size:        ($font-size-base * 1.25) !default;
+//** Blockquote border color
+$blockquote-border-color:     $gray-lighter !default;
+//** Page header border color
+$page-header-border-color:    $gray-lighter !default;
+//** Width of horizontal description list titles
+$dl-horizontal-offset:        180px !default;
+
+$headings: (
+  font-weight:    300,
+  line-height:    1.1
+) !default;
+
+
 // Headings
 // -------------------------
 
@@ -12,8 +29,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: $headings-font-weight;
-  line-height: $headings-line-height;
+  font-weight: map-get($headings, font-weight);
+  line-height: map-get($headings, line-height);
 
   overflow: visible;
 }

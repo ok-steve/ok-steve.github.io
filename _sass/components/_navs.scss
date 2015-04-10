@@ -7,7 +7,7 @@ $nav: (
   padding:  10px 15px,
 
   hover: (
-    background-color:   $gray-lighter
+    background-color:   rgba(#000,.2)
   )
 ) !default;
 
@@ -20,13 +20,7 @@ $nav: (
   list-style: none;
 
   > li {
-    position: relative;
-
-    display: block;
-
     > a {
-      position: relative;
-
       display: block;
 
       padding: map-get($nav, padding);
@@ -34,8 +28,6 @@ $nav: (
       &:hover,
       &:focus {
         text-decoration: none;
-
-        background-color: map-get(map-get($nav, hover), background-color);
       }
     }
   }
