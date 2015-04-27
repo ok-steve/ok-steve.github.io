@@ -1,0 +1,42 @@
+---
+layout: default
+title: Home
+---
+
+<section class="jumbotron skin-primary">
+  <p>I&rsquo;m a librarian who works on computers and plays the tuba.<br>I&rsquo;m continuously trying to increase the nerdiness in my life.</p>
+</section>
+
+
+
+
+
+<section id="work">
+  <div class="container container-fixed">
+    <h1 class="text-center">Work</h1>
+
+    {% for post in site.posts %}
+      <div class="col-sm-4">
+        <figure class="thumbnail" resource="{{ post.url }}" typeof="schema:BlogPosting">
+          <img src="{{ post.image }}" alt="{{ post.summary }}" class="img-responsive" property="schema:image">
+          <figcaption class="caption" property="schema:description">
+            {{ post.summary }}
+          </figcaption>
+        </figure>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+
+
+
+
+<section id="bio">
+  <div class="container container-fixed">
+    <h1 class="text-center">Bio</h1>
+    <p>I begin my library journey as a student of the University of Michigan School of Information where I focused my studies on digital archiving and programming. I have a particular interest in user experience.</p>
+    <p>I currently work as the Catholic University of America where I oversee all aspects of our library&rsquo;s web presence. I have been involved with a number of web development projects, a small portion of which are mentioned above.
+    <p>Previously, I earned a degree in music, which I am fortuane to  be able to use playing tuba in a local <a href="http://gogosymphony.com">go-go symphony</a>.</p>
+  </div>
+</section>

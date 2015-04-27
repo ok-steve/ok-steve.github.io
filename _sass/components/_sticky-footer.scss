@@ -1,0 +1,33 @@
+//
+// Sticky footer
+// --------------------------------------------------
+
+
+$sticky-footer: (
+  height:             ($line-height-computed * 3),
+  background-color:   #f5f5f5
+) !default;
+
+
+// Sticky footer to the bottom of the screen
+html {
+  position: relative;
+
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: map-get($sticky-footer, height);
+}
+
+.sticky-footer {
+  position: absolute;
+  bottom: 0;
+
+  width: 100%;
+  height: map-get($sticky-footer, height);
+
+  background-color: map-get($sticky-footer, background-color);
+
+  padding-top: $line-height-computed;
+}

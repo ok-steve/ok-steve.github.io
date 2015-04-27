@@ -1,0 +1,162 @@
+//
+// Scaffolding
+// --------------------------------------------------
+
+
+$hr-border:                   $gray-lighter !default;
+
+
+// Reset the box-sizing
+//
+// Heads up! This reset may cause conflicts with some third-party widgets.
+// For recommendations on resolving such conflicts, see
+// http://getbootstrap.com/getting-started/#third-box-sizing
+* {
+  &,
+  &:before,
+  &:after {
+    overflow: inherit;
+
+    @include box-sizing(inherit);
+  }
+
+  @media print {
+    background: transparent !important;
+    color: #000 !important; // Black prints faster: h5bp.com/s
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+}
+
+
+// Body reset
+
+html {
+  font-size: 10px;
+
+  overflow: auto;
+
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+  @include box-sizing(border-box);
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+
+  color: $text-color;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+// Reset fonts for relevant elements
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+
+// Links
+
+a {
+  text-decoration: none;
+
+  color: $link-color;
+
+  &:hover,
+  &:focus {
+    text-decoration: $link-hover-decoration;
+
+    color: $link-hover-color;
+  }
+
+  &:focus {
+    // Default
+    outline: thin dotted;
+    // WebKit
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+  }
+
+  @media print {
+    &,
+    &:visited {
+      text-decoration: underline;
+    }
+
+    &[href]:after {
+      content: " (" attr(href) ")";
+    }
+
+    &[href^="#"]:after,
+    &[href^="javascript:"]:after {
+      content: "";
+    }
+  }
+}
+
+
+// Figures
+//
+// We reset this here because previously Normalize had no `figure` margins. This
+// ensures we don't break anyone's use of the element.
+
+figure {
+  margin: 0;
+}
+
+
+// Images
+
+img {
+  vertical-align: middle;
+
+  @media print {
+    page-break-inside: avoid;
+    max-width: 100% !important;
+  }
+}
+
+// Responsive images (ensure images don't scale beyond their parents)
+.img-responsive {
+  display: block;
+
+  max-width: 100%; // Part 1: Set a maximum relative to the parent
+  height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
+}
+
+
+// Horizontal rules
+
+hr {
+  margin-top: $line-height-computed;
+  margin-bottom: $line-height-computed;
+
+  border: 0;
+  border-top: 1px solid $hr-border;
+}
+
+
+// Only display content to screen readers
+//
+// See: http://a11yproject.com/posts/how-to-hide-content/
+
+.sr-only {
+  position: absolute;
+
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+
+  border: 0;
+}

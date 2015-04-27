@@ -1,0 +1,32 @@
+//
+// Skin
+// --------------------------------------------------
+
+
+$skin: (
+  primary: (
+    color:  #fff,
+    background-color: $brand-primary,
+
+    hover: (
+      background-color:   rgba(#000,.2)
+    )
+  )
+) !default;
+
+
+.skin-primary {
+  background-color: map-get(map-get($skin, primary), background-color);
+
+  &,
+  a {
+    color: map-get(map-get($skin, primary), color);
+  }
+
+  a {
+    &:hover,
+    &:focus {
+      background-color: map-get(map-get(map-get($skin, primary), hover), background-color);
+    }
+  }
+}
