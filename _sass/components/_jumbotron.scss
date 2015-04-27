@@ -13,6 +13,7 @@ $jumbotron: (
   display: table;
 
   height: 56.25vw;
+  width: 100%;
   margin-bottom: map-get($jumbotron, padding);
   padding: $grid-gutter-width;
 
