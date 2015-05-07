@@ -1,20 +1,22 @@
-<header class="navbar skin-primary" role="banner">
-  <div class="navbar-left">
-    <label for="navbar-toggle" class="navbar-toggle" onclick>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </label>
-    <a href="{{ site.baseurl }}/" class="navbar-brand">{{ site.title }}</a>
-  </div>
+<div class="fixed">
+<header class="top-bar" data-topbar role="banner">
+  <ul class="title-area">
+    <li class="name">
+      <h1>
+        <a href="{{ site.baseurl }}/">{{ site.title }}</a>
+      </h1>
+    </li>
+    <li class="toggle-topbar menu-icon">
+      <a href="#"><span>Menu</span></a>
+    </li>
+  </ul>
 
-  <input type="checkbox" id="navbar-toggle" class="collapse-toggle">
-
-  <nav class="collapse navbar-collapse" role="navigation">
-    <ul class="nav navbar-nav navbar-right">
+  <nav class="top-bar-section" role="navigation">
+    <ul class="right">
       <li><a href="#work">Work</a></li>
       <li><a href="#bio">Bio</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 </header>
+</div>

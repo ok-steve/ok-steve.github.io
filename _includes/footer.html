@@ -1,45 +1,35 @@
-<footer id="contact" role="contentinfo">
-  <div class="container sticky-footer">
-    <div class="col-xs-6">
-      <p class="pull-left">All content licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
-    </div>
+<footer id="contact" class="contentinfo clearfix" role="contentinfo">
+  <p class="left">All content licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
 
-    <div class="col-xs-6">
-      <ul class="list-inline pull-right">
-        <li>
-          <a href="mailto:{{ site.email }}">
-            <span class="fa fa-envelope"></span>
-            <span class="sr-only">Email me!</span>
-          </a>
-        </li>
+  <ul class="inline-list right">
+    <li>
+      <a href="mailto:{{ site.email }}" class="fi-mail">
+        <span class="show-for-sr">Email me!</span>
+      </a>
+    </li>
 
-        {% if site.github_username %}
-          <li>
-            <a href="https://github.com/{{ site.github_username }}">
-              <span class="fa fa-github-square"></span>
-              <span class="sr-only">Visit my Github repositories!</span>
-            </a>
-          </li>
-        {% endif %}
+    {% if site.github_username %}
+      <li>
+        <a href="https://github.com/{{ site.github_username }}" class="fi-social-github">
+          <span class="show-for-sr">Visit my Github repositories!</span>
+        </a>
+      </li>
+    {% endif %}
 
-        {% if site.twitter_username %}
-          <li>
-            <a href="https://twitter.com/{{ site.twitter_username }}">
-              <span class="fa fa-twitter"></span>
-              <span class="sr-only">See my tweets!</span>
-            </a>
-          </li>
-        {% endif %}
+    {% if site.twitter_username %}
+      <li>
+        <a href="https://twitter.com/{{ site.twitter_username }}" class="fi-social-twitter">
+          <span class="show-for-sr">See my tweets!</span>
+        </a>
+      </li>
+    {% endif %}
 
-        {% if site.linkedin_username %}
-          <li>
-            <a href="https://linkedin.com/in/{{ site.linkedin_username }}">
-              <span class="fa fa-linkedin"></span>
-              <span class="sr-only">Look at my LinkedIn resume!</span>
-            </a>
-          </li>
-        {% endif %}
-      </ul>
-    </div>
-  </div>
+    {% if site.linkedin_username %}
+      <li>
+        <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="fi-social-linkedin">
+          <span class="show-for-sr">Look at my LinkedIn resume!</span>
+        </a>
+      </li>
+    {% endif %}
+  </ul>
 </footer>
