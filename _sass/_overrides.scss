@@ -1,0 +1,46 @@
+figure {
+  margin: 0;
+}
+
+.panel {
+  height: 56.25vw;
+  width: 100%;
+  display: table;
+
+  > h3 {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  @media #{$small-up} {
+    background-image: url("https://farm4.staticflickr.com/3905/14896983706_12cf48e02f.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @media #{$medium-up} {
+    background-image: url("https://farm4.staticflickr.com/3905/14896983706_12cf48e02f_b.jpg");
+  }
+
+  @media #{$large-up} {
+    background-image: url("https://farm4.staticflickr.com/3905/14896983706_dec88b6591_h.jpg");
+  }
+}
+
+.th {
+  line-height: $base-line-height;
+
+  .caption {
+    padding-top: $thumb-border-width;
+  }
+}
+
+.contentinfo {
+  background-color: $white-smoke;
+  padding: rem-calc(20);
+
+  p, ul {
+    margin-bottom: 0;
+  }
+}
