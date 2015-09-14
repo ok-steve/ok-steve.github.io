@@ -5,23 +5,26 @@ published: true
 ---
 
 <section class="panel">
-  <h3>I&rsquo;m an information professional who develops software and plays the tuba.<br>I&rsquo;m continuously trying to increase the nerdiness in my life.</h3>
+  <h3 class="text-center">I&rsquo;m an information professional who develops software and plays the tuba.<br>I&rsquo;m continuously trying to increase the nerdiness in my life.</h3>
 </section>
 
 
 
 
 
-<section id="work" class="row">
+<section id="work">
   <h1 class="text-center">Work</h1>
 
   <ul class="small-block-grid-2 medium-block-grid-3" data-equalizer>
     {% for post in site.posts %}
       <li data-equalizer-watch>
-      <a href="{{ post.url }}" resource="{{ post.url }}" class="th" typeof="schema:BlogPosting">
+      <figure resource="{{ post.url }}" typeof="schema:BlogPosting">
+        <a href="{{ post.url }}" class="th">
           <img src="{{ post.image }}" alt="{{ post.summary }}" property="schema:image">
         </a>
-        <p property="schema:description">{{ post.summary }}</p>
+        <figcaption property="schema:description">
+          {{ post.summary }}
+        </figcaption>
       </li>
     {% endfor %}
     </ul>
@@ -31,7 +34,7 @@ published: true
 
 
 
-<section id="bio" class="row">
+<section id="bio">
   <h1 class="text-center">Bio</h1>
 
   <p>I began my library journey as a student of the University of Michigan School of Information where I focused my studies on digital archiving and programming. I have a particular interest in user experience.</p>

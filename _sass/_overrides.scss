@@ -9,30 +9,21 @@ figure {
 
   > h3 {
     display: table-cell;
-    text-align: center;
     vertical-align: middle;
   }
 
-  @media #{$small-up} {
+  @media #{$small-only} {
     background-image: url("https://farm4.staticflickr.com/3905/14896983706_12cf48e02f.jpg");
     background-repeat: no-repeat;
     background-size: cover;
   }
 
-  @media #{$medium-up} {
+  @media #{$medium-only} {
     background-image: url("https://farm4.staticflickr.com/3905/14896983706_12cf48e02f_b.jpg");
   }
 
-  @media #{$large-up} {
+  @media #{$large-only} {
     background-image: url("https://farm4.staticflickr.com/3905/14896983706_dec88b6591_h.jpg");
-  }
-}
-
-.th {
-  line-height: $base-line-height;
-
-  .caption {
-    padding-top: $thumb-border-width;
   }
 }
 

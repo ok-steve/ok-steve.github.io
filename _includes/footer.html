@@ -1,5 +1,37 @@
     <footer id="contact" class="contentinfo clearfix" role="contentinfo">
       <p class="left">All content licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
+
+      <ul class="inline-list right">
+        <li>
+          <a href="mailto:{{ site.email }}" class="fi-mail">
+            <span class="show-for-sr">Email me!</span>
+          </a>
+        </li>
+
+        {% if site.github_username %}
+          <li>
+            <a href="https://github.com/{{ site.github_username }}" class="fi-social-github">
+              <span class="show-for-sr">Visit my Github repositories!</span>
+            </a>
+          </li>
+        {% endif %}
+
+        {% if site.twitter_username %}
+          <li>
+            <a href="https://twitter.com/{{ site.twitter_username }}" class="fi-social-twitter">
+              <span class="show-for-sr">See my tweets!</span>
+            </a>
+          </li>
+        {% endif %}
+
+        {% if site.linkedin_username %}
+          <li>
+            <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="fi-social-linkedin">
+              <span class="show-for-sr">Look at my LinkedIn resume!</span>
+            </a>
+          </li>
+        {% endif %}
+      </ul>
     </footer>
 
     <a class="exit-off-canvas" href="#"></a>

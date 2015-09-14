@@ -1,48 +1,17 @@
 <div class="off-canvas-wrap" data-offcanvas>
   <div class="inner-wrap">
     <div class="tab-bar">
-      <div class="left-small"><button class="left-off-canvas-toggle menu-icon"><span></span></button></div>
+      <div class="left-small"><a href="#" class="left-off-canvas-toggle menu-icon"><span></span></a></div>
 
       <div class="middle tab-bar-section">
-        <h1 class="title"><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
+        <h1 class="title">{{ site.title }}</h1>
       </div>
     </div>
 
     <div class="left-off-canvas-menu">
       <ul class="off-canvas-list">
+        <li><a href="{{ site.baseurl }}/">Home</a></li>
         <li><a href="#work">Work</a></li>
         <li><a href="#bio">Bio</a></li>
-      </ul>
-
-      <ul class="inline-list">
-        <li>
-          <a href="mailto:{{ site.email }}" class="fi-mail">
-            <span class="show-for-sr">Email me!</span>
-          </a>
-        </li>
-
-        {% if site.github_username %}
-          <li>
-            <a href="https://github.com/{{ site.github_username }}" class="fi-social-github">
-              <span class="show-for-sr">Visit my Github repositories!</span>
-            </a>
-          </li>
-        {% endif %}
-
-        {% if site.twitter_username %}
-          <li>
-            <a href="https://twitter.com/{{ site.twitter_username }}" class="fi-social-twitter">
-              <span class="show-for-sr">See my tweets!</span>
-            </a>
-          </li>
-        {% endif %}
-
-        {% if site.linkedin_username %}
-          <li>
-            <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="fi-social-linkedin">
-              <span class="show-for-sr">Look at my LinkedIn resume!</span>
-            </a>
-          </li>
-        {% endif %}
       </ul>
     </div>

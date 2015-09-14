@@ -76,7 +76,7 @@ $include-html-global-classes: true;
 // b. Grid
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-$include-html-grid-classes: true;
+// $include-html-grid-classes: $include-html-classes;
 // $include-xl-html-grid-classes: false;
 
 // $row-width: rem-calc(1000);
@@ -833,9 +833,9 @@ $include-html-inline-list-classes: true;
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // Off Canvas Tab Bar Variables
-// $include-html-off-canvas-classes: $include-html-classes;
+$include-html-off-canvas-classes: true;
 
-// $tabbar-bg: $oil;
+$tabbar-bg: $primary-color;
 // $tabbar-height: rem-calc(45);
 // $tabbar-icon-width: $tabbar-height;
 // $tabbar-line-height: $tabbar-height;
@@ -1397,10 +1397,10 @@ $include-html-media-classes: true;
 // 34. Top Bar
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-$include-html-top-bar-classes: true;
+// $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: $primary-color;
+// $topbar-bg-color: $oil;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
