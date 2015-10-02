@@ -1,7 +1,5 @@
 ---
 title: STAR
-date: 2011-11-10
-category: projects
 summary: I rebuilt my library&rsquo;s intranet.
 image: https://farm9.staticflickr.com/8743/17222014752_504a995e35_n.jpg
 ---

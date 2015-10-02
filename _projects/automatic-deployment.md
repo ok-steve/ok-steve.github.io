@@ -1,7 +1,5 @@
 ---
 title: Automatic Deployment
-date: 2013-08-08
-category: projects
 summary: I used Git to speed up website deployment.
 image: http://placehold.it/320x179
 ---

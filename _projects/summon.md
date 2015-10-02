@@ -1,7 +1,5 @@
 ---
 title: Summon study
-date: 2013-08-05
-category: projects
 summary: I coordinated a comparartive usability study of Summon 1 and 2.
 image: http://placehold.it/320x179
 ---

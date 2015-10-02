@@ -1,6 +1,5 @@
 ---
 title: Linked Data
-category: articles
 summary: A practical guide to using linked data.
 image: http://placehold.it/420x270
 ---

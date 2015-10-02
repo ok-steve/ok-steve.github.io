@@ -12,19 +12,30 @@ linkedin_username:  sccherry
 
 safe: true
 
-permalink: /:categories/:title/
+permalink: /posts/:year/:month/:day/:title/
 
 defaults:
   - scope:
       path: ""
-      type: "posts"
+      type: posts
     values:
-      layout: "post"
+      layout: post
   - scope:
       path: ""
-      type: "pages"
+      type: pages
     values:
-      layout: "page"
+      layout: page
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
 
 
 # Build settings
