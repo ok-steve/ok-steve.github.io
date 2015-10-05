@@ -3,19 +3,22 @@ figure {
 }
 
 .panel {
-  height: 56.25vw;
-  width: 100%;
   display: table;
+
+  width: 100%;
+  height: 56.25vw;
+
+  background-repeat: no-repeat;
+  background-size: cover;
 
   > h3 {
     display: table-cell;
+
     vertical-align: middle;
   }
 
   @media #{$small-only} {
     background-image: url("https://farm4.staticflickr.com/3905/14896983706_12cf48e02f.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
   }
 
   @media #{$medium-only} {
@@ -28,10 +31,39 @@ figure {
 }
 
 .contentinfo {
-  background-color: $white-smoke;
   padding: rem-calc(20);
 
-  p, ul {
+  background-color: $white-smoke;
+
+  p,
+  ul {
     margin-bottom: 0;
+  }
+}
+
+.inner-wrap {
+  transition: padding-left 500ms ease 0s;
+
+  @media #{$large-up} {
+    padding-left: $off-canvas-width;
+
+    &,
+    .move-right > & {
+      transform: none;
+    }
+  }
+}
+
+.left-off-canvas-menu {
+  @media #{$large-up} {
+    position: fixed;
+
+    transform: none;
+  }
+}
+
+.tab-bar .left-small {
+  @media #{$large-up} {
+    display: none;
   }
 }
