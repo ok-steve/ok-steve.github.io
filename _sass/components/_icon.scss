@@ -1,0 +1,44 @@
+/* =========================================================================
+   Icon component
+   ========================================================================= */
+
+
+@font-face {
+  font-family: "Icon";
+
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/fonts/fontawesome-webfont.woff");
+}
+
+.Icon {
+  font-family: "Icon";
+
+  &--email {
+    &:before {
+      content: "\f003";
+    }
+  }
+
+  &--github {
+    color: #4183c4;
+
+    &:before {
+      content: "\f09b";
+    }
+  }
+
+  &--twitter {
+    color: #00aced;
+
+    &:before {
+      content: "\f099";
+    }
+  }
+
+  &--linkedin {
+    color: #007fb1;
+
+    &:before {
+      content: "\f0e1";
+    }
+  }
+}

@@ -1,0 +1,30 @@
+/* =========================================================================
+   Contentinfo component
+   ========================================================================= */
+
+
+.Contentinfo {
+  background-color: #f5f5f5;
+  padding: lines(1);
+  display: flex;
+
+  a {
+    text-decoration: none;
+  }
+
+  &-copyright {
+    flex: 1;
+  }
+
+  &-navigation {
+    margin-top: 0;
+
+    li {
+      display: inline;
+
+      + li {
+        padding-left: lines(.25);
+      }
+    }
+  }
+}
