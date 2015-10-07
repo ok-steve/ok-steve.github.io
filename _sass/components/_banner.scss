@@ -1,19 +1,38 @@
+/* =========================================================================
+   Banner component
+   ========================================================================= */
+
+
 .Banner {
+  padding: lines(1);
+
   text-align: center;
 
+  background-color: $primary-color;
+
+  a {
+    text-decoration: none;
+
+    color: #fff;
+  }
+
   &-logo {
-    width: 32px;
-    height: 32px;
-    margin: 0 auto;
+    width: lines(3);
+    height: lines(3);
+    padding: lines(.5);
+
+    border-radius: 35%;
+    background-color: #fff;
   }
 
   &-title {
-
+    overflow: visible;
   }
 
   &-navigation {
     ul {
       padding-left: 0;
+
       list-style: none;
     }
 
@@ -24,8 +43,6 @@
 
   @media (min-width: $layout-breakpoint) {
     &-navigation {
-      text-align: initial;
-
       li {
         display: list-item;
       }
