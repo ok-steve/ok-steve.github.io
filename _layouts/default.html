@@ -17,11 +17,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 </head>
 <body prefix="schema: http://schema.org/">
-  {% include header.html %}
+  <div class="Layout">
+    <div class="Layout-sidebar">
+      {% include header.html %}
+    </div>
 
-  {{ content }}
+    <div class="Layout-body">
+      {{ content }}
 
-  {% include footer.html %}
+      {% include footer.html %}
+    </div>
+  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="{{ "/js/main.js" | prepend: site.baseurl }}"></script>

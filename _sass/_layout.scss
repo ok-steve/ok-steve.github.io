@@ -1,0 +1,15 @@
+$layout-breakpoint: 33em;
+$layout-sidebar-width: 25%;
+
+.Layout {
+  @media (min-width: $layout-breakpoint) {
+    &-sidebar {
+      position: fixed;
+      width: 25%;
+    }
+
+    &-body {
+      margin-left: 25%;
+    }
+  }
+}
