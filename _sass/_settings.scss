@@ -9,7 +9,7 @@
 
 $default-font-size:   1rem;
 $default-line-height: 1.5rem;
-$default-ratio:       1.618;
+$default-ratio:       1.618; // Golden ratio
 
 $default-font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
@@ -27,5 +27,5 @@ $secondary-color: #f00;
  * Layout
  */
 
-$layout-breakpoint:     33em;
-$layout-sidebar-width:  25%;
+$layout-breakpoint:     36em; // Measure
+$layout-sidebar-width:  ((100 - (100 / $default-ratio)) * 1%);
