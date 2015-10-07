@@ -1,49 +1,51 @@
 <footer class="Contentinfo" role="contentinfo">
-  <h2>{{ site.title }}</h2>
+  <div class="Container">
+    <h2>{{ site.title }}</h2>
 
-  <div class="Grid">
-    <div class="Grid-cell u-flex1">
-      <p>All content licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
-    </div>
+    <div class="Grid">
+      <div class="Grid-cell u-flex1">
+        <p>All content licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
+      </div>
 
-    <div class="Grid-cell u-flex1">
-        <nav class="Contentinfo-navigation" role="navigation">
-          <ul>
-            <li>
-              <a href="mailto:{{ site.email }}"  class="Icon Icon--email">
-                <span class="u-hideVisually">Email me!</span>
-              </a>
-            </li>
-
-            {% if site.github_username %}
+      <div class="Grid-cell u-flex1">
+          <nav class="Contentinfo-navigation" role="navigation">
+            <ul>
               <li>
-                <a href="https://github.com/{{ site.github_username }}"  class="Icon Icon--github">
-                  <span class="u-hideVisually">Visit my Github repositories!</span>
+                <a href="mailto:{{ site.email }}"  class="Icon Icon--email">
+                  <span class="u-hideVisually">Email me!</span>
                 </a>
               </li>
-            {% endif %}
 
-            {% if site.twitter_username %}
-              <li>
-                <a href="https://twitter.com/{{ site.twitter_username }}" class="Icon Icon--twitter">
-                  <span class="u-hideVisually">See my tweets!</span>
-                </a>
-              </li>
-            {% endif %}
+              {% if site.github_username %}
+                <li>
+                  <a href="https://github.com/{{ site.github_username }}"  class="Icon Icon--github">
+                    <span class="u-hideVisually">Visit my Github repositories!</span>
+                  </a>
+                </li>
+              {% endif %}
 
-            {% if site.linkedin_username %}
-              <li>
-                <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="Icon Icon--linkedin">
-                  <span class="u-hideVisually">Look at my LinkedIn resume!</span>
-                </a>
-              </li>
-            {% endif %}
-          </ul>
-        </nav>
-    </div>
+              {% if site.twitter_username %}
+                <li>
+                  <a href="https://twitter.com/{{ site.twitter_username }}" class="Icon Icon--twitter">
+                    <span class="u-hideVisually">See my tweets!</span>
+                  </a>
+                </li>
+              {% endif %}
 
-    <div class="Grid-cell u-flex2">
-      <p>{{ site.description }}</p>
+              {% if site.linkedin_username %}
+                <li>
+                  <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="Icon Icon--linkedin">
+                    <span class="u-hideVisually">Look at my LinkedIn resume!</span>
+                  </a>
+                </li>
+              {% endif %}
+            </ul>
+          </nav>
+      </div>
+
+      <div class="Grid-cell u-flex2">
+        <p>{{ site.description }}</p>
+      </div>
     </div>
   </div>
 </footer>

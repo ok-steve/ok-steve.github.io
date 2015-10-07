@@ -1,9 +1,14 @@
 /* =========================================================================
-   Main component
+   Container component
    ========================================================================= */
 
 
-.Main {
-  padding-right: lines(1);
-  padding-left: lines(1);
+.Container {
+  margin-right: auto;
+  margin-left: auto;
+  padding: lines(1);
+
+  &--measure {
+    max-width: $layout-breakpoint;
+  }
 }
