@@ -6,8 +6,9 @@
 @font-face {
   font-family: "Icon";
 
-  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/fonts/fontawesome-webfont.woff");
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/fonts/fontawesome-webfont.woff") format("woff");
 }
+
 
 .Icon {
   font-family: "Icon";
@@ -19,26 +20,26 @@
   }
 
   &--github {
-    color: #4183c4;
-
     &:before {
       content: "\f09b";
+
+      color: #4183c4;
     }
   }
 
   &--twitter {
-    color: #00aced;
-
     &:before {
       content: "\f099";
+
+      color: #00aced;
     }
   }
 
   &--linkedin {
-    color: #007fb1;
-
     &:before {
       content: "\f0e1";
+
+      color: #007fb1;
     }
   }
 }
