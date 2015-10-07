@@ -1,0 +1,122 @@
+/* =========================================================================
+   Base styles
+   ========================================================================= */
+
+
+/*------------------------------------*\
+    #BASE
+\*------------------------------------*/
+
+
+* {
+  &,
+  &:before,
+  &:after {
+    overflow: inherit;
+
+    box-sizing: inherit;
+  }
+
+  & + & {
+    margin-top: lines(1);
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+html {
+  font-family: $default-font-family;
+  font-size: 100%;
+
+  overflow: auto;
+
+  box-sizing: border-box;
+
+  color: $default-color;
+}
+
+body {
+  @include font-size(ms(0));
+}
+
+
+%Heading {
+  margin-bottom: 0;
+}
+
+h1 {
+  @include font-size(ms(3));
+
+  @extend %Heading;
+}
+
+h2 {
+  @include font-size(ms(2));
+
+  @extend %Heading;
+}
+
+h3 {
+  @include font-size(ms(1));
+
+  @extend %Heading;
+}
+
+h4 {
+  @include font-size(ms(0));
+
+  @extend %Heading;
+}
+
+h5 {
+  @include font-size(ms(-1));
+
+  @extend %Heading;
+}
+
+h6 {
+  @include font-size(ms(-2));
+
+  @extend %Heading;
+}
+
+
+p {
+  margin-bottom: 0;
+}
+
+
+blockquote {
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+
+ul,
+ol {
+  overflow: visible;
+
+  margin-bototm: 0;
+}
+
+li {
+  margin-top: 0;
+}
+
+
+dl {
+  margin-bottom: 0;
+}
+
+
+dd {
+  margin-top: 0;
+}
+
+
+hr {
+  border-top: 1px solid;
+}
