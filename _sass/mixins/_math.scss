@@ -1,15 +1,12 @@
 /* =========================================================================
-   Sticky Footer component
+   Math mixins
    ========================================================================= */
 
 
-.StickyFooter {
-  @include display-flex();
-  @include flex-direction(column);
-
-  min-height: 100vh;
-
-  &-content {
-    @include flex(1);
+@function gcd($x, $y) {
+  @if $y == 0 {
+    @return $x;
+  } @else {
+    @return gcd($y, $x%$y);
   }
 }

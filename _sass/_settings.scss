@@ -30,3 +30,10 @@ $secondary-color: #f00;
 
 $layout-breakpoint:     36em; // Measure
 $layout-sidebar-width:  ((100 - (100 / $default-ratio)) * 1%);
+
+
+/**
+ * Grid
+ */
+
+$grid-columns:  12;

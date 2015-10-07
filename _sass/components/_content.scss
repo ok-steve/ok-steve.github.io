@@ -9,8 +9,9 @@
   &-text {
     // Depends on Modernizr
     .csshyphens & {
+      @include hyphens(auto);
+
       text-align: justify;
-      hyphens: auto;
     }
 
     p + p:not(:nth-child(2)) {
@@ -29,7 +30,7 @@
 
         float: left;
 
-        padding-top: 8px;
+        padding-top: 8px; // magic number
         padding-right: lines(.5);
       }
     }
@@ -37,7 +38,13 @@
     // Run in paragraph
     h3 + p {
       &::first-line {
-        font-variant: small-caps;
+        font-size: 80%;
+
+        text-transform: uppercase;
+      }
+
+      &::first-letter {
+        font-size: 100%;
       }
     }
 
@@ -49,5 +56,5 @@
 }
 
 .footnotes {
-  font-size: ms(-1);
+  @include font-size(ms(-1));
 }

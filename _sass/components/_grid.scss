@@ -3,26 +3,28 @@
    ========================================================================= */
 
 
-/*------------------------------------*\
-    #UTILITIES
-\*------------------------------------*/
-
-@for $i from 1 through 2 {
-  .u-flex#{$i} {
-    flex: $i;
-  }
-}
-
-/*------------------------------------*\
-    #COMPONENTS
-\*------------------------------------*/
-
 .Grid {
-  display: flex;
+  @include display-flex();
 
   &-cell {
     & + & {
       margin-top: 0;
+    }
+
+    @for $i from 1 through $grid-columns {
+      $gcd: gcd($i, $grid-columns);
+
+      &--#{$i / $gcd}of#{$grid-columns / $gcd} {
+        @include flex($i);
+
+        .no-flexbox & {
+          width: ($i / $grid-columns) * 100%;
+        }
+      }
+    }
+
+    .no-flexbox & {
+      float: left;
     }
   }
 }
