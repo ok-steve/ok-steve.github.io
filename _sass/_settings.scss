@@ -18,6 +18,14 @@ $default-font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, san
  * Colors
  */
 
-$default-color: #222;
+$default-color:   #222;
+$primary-color:   #0f0;
+$secondary-color: #f00;
 
-$layout-breakpoint: 33em;
+
+/**
+ * Layout
+ */
+
+$layout-breakpoint:     33em;
+$layout-sidebar-width:  25%;
