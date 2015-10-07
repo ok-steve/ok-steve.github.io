@@ -5,10 +5,9 @@ $layout-sidebar-width: 25%;
     &-sidebar {
       position: fixed;
       width: 25%;
+      left: 0;
     }
 
-    &-body {
-      margin-left: 25%;
-    }
+    margin-left: 25%;
   }
 }
