@@ -6,9 +6,9 @@
 
     <nav class="Banner-navigation" role="navigation">
       <ul>
-        <li><a href="{{ site.baseurl }}/about/">About</a></li>
-        <li><a href="{{ site.baseurl }}/projects/">Projects</a></li>
-        <li><a href="{{ site.baseurl }}/posts/">Posts</a></li>
+        {% for page in site.pages %}
+          <li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+        {% endfor %}
       </ul>
     </nav>
   </div>
