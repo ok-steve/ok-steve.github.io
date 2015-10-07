@@ -13,6 +13,14 @@
 .Icon {
   font-family: "Icon";
 
+  &--feed {
+    &:before {
+      content: "\f09e";
+
+      color: #ff8300;
+    }
+  }
+
   &--email {
     &:before {
       content: "\f003";

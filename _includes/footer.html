@@ -11,6 +11,12 @@
           <nav class="Contentinfo-navigation" role="navigation">
             <ul>
               <li>
+                <a href="{{ "/feed.xml" | prepend: site.baseurl }}" class="Icon Icon--feed">
+                  <span class="u-hideVisually">Subscribe via RSS</span>
+                </a>
+              </li>
+
+              <li>
                 <a href="mailto:{{ site.email }}"  class="Icon Icon--email">
                   <span class="u-hideVisually">Email me!</span>
                 </a>
