@@ -1,0 +1,19 @@
+---
+layout: default
+title: Projects
+permalink: /projects/
+---
+
+<h2>Projects</h2>
+
+{% for project in site.projects %}
+  <figure resource="{{ project.url }}" typeof="schema:BlogPosting">
+    <a href="{{ project.url }}">
+      <img src="{{ project.image }}" alt="{{ project.summary }}" property="schema:image">
+    </a>
+
+    <figcaption property="schema:description">
+      {{ project.summary }}
+    </figcaption>
+  </figure>
+{% endfor %}

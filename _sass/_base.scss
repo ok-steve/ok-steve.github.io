@@ -1,0 +1,308 @@
+/* =========================================================================
+   Base styles
+   ========================================================================= */
+
+
+* {
+  &,
+  &:before,
+  &:after {
+    overflow: inherit;
+
+    box-sizing: inherit;
+  }
+
+  & + & {
+    margin-top: lines(1);
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+
+html {
+  font-family: $default-font-family;
+  font-size: 100%;
+
+  overflow: auto;
+
+  box-sizing: border-box;
+
+  color: $default-color;
+
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+
+body {
+  font-size: ms(0);
+  line-height: lines(1);
+
+  margin: 0;
+}
+
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+
+nav {
+  ul {
+    padding-left: 0;
+
+    list-style: none;
+  }
+
+  li {
+    display: inline;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+
+
+
+
+/*------------------------------------*\
+    #TEXT
+\*------------------------------------*/
+
+
+%Heading {
+  margin-bottom: 0;
+}
+
+h1 {
+  @include font-size(ms(3));
+
+  @extend %Heading;
+}
+
+h2 {
+  @include font-size(ms(2));
+
+  @extend %Heading;
+}
+
+h3 {
+  @include font-size(ms(1));
+
+  @extend %Heading;
+}
+
+h4 {
+  @include font-size(ms(0));
+
+  @extend %Heading;
+}
+
+h5 {
+  @include font-size(ms(-1));
+
+  @extend %Heading;
+}
+
+h6 {
+  @include font-size(ms(-2));
+
+  @extend %Heading;
+}
+
+
+p {
+  margin-bottom: 0;
+}
+
+
+blockquote {
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+
+ul,
+ol {
+  overflow: visible;
+
+  margin-bottom: 0;
+}
+
+li {
+  margin-top: 0;
+}
+
+
+dl {
+  margin-bottom: 0;
+}
+
+dd {
+  margin-top: 0;
+}
+
+
+hr {
+  margin-bottom: 0;
+
+  border: 0;
+  border-top: 1px solid;
+}
+
+
+a {
+  background-color: transparent;
+
+  &:active,
+  &:hover {
+    outline: 0;
+  }
+}
+
+
+b,
+strong {
+  font-weight: bold;
+}
+
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+
+  position: relative;
+
+  vertical-align: baseline;
+}
+
+sup {
+  top: -.5em;
+}
+
+sub {
+  bottom: -.25em;
+}
+
+
+
+
+
+/*------------------------------------*\
+    #CODE
+\*------------------------------------*/
+
+
+code,
+kbd,
+pre,
+samp {
+  font-family: $font-family-code;
+}
+
+pre {
+  overflow: auto;
+
+  margin-bottom: 0;
+}
+
+
+
+
+
+/*------------------------------------*\
+    #EMBEDDED_CONTENT
+\*------------------------------------*/
+
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+
+img,
+canvas,
+iframe,
+video,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+
+img {
+  border: 0;
+}
+
+
+iframe {
+  border: 0;
+}
+
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+
+figure {
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+
+
+
+
+/*------------------------------------*\
+    #TABLES
+\*------------------------------------*/
+
+
+table {
+  width: 100%;
+
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+
+td,
+th {
+  padding: 0;
+}
+
+
+th {
+  text-align: left;
+}

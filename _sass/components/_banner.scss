@@ -1,0 +1,39 @@
+/* =========================================================================
+   Banner component
+   ========================================================================= */
+
+
+.Banner {
+  padding: lines(1);
+
+  text-align: center;
+
+  background-color: $primary-color;
+
+  a {
+    text-decoration: none;
+
+    color: #fff;
+  }
+
+  &-logo {
+    width: lines(3);
+    height: lines(3);
+    padding: lines(.5);
+
+    border-radius: 35%;
+    background-color: #fff;
+  }
+
+  &-title {
+    overflow: visible;
+  }
+
+  @media (min-width: $layout-breakpoint) {
+    &-navigation {
+      li {
+        display: list-item;
+      }
+    }
+  }
+}

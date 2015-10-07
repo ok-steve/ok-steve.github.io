@@ -2,5 +2,7 @@
 ---
 
 @import "settings";
-@import "foundation";
-@import "overrides";
+@import "mixins";
+@import "base";
+@import "utilities";
+@import "components";

@@ -1,17 +1,13 @@
-<div class="off-canvas-wrap" data-offcanvas>
-  <div class="inner-wrap">
-    <div class="tab-bar">
-      <div class="left-small"><a href="#" class="left-off-canvas-toggle menu-icon"><span></span></a></div>
+<div class="Banner Layout-sidebar" role="banner">
+  <img src="{{site.baseurl }}/img/cherry.svg" alt="logo" class="Banner-logo">
 
-      <div class="middle tab-bar-section">
-        <h1 class="title">{{ site.title }}</h1>
-      </div>
-    </div>
+  <h1 class="Banner-title"><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
 
-    <div class="left-off-canvas-menu">
-      <ul class="off-canvas-list">
-        <li><a href="{{ site.baseurl }}/">Home</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#bio">Bio</a></li>
-      </ul>
-    </div>
+  <nav class="Banner-navigation" role="navigation">
+    <ul>
+      <li><a href="{{ site.baseurl }}/about/">About</a></li>
+      <li><a href="{{ site.baseurl }}/projects/">Projects</a></li>
+      <li><a href="{{ site.baseurl }}/posts/">Posts</a></li>
+    </ul>
+  </nav>
+</div>
