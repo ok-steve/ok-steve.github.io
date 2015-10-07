@@ -1,0 +1,60 @@
+/* =========================================================================
+   Content component
+   ========================================================================= */
+
+
+.Content {
+  padding-right: lines(1);
+  padding-left: lines(1);
+  max-width: $layout-breakpoint;
+  margin-right: auto;
+  margin-left: auto;
+  overflow: visible;
+
+  &-text {
+    // Depends on Modernizr
+    .csshyphens & {
+      text-align: justify;
+      hyphens: auto;
+    }
+
+    p + p:not(:nth-child(2)) {
+      margin-top: 0;
+
+      text-indent: lines(2);
+    }
+
+    // Lead paragraph
+    > p:first-child {
+      @include font-size(ms(1));
+
+      //margin-bottom: lines(1);
+
+      + p::first-letter {
+        font-size: lines(3);
+        line-height: 1;
+
+        float: left;
+
+        padding-top: 8px;
+        padding-right: lines(.5);
+      }
+    }
+
+    // Run in paragraph
+    h3 + p {
+      &::first-line {
+        font-variant: small-caps;
+      }
+    }
+
+    ul,
+    ol {
+      padding-left: 0;
+    }
+  }
+}
+
+.footnotes {
+  font-size: ms(-1);
+}
