@@ -29,18 +29,6 @@
     overflow: visible;
   }
 
-  &-navigation {
-    ul {
-      padding-left: 0;
-
-      list-style: none;
-    }
-
-    li {
-      display: inline;
-    }
-  }
-
   @media (min-width: $layout-breakpoint) {
     &-navigation {
       li {
