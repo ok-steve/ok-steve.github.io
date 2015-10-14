@@ -22,7 +22,7 @@
       + p:not(:nth-child(2)) {
         margin-top: 0;
 
-        text-indent: lines(.25);
+        text-indent: lines(1);
       }
     }
 
@@ -31,26 +31,28 @@
       @include font-size(ms(1));
 
       + p::first-letter {
-        font-size: lines(3);
+        font-size: lines(2.5);
         line-height: 1;
 
         float: left;
 
-        padding-top: 8px; // magic number
-        padding-right: lines(.5);
+        padding-top: lines(.25); // magic number
+        padding-right: lines(.25);
       }
     }
 
     // Run in paragraph
     h3 + p {
       &::first-line {
-        font-size: 80%;
+        font-size: .8em;
 
         text-transform: uppercase;
       }
 
       &::first-letter {
-        font-size: 100%;
+        @include font-size(ms(0));
+
+        line-height: 1;
       }
     }
 
