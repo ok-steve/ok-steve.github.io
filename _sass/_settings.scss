@@ -28,7 +28,7 @@ $secondary-color: #f00;
  * Layout
  */
 
-$layout-breakpoint:     36em; // Measure
+$layout-breakpoint:     36em;
 $layout-sidebar-width:  ((100 - (100 / $default-ratio)) * 1%);
 
 
@@ -37,3 +37,10 @@ $layout-sidebar-width:  ((100 - (100 / $default-ratio)) * 1%);
  */
 
 $grid-columns:  12;
+
+
+/**
+ * Content
+ */
+
+$content-measure: $layout-breakpoint;
