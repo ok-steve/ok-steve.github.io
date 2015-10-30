@@ -1,3 +1,4 @@
+
 /* =========================================================================
    Content component
    ========================================================================= */
@@ -7,6 +8,8 @@
   overflow: visible;
 
   &-text {
+    max-width: $content-measure;
+
     // Depends on Modernizr
     .csshyphens & {
       @include hyphens(auto);
@@ -15,9 +18,6 @@
     }
 
     p {
-      max-width: $content-measure;
-      margin-right: auto;
-      margin-left: auto;
 
       + p:not(:nth-child(2)) {
         margin-top: 0;
