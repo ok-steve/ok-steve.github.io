@@ -23,7 +23,7 @@
 
 
 html {
-  font-family: $default-font-family;
+  font-family: caption, sans-serif;
   font-size: 100%;
 
   overflow: auto;
@@ -34,6 +34,10 @@ html {
 
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
+
+  &.wf-active {
+    font-family: $default-font-family;
+  }
 }
 
 
