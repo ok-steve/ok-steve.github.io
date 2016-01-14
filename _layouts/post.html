@@ -2,14 +2,14 @@
 layout: default
 ---
 
-<article class="Content Content--post">
+<article class="Longform Content Content--post">
 
   <header>
     <h2>{{ page.title }}</h2>
     <p>{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} | {{ page.author }}{% endif %}{% if page.meta %} | {{ page.meta }}{% endif %}</p>
   </header>
 
-  <div class="Content-text">
+  <div class="Content-body">
     {{ content }}
   </div>
 
