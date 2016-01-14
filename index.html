@@ -1,15 +1,12 @@
 ---
-layout: default
-published: true
+title: Home
 ---
-
-
 
 <section class="Content Content--page">
 
   <div class="Content-text">
-    <section class="panel">
-      <h3 class="text-center">I&rsquo;m an information professional who develops software and plays the tuba.<br>I&rsquo;m continuously trying to increase the nerdiness in my life.</h3>
+    <section>
+      <h3>I&rsquo;m an information professional who develops software and plays the tuba.<br>I&rsquo;m continuously trying to increase the nerdiness in my life.</h3>
     </section>
 
 
@@ -17,13 +14,13 @@ published: true
 
 
     <section id="work">
-      <h1 class="text-center">Work</h1>
+      <h1>Work</h1>
 
-      <ul class="small-block-grid-2 medium-block-grid-3" data-equalizer>
+      <ul>
         {% for post in site.posts %}
-          <li data-equalizer-watch>
+          <li>
             <figure resource="{{ post.url }}" typeof="schema:BlogPosting">
-              <a href="{{ post.url }}" class="th">
+              <a href="{{ post.url }}">
                 <img src="{{ post.image }}" alt="{{ post.summary }}" property="schema:image">
               </a>
               <figcaption property="schema:description">
@@ -32,7 +29,7 @@ published: true
             </figure>
           </li>
         {% endfor %}
-        </ul>
+      </ul>
     </section>
 
 
@@ -40,7 +37,7 @@ published: true
 
 
     <section id="bio">
-      <h1 class="text-center">Bio</h1>
+      <h1>Bio</h1>
 
       <p>I began my library journey as a student of the University of Michigan School of Information where I focused my studies on digital archiving and programming. I have a particular interest in user experience.</p>
       <p>I currently work at the Catholic University of America where I oversee all aspects of our library&rsquo;s web presence. I have been involved with a number of web development projects, a small portion of which are mentioned above.
