@@ -1,0 +1,29 @@
+/*------------------------------------*\
+    #FUNCTIONS
+\*------------------------------------*/
+
+
+@function config($map, $list...) {
+  $val: $map;
+
+  @for $i from 1 through length($list) {
+    $val: map-get($val, nth($list, $i));
+  }
+
+  @return $val;
+}
+
+
+
+
+
+/*------------------------------------*\
+    #IMPORTS
+\*------------------------------------*/
+
+
+@import "mixins/math";
+@import "mixins/vendor-prefix";
+@import "mixins/typography";
+@import "mixins/responsive";
+@import "mixins/flexbox";

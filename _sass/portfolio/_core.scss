@@ -1,9 +1,10 @@
 /* =========================================================================
-   Container component
+   Core styles
    ========================================================================= */
 
 
-.Container {
-  margin-right: auto;
-  margin-left: auto;
+html {
+  &.wf-active {
+    font-family: $webfont; // TODO use webfont mixin to support IE
+  }
 }

@@ -1,0 +1,80 @@
+/*------------------------------------*\
+    #COMPONENTS
+\*------------------------------------*/
+
+
+// Paragraph variations
+//
+// Markup:
+// <p class="{$modifiers}">Lorem lean startup ipsum product market fit customer development acquihire technical cofounder.</p>
+//
+// .Longform-lead - Lead paragraph
+// .Longform-runIn - Small capitals on first line
+// .Longform-dropCaps - Drop caps
+//
+// Styleguide 3.6.1
+
+%Longform {
+  $longform: (
+    measure: 36rem,
+    indent: $default-line-height
+  ) !default;
+
+  overflow: visible; // for overhanging lists
+  max-width: map-get($longform, measure);
+
+  p {
+    + p {
+      margin-top: 0;
+      text-indent: map-get($longform, indent);
+    }
+
+    .csshyphens & {
+      @include hyphens(auto);
+
+      text-align: justify;
+    }
+  }
+
+  ul,
+  ol {
+    padding-left: 0;
+
+    ul,
+    ol {
+      padding-left: map-get($longform, indent);
+    }
+  }
+
+  // Descendants
+
+  &-lead {
+    font-size: ms(1);
+    line-height: 1;
+
+    + p {
+      text-indent: none;
+    }
+  }
+
+  &-runIn {
+    &::first-line {
+      font-variant: small-caps;
+    }
+  }
+
+  &-dropCaps {
+    &::first-letter {
+      font-size: lines(2);
+      line-height: lines(2);
+
+      float: left;
+
+      padding-right: lines(.25);
+    }
+  }
+
+  &-footnotes {
+    font-size: ms(-1);
+  }
+}

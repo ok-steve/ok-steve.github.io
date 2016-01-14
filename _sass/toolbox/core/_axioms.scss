@@ -1,0 +1,1088 @@
+// Only in menu: a, aside, bgsound, blockquote, body, command, font, iframe, image, img, link, marquee, meta, multicol, nobr, noframes, picture, textarea
+// Basic elements: html
+// Document metadata: base head style title
+// Content sectioning: address article footer header h1-6 hgroup nav section
+// Text content: dd div dl dt figcaption figure hr li main ol p pre ul
+// Inline text semantics: abbr b bdi bdo br cite code data dfn em i kbd mark q rp rt rtc ruby s samp small span strong sub sup time u var wbr
+// Image and multimedia: area audio map track video
+// Embedded content: embed object param source
+// Scripting: canvas noscript script
+// Demarcating edits: del ins
+// Table content: caption col colgroup table tbody td tfoot th thead tr
+// Forms: button datalist fieldset form input keygen label legend meter optgroup option output pogress select
+// Interactive elements: details dialog menu menuitem summaru
+// Web components: content, (decorator), element, shadow, template
+// Obsolete and deprecated elements: acronym applet basefont big blink center dir frame frameset isindex listing noembed plaintext spacer strike tt xmp
+
+
+
+
+
+/*------------------------------------*\
+    #BASE
+\*------------------------------------*/
+
+
+// Universal inheritance and opinionated defaults
+*,
+::before,
+::after {
+  overflow: inherit;
+
+  box-sizing: inherit;
+  border: 0 solid currentColor; // specify the border of all elements
+}
+
+// specify the core styles of all elements
+* {
+  font-size: inherit;
+  line-height: inherit;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+
+  + * {
+    margin-top: lines(1); // http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
+  }
+
+  &:first-child {
+//    margin-top: 0;
+  }
+
+  @media print {
+    color: #000 !important; // Black prints faster: h5bp.com/s
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+}
+
+::before,
+::after {
+  text-decoration: inherit;
+  vertical-align: inherit;
+}
+
+
+/**
+ * 1. Set default font family.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+
+html {
+  font-size: 100%;  // 1, h5bp, sanitize
+
+  overflow: auto; // https://css-tricks.com/universal-overflow-auto/
+//  overflow-y: scroll; // All browsers without overlaying scrollbars
+
+  box-sizing: border-box; // https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+
+  color: $default-color; // h5bp, sanitize
+  background-color: #fff; // https://css-tricks.com/html-vs-body-in-css/
+
+  cursor: default;
+  text-rendering: optimizeLegibility;
+
+  -webkit-text-size-adjust: 100%; // 2, iOS 8+
+      -ms-text-size-adjust: 100%; // 2
+  -webkit-tap-highlight-color: rgba(#000,0);
+  -ms-overflow-style: -ms-autohiding-scrollbar; // Edge 12+, Internet Explorer 11-
+}
+
+
+/**
+ * 1. Remove default margin.
+ */
+
+body {
+  font-family: $default-font-family;  // 1, h5bp, sanitize, https://css-tricks.com/html-vs-body-in-css/
+
+  font-size: ms(0); // h5bp
+  line-height: lines(1); // h5bp
+
+//  margin: 0; // 1
+  margin-top: 0;
+
+//  text-rendering: optimizeLegibility;
+}
+
+
+// h5bp
+// FIXME add vendor prefix mixin
+::selection {
+  background-color: #b3d4fc; // required when declaring ::selection
+  color: #fff;
+  text-shadow: none;
+}
+
+
+/**
+ * Sectioning elements
+ *
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+
+article,
+aside,
+details, // Edge 12+, Firefox 40+, Internet Explorer 11-, Windows Phone 8.1+
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main, // Android 4.3-, Internet Explorer 11-, Windows Phone 8.1+
+menu,
+nav,
+section,
+summary { // Firefox 40+, Internet Explorer 11-, Windows Phone 8.1+
+  display: block;
+}
+
+// specify the list style of nav lists
+
+nav {
+  ol,
+  ul {
+    list-style: none;
+  }
+}
+
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+
+[hidden], // Internet Explorer 10-
+template { // Android 4.3-, Internet Explorer 11-, iOS 7-, Safari 7-, Windows Phone 8.1+
+  display: none;
+}
+
+
+
+
+
+// Text
+//
+// Styleguide 1.1
+
+// h5bp
+@media print {
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
+
+// Headings
+//
+// Markup:
+// <h1>Heading level 1</h1>
+// <h2>Heading level 2</h2>
+// <h3>Heading level 3</h3>
+// <h4>Heading level 4</h4>
+// <h5>Heading level 5</h5>
+// <h6>Heading level 6</h6>
+//
+// Styleguide 1.1.1
+
+/**
+ * 1. Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+
+%Heading {
+  font-weight: 700;
+
+//  margin-bottom: 0; // 1
+}
+
+h1 {
+  @include font-size(ms(3)); // 1
+  @extend %Heading;
+}
+
+h2 {
+  @include font-size(ms(2));
+  @extend %Heading;
+}
+
+h3 {
+  @include font-size(ms(1));
+  @extend %Heading;
+}
+
+h4 {
+  @include font-size(ms(0));
+  @extend %Heading;
+}
+
+h5 {
+  @include font-size(ms(-1));
+  @extend %Heading;
+}
+
+h6 {
+  @include font-size(ms(-2));
+  @extend %Heading;
+}
+
+
+// Paragraph
+//
+// Markup:
+// <p>Lorem lean startup ipsum product market fit customer development acquihire technical cofounder.</p>
+// <p>User engagement A/B testing shrink a market venture capital pitch deck.</p>
+//
+// Styleguide 1.1.2
+
+p {
+//  margin-bottom: 0;
+}
+
+
+// Blockquote
+//
+// Markup:
+// <blockquote><p>Lorem lean startup ipsum product market fit customer development acquihire technical cofounder.</p></blockquote>
+//
+// Styleguide 1.1.3
+
+blockquote {
+//  margin-right: 0;
+//  margin-bottom: 0;
+//  margin-left: 0;
+
+  // h5bp
+  @media print {
+    border: 1px solid #999;
+
+    page-break-inside: avoid;
+  }
+}
+
+
+// Unordered lists
+//
+// Markup:
+// <ul>
+//  <li>List item
+//    <ul><li>Nested list item</li></ul>
+//  </li>
+//  <li>List item</li>
+// </ul>
+//
+// Styleguide 1.1.4
+
+// Ordered lists
+//
+// Markup:
+// <ol>
+//  <li>List item
+//    <ol><li>Nested list item</li></ol>
+//  </li>
+//  <li>List item</li>
+// </ol>
+//
+// Styleguide 1.1.5
+
+ul,
+ol {
+  overflow: visible; // TODO only on longform
+
+//  margin-bottom: 0;
+}
+
+li {
+  margin-top: 0;
+}
+
+
+// Definition lists
+//
+// Markup:
+// <dl>
+//  <dt>Term</dt><dd>Lorem lean startup ipsum product market fit customer development acquihire technical cofounder.</dd>
+//  <dt>Another term</dt><dd>User engagement A/B testing shrink a market venture capital pitch deck.</dd>
+// </dl>
+//
+// Styleguide 1.1.6
+
+dl {
+//  margin-bottom: 0;
+}
+
+dt { }
+
+dd {
+  margin-top: 0;
+}
+
+
+// Horizontal rules
+//
+// Markup:
+// <hr>
+//
+// Styleguide 1.1.7
+
+/**
+ * Address differences between Firefox and other browsers.f
+ * h5bp: A better looking default horizontal rule
+ */
+
+hr {
+//  box-sizing: content-box;
+  height: 1px;
+//  margin-bottom: 0;
+
+//  border: 0;
+//  border-top: 1px solid;
+  border-top-width: 1px;
+}
+
+
+// Details element
+//
+// http://www.smashingmagazine.com/2014/11/28/complete-polyfill-html5-details-element/
+//
+// Markup:
+// <details>
+//  <summary>Lorem lean startup ipsum</summary>
+//  <p>Lorem lean startup ipsum product market fit customer development acquihire technical cofounder.</p>
+// </details>
+//
+// Styleguide 1.1.8
+
+details { }
+
+summary { }
+
+
+// Inline elements
+//
+// Markup:
+// <p><a href="#">Links</a>
+// and <strong>strong</strong>
+// and <em>em</em>
+// and <abbr title="Abbreviation">abbr</abbr>
+// and <q>q</q>
+// and <dfn>dfn</dfn>
+// and <mark>mark</mark>
+// and <small>small</small>
+// and <sub>sub</sub>
+// and <sup>sup</sup>.</p>
+//
+// Styleguide 1.1.9
+
+/**
+ * 1. Remove the gray background color from active links in IE 10.
+ * 2. Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a {
+  background-color: transparent; // 1
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+  &:active,
+  &:hover {
+    outline: 0; // 2
+  }
+
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  @media print {
+    &,
+    &:visited {
+      text-decoration: underline;
+    }
+
+    &[href]:after {
+      content: " (" attr(href) ")";
+    }
+
+    &[href^="javascript:"]:after,
+    &[href^="#"]:after {
+      content: "";
+    }
+  }
+}
+
+
+/**
+ * 1. Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+
+abbr[title] {
+  cursor: help;
+
+  border-bottom: 1px dotted; // 1
+
+  // h5bp
+  @media print {
+    &:after {
+      content: " (" attr(title) ")";
+    }
+  }
+}
+
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+
+b,
+strong {
+  font-weight: 700;
+}
+
+
+q {
+  quotes: "\201c" "\201d" "\2018" "\2019";
+}
+
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+mark {
+  color: #000;
+  background: #ff0;
+}
+
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+  font-size: 80%; // All browsers
+}
+
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+
+  position: relative;
+
+  vertical-align: baseline;
+}
+
+sup {
+  top: -.5em;
+}
+
+sub {
+  bottom: -.25em;
+}
+
+
+// Time element
+//
+// https://css-tricks.com/time-element/
+//
+// Markup:
+// <time datetime="2015-04-14">Apr. 14, 2015</time>
+//
+// Styleguide 1.1.10
+
+time { }
+
+
+
+
+
+// Code
+//
+// Styleguide 1.2
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+
+code,
+kbd,
+pre,
+samp {
+  font-family: $font-family-code;
+  font-size: 1em;
+}
+
+
+// Preformatted text
+//
+// Markup:
+// <pre><code>.selector {
+////    property: value;
+// }</code></pre>
+//
+// Styleguide 1.2.1
+
+/**
+ * 1. Contain overflow in all browsers.
+ */
+
+pre {
+//  overflow: auto; // 1, Internet Explorer 11-
+
+//  margin-bottom: 0;
+
+  // h5bp
+  @media print {
+    border: 1px solid #999;
+
+    page-break-inside: avoid;
+  }
+}
+
+
+
+
+
+// Embedded media
+//
+// Styleguide 1.3
+
+/**
+ * Correct `inline-block` display not defined in IE 8/9.
+ */
+
+audio,
+canvas,
+progress, // Internet Explorer 11-, Windows Phone 8.1+
+video {
+  display: inline-block;
+}
+
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle; // specify the alignment of media elements
+}
+
+
+img,
+canvas,
+iframe,
+video,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/**
+ * 1. Remove border when inside `a` element in IE 8/9/10.
+ */
+
+img {
+//  border: 0; // 1
+
+  // h5bp
+  @media print {
+    max-width: 100% !important;
+
+    page-break-inside: avoid;
+  }
+}
+
+
+iframe {
+//  border: 0;
+}
+
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+  display: none; // Chrome 44-, iOS 8+, Safari 9+
+
+  height: 0;
+}
+
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+
+svg:not(:root) {
+  overflow: hidden; // Internet Explorer 11-
+}
+
+
+progress {
+  vertical-align: baseline; // TODO make same as other media?
+}
+
+
+// Figure with caption
+//
+// Markup:
+// <figure>
+//  <img src="http://placehold.it/600x450" alt="image">
+//  <figcaption>Lorem lean startup ipsum product market fit customer development acquihire technical cofounder.</figcaption>
+// </figure>
+//
+// Styleguide 1.3.1
+
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+
+figure {
+//  margin-right: 0;
+//  margin-bottom: 0;
+//  margin-left: 0;
+}
+
+figcaption { }
+
+
+
+
+
+// Forms
+//
+// Styleguide 1.4
+
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+
+
+form {
+  @media print {
+    display: none;
+  }
+}
+
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font: inherit; // 2
+
+//  margin: 0; // 3
+
+  color: inherit; // 1
+}
+
+button,
+input,
+select,
+textarea {
+  background-color: transparent;
+}
+
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+
+button,
+select {
+  text-transform: none;
+}
+
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0; // TODO inherited?
+
+  border: 0; // TODO inherited?
+}
+
+
+button,
+[type="button"],
+[type="date"],
+[type="datetime"],
+[type="datetime-local"],
+[type="email"],
+[type="month"],
+[type="number"],
+[type="password"],
+[type="reset"],
+[type="search"],
+[type="submit"],
+[type="tel"],
+[type="text"],
+[type="time"],
+[type="url"],
+[type="week"],
+select,
+textarea {
+  min-height: lines(1);
+}
+
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+//  margin: 0;
+//  padding: 0;
+
+//  border: 0;
+}
+
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+
+legend {
+//  padding: 0;
+
+//  border: 0;
+}
+
+
+// Text fields
+//
+// Markup:
+// <input type="text" placeholder="Text" {$modifiers}>
+// <input type="password" placeholder="Password" {$modifiers}>
+// <input type="url" placeholder="URL" {$modifiers}>
+// <input type="email" placeholder="Email" {$modifiers}>
+// <input type="search" placeholder="Search" {$modifiers}>
+//
+// required - Required
+//
+// Styleguide 1.4.1
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+input {
+  line-height: normal;
+  -webkit-border-radius: 0; // iOS 8+
+}
+
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+//  box-sizing: content-box; // 2
+
+  -webkit-appearance: textfield; // 1, Chrome 45+, Safari 9+
+
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-decoration {
+    -webkit-appearance: none; // Chrome 45+, Safari 9+
+  }
+}
+
+
+// Textarea
+//
+// Markup:
+// <textarea placeholder="Textarea"></textarea>
+//
+// Styleguide 1.4.2
+
+/**
+ * 1. Remove default vertical scrollbar in IE 8/9/10/11.
+ * 2. Allow only vertical resizing of textareas.
+ */
+
+textarea {
+//  overflow: auto; // 1, Edge 12+, Internet Explorer 11-
+
+  width: 100%;
+
+  resize: vertical; // 2
+}
+
+
+// Select
+//
+// Markup:
+// <select {$modifiers}>
+//  <optgroup label="Option group">
+//    <option>Option one</option>
+//    <option>Option two</option>
+//  </optgroup>
+// </select>
+//
+// multiple - Multiple
+//
+// Styleguide 1.4.3
+
+// specify the standard appearance of selects
+
+select {
+  -moz-appearance: none; // Firefox 40+
+  -webkit-appearance: none; // Chrome 45+
+
+  &::-ms-expand {
+    display: none; // Edge 12+, Internet Explorer 11-
+  }
+
+  &::-ms-value {
+    color: currentColor; // Edge 12+, Internet Explorer 11-
+  }
+}
+
+option + option,
+optgroup + optgroup {
+  margin-top: 0;
+}
+
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+
+optgroup {
+  font-weight: bold;
+}
+
+
+// Checkbox
+//
+// Markup:
+// <input type="checkbox"> Checkbox
+//
+// Styleguide 1.4.4
+
+// Radio
+//
+// Markup:
+// <input type="radio"> Radio
+//
+// Styleguide 1.4.5
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+//  box-sizing: border-box; // 1
+//  padding: 0; // 2
+}
+
+
+// HTML5 inputs
+//
+// Markup:
+// <input type="color">
+// <input type="number">
+// <input type="range">
+// <input type="date">
+// <input type="month">
+// <input type="week">
+// <input type="datetime">
+// <input type="datetime-local">
+//
+// Styleguide 1.4.6
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+
+input[type="number"] {
+  width: auto; // Firefox 36+
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    height: auto;
+  }
+}
+
+
+// Meter element
+//
+// https://css-tricks.com/html5-meter-element/
+//
+// Markup:
+// <meter></meter>
+//
+// Styleguide 1.4.6
+
+meter { }
+
+
+// Buttons
+//
+// Markup:
+// <button>Button</button>
+// <input type="button" value="Button">
+// <input type="submit">
+// <input type="reset">
+//
+// Styleguide 1.4.7
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+
+button {
+  overflow: visible; // Internet Explorer 11-
+  -webkit-appearance: button; // iOS 8+
+}
+
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"], // 1
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer; // 3
+
+  -webkit-appearance: button; // 2, iOS 8+
+}
+
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+
+
+
+
+// Tables
+//
+// Markup:
+// <table>
+//  <thead><tr><th>th</th><th>th</th></tr></thead>
+//  <tbody><tr><td>td</td><td>td</td></tr></tbody>
+// </table>
+//
+// Styleguide 1.5
+
+/**
+ * 1. Remove most spacing between table cells.
+ */
+
+table {
+  width: 100%;
+
+  border-spacing: 0; // 1
+  border-collapse: collapse; // 1
+}
+
+
+/*
+ * Printing Tables:
+ * http://css-discuss.incutio.com/wiki/Printing_Tables
+ */
+
+thead {
+  @media print {
+    display: table-header-group; // h5bp.com/t
+  }
+}
+
+
+tr {
+  @media print {
+    page-break-inside: avoid;
+  }
+}
+
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+td,
+th {
+//  padding: 0;
+}
+
+
+th {
+  text-align: left;
+}

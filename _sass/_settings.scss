@@ -1,46 +1,9 @@
 /* =========================================================================
-   Settings variables
+   Settings
    ========================================================================= */
 
 
-/**
- * Typography
- */
+$webfont: "Source Sans Pro";
 
-$default-font-size:   1rem;
-$default-line-height: 1.5rem;
-$default-ratio:       1.618; // Golden ratio
-
-$font-family-code:    monospace, monospace;
-$default-font-family: "Source Sans Pro", caption, sans-serif;
-
-
-/**
- * Colors
- */
-
-$default-color:   #222;
-$primary-color:   #1f7835;
-$secondary-color: #bf3039;
-
-
-/**
- * Layout
- */
-
-$layout-breakpoint:     36em;
-$layout-sidebar-width:  ((100 - (100 / $default-ratio)) * 1%);
-
-
-/**
- * Grid
- */
-
-$grid-columns:  12;
-
-
-/**
- * Content
- */
-
-$content-measure: $layout-breakpoint;
+$primary-color:   hsla(135, 59%, 30%, 1);
+$secondary-color: hsla(356, 60%, 47%, 1);

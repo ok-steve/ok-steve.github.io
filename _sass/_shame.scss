@@ -1,0 +1,103 @@
+/* =========================================================================
+   Shame
+   ========================================================================= */
+
+nav {
+  li {
+    display: inline;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+
+@media (min-width: $layout-breakpoint) {
+  .lt-ie10 {
+    .StickyFooter {
+      // margin-left: $layout-sidebar-width;
+      // width: 100% - $layout-sidebar-width;
+
+      &-content {
+        + * {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+.Banner {
+  background-color: $primary-color;
+
+  a {
+    text-decoration: none;
+
+    color: #fff;
+  }
+
+  &-logo {
+    width: lines(3);
+    height: lines(3);
+    padding: lines(.5);
+
+    background-color: #fff;
+
+    svg {
+      height: 100%;
+    }
+
+    path {
+      fill: $secondary-color;
+    }
+  }
+
+  @media (min-width: $layout-breakpoint) {
+    &-navigation {
+      li {
+        display: list-item;
+      }
+    }
+  }
+}
+
+@media (min-width: $layout-breakpoint) {
+  .StickyFooter-content {
+    margin-top: 0;
+  }
+}
+
+.Contentinfo {
+  background-color: #f5f5f5;
+}
+
+.Layout {
+  @media (min-width: $layout-breakpoint) {
+
+    &-sidebar {
+      .lt-ie10 & {
+        display: table;
+        height: 100%;
+
+        > * {
+          display: table-row;
+        }
+
+        .Banner-social {
+          display: table-cell;
+          vertical-align: bottom;
+        }
+      }
+
+      .flexbox & {
+        display: flex;
+        flex-direction: column;
+
+        > *:first-child {
+          flex: 1;
+        }
+      }
+    }
+  }
+}

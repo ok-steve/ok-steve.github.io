@@ -1,0 +1,36 @@
+%Grid {
+  $grid: (
+    columns: 4
+  ) !default;
+
+  @media (min-width: $layout-breakpoint) {
+    @include display-flex(flex);
+
+    .lt-ie10 & {
+      display: table;
+    }
+
+    // Descendants
+
+    &-cell {
+      margin-top: 0;
+
+      .lt-ie10 & {
+        display: table-cell;
+      }
+
+      @for $i from 1 through map-get($grid, columns) {
+        $gcd: gcd($i, map-get($grid, columns));
+        $size: percentage($i / map-get($grid, columns));
+
+        &--#{$i / $gcd}of#{map-get($grid, columns) / $gcd} {
+          @include flex($size);
+
+          .lt-ie10 & {
+            width: $size;
+          }
+        }
+      }
+    }
+  }
+}

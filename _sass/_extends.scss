@@ -1,0 +1,97 @@
+/* =========================================================================
+   Extends
+   ========================================================================= */
+
+
+.u-textCenter {
+  @extend %u-textCenter;
+}
+
+.u-hiddenVisually {
+  @extend %u-hiddenVisually;
+}
+
+.BrowserUpgrade {
+  @extend %BrowserUpgrade;
+}
+
+.Container {
+  @extend %Container;
+}
+
+.Grid {
+  @extend %Grid;
+}
+
+.Grid-cell {
+  @extend %Grid-cell;
+}
+
+.Grid-cell--1of2 {
+  @extend %Grid-cell--1of2;
+}
+
+.Icon {
+  @extend %Icon;
+}
+
+.Icon--feed {
+  @extend %Icon--feed;
+}
+
+.Icon--mail {
+  @extend %Icon--mail;
+}
+
+.Icon--github {
+  @extend %Icon--github;
+}
+
+.Icon--twitter {
+  @extend %Icon--twitter;
+}
+
+.Icon--linkedin {
+  @extend %Icon--linkedin;
+}
+
+.StickyFooter {
+  @extend %StickyFooter;
+}
+
+.StickyFooter-content {
+  @extend %StickyFooter-content;
+}
+
+.Transition {
+  @extend %Transition;
+}
+
+.Transition-element {
+  @extend %Transition-element;
+}
+
+.Transition-element--fadeIn {
+  @extend %Transition-element--fadeIn;
+}
+
+.is-exiting {
+  @extend %is-exiting;
+}
+
+.Longform {
+  @extend %Longform;
+
+  > header + p {
+    @extend %Longform-lead;
+    @extend %Longform-dropCaps;
+  }
+
+  h3 + p {
+    @extend %Longform-runIn;
+  }
+}
+
+.footnotes {
+  @extend %Longform-footnotes;
+}

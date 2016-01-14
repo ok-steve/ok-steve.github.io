@@ -1,0 +1,125 @@
+// Visibility
+//
+// Also include visibility at breakpoints
+//
+// Markup:
+// <p class="{$modifiers}">Lorem lean startup ipsum product market fit customer development acquihire technical cofounder.</p>
+//
+// .u-hiddenVisually - Display only for screen readers
+// .u-hidden - Always hidden
+// .u-block - Display as block
+// .u-inline - Display as inline
+// .u-inlineBlock - Display as inline block
+// .u-table - Display as table
+// .u-tableRow - Display as table row
+// .u-tableCell - Display as table cell
+// .u-flex - Display as flexbox
+//
+// Styleguide 2.1
+
+
+
+
+
+/*------------------------------------*\
+    #UTILITIES
+\*------------------------------------*/
+
+
+/*
+ * Hide visually and from screen readers:
+ * http://juicystudio.com/article/screen-readers-display-none.php
+ */
+
+%u-hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+%u-invisible {
+  visibility: hidden;
+}
+
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+
+%u-hiddenVisually {
+  position: absolute !important;
+
+  overflow: hidden !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+
+  border: 0 !important;
+}
+
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+%u-hiddenVisuallyFocusable {
+  &:active,
+  &:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+  }
+}
+
+
+@each $breakpoint, $size in $breakpoints {
+  $mod: rs($size, $breakpoint);
+
+  @include responsive($size) {
+    %u#{$mod}-hidden {
+      display: none !important;
+    }
+
+    %u#{$mod}-block {
+      display: block !important;
+    }
+
+    %u#{$mod}-inline {
+      display: inline !important;
+    }
+
+    %u#{$mod}-inlineBlock {
+      display: inline-block !important;
+
+      max-width: 100%;
+    }
+
+    %u#{$mod}-table {
+      display: table !important;
+    }
+
+    %u#{$mod}-tableRow {
+      display: table-row !important;
+    }
+
+    %u#{$mod}-tableCell {
+      display: table-cell !important;
+    }
+
+    %u#{$mod}-flex {
+      display: flex !important;
+    }
+  }
+}

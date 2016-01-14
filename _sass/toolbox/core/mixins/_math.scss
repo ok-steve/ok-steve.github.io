@@ -1,12 +1,12 @@
 /* =========================================================================
-   Browser Upgrade component
+   Math mixins
    ========================================================================= */
 
 
-.BrowserUpgrade {
-  margin: .2em 0;
-  padding: .2em 0;
-
-  color: #000;
-  background: #ccc;
+@function gcd($x, $y) {
+  @if $y == 0 {
+    @return $x;
+  } @else {
+    @return gcd($y, $x % $y);
+  }
 }

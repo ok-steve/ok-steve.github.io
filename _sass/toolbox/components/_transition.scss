@@ -1,0 +1,28 @@
+%Transition {
+
+  // Descendents
+
+  &-element {
+    @include animation-duration(0.25s);
+    @include transition-timing-function(ease-in);
+    @include animation-fill-mode(both);
+
+    &--fadeIn {
+      @include animation-name(fadeIn);
+    }
+  }
+
+  // States
+  &%is-exiting {
+    %Transition-element {
+      @include animation-direction(alternate-reverse);
+    }
+  }
+
+  &%is-loading {
+    &,
+    a {
+      cursor: progress;
+    }
+  }
+}

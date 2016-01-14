@@ -1,0 +1,11 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.0/animate.min.css";
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

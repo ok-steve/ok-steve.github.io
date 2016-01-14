@@ -1,0 +1,40 @@
+/*------------------------------------*\
+    #FUNCTIONS
+\*------------------------------------*/
+
+
+@function responsive-selector($size, $breakpoint) {
+  @if $size {
+    @return ("-" + $breakpoint);
+  } @else {
+    @return null;
+  }
+}
+
+@function rs($size, $breakpoint) {
+  @return responsive-selector($size, $breakpoint);
+}
+
+
+
+
+
+/*------------------------------------*\
+    #MIXINS
+\*------------------------------------*/
+
+
+// Styles using this mixin need the rs() function as well. If the following
+// issue gets resolved, the rs() function could be eliminated.
+//
+// https://github.com/sass/sass/issues/871
+
+@mixin responsive($size) {
+  @if ($size) {
+    @media (min-width: #{$size}) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
