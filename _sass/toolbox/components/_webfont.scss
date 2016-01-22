@@ -1,0 +1,15 @@
+/* =========================================================================
+   Webfont
+   ========================================================================= */
+
+
+// TODO is this too inflexible?
+// TODO document this
+
+@if $webfont-font-family {
+  html {
+    &.wf-active {
+      font-family: $webfont-font-family;
+    }
+  }
+}

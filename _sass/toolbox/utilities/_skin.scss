@@ -1,0 +1,62 @@
+/* =========================================================================
+   Skin
+   ========================================================================= */
+
+
+/*------------------------------------*\
+    #VARIABLES
+\*------------------------------------*/
+
+
+// TODO better colors
+
+$skin: (
+  danger: (
+    color: hsla(0, 100%, 41%, 1),
+    border-width: 1px
+  ),
+  warning: (
+    color: hsla(18, 100%, 56.7%, 1),
+    border-width: 1px
+  ),
+  default: (
+    color: hsla(50, 100%, 56.5%, 1),
+    border-width: 1px
+  ),
+  success: (
+    color: hsla(106, 100%, 43.3%, 1),
+    border-width: 1px
+  ),
+  info: (
+    color: hsla(229, 84.6%, 43.3%, 1),
+    border-width: 1px
+  ),
+  primary: (
+    color: hsla(260, 100%, 20%, 1),
+    border-width: 1px
+  ),
+  secondary: (
+    color: hsla(285, 100%, 13.3%, 1),
+    border-width: 1px
+  )
+) !default;
+
+
+
+
+
+/*------------------------------------*\
+    #UTILITIES
+\*------------------------------------*/
+
+
+%u-skin {
+  @each $modifier, $properties in $skin {
+    // TODO capitalize
+    &#{$modifier} {
+      @each $property, $value in $properties {
+        #{$property}: $value;
+      }
+    }
+  }
+}

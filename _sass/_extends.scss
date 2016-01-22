@@ -11,10 +11,6 @@
   @extend %u-hiddenVisually;
 }
 
-.BrowserUpgrade {
-  @extend %BrowserUpgrade;
-}
-
 .Container {
   @extend %Container;
 }
@@ -35,12 +31,8 @@
   @extend %Icon;
 }
 
-.Icon--feed {
-  @extend %Icon--feed;
-}
-
-.Icon--mail {
-  @extend %Icon--mail;
+.Icon--rss {
+  @extend %Icon--rss;
 }
 
 .Icon--github {
@@ -63,16 +55,16 @@
   @extend %StickyFooter-content;
 }
 
-.Transition {
-  @extend %Transition;
+.SmoothState {
+  @extend %SmoothState;
 }
 
-.Transition-element {
-  @extend %Transition-element;
+.SmoothState-animation {
+  @extend %SmoothState-animation;
 }
 
-.Transition-element--fadeIn {
-  @extend %Transition-element--fadeIn;
+.u-fadeIn {
+  @extend %u-fadeIn;
 }
 
 .is-exiting {
@@ -82,7 +74,7 @@
 .Longform {
   @extend %Longform;
 
-  > header + p {
+  > p:first-child {
     @extend %Longform-lead;
     @extend %Longform-dropCaps;
   }

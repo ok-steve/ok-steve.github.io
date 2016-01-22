@@ -1,0 +1,39 @@
+/* =========================================================================
+   Smooth State
+   ========================================================================= */
+
+
+// https://github.com/miguel-perez/smoothState.js
+// TODO document component
+
+%SmoothState {
+
+  /**
+   * Descendents
+   */
+
+  &-animation {
+    @include transition-timing-function(ease-in);
+    @include animation-duration(0.25s);
+
+    @include animation-fill-mode(both);
+  }
+
+
+  /**
+   * States
+   */
+
+  &%is-exiting {
+    %SmoothState-animation {
+      @include animation-direction(alternate-reverse);
+    }
+  }
+
+  &%is-loading {
+    &,
+    a {
+      cursor: progress;
+    }
+  }
+}

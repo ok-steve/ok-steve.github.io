@@ -4,10 +4,12 @@ email: stevenccherry@gmail.com
 description: The online home of Steve Cherry.
 baseurl: ""
 url: "http://stevecherry.net"
-twitter_username: stevenccherry
-github_username:  sccherry
+repo: toolbox
+
+twitter_username:   stevenccherry
+github_username:    sccherry
 linkedin_username:  sccherry
-google_analytics: UA-19261191-1
+google_analytics:   UA-19261191-1
 
 safe: true
 host: 0.0.0.0

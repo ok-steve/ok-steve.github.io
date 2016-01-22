@@ -1,9 +1,53 @@
-// https://css-tricks.com/snippets/css/a-guide-to-flexbox/
-// https://autoprefixer.github.io/, > 1%, last 2 versions
-// https://github.com/philipwalton/flexbugs
+/* =========================================================================
+   Prefixer
+   ========================================================================= */
 
-// TODO improve mixins
-// TODO find and add faillbacks
+
+// TODO https://autoprefixer.github.io/, > 1%, last 2 versions, IE > 10
+// TODO make fallbacks
+
+/*------------------------------------*\
+    #ANIMATIONS
+\*------------------------------------*/
+
+
+@mixin animation($animation) {
+  -webkit-animation: $animation;
+          animation: $animation;
+}
+
+@mixin animation-name($name) {
+  -webkit-animation-name: $name;
+          animation-name: $name;
+}
+
+@mixin animation-duration($duration) {
+  -webkit-animation-duration: $duration;
+          animation-duration: $duration;
+}
+
+@mixin animation-direction($direction) {
+  -webkit-animation-direction: $direction;
+          animation-direction: $direction;
+}
+
+@mixin animation-fill-mode($fill-mode) {
+  -webkit-animation-fill-mode: $fill-mode;
+          animation-fill-mode: $fill-mode;
+}
+
+
+
+
+
+
+/*------------------------------------*\
+    #FLEXBOX
+\*------------------------------------*/
+
+
+// https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+// https://github.com/philipwalton/flexbugs
 
 /**
  * Display
@@ -14,29 +58,15 @@
     display:  -webkit-box;
     display: -webkit-flex;
     display:  -ms-flexbox;
-
-    .lt-ie10 & {
-      display: table;
-    }
   } @else if $display == inline-flex {
     display:  -webkit-inline-box;
     display: -webkit-inline-flex;
     display:  -ms-inline-flexbox;
-
-    .lt-ie10 & {
-      display: inline-table;
-    }
   } @else {
-    @warn "Must be flex or inline-flex."
+    @warn "Must be `flex` or `inline-flex`."
   }
 
   display: $display;
-
-  .lt-ie10 & {
-    > * {
-      display: table-cell;
-    }
-  }
 }
 
 
@@ -51,34 +81,12 @@
   } @else if $direction == row-reverse {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
-
-    .lt-ie10 & {
-      direction: rtl;
-
-      > * {
-        direction: ltr;
-      }
-    }
   } @else if $direction == column {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-
-    .lt-ie10 & {
-      > * {
-        width: 100%;
-        display: table-row;
-      }
-    }
   } @else if $direction == column-reverse {
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
-
-    .lt-ie10 & {
-      > * {
-        width: 100%;
-        display: table-footer-group;
-      }
-    }
   } @else {
     @warn "row/column-(reverse)"
   }
@@ -97,12 +105,7 @@
   -webkit-flex-wrap: $wrap;
       -ms-flex-wrap: $wrap;
           flex-wrap: $wrap;
-
-  .lt-ie10 & {
-    // TODO .flex-wrap
-  }
 }
-
 
 
 /**
@@ -113,10 +116,6 @@
   -webkit-flex-flow: $direction $wrap;
       -ms-flex-flow: $direction $wrap;
           flex-flow: $direction $wrap;
-
-  .lt-ie10 & {
-    // TODO .flex-flow
-  }
 }
 
 
@@ -157,42 +156,18 @@
   @if $align == flex-start {
     -webkit-box-align: start;
        -ms-flex-align: start;
-
-    .lt-ie10 & {
-      // TODO .align-items(flex-start)
-    }
   } @else if $align == flex-end {
     -webkit-box-align: end;
        -ms-flex-align: end;
-
-    .lt-ie10 & {
-      > * {
-        vertical-align: bottom;
-      }
-    }
   } @else if $align == center {
     -webkit-box-align: center;
        -ms-flex-align: center;
-
-    .lt-ie10 & {
-      > * {
-        vertical-align: middle;
-      }
-    }
   } @else if $align == baseline {
     -webkit-box-align: baseline;
        -ms-flex-align: baseline;
-
-    .lt-ie10 & {
-  //    vertical-align: baseline; // default
-    }
   } @else if $align == stretch {
     -webkit-box-align: stretch;
        -ms-flex-align: stretch;
-
-    .lt-ie10 & {
-      // TODO .align-items(stretch)
-    }
   } @else {
     @warn "not in list";
   }
@@ -223,10 +198,6 @@
 
   -webkit-align-content: $align;
           align-content: $align;
-
-  .lt-ie10 & {
-    // TODO .align-content
-  }
 }
 
 
@@ -239,10 +210,6 @@
               -webkit-order: $order;
              -ms-flex-order: $order;
                       order: $order;
-
-  .lt-ie10 & {
-    // TODO .order
-  }
 }
 
 
@@ -251,14 +218,11 @@
  */
 
 @mixin flex-grow($grow: 0) {
+  // NOTE numbers must be positive
    -webkit-box-flex: $grow;
   -webkit-flex-grow: $grow;
   -ms-flex-positive: $grow;
           flex-grow: $grow;
-
-  .lt-ie10 & {
-    // TODO .flex-grow
-  }
 }
 
 
@@ -267,13 +231,10 @@
  */
 
 @mixin flex-shrink($shrink: 1) {
+  // NOTE numbers must be positive
   -webkit-flex-shrink: $shrink;
     -ms-flex-negative: $shrink;
           flex-shrink: $shrink;
-
-  .lt-ie10 & {
-    // TODO .flex-shrink
-  }
 }
 
 
@@ -285,10 +246,6 @@
        -webkit-flex-basis: $basis;
   -ms-flex-preferred-size: $basis;
                flex-basis: $basis;
-
-  .lt-ie10 & {
-    width: $basis;
-  }
 }
 
 
@@ -297,20 +254,15 @@
  */
 
 @mixin flex($flex: 0 1 auto) {
-  // flex: 1, 25%
-  -webkit-box-flex: $flex;
-  // flex: auto
-  -webkit-box-flex: 1;
-  // flex: 0 1 auto (or any multiple value)
-  -webkit-box-flex: nth($flex, 1);
-
-      -webkit-flex: $flex;
-          -ms-flex: $flex;
-              flex: $flex;
-
-  .lt-ie10 & {
-    // TODO .flex
+  @if $flex == auto {
+    -webkit-box-flex: 1;
+  } @else {
+    -webkit-box-flex: nth($flex, 1);
   }
+
+  -webkit-flex: $flex;
+      -ms-flex: $flex;
+          flex: $flex;
 }
 
 
@@ -318,30 +270,108 @@
  * Align self
  */
 
-@mixin align-self($align) {
-  @if $align == flex-start {
-    .lt-ie10 & {
-      // TODO .align-self(flex-start)
-    }
+@mixin align-self($align: auto) {
+  @if $align == auto {
+    -ms-flex-item-align: auto;
+  } @else if $align == flex-start {
+    -ms-flex-item-align: start;
   } @else if $align == flex-end {
-    .lt-ie10 & {
-      vertical-align: bottom;
-    }
+    -ms-flex-item-align: end;
   } @else if $align == center {
-    .lt-ie10 & {
-      vertical-align: center;
-    }
+    -ms-flex-item-align: center;
   } @else if $align == baseline {
-    .lt-ie10 & {
-//      vertcal-align: baseline; // default
-    }
+    -ms-flex-item-align: baseline;
   } @else if $align == stretch {
-    .lt-ie10 & {
-      // TODO .align-self(stretch)
-    }
+    -ms-flex-item-align: stretch;
   }
 
-   -webkit-align-self: $align;
-  -ms-flex-item-align: $align;
-           align-self: $align;
+  -webkit-align-self: $align;
+          align-self: $align;
+}
+
+
+
+
+
+/*------------------------------------*\
+    #HYPHENS
+\*------------------------------------*/
+
+
+@mixin hyphens($mode) {
+  -webkit-hyphens: $mode;
+     -moz-hyphens: $mode;
+      -ms-hyphens: $mode;
+          hyphens: $mode;
+}
+
+
+
+
+
+/*------------------------------------*\
+    #KEYFRAMES
+\*------------------------------------*/
+
+
+@mixin keyframes($name) {
+  @-webkit-keyframes $name {
+    @content;
+  }
+
+  @keyframes $name {
+    @content;
+  }
+}
+
+
+
+
+
+/*------------------------------------*\
+    #SELECTION
+\*------------------------------------*/
+
+
+@mixin selection {
+  ::-moz-selection {
+    @content;
+  }
+
+  ::selection {
+    @content;
+  }
+}
+
+
+
+
+
+/*------------------------------------*\
+    #TRANSFORMS
+\*------------------------------------*/
+
+
+@mixin transform($transform) {
+  -webkit-transform: $transform;
+          transform: $transform;
+}
+
+
+
+
+
+/*------------------------------------*\
+    #TRANSITIONS
+\*------------------------------------*/
+
+
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+          transition: $transition;
+}
+
+@mixin transition-timing-function($timing-function) {
+  -webkit-transition-timing-function: $timing-function;
+          transition-timing-function: $timing-function;
 }

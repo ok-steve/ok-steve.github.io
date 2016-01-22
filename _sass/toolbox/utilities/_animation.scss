@@ -1,8 +1,12 @@
 /* =========================================================================
-   Utilities
+   Animation
    ========================================================================= */
 
 
-.u-circle {
-  border-radius: 50%;
+%u-fadeIn {
+  @include animation-name(fadeIn !important);
+}
+
+%u-spin {
+  @include animation(spin 1s infinite linear !important);
 }

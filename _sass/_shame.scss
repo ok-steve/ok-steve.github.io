@@ -2,6 +2,7 @@
    Shame
    ========================================================================= */
 
+// TODO check these
 nav {
   li {
     display: inline;
@@ -12,29 +13,18 @@ nav {
   }
 }
 
-
-@media (min-width: $layout-breakpoint) {
-  .lt-ie10 {
-    .StickyFooter {
-      // margin-left: $layout-sidebar-width;
-      // width: 100% - $layout-sidebar-width;
-
-      &-content {
-        + * {
-          margin-left: 0;
-        }
-      }
-    }
-  }
-}
-
 .Banner {
+  color: #fff;
   background-color: $primary-color;
+
+  ul {
+    list-style: none;
+  }
 
   a {
     text-decoration: none;
 
-    color: #fff;
+    color: inherit;
   }
 
   &-logo {
@@ -53,7 +43,7 @@ nav {
     }
   }
 
-  @media (min-width: $layout-breakpoint) {
+  @media (min-width: map-get($breakpoints, layout)) {
     &-navigation {
       li {
         display: list-item;
@@ -62,7 +52,7 @@ nav {
   }
 }
 
-@media (min-width: $layout-breakpoint) {
+@media (min-width: map-get($breakpoints, layout)) {
   .StickyFooter-content {
     margin-top: 0;
   }
@@ -72,32 +62,10 @@ nav {
   background-color: #f5f5f5;
 }
 
-.Layout {
-  @media (min-width: $layout-breakpoint) {
+body > svg:first-child {
+  display: none;
+}
 
-    &-sidebar {
-      .lt-ie10 & {
-        display: table;
-        height: 100%;
-
-        > * {
-          display: table-row;
-        }
-
-        .Banner-social {
-          display: table-cell;
-          vertical-align: bottom;
-        }
-      }
-
-      .flexbox & {
-        display: flex;
-        flex-direction: column;
-
-        > *:first-child {
-          flex: 1;
-        }
-      }
-    }
-  }
+#page {
+  margin-top: 0;
 }

@@ -1,16 +1,18 @@
 requirejs({
   paths: {
-    jquery: 'http://localhost/cdn/jquery/jquery.min',
-    webfontloader: 'http://localhost/cdn/webfont/webfontloader',
-    modernizr: 'http://localhost/cdn/modernizr/modernizr.min',
+    jquery: '../bower_components/jquery/dist/jquery.min',
 
-    smoothstate: 'http://localhost/cdn/smoothstate/jquery.smoothState.min'
+    webfontloader: '../bower_components/webfontloader/webfontloader',
+    smoothstate: '../bower_components/smoothState/jquery.smoothState.min'
   },
   shim: {
     jquery: {
       exports: '$'
     },
 
+    webfontloader: {
+      exports: 'WebFont'
+    },
     smoothstate: {
       deps: ['jquery']
     }

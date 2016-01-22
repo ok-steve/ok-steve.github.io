@@ -1,34 +1,34 @@
+/* =========================================================================
+   Grid
+   ========================================================================= */
+
+
 %Grid {
   $grid: (
     columns: 4
-  ) !default;
+  );
 
-  @media (min-width: $layout-breakpoint) {
+  @media (min-width: map-get($breakpoints, layout)) {
     @include display-flex(flex);
+    @include flex-wrap(wrap);
 
-    .lt-ie10 & {
-      display: table;
-    }
 
-    // Descendants
+    /**
+     * Descendents
+     */
+
+    // http://codepen.io/philipwalton/pen/XJMWem
 
     &-cell {
       margin-top: 0;
 
-      .lt-ie10 & {
-        display: table-cell;
-      }
-
       @for $i from 1 through map-get($grid, columns) {
         $gcd: gcd($i, map-get($grid, columns));
-        $size: percentage($i / map-get($grid, columns));
 
         &--#{$i / $gcd}of#{map-get($grid, columns) / $gcd} {
-          @include flex($size);
+          @include flex($i auto);
 
-          .lt-ie10 & {
-            width: $size;
-          }
+          width: percentage($i / map-get($grid, columns));
         }
       }
     }

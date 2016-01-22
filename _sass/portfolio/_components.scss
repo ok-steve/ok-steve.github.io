@@ -1,1 +1,30 @@
-@import "components/banner";
+/* =========================================================================
+   Components
+   ========================================================================= */
+
+
+.Banner {
+  $banner: (
+    width: (100 - (100 / $default-ratio)) * 1%
+  );
+
+
+  /**
+   * Modifiers
+   */
+
+  @media (min-width: map-get($breakpoints, layout)) {
+    &--fixed {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+
+      width: map-get($banner, width);
+
+      ~ * {
+        margin-left: map-get($banner, width);
+      }
+    }
+  }
+}

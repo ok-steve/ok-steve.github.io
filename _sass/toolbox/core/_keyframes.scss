@@ -1,6 +1,24 @@
-@import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.0/animate.min.css";
+/* =========================================================================
+   Keyframes
+   ========================================================================= */
 
-@keyframes spin {
+
+// https://github.com/daneden/animate.css
+// https://github.com/h5bp/Effeckt.css/
+
+// TODO merge with animation utilities?
+
+@include keyframes(fadeIn) {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@include keyframes(spin) {
   from {
     transform: rotate(0deg);
   }

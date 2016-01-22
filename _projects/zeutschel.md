@@ -1,8 +1,8 @@
 ---
 title: Zeutschel
-summary: I managed my library&rsquo;s largest digitization project ever.
-image: http://placehold.it/320x179
 ---
+
+I managed my library&rsquo;s largest digitization project ever.
 
 - Archivematica
 - Building up infrastructure

@@ -1,28 +1,20 @@
-/*------------------------------------*\
-    #COMPONENTS
-\*------------------------------------*/
+/* =========================================================================
+   Sticky Footer
+   ========================================================================= */
 
 
 %StickyFooter {
   @include display-flex(flex);
   @include flex-direction(column);
 
-  min-height: 100vh;
+  min-height: 100vh; // NOTE breaks if not body
 
 
-  // Descendants
+  /**
+   * Descendants
+   */
 
   &-content {
     @include flex(1);
-  }
-
-  .lt-ie10 & {
-    display: table;
-    width: 100%;
-
-    &-content {
-      display: table-row;
-      height: 100%;
-    }
   }
 }

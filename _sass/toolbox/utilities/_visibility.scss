@@ -1,55 +1,26 @@
-// Visibility
-//
-// Also include visibility at breakpoints
-//
-// Markup:
-// <p class="{$modifiers}">Lorem lean startup ipsum product market fit customer development acquihire technical cofounder.</p>
-//
-// .u-hiddenVisually - Display only for screen readers
-// .u-hidden - Always hidden
-// .u-block - Display as block
-// .u-inline - Display as inline
-// .u-inlineBlock - Display as inline block
-// .u-table - Display as table
-// .u-tableRow - Display as table row
-// .u-tableCell - Display as table cell
-// .u-flex - Display as flexbox
-//
-// Styleguide 2.1
+/* =========================================================================
+   Visibility
+   ========================================================================= */
 
 
-
-
-
-/*------------------------------------*\
-    #UTILITIES
-\*------------------------------------*/
-
-
-/*
- * Hide visually and from screen readers:
- * http://juicystudio.com/article/screen-readers-display-none.php
- */
+// Hide visually and from screen readers:
+// http://juicystudio.com/article/screen-readers-display-none.php
 
 %u-hidden {
   display: none !important;
-  visibility: hidden;
+  visibility: hidden !important;
 }
 
 
-/*
- * Hide visually and from screen readers, but maintain layout
- */
+// Hide visually and from screen readers, but maintain layout
 
 %u-invisible {
-  visibility: hidden;
+  visibility: hidden !important;
 }
 
 
-/*
- * Hide only visually, but have it available for screen readers:
- * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- */
+// Hide only visually, but have it available for screen readers:
+// http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
 
 %u-hiddenVisually {
   position: absolute !important;
@@ -65,21 +36,21 @@
 }
 
 
-/*
- * Extends the .visuallyhidden class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
+// Extends the .hiddenVisually class to allow the element
+// to be focusable when navigated to via the keyboard:
+// https://www.drupal.org/node/897638
 
 %u-hiddenVisuallyFocusable {
   &:active,
   &:focus {
+    position: static;
+
+    overflow: visible;
     clip: auto;
+
+    width: auto;
     height: auto;
     margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
   }
 }
 
@@ -103,7 +74,7 @@
     %u#{$mod}-inlineBlock {
       display: inline-block !important;
 
-      max-width: 100%;
+      max-width: 100% !important;
     }
 
     %u#{$mod}-table {

@@ -1,7 +1,7 @@
 ---
 title: Summon study
-summary: I coordinated a comparartive usability study of Summon 1 and 2.
-image: http://placehold.it/320x179
 ---
+
+I coordinated a comparartive usability study of Summon 1 and 2.
 
 Make links to papers instead?

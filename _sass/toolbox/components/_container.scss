@@ -1,9 +1,24 @@
-/*------------------------------------*\
-    #COMPONENTS
-\*------------------------------------*/
+/* =========================================================================
+   Container
+   ========================================================================= */
 
+
+// TODO make a utility, or expand
 
 %Container {
   margin-right: auto;
   margin-left: auto;
+
+
+  /**
+   * Modifiers
+   */
+
+  @each $breakpoint, $size in $breakpoints {
+    @if ($size) {
+      &--#{$breakpoint} {
+        max-width: $size;
+      }
+    }
+  }
 }

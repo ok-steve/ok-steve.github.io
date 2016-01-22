@@ -1,12 +1,16 @@
 /* =========================================================================
-   Math mixins
+   Math
    ========================================================================= */
 
 
-@function gcd($x, $y) {
+@function greatest-common-denominator($x, $y) {
   @if $y == 0 {
     @return $x;
   } @else {
-    @return gcd($y, $x % $y);
+    @return greatest-common-denominator($y, $x % $y);
   }
+}
+
+@function gcd($args...) {
+  @return greatest-common-denominator($args...);
 }

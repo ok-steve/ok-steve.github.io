@@ -1,44 +1,40 @@
-/*------------------------------------*\
-    #COMPONENTS
-\*------------------------------------*/
+/* =========================================================================
+   Longform
+   ========================================================================= */
 
-
-// Paragraph variations
-//
-// Markup:
-// <p class="{$modifiers}">Lorem lean startup ipsum product market fit customer development acquihire technical cofounder.</p>
-//
-// .Longform-lead - Lead paragraph
-// .Longform-runIn - Small capitals on first line
-// .Longform-dropCaps - Drop caps
-//
-// Styleguide 3.6.1
 
 %Longform {
   $longform: (
     measure: 36rem,
-    indent: $default-line-height
-  ) !default;
+    indent: 40px
+  );
 
   overflow: visible; // for overhanging lists
+
   max-width: map-get($longform, measure);
 
+  > * {
+    overflow: auto;
+  }
+
   p {
-    + p {
-      margin-top: 0;
-      text-indent: map-get($longform, indent);
-    }
+    @extend %u-textJustify;
 
-    .csshyphens & {
-      @include hyphens(auto);
+    // FIXME find better solution for specificity
+    &:not(.Longform-lead),
+    &:not(.Longform-runIn),
+    &:not(.Longform-dropCaps) {
+      + p {
+        margin-top: 0;
 
-      text-align: justify;
+        text-indent: map-get($longform, indent);
+      }
     }
   }
 
   ul,
   ol {
-    padding-left: 0;
+    overflow: visible;
 
     ul,
     ol {
@@ -46,27 +42,25 @@
     }
   }
 
-  // Descendants
+
+  /**
+   * Descendants
+   */
 
   &-lead {
-    font-size: ms(1);
-    line-height: 1;
-
-    + p {
-      text-indent: none;
-    }
+    @extend %u-textLarge;
   }
 
   &-runIn {
     &::first-line {
-      font-variant: small-caps;
+      @extend %u-textSmallCaps;
     }
   }
 
   &-dropCaps {
     &::first-letter {
       font-size: lines(2);
-      line-height: lines(2);
+      line-height: 1;
 
       float: left;
 
@@ -75,6 +69,6 @@
   }
 
   &-footnotes {
-    font-size: ms(-1);
+    @extend %u-textSmall;
   }
 }

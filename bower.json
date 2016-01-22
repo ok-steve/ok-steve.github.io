@@ -1,0 +1,11 @@
+{
+  "name": "portfolio",
+  "private": true,
+  "devDependencies": {
+    "jquery": "~2.2.0",
+    "modernizr": "~2.8.0",
+    "requirejs": "~2.1.22",
+    "smoothstate": "~0.7.2",
+    "webfontloader": "~1.6.20"
+  }
+}

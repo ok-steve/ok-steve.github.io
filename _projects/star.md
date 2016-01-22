@@ -1,8 +1,10 @@
 ---
 title: STAR
-summary: I rebuilt my library&rsquo;s intranet.
-image: https://farm9.staticflickr.com/8743/17222014752_504a995e35_n.jpg
 ---
+
+I rebuilt my library&rsquo;s intranet.
+
+<img src="https://farm9.staticflickr.com/8743/17222014752_504a995e35_n.jpg" alt="">
 
 - Data transfer
 - Usability tests

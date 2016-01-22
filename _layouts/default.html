@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9" lang="en"> <![endif]-->
-<!--[if IE 9]>         <html class="no-js lt-ie10" lang="en"> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<html class="no-js" lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -20,17 +16,15 @@
   {% if jekyll.environment == "production" %}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
   {% else %}
-  <script src="https://localhost/cdn/modernizr/modernizr.min.js"></script>
+  <script src="{{ "/bower_components/modernizr/modernizr.js" | prepend: site.baseurl }}"></script>
   {% endif %}
 </head>
 
 <body prefix="schema: http://schema.org/">
-  <!--[if lt IE 9]>
-    <p class="BrowserUpgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
+  {% include icon.svg %}
 
-  <div id="page" class="StickyFooter Transition">
-    <div class="Banner Banner--fixed Skin--primaryReverse u-textCenter" role="banner">
+  <div id="page" class="StickyFooter SmoothState">
+    <header class="Banner Banner--fixed u-textCenter" role="banner">
       <div class="Banner-logo Container u-circle">
         {% include cherry.svg %}
       </div>
@@ -40,7 +34,9 @@
       <nav class="Banner-navigation" role="navigation">
         <ul>
           {% for page in site.pages %}
-            <li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+            {% if page.title %}
+              <li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+            {% endif %}
           {% endfor %}
         </ul>
       </nav>
@@ -48,20 +44,29 @@
       <nav class="Banner-social" role="navigation">
         <ul>
           <li>
-            <a href="{{ "/feed.xml" | prepend: site.baseurl }}" class="Icon Icon--feed">
+            <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
+              <svg class="Icon">
+                <use xlink:href="#Icon--rss"/>
+              </svg>
               <span class="u-hiddenVisually">Subscribe via RSS</span>
             </a>
           </li>
 
           <li>
-            <a href="mailto:{{ site.email }}" class="Icon Icon--email">
+            <a href="mailto:{{ site.email }}">
+              <svg class="Icon">
+                <use xlink:href="#Icon--envelope"/>
+              </svg>
               <span class="u-hiddenVisually">Email me!</span>
             </a>
           </li>
 
           {% if site.github_username %}
             <li>
-              <a href="https://github.com/{{ site.github_username }}" class="Icon Icon--github">
+              <a href="https://github.com/{{ site.github_username }}">
+                <svg class="Icon">
+                  <use xlink:href="#Icon--github"/>
+                </svg>
                 <span class="u-hiddenVisually">Visit my Github repositories!</span>
               </a>
             </li>
@@ -69,7 +74,10 @@
 
           {% if site.twitter_username %}
             <li>
-              <a href="https://twitter.com/{{ site.twitter_username }}" class="Icon Icon--twitter">
+              <a href="https://twitter.com/{{ site.twitter_username }}">
+                <svg class="Icon">
+                  <use xlink:href="#Icon--twitter"/>
+                </svg>
                 <span class="u-hiddenVisually">See my tweets!</span>
               </a>
             </li>
@@ -77,30 +85,31 @@
 
           {% if site.linkedin_username %}
             <li>
-              <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="Icon Icon--linkedin">
+              <a href="https://linkedin.com/in/{{ site.linkedin_username }}">
+                <svg class="Icon">
+                  <use xlink:href="#Icon--linkedin"/>
+                </svg>
                 <span class="u-hiddenVisually">Look at my LinkedIn resume!</span>
               </a>
             </li>
           {% endif %}
         </ul>
       </nav>
-    </div>
+    </header>
 
-    <div class="StickyFooter-content">
-      <main class="Transition-element Transition-element--fadeIn" role="main">
-        {{ content }}
-      </main>
-    </div>
+    <main class="StickyFooter-content SmoothState-animation u-fadeIn" role="main">
+      {{ content }}
+    </main>
 
     <footer class="Contentinfo" role="contentinfo">
       <h2>{{ site.title }}</h2>
 
       <div class="Grid">
-        <div class="u-flex1of2">
+        <div class="Grid-cell Grid-cell--1of2">
           <p>All content licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
         </div>
 
-        <div class="u-flex1of2">
+        <div class="Grid-cell Grid-cell--1of2">
           <p>{{ site.description }}</p>
         </div>
       </div>
