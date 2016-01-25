@@ -24,14 +24,14 @@
   {% include icon.svg %}
 
   <div id="page" class="StickyFooter SmoothState">
-    <header class="Banner Banner--fixed u-textCenter" role="banner">
-      <div class="Banner-logo Container u-circle">
+    <header class="Banner--fixed u-textCenter u-skinPrimaryReverse" role="banner">
+      <div class="Banner-logo Container u-circle u-skinSecondary Icon">
         {% include cherry.svg %}
       </div>
 
       <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
 
-      <nav class="Banner-navigation" role="navigation">
+      <nav role="navigation">
         <ul>
           {% for page in site.pages %}
             {% if page.title %}
@@ -41,7 +41,7 @@
         </ul>
       </nav>
 
-      <nav class="Banner-social" role="navigation">
+      <nav class="SocialLinks" role="navigation">
         <ul>
           <li>
             <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
@@ -101,7 +101,7 @@
       {{ content }}
     </main>
 
-    <footer class="Contentinfo" role="contentinfo">
+    <footer class="u-skinMutedReverse" role="contentinfo">
       <h2>{{ site.title }}</h2>
 
       <div class="Grid">

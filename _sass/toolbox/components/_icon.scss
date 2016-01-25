@@ -3,6 +3,21 @@
    ========================================================================= */
 
 
+// Overrides
+// https://css-tricks.com/svg-symbol-good-choice-icons/
+
+body > svg:first-child {
+  display: none;
+
+  + * {
+    margin-top: 0;
+  }
+}
+
+
+
+
+
 %Icon {
   width: lines(1);
   height: lines(1);
