@@ -1,4 +1,4 @@
-requirejs({
+var require = {
   paths: {
     jquery: '../bower_components/jquery/dist/jquery.min',
 
@@ -16,6 +16,5 @@ requirejs({
     smoothstate: {
       deps: ['jquery']
     }
-  },
-  deps: ['main']
-});
+  }
+};

@@ -1,4 +1,4 @@
-requirejs({
+var require = {
   paths: {
     jquery: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min',
 
@@ -16,6 +16,5 @@ requirejs({
     smoothstate: {
       deps: ['jquery']
     }
-  },
-  deps: ['main']
-});
+  }
+};
