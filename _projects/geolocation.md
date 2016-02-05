@@ -10,4 +10,4 @@ See the finished site:
 http://cuexhibits.wrlc.org/geolocation/map/browse
 
 View the customization code:
-{% gist sccherry/4dab0972be22303379bf %}
+[gist](https://gist.github.com/sccherry/4dab0972be22303379bf).
