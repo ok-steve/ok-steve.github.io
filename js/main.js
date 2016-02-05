@@ -1,7 +1,7 @@
 define([
   'toolbox/utilities/ajax',
-  'toolbox/components/smooth-state'
-], function (Ajax, smoothState) {
+  'shame'
+], function (Ajax) {
   'use strict';
 
   Ajax.loadFonts({
@@ -9,6 +9,4 @@ define([
       families: ['Source Sans Pro:400,400italic,700']
     }
   });
-
-  smoothState('#page');
 });
