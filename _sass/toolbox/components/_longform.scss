@@ -9,13 +9,7 @@
     indent: 40px
   );
 
-  overflow: visible; // for overhanging lists
-
   max-width: map-get($longform, measure);
-
-  > * {
-    overflow: auto;
-  }
 
   p {
     @extend %u-textJustify;
@@ -32,12 +26,16 @@
     }
   }
 
+  // Overhanging lists, module needs padding to display list-style-type
   ul,
   ol {
-    overflow: visible;
+    margin-left: -15px;
+
+    list-style-position: inside;
 
     ul,
     ol {
+      margin-left: 0;
       padding-left: map-get($longform, indent);
     }
   }

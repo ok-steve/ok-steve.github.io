@@ -4,69 +4,67 @@
 
 
 [role="banner"] {
-  ul {
-    list-style: none;
-  }
+  color: transparentize(tree-get($skin,primary,color), .2);
+  padding: lines(1);
+  text-align: center;
 
-  li {
-    display: inline-block;
+  h1 {
+    font-size: ms(2);
   }
 
   a {
+    color: inherit;
+
     &:hover,
     &:focus {
+      color: tree-get($skin,primary,color);
       text-decoration: inherit;
     }
   }
 
   @media (min-width: map-get($breakpoints, layout)) {
+    text-align: right;
+
     li {
       display: list-item;
     }
   }
 }
 
-.u-skinPrimaryReverse {
-  color: #fff;
-  background-color: tree-get($skin, primary, color);
-
-  a {
-    color: inherit;
-  }
-}
-
-.u-skinSecondary {
-  color: tree-get($skin, secondary, color);
-  background-color: #fff;
-}
-
-.u-skinMutedReverse {
-  background-color: #f5f5f5;
-}
-
-.Icon {
-  svg {
-    width: 100%;
-    height: 100%;
-  }
-}
-
 .Banner {
   &-logo {
+    display: inline-block;
     width: lines(3);
     height: lines(3);
     padding: lines(.5);
+
+    svg {
+      width: 100%;
+      height: 100%;
+
+      fill: tree-get($skin, secondary, color);
+    }
   }
 }
 
-@media (min-width: map-get($breakpoints, layout)) {
-  .StickyFooter-content {
-    margin-top: 0;
-  }
-}
-
-.SocialLinks {
+.SocialLinks,
+nav {
   li {
     display: inline-block;
+  }
+}
+
+[role="contentinfo"] {
+  background-color: #f5f5f5;
+  padding-right: lines(1);
+  padding-left: lines(1);
+}
+
+%Longform {
+  padding-right: lines(1);
+  padding-left: lines(1);
+
+  &-lead {
+    line-height: 1.3;
   }
 }

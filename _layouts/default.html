@@ -24,8 +24,8 @@
   {% include icon.svg %}
 
   <div id="page" class="StickyFooter SmoothState">
-    <header class="Banner--fixed u-textCenter u-skinPrimaryReverse" role="banner">
-      <div class="Banner-logo Container u-circle u-skinSecondary Icon">
+    <header class="Banner--fixed" role="banner">
+      <div class="Banner-logo Icon">
         {% include cherry.svg %}
       </div>
 
@@ -43,14 +43,14 @@
 
       <nav class="SocialLinks" role="navigation">
         <ul>
-          <li>
+          <!--<li>
             <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
               <svg class="Icon">
                 <use xlink:href="#Icon--rss"/>
               </svg>
               <span class="u-hiddenVisually">Subscribe via RSS</span>
             </a>
-          </li>
+          </li>-->
 
           <li>
             <a href="mailto:{{ site.email }}">
@@ -101,8 +101,8 @@
       {{ content }}
     </main>
 
-    <footer class="u-skinMutedReverse" role="contentinfo">
-      <h2>{{ site.title }}</h2>
+    <footer role="contentinfo">
+      <!-- <h2>{{ site.title }}</h2> -->
 
       <div class="Grid">
         <div class="Grid-cell Grid-cell--1of2">
