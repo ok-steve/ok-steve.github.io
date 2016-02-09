@@ -3,9 +3,12 @@
    ========================================================================= */
 
 
-$webfont-sans-serif: "Open Sans";
-$webfont-serif: "Merriweather";
-$webfont-ampersand: "Playfair Display";
+$webfont: (
+  default: "Merriweather",
+  display: "Open Sans",
+  ampersand: "Playfair Display"
+);
+
 
 $skin: (
   primary: (
@@ -15,3 +18,4 @@ $skin: (
     color: hsla(356, 60%, 47%, 1)
   )
 );
+
