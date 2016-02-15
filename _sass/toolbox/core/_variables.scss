@@ -13,10 +13,8 @@ $default-line-height: 1.5rem !default;
 $default-ratio:       1.618 !default; // Golden ratio
 
 
-$font-family-code:        monospace, monospace !default;
-$default-font-family:     -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif !default; // https://medium.com/@mwichary/system-shock-6b1dc6d6596f
-$webfont-font-family:     false !default;
-$ampersand-font-family:   "Lobster Two" !default;
+$font-family-code:    monospace, monospace !default;
+$default-font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif !default; // https://medium.com/@mwichary/system-shock-6b1dc6d6596f
 
 
 
@@ -27,7 +25,19 @@ $ampersand-font-family:   "Lobster Two" !default;
 \*------------------------------------*/
 
 
-$default-color:       #222 !default;
+$default-color: hsla(0, 0%, 13%, 1) !default;
+
+$skin: (
+  danger: (
+    color: hsla(0, 100%, 41%, 1)
+  ),
+  warning: (
+    color: hsla(18, 100%, 56.7%, 1)
+  ),
+  success: (
+    color: hsla(106, 100%, 43.3%, 1)
+  )
+) !default;
 
 
 

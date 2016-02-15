@@ -21,100 +21,96 @@
 </head>
 
 <body prefix="schema: http://schema.org/">
-  {% include icon.svg %}
+  {% include sprite.svg %}
 
-  <div id="page" class="StickyFooter SmoothState">
-    <header class="Banner--fixed" role="banner">
-      <div class="Banner-logo Icon">
-        {% include cherry.svg %}
+  <header class="Banner--fixed" role="banner">
+    <svg class="Icon Icon--logo">
+      <use xlink:href="#Icon--cherry" />
+    </svg>
+
+    <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
+
+    <nav role="navigation">
+      <ul>
+        {% for page in site.pages %}
+          {% if page.title %}
+            <li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <ul class="SocialLinks" >
+      <!--<li>
+        <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
+          <svg class="Icon">
+            <use xlink:href="#Icon--rss"/>
+          </svg>
+          <span class="u-hiddenVisually">Subscribe via RSS</span>
+        </a>
+      </li>-->
+
+      <li>
+        <a href="mailto:{{ site.email }}">
+          <svg class="Icon">
+            <use xlink:href="#Icon--envelope"/>
+          </svg>
+          <span class="u-hiddenVisually">Email me!</span>
+        </a>
+      </li>
+
+      {% if site.github_username %}
+        <li>
+          <a href="https://github.com/{{ site.github_username }}">
+            <svg class="Icon">
+              <use xlink:href="#Icon--github"/>
+            </svg>
+            <span class="u-hiddenVisually">Visit my Github repositories!</span>
+          </a>
+        </li>
+      {% endif %}
+
+      {% if site.twitter_username %}
+        <li>
+          <a href="https://twitter.com/{{ site.twitter_username }}">
+            <svg class="Icon">
+              <use xlink:href="#Icon--twitter"/>
+            </svg>
+            <span class="u-hiddenVisually">See my tweets!</span>
+          </a>
+        </li>
+      {% endif %}
+
+      {% if site.linkedin_username %}
+        <li>
+          <a href="https://linkedin.com/in/{{ site.linkedin_username }}">
+            <svg class="Icon">
+              <use xlink:href="#Icon--linkedin"/>
+            </svg>
+            <span class="u-hiddenVisually">Look at my LinkedIn resume!</span>
+          </a>
+        </li>
+      {% endif %}
+    </ul>
+  </header>
+
+  <main role="main">
+    {{ content }}
+  </main>
+
+  <footer role="contentinfo">
+    <h2>{{ site.title }}</h2>
+
+    <div class="Grid">
+      <div>
+        <p>All content licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
       </div>
 
-      <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
-
-      <nav role="navigation">
-        <ul>
-          {% for page in site.pages %}
-            {% if page.title %}
-              <li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
-            {% endif %}
-          {% endfor %}
-        </ul>
-      </nav>
-
-      <nav class="SocialLinks" role="navigation">
-        <ul>
-          <!--<li>
-            <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
-              <svg class="Icon">
-                <use xlink:href="#Icon--rss"/>
-              </svg>
-              <span class="u-hiddenVisually">Subscribe via RSS</span>
-            </a>
-          </li>-->
-
-          <li>
-            <a href="mailto:{{ site.email }}">
-              <svg class="Icon">
-                <use xlink:href="#Icon--envelope"/>
-              </svg>
-              <span class="u-hiddenVisually">Email me!</span>
-            </a>
-          </li>
-
-          {% if site.github_username %}
-            <li>
-              <a href="https://github.com/{{ site.github_username }}">
-                <svg class="Icon">
-                  <use xlink:href="#Icon--github"/>
-                </svg>
-                <span class="u-hiddenVisually">Visit my Github repositories!</span>
-              </a>
-            </li>
-          {% endif %}
-
-          {% if site.twitter_username %}
-            <li>
-              <a href="https://twitter.com/{{ site.twitter_username }}">
-                <svg class="Icon">
-                  <use xlink:href="#Icon--twitter"/>
-                </svg>
-                <span class="u-hiddenVisually">See my tweets!</span>
-              </a>
-            </li>
-          {% endif %}
-
-          {% if site.linkedin_username %}
-            <li>
-              <a href="https://linkedin.com/in/{{ site.linkedin_username }}">
-                <svg class="Icon">
-                  <use xlink:href="#Icon--linkedin"/>
-                </svg>
-                <span class="u-hiddenVisually">Look at my LinkedIn resume!</span>
-              </a>
-            </li>
-          {% endif %}
-        </ul>
-      </nav>
-    </header>
-
-    <main class="StickyFooter-content SmoothState-animation u-fadeIn" role="main">
-      {{ content }}
-    </main>
-
-    <footer role="contentinfo">
-      <!-- <h2>{{ site.title }}</h2> -->
-
-      <div class="Grid">
-        <div class="Grid-cell Grid-cell--1of2">
-          <p>All content licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
-        </div>
-
-        <div class="Grid-cell Grid-cell--1of2">
-          <p>{{ site.description }}</p>
-        </div>
+      <div>
+        <p>{{ site.description }}</p>
       </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
   <script src="{{ "/js/vendor/modernizr.hyphens.js" | prepend: site.baseurl }}"></script>
   {% if jekyll.environment == "production" %}

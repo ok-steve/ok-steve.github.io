@@ -1,0 +1,16 @@
+/* =========================================================================
+   Responsive
+   ========================================================================= */
+
+
+@function responsive-selector($size, $breakpoint) {
+  @if $size {
+    @return ("-" + $breakpoint);
+  } @else {
+    @return null;
+  }
+}
+
+@function rs($args...) {
+  @return responsive-selector($args...);
+}

@@ -4,12 +4,21 @@
 
 
 [role="banner"] {
-  color: transparentize(tree-get($skin,primary,color), .2);
+  color: tree-get($skin, primary, color);
   padding: lines(1);
   text-align: center;
 
   h1 {
-    font-size: ms(2);
+    @include font-size(ms(2));
+
+    margin-top: 0;
+  }
+
+  nav {
+    li {
+      display: inline-block;
+      list-style: none;
+    }
   }
 
   a {
@@ -17,7 +26,7 @@
 
     &:hover,
     &:focus {
-      color: tree-get($skin,primary,color);
+      color: transparentize(tree-get($skin,primary,color), .2);
       text-decoration: inherit;
     }
   }
@@ -25,39 +34,26 @@
   @media (min-width: map-get($breakpoints, layout)) {
     text-align: right;
 
-    li {
-      display: list-item;
+    nav {
+      li {
+        display: list-item;
+      }
     }
   }
 }
 
-.Banner {
-  &-logo {
-    display: inline-block;
+.Icon--logo {
+  fill: tree-get($skin, secondary, color);
+
+  @media (min-width: map-get($breakpoints, layout)) {
     width: lines(3);
     height: lines(3);
-    padding: lines(.5);
-
-    svg {
-      width: 100%;
-      height: 100%;
-
-      fill: tree-get($skin, secondary, color);
-    }
-  }
-}
-
-.SocialLinks,
-nav {
-  li {
-    display: inline-block;
   }
 }
 
 [role="contentinfo"] {
-  background-color: #f5f5f5;
-  padding-right: lines(1);
-  padding-left: lines(1);
+  border-top-width: 1px;
+  padding-bottom: lines(1);
 }
 
 %Longform {
@@ -66,5 +62,17 @@ nav {
 
   &-lead {
     line-height: 1.3;
+  }
+}
+
+.SocialLinks {
+  li {
+    display: inline-block;
+  }
+}
+
+.wf-active {
+  %Heading {
+    font-weight: 400;
   }
 }

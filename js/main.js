@@ -1,27 +1,15 @@
 define([
-  'toolbox/utilities/ajax',
-  'toolbox/components/smooth-state',
+  'toolbox/utilities/ajax'
   'shame'
-], function (Ajax, smoothState) {
+], function (Ajax) {
   'use strict';
 
   Ajax.loadFonts({
     google: {
       families: [
         'Merriweather:400,400italic,700,700italic',
-        'Open+Sans:700'
+        'Open+Sans:400'
       ]
     }
   });
-
-  Ajax.loadFonts({
-    google: {
-      families: [
-        'Playfair Display:700'
-      ],
-      text: '&'
-    }
-  });
-
-  smoothState('#page');
 });

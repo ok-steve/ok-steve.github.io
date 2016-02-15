@@ -6,14 +6,30 @@
 // TODO is this too inflexible?
 // TODO document this
 
-html {
-  &.wf-active {
-    body {
-      font-family: $webfont-serif;
-    }
+@if variable-exists(webfont) {
+  html {
+    &.wf-active {
+      @if map-has-key($webfont, default) {
+        body {
+          font-family: map-get($webfont, default);
+        }
+      }
 
-    %Heading {
-      font-family: $webfont-ampersand, $webfont-sans-serif;
+      @if map-has-key($webfont, display) {
+
+        // Load a font with only the Ampersand character (%26)
+        // http://slides.com/heydon/effortless-style/#/43
+
+        @if map-has-key($webfont, ampersand) {
+          %Heading {
+            font-family: map-get($webfont, ampersand), map-get($webfont, display);
+          }
+        } @else {
+          %Heading {
+            font-family: map-get($webfont, display);
+          }
+        }
+      }
     }
   }
 }

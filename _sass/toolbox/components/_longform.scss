@@ -13,17 +13,6 @@
 
   p {
     @extend %u-textJustify;
-
-    // FIXME find better solution for specificity
-    &:not(.Longform-lead),
-    &:not(.Longform-runIn),
-    &:not(.Longform-dropCaps) {
-      + p {
-        margin-top: 0;
-
-        text-indent: map-get($longform, indent);
-      }
-    }
   }
 
   // Overhanging lists, module needs padding to display list-style-type
@@ -44,6 +33,14 @@
   /**
    * Descendants
    */
+
+  &-paragraph {
+    + p {
+      margin-top: 0;
+
+      text-indent: map-get($longform, indent);
+    }
+  }
 
   &-lead {
     @extend %u-textLarge;

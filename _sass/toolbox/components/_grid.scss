@@ -20,14 +20,19 @@
     // http://codepen.io/philipwalton/pen/XJMWem
 
     &-cell {
+      @include flex(1);
+
       margin-top: 0;
+
+
+      /**
+       * Modifiers
+       */
 
       @for $i from 1 through map-get($grid, columns) {
         $gcd: gcd($i, map-get($grid, columns));
 
         &--#{$i / $gcd}of#{map-get($grid, columns) / $gcd} {
-          @include flex($i auto);
-
           width: percentage($i / map-get($grid, columns));
         }
       }

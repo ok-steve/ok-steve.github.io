@@ -3,36 +3,12 @@
    ========================================================================= */
 
 
-.u-textCenter {
-  @extend %u-textCenter;
-}
-
 .u-hiddenVisually {
   @extend %u-hiddenVisually;
 }
 
-.Container {
-  @extend %Container;
-}
-
-.Grid {
-  @extend %Grid;
-}
-
-.Grid-cell {
-  @extend %Grid-cell;
-}
-
-.Grid-cell--1of2 {
-  @extend %Grid-cell--1of2;
-}
-
 .Icon {
   @extend %Icon;
-}
-
-.Icon--rss {
-  @extend %Icon--rss;
 }
 
 .Icon--github {
@@ -47,36 +23,16 @@
   @extend %Icon--linkedin;
 }
 
-.StickyFooter {
-  @extend %StickyFooter;
-}
-
-.StickyFooter-content {
-  @extend %StickyFooter-content;
-}
-
-.SmoothState {
-  @extend %SmoothState;
-}
-
-.SmoothState-animation {
-  @extend %SmoothState-animation;
-}
-
-.u-fadeIn {
-  @extend %u-fadeIn;
-}
-
-.is-exiting {
-  @extend %is-exiting;
-}
-
 .Longform {
   @extend %Longform;
 
   > p:first-child {
     @extend %Longform-lead;
-    @extend %Longform-dropCaps;
+    //@extend %Longform-dropCaps;
+  }
+
+  p:not(:first-child) {
+    @extend %Longform-paragraph;
   }
 
   h3 + p {
@@ -86,4 +42,20 @@
 
 .footnotes {
   @extend %Longform-footnotes;
+}
+
+body {
+  @extend %StickyFooter;
+}
+
+main {
+  @extend %StickyFooter-content;
+}
+
+.Grid {
+  @extend %Grid;
+
+  > * {
+    @extend %Grid-cell;
+  }
 }

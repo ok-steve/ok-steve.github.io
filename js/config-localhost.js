@@ -2,8 +2,7 @@ var require = {
   paths: {
     jquery: '../bower_components/jquery/dist/jquery.min',
 
-    webfontloader: '../bower_components/webfontloader/webfontloader',
-    smoothstate: '../bower_components/smoothstate/jquery.smoothState.min'
+    webfontloader: '../bower_components/webfontloader/webfontloader'
   },
   shim: {
     jquery: {
@@ -12,9 +11,6 @@ var require = {
 
     webfontloader: {
       exports: 'WebFont'
-    },
-    smoothstate: {
-      deps: ['jquery']
     }
   }
 };
