@@ -1,0 +1,18 @@
+/* =========================================================================
+   Map
+   ========================================================================= */
+
+
+// https://css-tricks.com/snippets/sass/deep-getset-maps/
+
+@function tree-get($map, $keys...) {
+  @each $key in $keys {
+    @if map-has-key($map, $key) {
+      $map: map-get($map, $key);
+    } @else {
+      @warn "Missing key: #{$key}";
+    }
+  }
+
+  @return $map;
+}

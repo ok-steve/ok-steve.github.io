@@ -1,70 +1,43 @@
 # Site settings
 title: Cherry on Top
 email: stevenccherry@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  The online home of Steve Cherry.
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://stevecherry.net" # the base hostname & protocol for your site
+description: The online home of Steve Cherry.
+baseurl: ""
+url: "http://stevecherry.net"
+repo: toolbox
 
-twitter_username: stevenccherry
-github_username:  sccherry
+twitter_username:   stevenccherry
+github_username:    sccherry
 linkedin_username:  sccherry
+google_analytics:   UA-19261191-1
 
 safe: true
-
-permalink: /:categories/:title/
+host: 0.0.0.0
+permalink: /posts/:year/:month/:day/:title/
 
 defaults:
   - scope:
       path: ""
-      type: "posts"
+      type: posts
     values:
-      layout: "post"
+      layout: post
   - scope:
       path: ""
-      type: "pages"
+      type: pages
     values:
-      layout: "page"
+      layout: page
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
 
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
 
 # Build settings
 markdown: kramdown
 
 exclude: ["README.md", "*.sublime-*"]
-
-host: 0.0.0.0
-
-
-# Prose.io
-
-prose:
-  rooturl: "_posts"
-  siteurl: "http://stevecherry.net"
-  media: "img"
-  metadata:
-    _posts:
-      - name: "title"
-        field:
-          element: "text"
-          label: "Title"
-      - name: "category"
-        field:
-          element: "select"
-          label: "Category"
-          placeholder: "Choose a category"
-          options:
-            - name: "Projects"
-              value: "projects"
-      - name: "summary"
-        field:
-          element: "text"
-          label: "Summary"
-          placeholder: "Write a summary"
-      - name: "image"
-        field:
-          element: "text"
-          label: "Image"
-      - name: "date"
-        field:
-          element: "text"
-          label: "Date"

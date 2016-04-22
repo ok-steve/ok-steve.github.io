@@ -1,0 +1,14 @@
+/* =========================================================================
+   Typography
+   ========================================================================= */
+
+
+@mixin font-size($font-size) {
+  $line-height: lines(ceil($font-size / $default-line-height));
+
+  font-size: $font-size;
+
+  @if ($line-height > $default-line-height) {
+    line-height: $line-height;
+  }
+}

@@ -1,0 +1,61 @@
+/* =========================================================================
+   Extends
+   ========================================================================= */
+
+
+.u-hiddenVisually {
+  @extend %u-hiddenVisually;
+}
+
+.Icon {
+  @extend %Icon;
+}
+
+.Icon--github {
+  @extend %Icon--github;
+}
+
+.Icon--twitter {
+  @extend %Icon--twitter;
+}
+
+.Icon--linkedin {
+  @extend %Icon--linkedin;
+}
+
+.Longform {
+  @extend %Longform;
+
+  > p:first-child {
+    @extend %Longform-lead;
+    //@extend %Longform-dropCaps;
+  }
+
+  p:not(:first-child) {
+    @extend %Longform-paragraph;
+  }
+
+  h3 + p {
+    @extend %Longform-runIn;
+  }
+}
+
+.footnotes {
+  @extend %Longform-footnotes;
+}
+
+body {
+  @extend %StickyFooter;
+}
+
+main {
+  @extend %StickyFooter-content;
+}
+
+.Grid {
+  @extend %Grid;
+
+  > * {
+    @extend %Grid-cell;
+  }
+}

@@ -1,0 +1,69 @@
+/* =========================================================================
+   Longform
+   ========================================================================= */
+
+
+%Longform {
+  $longform: (
+    measure: 36rem,
+    indent: 40px
+  );
+
+  max-width: map-get($longform, measure);
+
+  p {
+    @extend %u-textJustify;
+  }
+
+  // Overhanging lists, module needs padding to display list-style-type
+  ul,
+  ol {
+    margin-left: -15px;
+
+    list-style-position: inside;
+
+    ul,
+    ol {
+      margin-left: 0;
+      padding-left: map-get($longform, indent);
+    }
+  }
+
+
+  /**
+   * Descendants
+   */
+
+  &-paragraph {
+    + p {
+      margin-top: 0;
+
+      text-indent: map-get($longform, indent);
+    }
+  }
+
+  &-lead {
+    @extend %u-textLarge;
+  }
+
+  &-runIn {
+    &::first-line {
+      @extend %u-textSmallCaps;
+    }
+  }
+
+  &-dropCaps {
+    &::first-letter {
+      font-size: lines(2);
+      line-height: 1;
+
+      float: left;
+
+      padding-right: lines(.25);
+    }
+  }
+
+  &-footnotes {
+    @extend %u-textSmall;
+  }
+}

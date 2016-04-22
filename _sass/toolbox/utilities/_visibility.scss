@@ -1,0 +1,96 @@
+/* =========================================================================
+   Visibility
+   ========================================================================= */
+
+
+// Hide visually and from screen readers:
+// http://juicystudio.com/article/screen-readers-display-none.php
+
+%u-hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+
+// Hide visually and from screen readers, but maintain layout
+
+%u-invisible {
+  visibility: hidden !important;
+}
+
+
+// Hide only visually, but have it available for screen readers:
+// http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+
+%u-hiddenVisually {
+  position: absolute !important;
+
+  overflow: hidden !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+
+  border: 0 !important;
+}
+
+
+// Extends the .hiddenVisually class to allow the element
+// to be focusable when navigated to via the keyboard:
+// https://www.drupal.org/node/897638
+
+%u-hiddenVisuallyFocusable {
+  &:active,
+  &:focus {
+    position: static;
+
+    overflow: visible;
+    clip: auto;
+
+    width: auto;
+    height: auto;
+    margin: 0;
+  }
+}
+
+
+@each $breakpoint, $size in $breakpoints {
+  $mod: rs($size, $breakpoint);
+
+  @include responsive($size) {
+    %u#{$mod}-hidden {
+      display: none !important;
+    }
+
+    %u#{$mod}-block {
+      display: block !important;
+    }
+
+    %u#{$mod}-inline {
+      display: inline !important;
+    }
+
+    %u#{$mod}-inlineBlock {
+      display: inline-block !important;
+
+      max-width: 100% !important;
+    }
+
+    %u#{$mod}-table {
+      display: table !important;
+    }
+
+    %u#{$mod}-tableRow {
+      display: table-row !important;
+    }
+
+    %u#{$mod}-tableCell {
+      display: table-cell !important;
+    }
+
+    %u#{$mod}-flex {
+      display: flex !important;
+    }
+  }
+}

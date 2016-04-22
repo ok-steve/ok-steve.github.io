@@ -1,0 +1,41 @@
+/* =========================================================================
+   Grid
+   ========================================================================= */
+
+
+%Grid {
+  $grid: (
+    columns: 4
+  );
+
+  @media (min-width: map-get($breakpoints, layout)) {
+    @include display-flex(flex);
+    @include flex-wrap(wrap);
+
+
+    /**
+     * Descendents
+     */
+
+    // http://codepen.io/philipwalton/pen/XJMWem
+
+    &-cell {
+      @include flex(1);
+
+      margin-top: 0;
+
+
+      /**
+       * Modifiers
+       */
+
+      @for $i from 1 through map-get($grid, columns) {
+        $gcd: gcd($i, map-get($grid, columns));
+
+        &--#{$i / $gcd}of#{map-get($grid, columns) / $gcd} {
+          width: percentage($i / map-get($grid, columns));
+        }
+      }
+    }
+  }
+}

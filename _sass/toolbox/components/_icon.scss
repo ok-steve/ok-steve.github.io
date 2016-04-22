@@ -1,0 +1,59 @@
+/* =========================================================================
+   Icons
+   ========================================================================= */
+
+
+/*------------------------------------*\
+    #BASE
+\*------------------------------------*/
+
+
+// Overrides
+// https://css-tricks.com/svg-symbol-good-choice-icons/
+
+body > svg:first-child {
+  display: none;
+
+  + * {
+    margin-top: 0;
+  }
+}
+
+
+
+
+
+/*------------------------------------*\
+    #COMPONENTS
+\*------------------------------------*/
+
+
+%Icon {
+  width: lines(1);
+  height: lines(1);
+
+  fill: currentColor;
+
+
+  /**
+   * Modifiers
+   */
+
+  // http://brandcolors.net/
+
+  &--rss {
+    fill: #ff8300;
+  }
+
+  &--github {
+    fill: #4183c4;
+  }
+
+  &--linkedin {
+    fill: #007fb1;
+  }
+
+  &--twitter {
+    fill: #00aced;
+  }
+}

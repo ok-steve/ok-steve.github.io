@@ -1,0 +1,16 @@
+/* =========================================================================
+   Math
+   ========================================================================= */
+
+
+@function greatest-common-denominator($x, $y) {
+  @if $y == 0 {
+    @return $x;
+  } @else {
+    @return greatest-common-denominator($y, $x % $y);
+  }
+}
+
+@function gcd($args...) {
+  @return greatest-common-denominator($args...);
+}
