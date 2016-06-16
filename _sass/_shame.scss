@@ -4,9 +4,13 @@
 
 
 [role="banner"] {
-  color: tree-get($skin, primary, color);
   padding: lines(1);
   text-align: center;
+
+  &:hover,
+  &:focus {
+    color: tree-get($skin, primary, color);
+  }
 
   h1 {
     @include font-size(ms(2));
@@ -23,10 +27,11 @@
 
   a {
     color: inherit;
+    transition: color .2s;
 
     &:hover,
     &:focus {
-      color: transparentize(tree-get($skin,primary,color), .2);
+      color: transparentize(tree-get($skin, primary, color), .2);
       text-decoration: inherit;
     }
   }
