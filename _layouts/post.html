@@ -9,33 +9,33 @@ layout: default
       {{ page.date | date: "%b %-d, %Y" }}{% if page.author %} | {{ page.author }}{% endif %}{% if page.meta %} | {{ page.meta }}{% endif %} |
       <a href="https://github.com/{{ site.github_username }}/{{ site.repo }}/commits/master/{{ page.path }}">
         <svg class="Icon">
-          <use xlink:href="#Icon--clock"/>
+          <title>History</title>
+          <use xlink:href="#clock"/>
         </svg>
-        <span class="u-hiddenVisually">History</span>
       </a> |
       <a href="https://github.com/{{ site.github_username }}/{{ site.repo }}/blob/master/{{ page.path }}">
         <svg class="Icon">
-          <use xlink:href="#Icon--code"/>
+          <title>Source Code</title>
+          <use xlink:href="#code"/>
         </svg>
-        <span class="u-hiddenVisually">Source Code</span>
       </a> |
       <a href="http://twitter.com/intent/tweet?url={{ page.url | prepend: site.baseurl | prepend: site.url }}">
-        <svg class="Icon">
-          <use xlink:href="#Icon--twitter"/>
+        <svg class="Icon Icon--twitter">
+          <title>Tweet</title>
+          <use xlink:href="#twitter"/>
         </svg>
-        <span class="u-hiddenVisually">Tweet</span>
       </a> |
       <a href="http://www.facebook.com/sharer.php?u={{ page.url | prepend: site.baseurl | prepend: site.url }}">
-        <svg class="Icon">
-          <use xlink:href="#Icon--facebook"/>
+        <svg class="Icon Icon--facebook">
+          <title>Post to Facebook</title>
+          <use xlink:href="#facebook"/>
         </svg>
-        <span class="u-hiddenVisually">Post to Facebook</span>
       </a> |
       <button class="js-printPage">
         <svg class="Icon">
-          <use xlink:href="#Icon--printer"/>
+          <title>Print this</title>
+          <use xlink:href="#printer"/>
         </svg>
-        <span class="u-hiddenVisually">Print this</span>
       </button>
     </p>
   </header>

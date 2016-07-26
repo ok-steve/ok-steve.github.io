@@ -25,7 +25,7 @@
 
   <header class="Banner--fixed" role="banner">
     <svg class="Icon Icon--logo">
-      <use xlink:href="#Icon--cherry" />
+      <use xlink:href="#cherry" />
     </svg>
 
     <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
@@ -44,18 +44,18 @@
       <!--<li>
         <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
           <svg class="Icon">
-            <use xlink:href="#Icon--rss"/>
+            <title>Subscribe via RSS</title>
+            <use xlink:href="#rss"/>
           </svg>
-          <span class="u-hiddenVisually">Subscribe via RSS</span>
         </a>
       </li>-->
 
       <li>
         <a href="mailto:{{ site.email }}">
           <svg class="Icon">
-            <use xlink:href="#Icon--envelope"/>
+            <title>Email me!</title>
+            <use xlink:href="#envelope"/>
           </svg>
-          <span class="u-hiddenVisually">Email me!</span>
         </a>
       </li>
 
@@ -63,9 +63,9 @@
         <li>
           <a href="https://github.com/{{ site.github_username }}">
             <svg class="Icon">
-              <use xlink:href="#Icon--github"/>
+              <title>Visit my Github repositories!</title>
+              <use xlink:href="#github"/>
             </svg>
-            <span class="u-hiddenVisually">Visit my Github repositories!</span>
           </a>
         </li>
       {% endif %}
@@ -74,9 +74,9 @@
         <li>
           <a href="https://twitter.com/{{ site.twitter_username }}">
             <svg class="Icon">
-              <use xlink:href="#Icon--twitter"/>
+              <title>See my tweets!</title>
+              <use xlink:href="#twitter"/>
             </svg>
-            <span class="u-hiddenVisually">See my tweets!</span>
           </a>
         </li>
       {% endif %}
@@ -85,9 +85,9 @@
         <li>
           <a href="https://linkedin.com/in/{{ site.linkedin_username }}">
             <svg class="Icon">
-              <use xlink:href="#Icon--linkedin"/>
+              <title>Look at my LinkedIn resume!</title>
+              <use xlink:href="#linkedin"/>
             </svg>
-            <span class="u-hiddenVisually">Look at my LinkedIn resume!</span>
           </a>
         </li>
       {% endif %}
