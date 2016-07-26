@@ -1,5 +1,5 @@
 define([
-  'toolbox/utilities/ajax'
+  'utilities/ajax'
   'shame'
 ], function (Ajax) {
   'use strict';

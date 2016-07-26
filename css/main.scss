@@ -3,10 +3,12 @@
 ---
 @charset "utf-8";
 
-@import "settings";
+@import "variables";
 
-@import "toolbox";
-@import "portfolio";
+@import "core";
+@import "utilities";
+@import "components";
+@import "theme";
 
 @import "extends";
 
