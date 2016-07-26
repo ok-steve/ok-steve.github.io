@@ -6,9 +6,12 @@
 %Longform {
   max-width: 36rem;
 
+  .csshyphens & {
+    p {
+      @include hyphens(auto);
 
-  p {
-    @extend %u-textJustify;
+      text-align: justify;
+    }
   }
 
   // Overhanging lists, module needs padding to display list-style-type
@@ -39,12 +42,14 @@
   }
 
   &-lead {
-    @extend %u-textLarge;
+    font-size: ms(1);
   }
 
   &-runIn {
     &::first-line {
-      @extend %u-textSmallCaps;
+      font-size: 80%;
+
+      text-transform: uppercase;
     }
   }
 
@@ -60,6 +65,6 @@
   }
 
   &-footnotes {
-    @extend %u-textSmall;
+    font-size: ms(-1);
   }
 }
