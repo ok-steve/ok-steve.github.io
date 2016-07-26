@@ -1,7 +1,7 @@
 define([
+  'jquery',
   'utilities/ajax'
-  'shame'
-], function (Ajax) {
+], function ($, Ajax) {
   'use strict';
 
   Ajax.loadFonts({
@@ -11,5 +11,9 @@ define([
         'Open+Sans:400'
       ]
     }
+  });
+
+  $('[data-trigger="print"]').on('click', function (e) {
+    window.print();
   });
 });
