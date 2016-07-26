@@ -4,7 +4,7 @@
 
 
 @function lines($num, $line-height: $default-line-height) {
-  @return  $line-height * $num;
+  @return  $line-height * $num * $default-font-size;
 }
 
 

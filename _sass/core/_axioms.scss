@@ -68,7 +68,7 @@ html {
 body {
   font-family: $default-font-family;  // 1, h5bp, sanitize, https://css-tricks.com/html-vs-body-in-css/
   font-size: ms(0); // h5bp
-  line-height: lines(1); // h5bp
+  line-height: $default-line-height; // h5bp
 
   margin-top: 0;
 }

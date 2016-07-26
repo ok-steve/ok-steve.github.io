@@ -30,37 +30,37 @@
 h1 {
   @extend %Heading;
 
-  @include font-size(ms(3));
+  font-size: ms(3);
 }
 
 h2 {
   @extend %Heading;
 
-  @include font-size(ms(2));
+  font-size: ms(2);
 }
 
 h3 {
   @extend %Heading;
 
-  @include font-size(ms(1));
+  font-size: ms(1);
 }
 
 h4 {
   @extend %Heading;
 
-  @include font-size(ms(0));
+  font-size: ms(0);
 }
 
 h5 {
   @extend %Heading;
 
-  @include font-size(ms(-1));
+  font-size: ms(-1);
 }
 
 h6 {
   @extend %Heading;
 
-  @include font-size(ms(-2));
+  font-size: ms(-2);
 }
 
 p { }
