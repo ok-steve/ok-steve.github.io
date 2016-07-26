@@ -4,12 +4,8 @@
 
 
 %Longform {
-  $longform: (
-    measure: 36rem,
-    indent: 40px
-  );
+  max-width: 36rem;
 
-  max-width: map-get($longform, measure);
 
   p {
     @extend %u-textJustify;
@@ -25,7 +21,7 @@
     ul,
     ol {
       margin-left: 0;
-      padding-left: map-get($longform, indent);
+      padding-left: $default-indent;
     }
   }
 
@@ -38,7 +34,7 @@
     + p {
       margin-top: 0;
 
-      text-indent: map-get($longform, indent);
+      text-indent: $default-indent;
     }
   }
 

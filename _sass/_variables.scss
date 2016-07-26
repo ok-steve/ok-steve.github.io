@@ -1,15 +1,42 @@
 /* =========================================================================
-   Settings
+   Variables
    ========================================================================= */
 
 
-$webfont: (
-  default: "Merriweather",
-  display: "Open Sans"
-);
+/*------------------------------------*\
+    #TYPOGRAPHY
+\*------------------------------------*/
 
+
+$default-font-size:   1rem;
+$default-line-height: 1.5rem;
+$default-ratio:       1.618; // Golden ratio
+$default-indent:      40px;
+
+$font-family-code:    monospace, monospace;
+$default-font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif; // https://medium.com/@mwichary/system-shock-6b1dc6d6596f
+
+
+
+
+
+/*------------------------------------*\
+    #COLORS
+\*------------------------------------*/
+
+
+$default-color: hsla(0, 0%, 13%, 1);
 
 $skin: (
+  danger: (
+    color: hsla(0, 100%, 41%, 1)
+  ),
+  warning: (
+    color: hsla(18, 100%, 56.7%, 1)
+  ),
+  success: (
+    color: hsla(106, 100%, 43.3%, 1)
+  ),
   primary: (
     color: hsla(135, 59%, 30%, 1)
   ),
@@ -18,3 +45,42 @@ $skin: (
   )
 );
 
+
+
+
+
+/*------------------------------------*\
+    #BREAKPOINTS
+\*------------------------------------*/
+
+
+$breakpoints: (
+  layout: 35rem
+);
+
+
+
+
+
+/*------------------------------------*\
+    #GRID
+\*------------------------------------*/
+
+
+$grid: (
+  columns: 4
+);
+
+
+
+
+
+/*------------------------------------*\
+    #WEBFONTS
+\*------------------------------------*/
+
+
+$webfont: (
+  default: "Merriweather",
+  display: "Open Sans"
+);

@@ -4,10 +4,6 @@
 
 
 %Grid {
-  $grid: (
-    columns: 4
-  );
-
   @media (min-width: map-get($breakpoints, layout)) {
     @include display-flex(flex);
     @include flex-wrap(wrap);
