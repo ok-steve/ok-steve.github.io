@@ -41,6 +41,12 @@
 }
 
 
+html,
+body {
+  @include font-feature-settings("kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0);
+}
+
+
 // 1. Prevent iOS text size adjust after orientation change, without disabling
 //    user zoom.
 
@@ -128,7 +134,9 @@ address { }
 
 // https://css-tricks.com/time-element/
 
-time { }
+time {
+  @include font-feature-settings("kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0);
+}
 
 data { }
 

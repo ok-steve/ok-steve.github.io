@@ -24,6 +24,8 @@
 
 
 %Heading {
+  @include font-feature-settings("kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 1);
+
   font-weight: 700;
 }
 
@@ -150,6 +152,8 @@ a {
 // 1. Address styling not present in IE 8/9/10/11, Safari, and Chrome.
 
 abbr[title] {
+  @include font-feature-settings("kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "smcp" 1, "c2sc" 1);
+
   cursor: help;
 
   border-bottom: 1px dotted; // 1
@@ -210,10 +214,14 @@ sup {
 }
 
 sup {
+  @include font-feature-settings("kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "sups" 1);
+
   top: -.5em;
 }
 
 sub {
+  @include font-feature-settings("kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "subs" 1);
+
   bottom: -.25em;
 }
 

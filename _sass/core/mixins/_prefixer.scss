@@ -291,6 +291,21 @@
 
 
 
+/*------------------------------------*\
+    #FONT_FEATURE_SETTINGS
+
+\*------------------------------------*/
+
+
+@mixin font-feature-settings($settings...) {
+  -webkit-font-feature-settings: $settings;
+     -moz-font-feature-settings: $settings;
+          font-feature-settings: $settings;
+}
+
+
+
+
 
 /*------------------------------------*\
     #HYPHENS
