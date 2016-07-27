@@ -122,10 +122,8 @@
 
   <script src="{{ "/js/vendor/modernizr.hyphens.js" | prepend: site.baseurl }}"></script>
   {% if jekyll.environment == "production" %}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.10/webfontloader.js"></script>
   {% else %}
-  <script src="{{ "/bower_components/jquery/dist/jquery.min.js" | prepend: site.baseurl }}"></script>
   <script src="{{ "/bower_components/webfontloader/webfontloader.js" | prepend: site.baseurl }}"></script>
   {% endif %}
   <script src="{{ "/js/main.js" | prepend: site.baseurl }}"></script>

@@ -1,17 +1,21 @@
-(function ($, WebFont) {
+(function (WebFont) {
   'use strict';
 
-  var WebFontConfig = {
-    google: {
-      families: [
-        'Merriweather:400,400italic,700,700italic',
-        'Source+Sans+Pro:400'
-      ]
-    },
-    active: function () {
-      sessionStorage.fonts = true;
-    }
-  };
+
+  var html = document.querySelector('html'),
+    title = document.querySelector('title'),
+    body = document.querySelector('#page'),
+    WebFontConfig = {
+      google: {
+        families: [
+          'Merriweather:400,400italic,700',
+          'Source Sans Pro:400'
+        ]
+      },
+      active: function () {
+        sessionStorage.fonts = true;
+      }
+    };
 
 
   /**
@@ -20,9 +24,8 @@
 
   // https://css-tricks.com/loading-web-fonts-with-the-web-font-loader
   // https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700|Source+Sans+Pro:400
-
   if (sessionStorage.fonts) {
-    $('html').addClass('wf-active');
+    html.className += ' wf-active';
   }
 
   WebFont.load(WebFontConfig);
@@ -74,7 +77,27 @@
 
   window.addEventListener('popstate', changePage);
 
-  $('[data-trigger="print"]').on('click', function (e) {
-    window.print();
+  document.addEventListener('click', function (e) {
+    var el = e.target;
+
+    // Print page
+    if (el.getAttribute('data-trigger') === 'print') {
+      window.print();
+
+      return;
+    }
+
+    // Search for links
+    while (el && !el.href) {
+      el = el.parentNode;
+    }
+
+    if (el) {
+      e.preventDefault();
+
+      pageTransition(el);
+
+      return;
+    }
   });
-}(jQuery, WebFont));
+}(WebFont));
