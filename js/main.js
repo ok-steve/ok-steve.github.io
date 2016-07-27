@@ -1,17 +1,32 @@
-define([
-  'jquery',
-  'utilities/ajax'
-], function ($, Ajax) {
+(function ($, WebFont) {
   'use strict';
 
-  Ajax.loadFonts({
+  var WebFontConfig = {
     google: {
       families: [
         'Merriweather:400,400italic,700,700italic',
         'Source+Sans+Pro:400'
       ]
+    },
+    active: function () {
+      sessionStorage.fonts = true;
     }
-  });
+  };
+
+
+  /**
+   * Load fonts
+   */
+
+  // https://css-tricks.com/loading-web-fonts-with-the-web-font-loader
+  // https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700|Source+Sans+Pro:400
+
+  if (sessionStorage.fonts) {
+    $('html').addClass('wf-active');
+  }
+
+  WebFont.load(WebFontConfig);
+
 
   /**
    * Add page transitions
@@ -62,4 +77,4 @@ define([
   $('[data-trigger="print"]').on('click', function (e) {
     window.print();
   });
-});
+}(jQuery, WebFont));
