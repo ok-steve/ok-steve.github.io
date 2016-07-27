@@ -8,7 +8,7 @@ define([
     google: {
       families: [
         'Merriweather:400,400italic,700,700italic',
-        'Open+Sans:400'
+        'Source+Sans+Pro:400'
       ]
     }
   });
