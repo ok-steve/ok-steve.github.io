@@ -23,8 +23,8 @@
 <body prefix="schema: http://schema.org/">
   {% include sprite.svg %}
 
-  <div id="page" class="SmoothState">
-    <header class="Banner--fixed" role="banner">
+  <div id="page" class="Shell Shell--fixedBanner SmoothState">
+    <header class="Shell-banner" role="banner">
       <svg class="Icon Icon--logo">
         <use xlink:href="#cherry" />
       </svg>
@@ -99,23 +99,25 @@
       </ul>
     </header>
 
-    <main class="SmoothState-animation u-fadeIn" role="main">
-      {{ content }}
-    </main>
+    <div class="Shell-content">
+      <main class="SmoothState-animation u-fadeIn" role="main">
+        {{ content }}
+      </main>
 
-    <footer role="contentinfo">
-      <!--<h2>{{ site.title }}</h2>-->
+      <footer role="contentinfo">
+        <!--<h2>{{ site.title }}</h2>-->
 
-      <div class="Grid">
-        <div>
-          <p>All content licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
+        <div class="Grid">
+          <div>
+            <p>All content licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
+          </div>
+
+          <div>
+            <p>{{ site.description }}</p>
+          </div>
         </div>
-
-        <div>
-          <p>{{ site.description }}</p>
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
   </div>
 
   <script src="{{ "/js/vendor/modernizr.hyphens.js" | prepend: site.baseurl }}"></script>

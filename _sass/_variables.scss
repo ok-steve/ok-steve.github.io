@@ -84,3 +84,16 @@ $webfont: (
   default: "Merriweather",
   display: "Open Sans"
 );
+
+
+
+
+
+/*------------------------------------*\
+    #SHELL
+\*------------------------------------*/
+
+
+$shell: (
+  width: (100 - (100 / $default-ratio)) * 1%
+);
