@@ -3,6 +3,10 @@
    ========================================================================= */
 
 
+.u-fadeIn {
+  @extend %u-fadeIn;
+}
+
 .Icon {
   @extend %Icon;
 }
@@ -54,4 +58,20 @@ main {
   > * {
     @extend %Grid-cell;
   }
+}
+
+.SmoothState {
+  @extend %SmoothState;
+}
+
+.SmoothState-animation {
+  @extend %SmoothState-animation;
+}
+
+.is-exiting {
+  @extend %is-exiting;
+}
+
+.is-loading {
+  @extend %is-loading;
 }

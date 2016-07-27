@@ -23,94 +23,100 @@
 <body prefix="schema: http://schema.org/">
   {% include sprite.svg %}
 
-  <header class="Banner--fixed" role="banner">
-    <svg class="Icon Icon--logo">
-      <use xlink:href="#cherry" />
-    </svg>
+  <div id="page" class="SmoothState">
+    <header class="Banner--fixed" role="banner">
+      <svg class="Icon Icon--logo">
+        <use xlink:href="#cherry" />
+      </svg>
 
-    <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
+      <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
 
-    <!--<nav role="navigation">
-      <ul>
-        {% for page in site.pages %}
-          {% if page.title %}
-            <li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
-          {% endif %}
-        {% endfor %}
+      <!--
+      <nav role="navigation">
+        <ul>
+          {% for page in site.pages %}
+            {% if page.title %}
+              <li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </nav>
+      -->
+
+      <ul class="SocialLinks" >
+        <!--
+        <li>
+          <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
+            <svg class="Icon">
+              <title>Subscribe via RSS</title>
+              <use xlink:href="#rss"/>
+            </svg>
+          </a>
+        </li>
+        -->
+
+        <li>
+          <a href="mailto:{{ site.email }}">
+            <svg class="Icon">
+              <title>Email me!</title>
+              <use xlink:href="#envelope"/>
+            </svg>
+          </a>
+        </li>
+
+        {% if site.github_username %}
+          <li>
+            <a href="https://github.com/{{ site.github_username }}">
+              <svg class="Icon">
+                <title>Visit my Github repositories!</title>
+                <use xlink:href="#github"/>
+              </svg>
+            </a>
+          </li>
+        {% endif %}
+
+        {% if site.twitter_username %}
+          <li>
+            <a href="https://twitter.com/{{ site.twitter_username }}">
+              <svg class="Icon">
+                <title>See my tweets!</title>
+                <use xlink:href="#twitter"/>
+              </svg>
+            </a>
+          </li>
+        {% endif %}
+
+        {% if site.linkedin_username %}
+          <li>
+            <a href="https://linkedin.com/in/{{ site.linkedin_username }}">
+              <svg class="Icon">
+                <title>Look at my LinkedIn resume!</title>
+                <use xlink:href="#linkedin"/>
+              </svg>
+            </a>
+          </li>
+        {% endif %}
       </ul>
-    </nav>-->
+    </header>
 
-    <ul class="SocialLinks" >
-      <!--<li>
-        <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
-          <svg class="Icon">
-            <title>Subscribe via RSS</title>
-            <use xlink:href="#rss"/>
-          </svg>
-        </a>
-      </li>-->
+    <main class="SmoothState-animation u-fadeIn" role="main">
+      {{ content }}
+    </main>
 
-      <li>
-        <a href="mailto:{{ site.email }}">
-          <svg class="Icon">
-            <title>Email me!</title>
-            <use xlink:href="#envelope"/>
-          </svg>
-        </a>
-      </li>
+    <footer role="contentinfo">
+      <!--<h2>{{ site.title }}</h2>-->
 
-      {% if site.github_username %}
-        <li>
-          <a href="https://github.com/{{ site.github_username }}">
-            <svg class="Icon">
-              <title>Visit my Github repositories!</title>
-              <use xlink:href="#github"/>
-            </svg>
-          </a>
-        </li>
-      {% endif %}
+      <div class="Grid">
+        <div>
+          <p>All content licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
+        </div>
 
-      {% if site.twitter_username %}
-        <li>
-          <a href="https://twitter.com/{{ site.twitter_username }}">
-            <svg class="Icon">
-              <title>See my tweets!</title>
-              <use xlink:href="#twitter"/>
-            </svg>
-          </a>
-        </li>
-      {% endif %}
-
-      {% if site.linkedin_username %}
-        <li>
-          <a href="https://linkedin.com/in/{{ site.linkedin_username }}">
-            <svg class="Icon">
-              <title>Look at my LinkedIn resume!</title>
-              <use xlink:href="#linkedin"/>
-            </svg>
-          </a>
-        </li>
-      {% endif %}
-    </ul>
-  </header>
-
-  <main role="main">
-    {{ content }}
-  </main>
-
-  <footer role="contentinfo">
-    <!--<h2>{{ site.title }}</h2>-->
-
-    <div class="Grid">
-      <div>
-        <p>All content licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
+        <div>
+          <p>{{ site.description }}</p>
+        </div>
       </div>
-
-      <div>
-        <p>{{ site.description }}</p>
-      </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 
   <script src="{{ "/js/vendor/modernizr.hyphens.js" | prepend: site.baseurl }}"></script>
   {% if jekyll.environment == "production" %}
