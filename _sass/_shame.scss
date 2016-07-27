@@ -7,11 +7,6 @@
   padding: lines(1);
   text-align: center;
 
-  &:hover,
-  &:focus {
-    color: tree-get($skin, primary, color);
-  }
-
   h1 {
     font-size: ms(2);
 
@@ -26,12 +21,8 @@
   }
 
   a {
-    color: inherit;
-    transition: color .2s;
-
     &:hover,
     &:focus {
-      color: transparentize(tree-get($skin, primary, color), .2);
       text-decoration: inherit;
     }
   }
@@ -48,7 +39,7 @@
 }
 
 .Icon--logo {
-  fill: tree-get($skin, secondary, color);
+  color: map-get($color, accent);
 
   @media (min-width: map-get($breakpoints, layout)) {
     width: lines(3);

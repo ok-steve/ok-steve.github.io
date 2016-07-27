@@ -116,6 +116,7 @@ hr {
 a {
   text-decoration: none;
 
+  color: map-get($color, primary);
   background-color: transparent; // 1
 
   &:hover,

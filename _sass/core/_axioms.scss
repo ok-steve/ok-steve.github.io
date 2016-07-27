@@ -59,7 +59,7 @@ html {
 
   cursor: default;
 
-  color: $default-color; // h5bp, sanitize
+  color: map-get($color, default); // h5bp, sanitize
   background-color: #fff; // https://css-tricks.com/html-vs-body-in-css/
 
   text-rendering: optimizeLegibility;
