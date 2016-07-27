@@ -119,11 +119,6 @@ a {
   color: map-get($color, primary);
   background-color: transparent; // 1
 
-  &:hover,
-  &:focus {
-    text-decoration: underline;
-  }
-
   &:active,
   &:hover {
     outline: 0; // 2

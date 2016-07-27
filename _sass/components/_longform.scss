@@ -30,6 +30,14 @@
     }
   }
 
+  a {
+    box-shadow: inset 0 -0.12em 0 0 #fff,
+                inset 0 -.14em 0 0 currentColor,
+                inset 0 -.14em 0 0 currentColor;
+    text-shadow: .05em 0 #fff, -0.05em 0 #fff,
+                  1.5px 0 #fff, -1.5px 0 #fff;
+  }
+
 
   /**
    * Descendants
