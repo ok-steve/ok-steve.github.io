@@ -23,14 +23,7 @@
   background-repeat: no-repeat;
 
   + * {
-    margin-top: lines(1); // http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
-  }
-
-  @media print {
-    color: #000 !important; // Black prints faster: h5bp.com/s
-    background: transparent !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
+    margin-top: lines(1);
   }
 }
 
@@ -40,6 +33,19 @@
   vertical-align: inherit;
 }
 
+@media print {
+  *,
+  *::before,
+  *::after,
+  *::first-letter,
+  *::first-line {
+    color: #000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+}
+
 
 html,
 body {
@@ -47,42 +53,37 @@ body {
 }
 
 
-// 1. Prevent iOS text size adjust after orientation change, without disabling
-//    user zoom.
-
 html {
-  font-size: 100%;  // h5bp, sanitize
+  font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+  font-size: 100%;
+  line-height: $default-line-height;
 
-  overflow: auto; // https://css-tricks.com/universal-overflow-auto/
+  overflow: auto;
 
-  box-sizing: border-box; // https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+  box-sizing: border-box;
 
   cursor: default;
 
-  color: map-get($color, default); // h5bp, sanitize
-  background-color: #fff; // https://css-tricks.com/html-vs-body-in-css/
+  color: map-get($color, default);
+  background-color: #fff;
 
   text-rendering: optimizeLegibility;
 
-  -webkit-text-size-adjust: 100%; // 1, iOS 8+
-      -ms-text-size-adjust: 100%; // 1
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(#000,0);
-  -ms-overflow-style: -ms-autohiding-scrollbar; // Edge 12+, Internet Explorer 11-
+  -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
 
 body {
-  font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif; // 1, h5bp, sanitize, https://css-tricks.com/html-vs-body-in-css/
-  font-size: ms(0); // h5bp
-  line-height: $default-line-height; // h5bp
-
   margin-top: 0;
 }
 
 
 @include selection {
   color: #fff;
-  background-color: #b3d4fc; // required when declaring ::selection
+  background-color: #b3d4fc;
   text-shadow: none;
 }
 
@@ -91,54 +92,47 @@ body {
  *  Sectioning elements
  */
 
-// Correct `block` display not defined for any HTML5 element in IE 8/9.
-// Correct `block` display not defined for `details` or `summary` in IE 10/11
-// and Firefox.
-// Correct `block` display not defined for `main` in IE 11.
-
 article,
 aside,
-details, // Edge 12+, Firefox 40+, Internet Explorer 11-, Windows Phone 8.1+
 figcaption,
 figure,
 footer,
 header,
-hgroup,
-main, // Android 4.3-, Internet Explorer 11-, Windows Phone 8.1+
+main,
 menu,
 nav,
-section,
-summary { // Firefox 40+, Internet Explorer 11-, Windows Phone 8.1+
+section {
   display: block;
 }
 
 
-// Address `[hidden]` styling not present in IE 8/9/10.
-// Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
-
-[hidden], // Internet Explorer 10-
-template { // Android 4.3-, Internet Explorer 11-, iOS 7-, Safari 7-, Windows Phone 8.1+
+[hidden] {
   display: none;
 }
 
 
-div { }
+figure {
+  text-align: center;
+}
 
+figcaption {
+  display: inline-block;
 
-figure { }
+  text-align: left;
+}
 
-figcaption { }
-
-address { }
-
-
-// https://css-tricks.com/time-element/
+a,
+area,
+button,
+input,
+label,
+select,
+textarea,
+[tabindex] {
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+}
 
 time {
   @include font-feature-settings("kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0);
 }
-
-data { }
-
-
-span { }

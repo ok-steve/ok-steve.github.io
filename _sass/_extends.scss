@@ -11,6 +11,10 @@
   @extend %Icon;
 }
 
+.Icon--rss {
+  @extend %Icon--rss;
+}
+
 .Icon--github {
   @extend %Icon--github;
 }

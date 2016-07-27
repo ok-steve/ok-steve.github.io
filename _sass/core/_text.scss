@@ -65,8 +65,6 @@ h6 {
   font-size: ms(-2);
 }
 
-p { }
-
 blockquote {
   @media print {
     border: 1px solid #999;
@@ -75,29 +73,17 @@ blockquote {
   }
 }
 
-ul { }
-
-ol { }
-
 li {
   margin-top: 0;
 }
-
-dl { }
-
-dt { }
 
 dd {
   margin-top: 0;
 }
 
 
-// Address differences between Firefox and other browsers.
-// h5bp: A better looking default horizontal rule
-
 hr {
-//  height: 1px;
-
+  overflow: visible;
   border-top-width: 1px;
 }
 
@@ -110,18 +96,17 @@ hr {
 \*------------------------------------*/
 
 
-// 1. Remove the gray background color from active links in IE 10.
-// 2. Improve readability when focused and also mouse hovered in all browsers.
-
 a {
   text-decoration: none;
 
   color: map-get($color, primary);
-  background-color: transparent; // 1
+  background-color: transparent;
+
+  -webkit-text-decoration-skip: objects;
 
   &:active,
   &:hover {
-    outline: 0; // 2
+    outline: 0;
   }
 
   @media print {
@@ -134,9 +119,6 @@ a {
       content: " (" attr(href) ")";
     }
 
-    // Don't show links that are fragment identifiers,
-    // or use the `javascript:` pseudo protocol
-
     &[href^="javascript:"]:after,
     &[href^="#"]:after {
       content: "";
@@ -144,15 +126,17 @@ a {
   }
 }
 
-
-// 1. Address styling not present in IE 8/9/10/11, Safari, and Chrome.
-
-abbr[title] {
+abbr {
   @include font-feature-settings("kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "smcp" 1, "c2sc" 1);
 
+  text-transform: uppercase;
+}
+
+abbr[title] {
   cursor: help;
 
-  border-bottom: 1px dotted; // 1
+  text-decoration: underline;
+  text-decoration: underline dotted;
 
   @media print {
     &::after {
@@ -161,8 +145,6 @@ abbr[title] {
   }
 }
 
-
-// Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
 
 b,
 strong {
@@ -175,14 +157,10 @@ q {
 }
 
 
-// Address styling not present in Safari and Chrome.
-
 dfn {
   font-style: italic;
 }
 
-
-// Address styling not present in IE 8/9.
 
 mark {
   color: #000;
@@ -190,14 +168,10 @@ mark {
 }
 
 
-// Address inconsistent and variable font size in all browsers.
-
 small {
-  font-size: 80%;
+  font-size: ms(-1);
 }
 
-
-// Prevent `sub` and `sup` affecting `line-height` in all browsers.
 
 sub,
 sup {
@@ -220,28 +194,3 @@ sub {
 
   bottom: -.25em;
 }
-
-bdi { }
-
-bdo { }
-
-cite { }
-
-i,
-em { }
-
-s { }
-
-u { }
-
-del { }
-ins { }
-
-ruby { }
-rp { }
-rt { }
-rtc { }
-
-
-br { }
-wbr { }

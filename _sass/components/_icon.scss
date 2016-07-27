@@ -8,9 +8,6 @@
 \*------------------------------------*/
 
 
-// Overrides
-// https://css-tricks.com/svg-symbol-good-choice-icons/
-
 body > svg:first-child {
   display: none;
 
@@ -38,8 +35,6 @@ body > svg:first-child {
   /**
    * Modifiers
    */
-
-  // http://brandcolors.net/
 
   &--rss {
     color: #ff8300;
