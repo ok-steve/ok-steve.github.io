@@ -15,11 +15,7 @@
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
   -->
 
-  {% if jekyll.environment == "production" %}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" async></script>
-  {% else %}
-  <script src="{{ "/bower_components/modernizr/modernizr.js" | prepend: site.baseurl }}" async></script>
-  {% endif %}
 </head>
 
 <body prefix="schema: http://schema.org/">
@@ -123,11 +119,7 @@
   </div>
 
   <script src="{{ "/js/vendor/modernizr.hyphens.js" | prepend: site.baseurl }}"></script>
-  {% if jekyll.environment == "production" %}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.10/webfontloader.js"></script>
-  {% else %}
-  <script src="{{ "/bower_components/webfontloader/webfontloader.js" | prepend: site.baseurl }}"></script>
-  {% endif %}
   <script src="{{ "/js/main.js" | prepend: site.baseurl }}"></script>
 
   {% if jekyll.environment == "production" %}
