@@ -14,8 +14,6 @@ $default-ratio:       1.618; // Golden ratio
 $default-indent:      40px;
 $gutter-width:        1.5rem;
 
-$font-family-code:    monospace, monospace;
-
 
 
 
@@ -30,6 +28,20 @@ $color: (
   muted: hsla(327, 21%, 89%, 1),
   primary: hsla(329, 97%, 24%, 1),
   accent: hsla(77, 88%, 26%, 1)
+);
+
+
+
+
+
+/*------------------------------------*\
+    #WEBFONTS
+\*------------------------------------*/
+
+
+$webfont: (
+  default: "Merriweather",
+  display: "Source Sans Pro"
 );
 
 
@@ -56,20 +68,6 @@ $breakpoints: (
 
 $sizing: (
   number: 4
-);
-
-
-
-
-
-/*------------------------------------*\
-    #WEBFONTS
-\*------------------------------------*/
-
-
-$webfont: (
-  default: "Merriweather",
-  display: "Source Sans Pro"
 );
 
 

@@ -29,4 +29,9 @@
       }
     }
   }
+
+  .wf-active {
+    @extend .wf-merriweather-n4-active;
+    @extend .wf-sourcesanspro-n4-active;
+  }
 }

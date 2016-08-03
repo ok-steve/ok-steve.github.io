@@ -4,7 +4,7 @@
 
 
 [role="banner"] {
-  padding: lines(1);
+  padding: lines(1) $gutter-width;
   text-align: center;
 
   h1 {
@@ -69,6 +69,10 @@
   %Heading {
     font-weight: 400;
   }
+}
+
+[data-trigger="print"] {
+  background-color: transparent;
 }
 
 body > svg:first-child {

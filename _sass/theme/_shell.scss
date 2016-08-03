@@ -18,6 +18,12 @@
       .Shell-banner {
         width: map-get($shell, width);
       }
+
+      .Shell-content {
+        @include flex(1);
+
+        margin-top: 0;
+      }
     }
   }
 }
