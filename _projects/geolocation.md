@@ -1,5 +1,6 @@
 ---
 title: Geolocation
+published: false
 ---
 
 I created a mobile walking tour for Omeka.

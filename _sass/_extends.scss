@@ -3,24 +3,32 @@
    ========================================================================= */
 
 
-.u-hiddenVisually {
-  @extend %u-hiddenVisually;
+.u-fadeIn {
+  @extend %u-fadeIn;
 }
 
 .Icon {
   @extend %Icon;
 }
 
-.Icon--github {
-  @extend %Icon--github;
+[href$="feed.xml"] {
+  @extend %u-skinRss;
 }
 
-.Icon--twitter {
-  @extend %Icon--twitter;
+[href*="facebook.com"] {
+  @extend %u-skinFacebook;
 }
 
-.Icon--linkedin {
-  @extend %Icon--linkedin;
+[href*="github.com"] {
+  @extend %u-skinGithub;
+}
+
+[href*="twitter.com"] {
+  @extend %u-skinTwitter;
+}
+
+[href*="linkedin.com"] {
+  @extend %u-skinLinkedin;
 }
 
 .Longform {
@@ -44,18 +52,26 @@
   @extend %Longform-footnotes;
 }
 
-body {
-  @extend %StickyFooter;
-}
-
-main {
-  @extend %StickyFooter-content;
-}
-
 .Grid {
   @extend %Grid;
 
   > * {
     @extend %Grid-cell;
   }
+}
+
+.SmoothState {
+  @extend %SmoothState;
+}
+
+.SmoothState-animation {
+  @extend %SmoothState-animation;
+}
+
+.is-exiting {
+  @extend %is-exiting;
+}
+
+.is-loading {
+  @extend %is-loading;
 }

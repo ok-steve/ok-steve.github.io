@@ -1,5 +1,6 @@
 ---
 title: Automatic Deployment
+published: false
 ---
 
 I used Git to speed up website deployment.

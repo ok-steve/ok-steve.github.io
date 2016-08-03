@@ -12,5 +12,5 @@
 # TECHNOLOGY COLOPHON
 
     HTML5, CSS3
-    jQuery, Modernizr, Normalize.css, Sanitize.css, Fluidity, DiagnostiCSS
+    jQuery, Modernizr
     Sass/Compass

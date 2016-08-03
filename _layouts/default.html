@@ -11,115 +11,116 @@
 
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <!--
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
+  -->
 
-  {% if jekyll.environment == "production" %}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-  {% else %}
-  <script src="{{ "/bower_components/modernizr/modernizr.js" | prepend: site.baseurl }}"></script>
-  {% endif %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" async></script>
 </head>
 
 <body prefix="schema: http://schema.org/">
   {% include sprite.svg %}
 
-  <header class="Banner--fixed" role="banner">
-    <svg class="Icon Icon--logo">
-      <use xlink:href="#Icon--cherry" />
-    </svg>
+  <div id="page" class="Shell Shell--fixedBanner SmoothState">
+    <header class="Shell-banner" role="banner">
+      <svg class="Icon Icon--logo">
+        <use xlink:href="#cherry" />
+      </svg>
 
-    <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
+      <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
 
-    <!--<nav role="navigation">
-      <ul>
-        {% for page in site.pages %}
-          {% if page.title %}
-            <li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
-          {% endif %}
-        {% endfor %}
+      <!--
+      <nav role="navigation">
+        <ul>
+          {% for page in site.pages %}
+            {% if page.title %}
+              <li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </nav>
+      -->
+
+      <ul class="SocialLinks">
+        <!--
+        <li>
+          <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
+            <svg class="Icon">
+              <title>Subscribe via RSS</title>
+              <use xlink:href="#rss"/>
+            </svg>
+          </a>
+        </li>
+        -->
+
+        <li>
+          <a href="mailto:{{ site.email }}">
+            <svg class="Icon">
+              <title>Email me!</title>
+              <use xlink:href="#envelope"/>
+            </svg>
+          </a>
+        </li>
+
+        {% if site.github_username %}
+          <li>
+            <a href="https://github.com/{{ site.github_username }}">
+              <svg class="Icon">
+                <title>Visit my Github repositories!</title>
+                <use xlink:href="#github"/>
+              </svg>
+            </a>
+          </li>
+        {% endif %}
+
+        {% if site.twitter_username %}
+          <li>
+            <a href="https://twitter.com/{{ site.twitter_username }}">
+              <svg class="Icon">
+                <title>See my tweets!</title>
+                <use xlink:href="#twitter"/>
+              </svg>
+            </a>
+          </li>
+        {% endif %}
+
+        {% if site.linkedin_username %}
+          <li>
+            <a href="https://linkedin.com/in/{{ site.linkedin_username }}">
+              <svg class="Icon">
+                <title>Look at my LinkedIn resume!</title>
+                <use xlink:href="#linkedin"/>
+              </svg>
+            </a>
+          </li>
+        {% endif %}
       </ul>
-    </nav>-->
+    </header>
 
-    <ul class="SocialLinks" >
-      <!--<li>
-        <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
-          <svg class="Icon">
-            <use xlink:href="#Icon--rss"/>
-          </svg>
-          <span class="u-hiddenVisually">Subscribe via RSS</span>
-        </a>
-      </li>-->
+    <div class="Shell-content">
+      <main class="SmoothState-animation u-fadeIn" role="main">
+        {{ content }}
+      </main>
 
-      <li>
-        <a href="mailto:{{ site.email }}">
-          <svg class="Icon">
-            <use xlink:href="#Icon--envelope"/>
-          </svg>
-          <span class="u-hiddenVisually">Email me!</span>
-        </a>
-      </li>
+      <footer role="contentinfo">
+        <!--<h2>{{ site.title }}</h2>-->
 
-      {% if site.github_username %}
-        <li>
-          <a href="https://github.com/{{ site.github_username }}">
-            <svg class="Icon">
-              <use xlink:href="#Icon--github"/>
-            </svg>
-            <span class="u-hiddenVisually">Visit my Github repositories!</span>
-          </a>
-        </li>
-      {% endif %}
+        <div class="Grid">
+          <div>
+            <p>All content licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
+          </div>
 
-      {% if site.twitter_username %}
-        <li>
-          <a href="https://twitter.com/{{ site.twitter_username }}">
-            <svg class="Icon">
-              <use xlink:href="#Icon--twitter"/>
-            </svg>
-            <span class="u-hiddenVisually">See my tweets!</span>
-          </a>
-        </li>
-      {% endif %}
-
-      {% if site.linkedin_username %}
-        <li>
-          <a href="https://linkedin.com/in/{{ site.linkedin_username }}">
-            <svg class="Icon">
-              <use xlink:href="#Icon--linkedin"/>
-            </svg>
-            <span class="u-hiddenVisually">Look at my LinkedIn resume!</span>
-          </a>
-        </li>
-      {% endif %}
-    </ul>
-  </header>
-
-  <main role="main">
-    {{ content }}
-  </main>
-
-  <footer role="contentinfo">
-    <!--<h2>{{ site.title }}</h2>-->
-
-    <div class="Grid">
-      <div>
-        <p>All content licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
-      </div>
-
-      <div>
-        <p>{{ site.description }}</p>
-      </div>
+          <div>
+            <p>{{ site.description }}</p>
+          </div>
+        </div>
+      </footer>
     </div>
-  </footer>
+  </div>
 
   <script src="{{ "/js/vendor/modernizr.hyphens.js" | prepend: site.baseurl }}"></script>
-  {% if jekyll.environment == "production" %}
-  <script src="{{ "/js/config.js" | prepend: site.baseurl }}"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.22/require.min.js" data-main="{{ "/js/main" | prepend: site.baseurl }}"></script>
-  {% else %}
-  <script src="{{ "/js/config-localhost.js" | prepend: site.baseurl }}"></script>
-  <script src="{{ "/bower_components/requirejs/require.js" | prepend: site.baseurl }}" data-main="{{ "/js/main" | prepend: site.baseurl }}"></script>
-  {% endif %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.10/webfontloader.js"></script>
+  <script src="{{ "/js/main.js" | prepend: site.baseurl }}"></script>
 
   {% if jekyll.environment == "production" %}
   <script>

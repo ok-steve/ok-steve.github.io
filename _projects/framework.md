@@ -1,5 +1,6 @@
 ---
 title: Responsive Framework
+published: false
 ---
 
 I developed a unified responsive theme for my library&rsquo;s websites.
