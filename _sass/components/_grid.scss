@@ -4,32 +4,17 @@
 
 
 %Grid {
-  @media (min-width: map-get($breakpoints, layout)) {
-    @include display-flex(flex);
-    @include flex-wrap(wrap);
+  @include display-flex(flex);
+  @include flex-wrap(wrap);
 
 
-    /**
-     * Descendents
-     */
+  /**
+   * Descendents
+   */
 
-    &-cell {
-      @include flex(1);
+  &-cell {
+    @include flex(1);
 
-      margin-top: 0;
-
-
-      /**
-       * Modifiers
-       */
-
-      @for $i from 1 through map-get($grid, columns) {
-        $gcd: gcd($i, map-get($grid, columns));
-
-        &--#{$i / $gcd}of#{map-get($grid, columns) / $gcd} {
-          width: percentage($i / map-get($grid, columns));
-        }
-      }
-    }
+    margin-top: 0;
   }
 }

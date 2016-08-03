@@ -1,0 +1,13 @@
+/* =========================================================================
+   Sizing
+   ========================================================================= */
+
+
+
+@for $i from 1 through map-get($sizing, number) {
+  $gcd: gcd($i, map-get($sizing, number));
+
+  %u--width#{$i / $gcd}of#{map-get($sizing, number) / $gcd} {
+    width: percentage($i / map-get($sizing, number));
+  }
+}
