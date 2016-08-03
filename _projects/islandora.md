@@ -1,5 +1,6 @@
 ---
 title: Islandora
+published: false
 ---
 
 I managed the transition to a new repository system.

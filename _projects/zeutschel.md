@@ -1,5 +1,6 @@
 ---
 title: Zeutschel
+published: false
 ---
 
 I managed my library&rsquo;s largest digitization project ever.
