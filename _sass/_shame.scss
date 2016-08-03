@@ -47,7 +47,7 @@
 }
 
 .Icon--logo {
-  color: map-get($color, accent);
+  color: map-get($color, primary);
 
   @media (min-width: map-get($breakpoints, layout)) {
     width: lines(3);
@@ -68,5 +68,13 @@
 .wf-sourcesanspro-n4-active {
   %Heading {
     font-weight: 400;
+  }
+}
+
+body > svg:first-child {
+  display: none;
+
+  + * {
+    margin-top: 0;
   }
 }

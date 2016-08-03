@@ -11,20 +11,24 @@
   @extend %Icon;
 }
 
-.Icon--rss {
-  @extend %Icon--rss;
+[href$="feed.xml"] {
+  @extend %u-skinRss;
 }
 
-.Icon--github {
-  @extend %Icon--github;
+[href*="facebook.com"] {
+  @extend %u-skinFacebook;
 }
 
-.Icon--twitter {
-  @extend %Icon--twitter;
+[href*="github.com"] {
+  @extend %u-skinGithub;
 }
 
-.Icon--linkedin {
-  @extend %Icon--linkedin;
+[href*="twitter.com"] {
+  @extend %u-skinTwitter;
+}
+
+[href*="linkedin.com"] {
+  @extend %u-skinLinkedin;
 }
 
 .Longform {
