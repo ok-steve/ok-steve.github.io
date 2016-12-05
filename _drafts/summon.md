@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Summon study
 category: projects
 ---

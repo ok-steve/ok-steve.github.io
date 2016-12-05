@@ -15,18 +15,6 @@ safe: true
 host: 0.0.0.0
 permalink: /posts/:year/:month/:day/:title/
 
-defaults:
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: post
-  - scope:
-      path: ""
-      type: pages
-    values:
-      layout: page
-
 # Build settings
 markdown: kramdown
 
