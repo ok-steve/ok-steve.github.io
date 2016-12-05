@@ -11,9 +11,7 @@
 
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <!--
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
-  -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" async></script>
 </head>
@@ -29,7 +27,6 @@
 
       <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
 
-      <!--
       <nav role="navigation">
         <ul>
           {% for page in site.pages %}
@@ -39,10 +36,8 @@
           {% endfor %}
         </ul>
       </nav>
-      -->
 
       <ul class="SocialLinks">
-        <!--
         <li>
           <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
             <svg class="Icon">
@@ -51,7 +46,6 @@
             </svg>
           </a>
         </li>
-        -->
 
         <li>
           <a href="mailto:{{ site.email }}">

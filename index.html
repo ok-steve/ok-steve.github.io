@@ -1,13 +1,23 @@
 ---
 layout: default
+title: Posts
+permalink: /posts/
 ---
 
-<div class="Longform">
-  <p>I develop software and play the tuba. I&rsquo;m continuously trying to increase the nerdiness in my life.</p>
+<h2>Posts</h2>
 
-  <p>I began my library journey as a student of the University of Michigan School of Information where I focused my studies on digital humanities.</p>
+<ul>
+  {% for post in site.posts %}
+    <li resource="{{ post.url | prepend: site.baseurl }}" typeof="schema:BlogPosting">
+      <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
 
-  <p>After spending several years as an academic librarian I transitioned to doing full time development with a government contractor. I contribute to several projects doing front end development and Drupal.</p>
-
-  <p>Previously, I earned a degree in music, which I am fortunate to be able to use playing tuba in a local <a href="http://gogosymphony.com">go-go symphony</a>.</p>
-</div>
+<p>
+  <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
+    <svg class="Icon">
+      <use xlink:href="#rss"/>
+    </svg>
+  </a>
+</p>
