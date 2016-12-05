@@ -1,6 +1,6 @@
 ---
 title: Summon study
-published: false
+category: projects
 ---
 
 I coordinated a comparartive usability study of Summon 1 and 2.

@@ -1,11 +1,11 @@
 ---
 title: Geolocation
-published: false
+category: projects
 ---
 
 I created a mobile walking tour for Omeka.
 
-<img src="https://farm6.staticflickr.com/5459/17036107448_44ba5a27a4_n.jpg" alt="">
+![alt text](https://farm6.staticflickr.com/5459/17036107448_44ba5a27a4_n.jpg)
 
 See the finished site:
 http://cuexhibits.wrlc.org/geolocation/map/browse

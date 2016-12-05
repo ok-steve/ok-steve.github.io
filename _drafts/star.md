@@ -1,11 +1,11 @@
 ---
 title: STAR
-published: false
+category: projects
 ---
 
-I rebuilt my library&rsquo;s intranet.
+I rebuilt my library's intranet.
 
-<img src="https://farm9.staticflickr.com/8743/17222014752_504a995e35_n.jpg" alt="">
+![alt text](https://farm9.staticflickr.com/8743/17222014752_504a995e35_n.jpg)
 
 - Data transfer
 - Usability tests

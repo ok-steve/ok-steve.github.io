@@ -1,6 +1,7 @@
 ---
+layout: post
 title: Automatic Deployment
-published: false
+category: projects
 ---
 
 I used Git to speed up website deployment.

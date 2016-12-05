@@ -1,8 +1,8 @@
 ---
 title: Islandora
-published: false
+category: projects
 ---
 
 I managed the transition to a new repository system.
 
-I managed the migration fro DSpace to Islandora.
+I managed the migration from DSpace to Islandora.
