@@ -3,12 +3,14 @@
    ========================================================================= */
 
 
-%Longform {
+.Longform {
+  overflow: visible;
+
   max-width: 36rem;
   padding-right: $gutter-width;
   padding-left: $gutter-width;
 
-  .csshyphens & {
+  @supports (hyphens: auto) {
     p {
       @include hyphens(auto);
 
@@ -18,23 +20,14 @@
 
   ul,
   ol {
-    margin-left: -15px;
-
-    list-style-position: inside;
-
     ul,
     ol {
-      margin-left: 0;
-      padding-left: $default-indent;
+      padding-left: $indent;
     }
   }
 
   a {
-    box-shadow: inset 0 -0.12em 0 0 #fff,
-                inset 0 -.14em 0 0 currentColor,
-                inset 0 -.14em 0 0 currentColor;
-    text-shadow: .05em 0 #fff, -0.05em 0 #fff,
-                  1.5px 0 #fff, -1.5px 0 #fff;
+    text-decoration: underline;
   }
 
 
@@ -42,38 +35,27 @@
    * Descendants
    */
 
-  &-paragraph {
-    + p {
-      margin-top: 0;
-
-      text-indent: $default-indent;
-    }
-  }
-
-  &-lead {
+  > p:first-child {
     font-size: ms(1);
   }
 
-  &-runIn {
+  p:not(:first-child) {
+    + p {
+      margin-top: 0;
+
+      text-indent: $indent;
+    }
+  }
+
+  h3 + p {
     &::first-line {
       font-size: 80%;
 
       text-transform: uppercase;
     }
   }
+}
 
-  &-dropCaps {
-    &::first-letter {
-      font-size: lines(2);
-      line-height: 1;
-
-      float: left;
-
-      padding-right: lines(.25);
-    }
-  }
-
-  &-footnotes {
-    font-size: ms(-1);
-  }
+.footnotes {
+  font-size: ms(-1);
 }

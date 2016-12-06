@@ -3,13 +3,13 @@
    ========================================================================= */
 
 
-@function lines($num, $line-height: $default-line-height) {
-  @return  $line-height * $num * $default-font-size;
+@function lines($num, $line-height: $line-height) {
+  @return  $line-height * $num * $font-size;
 }
 
 
-@function modular-scale($num: 0, $ratio: $default-ratio) {
-  $value: $default-font-size;
+@function modular-scale($num: 0, $ratio: $ratio) {
+  $value: $font-size;
 
   @if $num != 0 {
     @for $i from 1 through abs($num) {

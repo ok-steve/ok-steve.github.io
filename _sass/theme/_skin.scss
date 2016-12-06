@@ -3,46 +3,22 @@
    ========================================================================= */
 
 
-%u-skinDefault {
-  color: map-get($color, default);
-  background-color: #fff;
-}
-
-%u-skinMuted {
-  color: map-get($color, default);
-  background-color: map-get($color, muted);
-}
-
-%u-skinPrimary {
-  color: #fff;
-  background-color: map-get($color, primary);
-}
-
-%u-skinAccent {
-  color: #fff;
-  background-color: map-get($color, accent);
-}
-
-
-/* http://brandcolors.net/ */
-
-%u-skinRss {
+[href$="feed.xml"] {
   color: #ff8300;
 }
 
-%u-skinFacebook {
+[href*="facebook.com"] {
   color: #3b5998;
 }
 
-%u-skinGithub {
+[href*="github.com"] {
   color: #4183c4;
 }
 
-%u-skinLinkedin {
+[href*="linkedin.com"] {
   color: #007fb1;
 }
 
-%u-skinTwitter {
+[href*="twitter.com"] {
   color: #00aced;
 }
-

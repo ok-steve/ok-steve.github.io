@@ -3,7 +3,7 @@
    ========================================================================= */
 
 
-%Grid {
+.Grid {
   @include display-flex(flex);
   @include flex-wrap(wrap);
 
@@ -12,8 +12,8 @@
    * Descendents
    */
 
-  &-cell {
-    @include flex(1);
+  > * {
+    @include flex(1 1 map-get($grid, base));
 
     margin-top: 0;
   }

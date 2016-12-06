@@ -8,11 +8,11 @@
 \*------------------------------------*/
 
 
-$default-font-size:   1rem;
-$default-line-height: 1.5;
-$default-ratio:       1.618; // Golden ratio
-$default-indent:      40px;
-$gutter-width:        1.5rem;
+$font-size:    1rem;
+$line-height:  1.5;
+$ratio:        1.618; // Golden ratio
+$indent:       40px;
+$gutter-width: 1.5rem;
 
 
 
@@ -28,6 +28,19 @@ $color: (
   muted: hsla(327, 21%, 89%, 1),
   primary: hsla(329, 97%, 24%, 1),
   accent: hsla(77, 88%, 26%, 1)
+);
+
+
+
+
+
+/*------------------------------------*\
+    #GRID
+\*------------------------------------*/
+
+
+$grid: (
+  base: 10em
 );
 
 
@@ -80,5 +93,6 @@ $sizing: (
 
 
 $shell: (
-  width: (100 - (100 / $default-ratio)) * 1%
+  breakpoint: map-get($breakpoints, layout),
+  width: (100 - (100 / $ratio)) * 1%
 );

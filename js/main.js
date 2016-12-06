@@ -1,103 +1,141 @@
-(function (WebFont) {
+(function( FontFaceObserver ) {
   'use strict';
 
 
-  var html = document.querySelector('html'),
-    title = document.querySelector('title'),
-    body = document.querySelector('#page'),
-    WebFontConfig = {
-      google: {
-        families: [
-          'Merriweather:400,400italic,700',
-          'Source Sans Pro:400'
-        ]
-      },
-      active: function () {
-        sessionStorage.fonts = true;
-      }
-    };
-
-
   /**
-   * Load fonts
+   * XMLHttpRequest utility function
    */
 
-  // https://css-tricks.com/loading-web-fonts-with-the-web-font-loader
-  // https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700|Source+Sans+Pro:400
-  if (sessionStorage.fonts) {
-    html.className += ' wf-active';
-  }
+  function get( href, onSuccess ) {
+    var request = new XMLHttpRequest();
 
-  WebFont.load(WebFontConfig);
-
-
-  /**
-   * Add page transitions
-   */
-
-  function pageTransition(el){
-    if (!window.history.pushState) {
-      return;
-    } else if (window.location.pathname === el.href) {
-      return;
-    }
-
-    window.history.pushState(null, null, el.href);
-
-    changePage();
-  }
-
-  function changePage() {
-    var url = window.location.href,
-      request = new XMLHttpRequest();
-
-    request.open('GET', url);
+    request.open( 'GET', href );
 
     request.responseType = 'document';
 
-    request.onreadystatechange = function () {
-      var title = document.querySelector('title');
-
-      if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
-        title.textContent = request.response.querySelector('title').textContent;
-        body.innerHTML = request.response.querySelector('#page').innerHTML;
-        body.className = body.className.replace(new RegExp('(^|\\b)' + 'is-exiting' + '(\\b|$)', 'gi'), ' ');
+    request.onreadystatechange = function() {
+      if ( request.readyState === XMLHttpRequest.DONE && request.status === 200 ) {
+        onSuccess( request.response );
       }
     };
-
-    body.className += ' is-exiting';
 
     request.send();
   }
 
 
   /**
-   * Globally listen for events
+   * Load fonts
    */
 
-  window.addEventListener('popstate', changePage);
+  function webfont() {
+    var html = document.querySelector('html'),
+      defaultFont = new FontFaceObserver('Merriweather', {
+        weight: 400
+      }),
+      displayFont = new FontFaceObserver('Source Sans Pro', {
+        weight: 400
+      });
 
-  document.addEventListener('click', function (e) {
-    var el = e.target;
+    if ( sessionStorage.fonts ) {
+      html.classList.add('.Webfont-default');
+      html.classList.add('Webfont-display');
+      html.classList.add('is-active');
+    }
 
-    // Print page
-    if (el.getAttribute('data-trigger') === 'print') {
+    defaultFont.load().then(function () {
+      html.classList.add('Webfont-default');
+    });
+
+    displayFont.load().then(function () {
+      html.classList.add('Webfont-display');
+    });
+
+    Promise.all([
+      defaultFont,
+      displayFont
+    ]).then(function () {
+      html.classList.add('is-active');
+      sessionStorage.fonts = 'true';
+    });
+  }
+
+
+  /**
+   * Override page loading
+   */
+
+  function render( e ) {
+    var body = document.querySelector('body'),
+      request = new XMLHttpRequest();
+
+    body.classList.add('is-loading');
+
+    window.history.pushState( null, null, e.target.href );
+
+    get( e.target.href, function( response ) {
+      var title = document.querySelector('title');
+
+      title.textContent = response.querySelector('title').textContent;
+      body.innerHTML = response.querySelector('body').innerHTML;
+      body.classList.remove('is-loading');
+    });
+  }
+
+  function router( e ) {
+    if ( !window.history.pushState ) {
+      return;
+    }
+
+    if ( window.location.pathname === e.target.href ) {
+      return;
+    }
+
+    render( e );
+
+    e.preventDefault();
+  }
+
+
+  /**
+   * Alter HTML class if Javascript is present
+   */
+
+  function hasJs() {
+    var html = document.querySelector('html');
+
+    html.classList.remove('no-js');
+    html.classList.add('js');
+  }
+
+
+  /**
+   * Events
+   */
+
+  function onLoad( e ) {
+    hasJs();
+    webfont();
+  }
+
+  function onClick( e ) {
+    var target = e.target;
+
+    if ( target.getAttribute('data-trigger') === 'print' ) {
       window.print();
 
       return;
     }
 
-    // Search for links
-    while (el && !el.href) {
-      el = el.parentNode;
+    while ( target && !target.href ) {
+      target = target.parentNode;
     }
 
-    if (el) {
-      e.preventDefault();
-
-      pageTransition(el);
-
-      return;
+    if ( target ) {
+      router( e );
     }
-  });
-}(WebFont));
+  }
+
+  document.addEventListener( 'DOMContentLoaded', onLoad );
+  document.addEventListener( 'click', onClick );
+  window.addEventListener( 'popstate', render );
+}( FontFaceObserver ));

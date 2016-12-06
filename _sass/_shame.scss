@@ -29,13 +29,13 @@
     }
   }
 
-  @media (max-width: map-get($breakpoints, layout)) {
+  @media (max-width: map-get($shell, breakpoint)) {
     h1 {
       font-size: ms(2);
     }
   }
 
-  @media (min-width: map-get($breakpoints, layout)) {
+  @media (min-width: map-get($shell, breakpoint)) {
     text-align: right;
 
     nav {
@@ -49,7 +49,7 @@
 .Icon--logo {
   color: map-get($color, primary);
 
-  @media (min-width: map-get($breakpoints, layout)) {
+  @media (min-width: map-get($shell, breakpoint)) {
     width: lines(3);
     height: lines(3);
   }
@@ -60,7 +60,7 @@
   padding: lines(1) $gutter-width;
 }
 
-.wf-sourcesanspro-n4-active {
+.Webfont-display {
   %Heading {
     font-weight: 400;
   }
