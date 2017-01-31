@@ -64,15 +64,15 @@
    * Override page loading
    */
 
-  function render( e ) {
+  function render( path ) {
     var body = document.querySelector('body'),
       request = new XMLHttpRequest();
 
     body.classList.add('is-loading');
 
-    window.history.pushState( null, null, e.target.href );
+    window.history.pushState( null, null, path );
 
-    get( e.target.href, function( response ) {
+    get( path, function( response ) {
       var title = document.querySelector('title');
 
       title.textContent = response.querySelector('title').textContent;
@@ -81,16 +81,25 @@
     });
   }
 
-  function router( e ) {
-    if ( !window.history.pushState ) {
+  function router( e, path ) {
+    var conditions = {
+        noPushState: !window.history.pushState,
+        samePath: path === window.location.pathname,
+        differentOrigin: path.search( window.location.origin ) === -1,
+        isAsset: path.search(/\.(xml|css|js|png|jpg)/) !== -1
+      },
+      bools = Object.keys( conditions ).map(function( key ) {
+        return conditions[key];
+      }),
+      any = bools.reduce(function( prev, curr ) {
+        return (prev || curr);
+      });
+
+    if ( any ) {
       return;
     }
 
-    if ( window.location.pathname === e.target.href ) {
-      return;
-    }
-
-    render( e );
+    render( path );
 
     e.preventDefault();
   }
@@ -126,16 +135,22 @@
       return;
     }
 
-    while ( target && !target.href ) {
+    while ( target && target.tagName.toLowerCase() !== 'a' ) {
       target = target.parentNode;
     }
 
     if ( target ) {
-      router( e );
+      router( e, target.href );
     }
+  }
+
+  function onPopstate( e ) {
+    var target = e.target;
+
+    router( e );
   }
 
   document.addEventListener( 'DOMContentLoaded', onLoad );
   document.addEventListener( 'click', onClick );
-  window.addEventListener( 'popstate', render );
+  window.addEventListener( 'popstate', onPopstate );
 }( FontFaceObserver ));
