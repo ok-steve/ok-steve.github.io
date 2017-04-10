@@ -27,33 +27,28 @@
    * Load fonts
    */
 
-  function webfont() {
+  function webfont( config ) {
     var html = document.querySelector('html'),
-      defaultFont = new FontFaceObserver('Merriweather', {
-        weight: 400
-      }),
-      displayFont = new FontFaceObserver('Source Sans Pro', {
-        weight: 400
+      keys = Object.keys( config ),
+      fonts = keys.map(function ( key ) {
+        var font = config[key];
+
+        return new FontFaceObserver( font.family, font.options ).load().then(function () {
+          html.classList.add('t-webfont--' + key);
+        });
       });
 
     if ( sessionStorage.fonts ) {
-      html.classList.add('.Webfont-default');
-      html.classList.add('Webfont-display');
       html.classList.add('is-active');
+
+      keys.forEach(function ( key ) {
+        html.classList.add('t-webfont--' + key);
+      });
+
+      return;
     }
 
-    defaultFont.load().then(function () {
-      html.classList.add('Webfont-default');
-    });
-
-    displayFont.load().then(function () {
-      html.classList.add('Webfont-display');
-    });
-
-    Promise.all([
-      defaultFont,
-      displayFont
-    ]).then(function () {
+    Promise.all( fonts ).then(function () {
       html.classList.add('is-active');
       sessionStorage.fonts = 'true';
     });
@@ -61,37 +56,36 @@
 
 
   /**
-   * Override page loading
+   * Router
    */
 
-  function render( path ) {
-    var body = document.querySelector('body'),
-      request = new XMLHttpRequest();
+  function render( pathname ) {
+    var body = document.querySelector('body');
+    var title = document.querySelector('title');
 
     body.classList.add('is-loading');
 
-    window.history.pushState( null, null, path );
+    window.history.pushState( null, null, pathname );
 
-    get( path, function( response ) {
-      var title = document.querySelector('title');
-
+    get( pathname, function( response ) {
       title.textContent = response.querySelector('title').textContent;
       body.innerHTML = response.querySelector('body').innerHTML;
+
       body.classList.remove('is-loading');
     });
   }
 
-  function router( e, path ) {
-    var conditions = {
+  function onRouteChange( loc ) {
+    var pathname = loc.pathname,
+      conditions = {
         noPushState: !window.history.pushState,
-        samePath: path === window.location.pathname,
-        differentOrigin: path.search( window.location.origin ) === -1,
-        isAsset: path.search(/\.(xml|css|js|png|jpg)/) !== -1
+        samePath: pathname === window.location.pathname,
+        differentOrigin: loc.href.search( window.location.origin ) === -1,
+        isAsset: pathname.search(/\.(xml|css|js|png|jpg|svg)/) !== -1
       },
-      bools = Object.keys( conditions ).map(function( key ) {
+      any = Object.keys( conditions ).map(function( key ) {
         return conditions[key];
-      }),
-      any = bools.reduce(function( prev, curr ) {
+      }).reduce(function( prev, curr ) {
         return (prev || curr);
       });
 
@@ -99,21 +93,7 @@
       return;
     }
 
-    render( path );
-
-    e.preventDefault();
-  }
-
-
-  /**
-   * Alter HTML class if Javascript is present
-   */
-
-  function hasJs() {
-    var html = document.querySelector('html');
-
-    html.classList.remove('no-js');
-    html.classList.add('js');
+    render( pathname );
   }
 
 
@@ -122,8 +102,20 @@
    */
 
   function onLoad( e ) {
-    hasJs();
-    webfont();
+    webfont({
+      default: {
+        family: 'Merriweather',
+        options: {
+          weight: 400
+        }
+      },
+      display: {
+        family: 'Source Sans Pro',
+        options: {
+          weight: 400
+        }
+      }
+    });
   }
 
   function onClick( e ) {
@@ -135,22 +127,31 @@
       return;
     }
 
-    while ( target && target.tagName.toLowerCase() !== 'a' ) {
+    while ( target.tagName && target.tagName.toLowerCase() !== 'a' ) {
       target = target.parentNode;
     }
 
-    if ( target ) {
-      router( e, target.href );
+    if ( !target.tagName ) {
+      return;
     }
+
+    e.preventDefault();
+    onRouteChange( target );
   }
 
   function onPopstate( e ) {
-    var target = e.target;
-
-    router( e );
+    onRouteChange( window.location );
   }
 
   document.addEventListener( 'DOMContentLoaded', onLoad );
   document.addEventListener( 'click', onClick );
   window.addEventListener( 'popstate', onPopstate );
 }( FontFaceObserver ));
+
+
+/**
+ * References
+ *
+ * https://www.filamentgroup.com/lab/font-events.html
+ * http://meowni.ca/posts/web-fonts/
+ */

@@ -3,14 +3,22 @@
    ========================================================================= */
 
 
-table {
-  @include font-feature-settings("kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0);
+/*
+ * Remove border spacing in all browsers (opinionated).
+ */
 
+table {
   width: 100%;
 
   border-spacing: 0;
   border-collapse: collapse;
+
+  @include font-feature-settings("kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0);
 }
+
+/**
+ * Turns on tabular, lining numerals and slashed zero
+ */
 
 tbody,
 caption {
@@ -19,9 +27,18 @@ caption {
 
 th {
   text-align: left;
+
+  [dir="rtl"] & {
+    text-align: right;
+  }
 }
 
 @media print {
+  /*
+   * Printing Tables:
+   * http://css-discuss.incutio.com/wiki/Printing_Tables
+   */
+
   thead {
     display: table-header-group;
   }
@@ -30,4 +47,3 @@ th {
     page-break-inside: avoid;
   }
 }
-

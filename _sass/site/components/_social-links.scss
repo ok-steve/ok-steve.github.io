@@ -1,7 +1,17 @@
 /* =========================================================================
-   Skin
+   Social media links
    ========================================================================= */
 
+
+.c-social-links {
+  li {
+    display: inline-block;
+  }
+
+  a {
+    display: block;
+  }
+}
 
 [href$="feed.xml"] {
   color: #ff8300;
@@ -22,3 +32,11 @@
 [href*="twitter.com"] {
   color: #00aced;
 }
+
+
+/**
+ * References
+ *
+ * http://heydonworks.com/auticons-icon-font
+ * http://brandcolors.net/
+ */

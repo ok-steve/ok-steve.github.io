@@ -1,0 +1,79 @@
+/* =========================================================================
+   Accessibility
+   ========================================================================= */
+
+
+/**
+ * Change the cursor on busy elements (opinionated).
+ */
+
+[aria-busy="true"] {
+  cursor: progress;
+}
+
+/*
+ * Change the cursor on control elements (opinionated).
+ */
+
+[aria-controls] {
+  cursor: pointer;
+}
+
+/*
+ * Change the cursor on disabled, not-editable, or otherwise
+ * inoperable elements (opinionated).
+ */
+
+[aria-disabled] {
+  cursor: default;
+}
+
+/*
+ * Remove the tapping delay on clickable elements (opinionated).
+ * 1. Remove the tapping delay in IE 10.
+ */
+
+[tabindex] {
+  -ms-touch-action: manipulation; /* 1 */
+      touch-action: manipulation;
+}
+
+/**
+ * Add the correct display in IE 10-.
+ */
+
+[hidden] {
+  display: none;
+  visibility: hidden;
+}
+
+/*
+ * Change the display on visually hidden accessible elements (opinionated).
+ */
+
+[hidden][aria-hidden="false"] {
+  position: absolute;
+
+  display: inherit;
+  clip: rect(0, 0, 0, 0);
+}
+
+/**
+ * Override default margin.
+ */
+
+[hidden][aria-hidden="false"] + * {
+  margin-top: 0;
+}
+
+[hidden][aria-hidden="false"]:focus {
+  clip: auto;
+}
+
+
+/**
+ * References
+ *
+ * http://juicystudio.com/article/screen-readers-display-none.php
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */

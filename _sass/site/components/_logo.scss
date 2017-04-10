@@ -1,18 +1,10 @@
 /* =========================================================================
-   Animation
+   Logo
    ========================================================================= */
 
 
-@include keyframes(fadeIn) {
-  from {
-    opacity: 0;
-  }
+.c-logo {
+  color: map-get($color, accent);
 
-  to {
-    opacity: 1;
-  }
-}
-
-.u-fadeIn {
-  @include animation-name(fadeIn);
+  @include fluid-type(lines(1), lines(3));
 }

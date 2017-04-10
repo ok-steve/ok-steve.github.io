@@ -1,0 +1,38 @@
+/* =========================================================================
+   Layout
+   ========================================================================= */
+
+
+@media (min-width: map-get($layout, breakpoint)) {
+  .o-layout {
+    height: 100vh;
+  }
+
+
+  /**
+   * Descendents
+   */
+
+  .o-layout__banner {
+    width: map-get($layout, width);
+    position: fixed;
+  }
+
+  .o-layout__content {
+    margin-left: map-get($layout, width);
+  }
+
+  @supports (display: grid) {
+    .o-layout {
+      display: grid;
+      grid-template-rows: min-content;
+      grid-template-columns: map-get($layout, width) 1fr;
+    }
+
+    .o-layout__content {
+      margin-left: 0; /* Override */
+      grid-row: 1;
+      grid-column: 2;
+    }
+  }
+}
