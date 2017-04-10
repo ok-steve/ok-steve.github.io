@@ -1,0 +1,254 @@
+/* =========================================================================
+   Text
+   ========================================================================= */
+
+
+/**
+ * Turn on discretionary ligatures for larger headings.
+ */
+
+%heading {
+  font-weight: 700;
+
+  @include font-feature-settings("kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 1);
+}
+
+h1 {
+  @extend %heading;
+
+  font-size: ms(3);
+}
+
+h2 {
+  @extend %heading;
+
+  font-size: ms(2);
+}
+
+h3 {
+  @extend %heading;
+
+  font-size: ms(1);
+}
+
+h4 {
+  @extend %heading;
+
+  font-size: ms(0);
+}
+
+h5 {
+  @extend %heading;
+
+  font-size: ms(-1);
+}
+
+h6 {
+  @extend %heading;
+
+  font-size: ms(-2);
+}
+
+li {
+  margin-top: 0;
+}
+
+dd {
+  margin-top: 0;
+}
+
+
+hr {
+  overflow: visible;
+
+  height: 0;
+
+  border: 0;
+  border-top: 1px solid currentColor;
+}
+
+a {
+  text-decoration: none;
+
+  color: map-get($color, primary);
+  background-color: transparent;
+
+  -webkit-text-decoration-skip: objects;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+
+  &:active,
+  &:hover {
+    outline-width: 0;
+  }
+}
+
+/**
+ * 1. Change all letters to uppercase.
+ * 2. Turn on small caps for upper and lowercase letters.
+ */
+
+abbr {
+  text-transform: uppercase; /* 1 */
+
+  @include font-feature-settings("kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "smcp" 1, "c2sc" 1);
+
+  /**
+   * 1. Remove the bottom border in Firefox 39-.
+   * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+   */
+
+  &[title] {
+    cursor: help;
+    text-decoration: underline; /* 2 */
+    text-decoration: underline dotted; /* 2 */
+
+    border-bottom: none; /* 1 */
+  }
+}
+
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
+
+b,
+strong {
+  font-weight: inherit;
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * Add the correct font style in Android 4.3-.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Add the correct background and color in IE 9-.
+ */
+
+mark {
+  color: #000;
+  background: #ff0;
+}
+
+q {
+  quotes: "\201c" "\201d" "\2018" "\2019";
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+small {
+  font-size: ms(-1);
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+sub,
+sup {
+  font-size: 100% / $ratio;
+  line-height: 0;
+
+  position: relative;
+
+  vertical-align: baseline;
+}
+
+/**
+ * Turn on proper subscript numerals.
+ */
+
+sub {
+  bottom: -.25em;
+
+  @include font-feature-settings("kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "subs" 1);
+}
+
+/**
+ * Turn on proper supercript numerals
+ */
+
+sup {
+  top: -.5em;
+
+  @include font-feature-settings("kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "sups" 1);
+}
+
+time {
+  @include font-feature-settings("kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0);
+}
+
+/**
+ * Remove the text shadow on text selections (opinionated).
+ * 1. Restore the coloring undone by defining the text shadow (opinionated).
+ */
+
+@include selection {
+  color: #000; /* 1 */
+  background-color: #b3d4fc; /* 1 */
+  text-shadow: none;
+}
+
+@media print {
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  blockquote {
+    border: 1px solid #999;
+
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
+/**
+ * References
+ *
+ * https://css-tricks.com/time-element
+ */

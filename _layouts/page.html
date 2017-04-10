@@ -2,12 +2,14 @@
 layout: default
 ---
 
-<section class="Content Content--page">
-  <header>
-    <h2>{{ page.title }}</h2>
-  </header>
+<section class="c-content c-content--page">
+  {% if page.title %}
+    <header>
+      <h2>{{ page.title }}</h2>
+    </header>
+  {% endif %}
 
-  <div class="Content-body Longform">
+  <div class="c-content__body c-longform">
     {{ content }}
   </div>
 </section>

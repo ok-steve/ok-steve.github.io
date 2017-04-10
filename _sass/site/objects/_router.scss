@@ -1,0 +1,34 @@
+/* =========================================================================
+   Router
+   ========================================================================= */
+
+
+.o-router {
+}
+
+/**
+ * Descendents
+ */
+
+.o-router__view {
+  @include transition-timing-function(ease-in);
+  @include animation-duration(.2s);
+
+  @include animation-fill-mode(both);
+}
+
+
+/**
+ * States
+ */
+
+.o-router.is-loading {
+  &
+  a {
+    cursor: progress;
+  }
+
+  .o-router__view {
+    @include animation-direction(alternate-reverse);
+  }
+}

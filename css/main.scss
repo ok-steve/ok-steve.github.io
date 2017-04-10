@@ -5,11 +5,9 @@
 
 @import "variables";
 
-@import "core";
-@import "utilities";
-@import "components";
-@import "theme";
+@import "mixins/prefixer";
 
-@import "extends";
+@import "ui";
+@import "site";
 
 @import "shame";

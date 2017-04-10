@@ -4,20 +4,26 @@
 
 
 [role="banner"] {
-  padding: lines(1) $gutter-width;
+  padding: lines(1) $grid-gap;
   text-align: center;
 
   h1 {
+    @include fluid-type(ms(2), ms(3));
+
     margin-top: 0;
   }
 
-  li {
+  nav li {
     display: inline-block;
 
     a {
       display: block;
       padding: lines(.25);
     }
+  }
+
+  ul {
+    padding-left: 0;
   }
 
   a {
@@ -29,39 +35,26 @@
     }
   }
 
-  @media (max-width: map-get($breakpoints, layout)) {
-    h1 {
-      font-size: ms(2);
-    }
-  }
-
-  @media (min-width: map-get($breakpoints, layout)) {
-    text-align: right;
-
+  @media (max-width: map-get($layout, breakpoint)) {
     nav {
       li {
-        display: list-item;
+        display: inline-block;
       }
     }
   }
-}
 
-.Icon--logo {
-  color: map-get($color, primary);
-
-  @media (min-width: map-get($breakpoints, layout)) {
-    width: lines(3);
-    height: lines(3);
+  @media (min-width: map-get($layout, breakpoint)) {
+    text-align: right;
   }
 }
 
 [role="contentinfo"] {
-  border-top-width: 1px;
-  padding: lines(1) $gutter-width;
+  border-top: 1px solid;
+  padding: lines(1) $grid-gap;
 }
 
-.wf-sourcesanspro-n4-active {
-  %Heading {
+.t-webfont--display {
+  %heading {
     font-weight: 400;
   }
 }

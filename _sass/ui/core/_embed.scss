@@ -1,0 +1,91 @@
+/* =========================================================================
+   Embed
+   ========================================================================= */
+
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+audio,
+video {
+  display: inline-block;
+}
+
+/*
+ * Change the alignment on media elements in all browers (opinionated).
+ */
+
+audio,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+img,
+iframe,
+video,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+ * Add the correct display in iOS 4-7.
+ */
+
+audio:not([controls]) {
+  display: none;
+
+  height: 0;
+}
+
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
+
+img {
+  border-style: none;
+}
+
+/*
+ * Remove the tapping delay on clickable elements (opinionated).
+ * 1. Remove the tapping delay in IE 10.
+ */
+area {
+  -ms-touch-action: manipulation; /* 1 */
+      touch-action: manipulation;
+}
+
+/**
+ * Change the fill color to match the text color in all browsers (opinionated).
+ */
+
+svg {
+  fill: currentColor;
+
+  /**
+   * Hide the overflow in IE.
+   */
+
+  &:not(:root) {
+    overflow: hidden;
+  }
+}
+
+@media print {
+  img {
+    max-width: 100% !important;
+
+    page-break-inside: avoid;
+  }
+}
+
+/**
+ * References
+ *
+ * https://github.com/mrmrs/fluidity/blob/master/css/fluidity.css
+ * http://nocode.in/aligning-text-smartly-in-css
+ */
