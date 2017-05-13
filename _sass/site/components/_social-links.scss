@@ -2,7 +2,6 @@
    Social media links
    ========================================================================= */
 
-
 .c-social-links {
   li {
     display: inline-block;
@@ -12,31 +11,3 @@
     display: block;
   }
 }
-
-[href$="feed.xml"] {
-  color: #ff8300;
-}
-
-[href*="facebook.com"] {
-  color: #3b5998;
-}
-
-[href*="github.com"] {
-  color: #4183c4;
-}
-
-[href*="linkedin.com"] {
-  color: #007fb1;
-}
-
-[href*="twitter.com"] {
-  color: #00aced;
-}
-
-
-/**
- * References
- *
- * http://heydonworks.com/auticons-icon-font
- * http://brandcolors.net/
- */

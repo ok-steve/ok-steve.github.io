@@ -1,7 +1,6 @@
 (function( FontFaceObserver ) {
   'use strict';
 
-
   /**
    * XMLHttpRequest utility function
    */
@@ -22,7 +21,6 @@
     request.send();
   }
 
-
   /**
    * Load fonts
    */
@@ -30,10 +28,10 @@
   function webfont( config ) {
     var html = document.querySelector('html'),
       keys = Object.keys( config ),
-      fonts = keys.map(function ( key ) {
+      fonts = keys.map(function( key ) {
         var font = config[key];
 
-        return new FontFaceObserver( font.family, font.options ).load().then(function () {
+        return new FontFaceObserver( font.family, font.options ).load().then(function() {
           html.classList.add('t-webfont--' + key);
         });
       });
@@ -41,19 +39,18 @@
     if ( sessionStorage.fonts ) {
       html.classList.add('is-active');
 
-      keys.forEach(function ( key ) {
+      keys.forEach(function( key ) {
         html.classList.add('t-webfont--' + key);
       });
 
       return;
     }
 
-    Promise.all( fonts ).then(function () {
+    Promise.all( fonts ).then(function() {
       html.classList.add('is-active');
       sessionStorage.fonts = 'true';
     });
   }
-
 
   /**
    * Router
@@ -75,12 +72,12 @@
     });
   }
 
-  function onRouteChange( loc ) {
-    var pathname = loc.pathname,
+  function onRouteChange( e, target ) {
+    var pathname = target.pathname,
       conditions = {
         noPushState: !window.history.pushState,
-        samePath: pathname === window.location.pathname,
-        differentOrigin: loc.href.search( window.location.origin ) === -1,
+        //samePath: pathname === window.location.pathname,
+        differentOrigin: target.origin !== window.location.origin,
         isAsset: pathname.search(/\.(xml|css|js|png|jpg|svg)/) !== -1
       },
       any = Object.keys( conditions ).map(function( key ) {
@@ -93,9 +90,12 @@
       return;
     }
 
-    render( pathname );
-  }
+    window.history.pushState( null, null, pathname );
 
+    render( pathname );
+
+    e.preventDefault();
+  }
 
   /**
    * Events
@@ -131,27 +131,16 @@
       target = target.parentNode;
     }
 
-    if ( !target.tagName ) {
-      return;
+    if ( target !== document ) {
+      onRouteChange( e, target );
     }
-
-    e.preventDefault();
-    onRouteChange( target );
   }
 
   function onPopstate( e ) {
-    onRouteChange( window.location );
+    onRouteChange( e, e.target.location );
   }
 
   document.addEventListener( 'DOMContentLoaded', onLoad );
   document.addEventListener( 'click', onClick );
   window.addEventListener( 'popstate', onPopstate );
 }( FontFaceObserver ));
-
-
-/**
- * References
- *
- * https://www.filamentgroup.com/lab/font-events.html
- * http://meowni.ca/posts/web-fonts/
- */

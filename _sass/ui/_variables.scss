@@ -2,21 +2,36 @@
    Variables
    ========================================================================= */
 
-
-/*------------------------------------*\
-    #CORE
-\*------------------------------------*/
+/* ---------------------------------- *\
+   #CORE
+\* ---------------------------------- */
 
 /**
  * Typography
  */
 
-$font-family:  #{-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif} !default;
-$font-size:    1rem !default;
-$line-height:  1.5 !default;
-$ratio:        1.618 !default; // Golden ratio
-$indent:       40px !default; // Browser default
+$font-family-default: #{BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif} !default;
+$font-size-default:   1rem !default;
+$line-height-default: 1.5 !default;
+$modular-scale-ratio: 1.618 !default; // Golden ratio
+$indent-default:      40px !default; // Browser default
 
+/* ---------------------------------- *\
+   #OBJECTS
+\* ---------------------------------- */
+
+/**
+ * Grid
+ */
+
+$grid: (
+  basis: 10rem,
+  gutter: 1.5rem
+) !default;
+
+/* ---------------------------------- *\
+   #THEMES
+\* ---------------------------------- */
 
 /**
  * Colors
@@ -28,31 +43,6 @@ $color: (
   primary: hsla(135, 46%, 36%, 1),
   accent: hsla(8, 48%, 45%, 1)
 ) !default;
-
-
-
-
-
-/*------------------------------------*\
-    #OBJECTS
-\*------------------------------------*/
-
-
-/**
- * Grid
- */
-
-$grid-gap: 1.5rem !default;
-$grid-basis: 10rem !default;
-
-
-
-
-
-/*------------------------------------*\
-    #THEMES
-\*------------------------------------*/
-
 
 /**
  * Webfont

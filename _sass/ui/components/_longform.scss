@@ -2,44 +2,21 @@
    Longform
    ========================================================================= */
 
-
-/**
- * Longform
- *
- * Long-form text content.
- *
- * Markup: longform.html
- *
- * Styleguide: components.longform
- */
-
 .c-longform {
   overflow: visible;
 
   /* Measure */
   max-width: 36em;
-  /* Needed for overhanging punctiation */
-  padding-right: $grid-gap;
-  padding-left: $grid-gap;
-
-  @supports (hyphens: auto) {
-    p {
-      text-align: justify;
-      @include hyphens(auto);
-    }
-  }
+  /* Needed for overhanging punctuation */
+  padding-right: map-get($grid, gutter);
+  padding-left: map-get($grid, gutter);
 
   /* Overhanging lists, module needs padding to display list-style-type */
   ul,
   ol {
     ul,
     ol {
-      padding-left: $indent;
-
-      [dir="rtl"] & {
-        margin-right: 0;
-        margin-left: $indent;
-      }
+      padding-left: $indent-default;
     }
   }
 
@@ -50,29 +27,29 @@
     }
   }
 
+  /**
+   * Descendants
+   */
+
   /* All paragraphs */
   p:not(:first-child) + p {
     margin-top: 0;
 
-    text-indent: $indent;
+    text-indent: $indent-default;
   }
 
   /* Lead paragraph */
   > p:first-child {
     font-size: ms(1);
 
-    /* Drop caps */
+    /* Drop caps, placed on lead paragraph */
     &::first-letter {
-      font-size: $line-height * 2em;
+      font-size: vr(1.9, 1em);
       line-height: 1;
 
       float: left;
 
-      padding-right: lines(.25);
-
-      [dir="rtl"] & {
-        padding-left: lines(.25);
-      }
+      padding-right: map-get($grid, gutter) / 4;
     }
   }
 
@@ -81,17 +58,9 @@
     font-size: 1.1em;
 
     color: mix(map-get($color, default), #fff, 60%);
-
   }
 }
 
 .footnotes {
   font-size: ms(-1);
 }
-
-
-/**
- * References
- *
- * https://css-tricks.com/styling-underlines-web/
- */
