@@ -2,12 +2,14 @@
    Layout
    ========================================================================= */
 
+.o-layout__content {
+  margin-top: 0;
+}
 
 @media (min-width: map-get($layout, breakpoint)) {
   .o-layout {
     height: 100vh;
   }
-
 
   /**
    * Descendents
@@ -18,8 +20,18 @@
     position: fixed;
   }
 
+  // Incorporates sticky footer
   .o-layout__content {
+    @include display-flex();
+    @include flex-direction(column);
+
+    min-height: 100vh;
+
     margin-left: map-get($layout, width);
+  }
+
+  main {
+    @include flex(1);
   }
 
   @supports (display: grid) {

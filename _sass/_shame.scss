@@ -2,9 +2,8 @@
    Shame
    ========================================================================= */
 
-
 [role="banner"] {
-  padding: lines(1) $grid-gap;
+  padding: vr(1) map-get($grid, gutter);
   text-align: center;
 
   h1 {
@@ -48,9 +47,15 @@
   }
 }
 
+@media (min-width: map-get($layout, breakpoint)) {
+  main {
+    margin-top: vr(1);
+  }
+}
+
 [role="contentinfo"] {
   border-top: 1px solid;
-  padding: lines(1) $grid-gap;
+  padding: vr(1) map-get($grid, gutter);
 }
 
 .t-webfont--display {

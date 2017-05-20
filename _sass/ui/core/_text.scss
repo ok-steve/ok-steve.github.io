@@ -2,7 +2,6 @@
    Text
    ========================================================================= */
 
-
 /**
  * Turn on discretionary ligatures for larger headings.
  */
@@ -12,6 +11,10 @@
 
   @include font-feature-settings("kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 1);
 }
+
+/**
+ * Use modular scale for headings sizes.
+ */
 
 h1 {
   @extend %heading;
@@ -57,25 +60,42 @@ dd {
   margin-top: 0;
 }
 
+/**
+ * 1. Correct the height in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ * 3. A better looking default horizontal rule.
+ */
 
 hr {
-  overflow: visible;
+  overflow: visible; /* 2 */
 
-  height: 0;
+  height: 0; /* 1 */
 
-  border: 0;
-  border-top: 1px solid currentColor;
+  border: 0; /* 3 */
+  border-top: 1px solid currentColor; /* 3 */
 }
+
+/**
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+ * 3. Remove the tapping delay on clickable elements (opinionated).
+ * 4. Remove the tapping delay in IE 10.
+ */
 
 a {
   text-decoration: none;
 
   color: map-get($color, primary);
-  background-color: transparent;
+  background-color: transparent; /* 1 */
 
-  -webkit-text-decoration-skip: objects;
-  -ms-touch-action: manipulation;
-      touch-action: manipulation;
+  -webkit-text-decoration-skip: objects; /* 2 */
+  -ms-touch-action: manipulation; /* 4 */
+      touch-action: manipulation; /* 3 */
+
+  /**
+   * Remove the outline on focused links when they are also active or hovered
+   * in all browsers (opinionated).
+   */
 
   &:active,
   &:hover {
@@ -161,7 +181,7 @@ small {
 
 sub,
 sup {
-  font-size: 100% / $ratio;
+  font-size: ms(-1);
   line-height: 0;
 
   position: relative;
@@ -210,7 +230,7 @@ time {
     text-decoration: underline;
   }
 
-  a[href]:after {
+  a[href]::after {
     content: " (" attr(href) ")";
   }
 
@@ -246,9 +266,3 @@ time {
     page-break-after: avoid;
   }
 }
-
-/**
- * References
- *
- * https://css-tricks.com/time-element
- */

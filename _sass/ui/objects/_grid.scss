@@ -2,22 +2,10 @@
    Grid
    ========================================================================= */
 
-
-/**
- * Grid
- *
- * Place elements next to each other.
- *
- * Markup: grid.html
- *
- * Styleguide: objects.grid
- */
-
 .o-grid {
   @include display-flex(flex);
 
   @include flex-wrap(wrap);
-
 
   /**
    * Descendents
@@ -26,14 +14,6 @@
   > * {
     margin-top: 0;
 
-    @include flex(1 1 $grid-basis);
+    @include flex(1 1 map-get($grid, basis));
   }
 }
-
-
-/**
- * References
- *
- * http://www.heydonworks.com/article/on-writing-less-damn-code
- * http://codepen.io/philipwalton/pen/XJMWem
- */

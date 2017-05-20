@@ -2,13 +2,11 @@
    Prefixer
    ========================================================================= */
 
-
 // https://autoprefixer.github.io/, > 1%, last 2 versions, IE > 10
 
 /*------------------------------------*\
     #ANIMATIONS
 \*------------------------------------*/
-
 
 @mixin animation($animation) {
   -webkit-animation: $animation;
@@ -35,18 +33,9 @@
           animation-fill-mode: $fill-mode;
 }
 
-
-
-
-
-
 /*------------------------------------*\
     #FLEXBOX
 \*------------------------------------*/
-
-
-// https://css-tricks.com/snippets/css/a-guide-to-flexbox/
-// https://github.com/philipwalton/flexbugs
 
 /**
  * Display
@@ -67,7 +56,6 @@
 
   display: $display;
 }
-
 
 /**
  * Flex direction
@@ -95,7 +83,6 @@
           flex-direction: $direction;
 }
 
-
 /**
  * Flex wrap
  */
@@ -106,7 +93,6 @@
           flex-wrap: $wrap;
 }
 
-
 /**
  * Flex flow
  */
@@ -116,7 +102,6 @@
       -ms-flex-flow: $direction $wrap;
           flex-flow: $direction $wrap;
 }
-
 
 /**
  * Justify content
@@ -146,7 +131,6 @@
           justify-content: $justify;
 }
 
-
 /**
  * Align items
  */
@@ -175,7 +159,6 @@
           align-items: $align;
 }
 
-
 /**
  * Align content
  */
@@ -199,7 +182,6 @@
           align-content: $align;
 }
 
-
 /**
  * Order
  */
@@ -210,7 +192,6 @@
              -ms-flex-order: $order;
                       order: $order;
 }
-
 
 /**
  * Flex grow
@@ -224,7 +205,6 @@
           flex-grow: $grow;
 }
 
-
 /**
  * Flex shrink
  */
@@ -236,7 +216,6 @@
           flex-shrink: $shrink;
 }
 
-
 /**
  * Flex basis
  */
@@ -246,7 +225,6 @@
   -ms-flex-preferred-size: $basis;
                flex-basis: $basis;
 }
-
 
 /**
  * Flex
@@ -263,7 +241,6 @@
       -ms-flex: $flex;
           flex: $flex;
 }
-
 
 /**
  * Align self
@@ -288,14 +265,10 @@
           align-self: $align;
 }
 
-
-
-
 /*------------------------------------*\
     #FONT_FEATURE_SETTINGS
 
 \*------------------------------------*/
-
 
 @mixin font-feature-settings($settings...) {
   -webkit-font-feature-settings: $settings;
@@ -303,14 +276,9 @@
           font-feature-settings: $settings;
 }
 
-
-
-
-
 /*------------------------------------*\
     #HYPHENS
 \*------------------------------------*/
-
 
 @mixin hyphens($mode) {
   -webkit-hyphens: $mode;
@@ -319,14 +287,9 @@
           hyphens: $mode;
 }
 
-
-
-
-
 /*------------------------------------*\
     #KEYFRAMES
 \*------------------------------------*/
-
 
 @mixin keyframes($name) {
   @-webkit-keyframes #{$name} {
@@ -338,14 +301,9 @@
   }
 }
 
-
-
-
-
 /*------------------------------------*\
     #SELECTION
 \*------------------------------------*/
-
 
 @mixin selection {
   ::-moz-selection {
@@ -357,28 +315,18 @@
   }
 }
 
-
-
-
-
 /*------------------------------------*\
     #TRANSFORMS
 \*------------------------------------*/
-
 
 @mixin transform($transform) {
   -webkit-transform: $transform;
           transform: $transform;
 }
 
-
-
-
-
 /*------------------------------------*\
     #TRANSITIONS
 \*------------------------------------*/
-
 
 @mixin transition($transition) {
   -webkit-transition: $transition;
@@ -389,3 +337,10 @@
   -webkit-transition-timing-function: $timing-function;
           transition-timing-function: $timing-function;
 }
+
+/**
+ * References
+ *
+ * https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+ * https://github.com/philipwalton/flexbugs
+ */

@@ -2,17 +2,6 @@
    Animation
    ========================================================================= */
 
-
-/**
- * Animation
- *
- * Use animation to show motion.
- *
- * Markup: animation.html
- *
- * Styleguide: utilities.animation
- */
-
 @include keyframes(fadeIn) {
   from {
     opacity: 0;
@@ -27,7 +16,6 @@
   @include animation-name(fadeIn);
 }
 
-
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -41,11 +29,3 @@
 .u-spin {
   animation: spin 1s infinite linear;
 }
-
-
-/**
- * References
- *
- * https://github.com/daneden/animate.css
- * https://github.com/h5bp/Effeckt.css
- */

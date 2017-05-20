@@ -2,7 +2,6 @@
    Webfont
    ========================================================================= */
 
-
 @if variable-exists(webfont) {
   /**
    * Modifiers
@@ -20,24 +19,17 @@
         font-family: map-get($webfont, display);
       }
     }
-  }
 
-  /**
-   * States
-   */
+    /**
+     * States
+     */
 
-  @if map-has-key($webfont, ampersand) and map-has-key($webfont, ampersand) {
-    .t-webfont.is-active {
-      %heading {
-        font-family: map-get($webfont, ampersand), map-get($webfont, display);
+    @if map-has-key($webfont, ampersand) {
+      .t-webfont.is-active {
+        %heading {
+          font-family: map-get($webfont, ampersand), map-get($webfont, display);
+        }
       }
     }
   }
 }
-
-
-/**
- * References
- *
- * http://slides.com/heydon/effortless-style/#/43
- */

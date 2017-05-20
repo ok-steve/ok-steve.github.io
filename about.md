@@ -5,8 +5,8 @@ permalink: /
 
 I develop software and play the tuba. I'm continuously trying to increase the nerdiness in my life.
 
-I began my tech journey as a student of the University of Michigan School of Information where I focused my studies on digital humanities.
+I currently work as a Drupal/front-end web developer for a government contractor near Washington, DC. I tackle the whole project lifecycle, including creating static templates from Photoshop files, creating themes from static templates, building functionality through site configuration and module development, QA testing, and ongoing maintenance. I'm like a jack-of-all-trades, master of...certainly more than none.
 
-After spending several years as an academic librarian I transitioned to doing full time development with a government contractor. I contribute to several projects doing front end development and Drupal.
+Previously, I worked as an academic/electronic services librarian---where I also did a fair amount of Drupal development---after getting a master's at the University of Michigan School of Information. So while I am skilled at development I am also interested in how technologies impact cultural heritage and the humanities.
 
-Previously, I earned a degree in music, which I am fortunate to be able to use playing tuba in a local [go-go symphony](http://gogosymphony.com).
+I also have a degree in music, which I am fortunate to still use while playing in a local [go-go symphony](http://gogosymphony.com).

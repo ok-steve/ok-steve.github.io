@@ -2,9 +2,8 @@
    Logo
    ========================================================================= */
 
-
 .c-logo {
   color: map-get($color, accent);
 
-  @include fluid-type(lines(1), lines(3));
+  @include fluid-type(vr(1), vr(3));
 }

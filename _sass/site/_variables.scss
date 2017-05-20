@@ -14,5 +14,5 @@ $breakpoint: (
 
 $layout: (
   breakpoint: map-get($breakpoint, narrow),
-  width: percentage(1 - (1 / $ratio))
+  width: percentage(1 - (1 / $modular-scale-ratio))
 ) !default;

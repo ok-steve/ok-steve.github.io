@@ -1,7 +1,6 @@
 /* =========================================================================
-   Axioms & Semantics
+   Global
    ========================================================================= */
-
 
 /**
  * 1. Remove repeating backgrounds in all browsers (opinionated).
@@ -57,9 +56,9 @@ body {
  */
 
 html {
-  font-family: $font-family; /* 3 */
+  font-family: $font-family-default; /* 3 */
   font-size: ms(0);
-  line-height: $line-height; /* 4 */
+  line-height: $line-height-default; /* 4 */
 
   overflow: auto;
 
@@ -69,8 +68,8 @@ html {
 
   color: map-get($color, default);
 
-      -ms-text-size-adjust: 100%; /* 5 */
   -webkit-text-size-adjust: 100%; /* 5 */
+      -ms-text-size-adjust: 100%; /* 5 */
 }
 
 /**
@@ -79,7 +78,7 @@ html {
 
 body {
   * + * {
-    margin-top: lines(1);
+    margin-top: vr(1);
   }
 }
 
@@ -108,10 +107,6 @@ figcaption {
   display: inline-block;
 
   text-align: left;
-
-  [dir="rtl"] & {
-    text-align: right;
-  }
 }
 
 @media print {
@@ -127,21 +122,3 @@ figcaption {
     text-shadow: none !important;
   }
 }
-
-
-/**
- * References
- *
- * https://necolas.github.io/normalize.css/5.0.0/normalize.css
- * https://jonathantneal.github.io/sanitize.css/4.1.0/sanitize.css
- * https://github.com/h5bp/html5-boilerplate/blob/5.3.0/src/css/main.css
- * https://github.com/kennethormandy/normalize-opentype.css/blob/v0.2.4/normalize-opentype.css
- *
- * http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
- * https://css-tricks.com/html-vs-body-in-css
- * https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/
- * https://bocoup.com/weblog/new-overflow-default
- * https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
-
- * http://nocode.in/aligning-text-smartly-in-css
- */

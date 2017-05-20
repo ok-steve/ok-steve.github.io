@@ -2,27 +2,9 @@
    Icons
    ========================================================================= */
 
-
-/**
- * Icon
- *
- * SVG icon set.
- *
- * Markup: icon.html
- *
- * Styleguide: components.icon
- */
-
 .c-icon {
-  width: lines(1, 1em);
-  height: lines(1, 1em);
+  width: vr(1, 1em);
+  height: vr(1, 1em);
 
   fill: currentColor;
 }
-
-
-/**
- * References
- *
- * https://css-tricks.com/svg-symbol-good-choice-icons
- */

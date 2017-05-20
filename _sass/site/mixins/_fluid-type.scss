@@ -2,7 +2,6 @@
    Fluid type
    ========================================================================= */
 
-
 @mixin fluid-type($font-size-min, $font-size-max, $viewport-min: map-get($breakpoint, narrow), $viewport-max: map-get($breakpoint, wide)) {
   font-size: $font-size-min;
 
@@ -14,7 +13,6 @@
     font-size: $font-size-max;
   }
 }
-
 
 /**
  * References
