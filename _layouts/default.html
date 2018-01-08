@@ -9,6 +9,19 @@
   <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %} | {{ site.title | escape }}</title>
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/apple-touch-icon.png" | relative_url }}">
+  <link rel="apple-touch-startup-image" href="{{ "/assets/android-chrome-192x192.png" | relative_url }}">
+  <link rel="icon" type="image/png" href="{{ "/assets/favicon-32x32.png" | relative_url }}" sizes="32x32">
+  <link rel="icon" type="image/png" href="{{ "/assets/favicon-16x16.png" | relative_url }}" sizes="16x16">
+  <link rel="mask-icon" href="{{ "/assets/safari-pinned-tab.svg" | relative_url }}" color="#2b8a3e">
+  <link rel="shortcut icon" href="{{ "/assets/favicon.ico" | relative_url }}">
+
+  <meta name="apple-mobile-web-app-title" content="{{ site.title | escape }}">
+  <meta name="theme-color" content="#2b8a3e">
+  <meta name="application-name" content="{{ site.title | escape }}">
+  <meta name="msapplication-config" content="{{ "/browserconfig.xml" | relative_url }}">
+  <link rel="manifest" href="{{ "/manifest.json" | relative_url }}">
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700|Source+Sans+Pro:400">
   <link rel="stylesheet" href="{{ "/css/main.css" | relative_url }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
