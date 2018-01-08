@@ -1,4 +1,4 @@
-(function( FontFaceObserver ) {
+(function() {
   'use strict';
 
   /**
@@ -19,37 +19,6 @@
     };
 
     request.send();
-  }
-
-  /**
-   * Load fonts
-   */
-
-  function webfont( config ) {
-    var html = document.querySelector('html'),
-      keys = Object.keys( config ),
-      fonts = keys.map(function( key ) {
-        var font = config[key];
-
-        return new FontFaceObserver( font.family, font.options ).load().then(function() {
-          html.classList.add('t-webfont--' + key);
-        });
-      });
-
-    if ( sessionStorage.fonts ) {
-      html.classList.add('is-active');
-
-      keys.forEach(function( key ) {
-        html.classList.add('t-webfont--' + key);
-      });
-
-      return;
-    }
-
-    Promise.all( fonts ).then(function() {
-      html.classList.add('is-active');
-      sessionStorage.fonts = 'true';
-    });
   }
 
   /**
@@ -101,23 +70,6 @@
    * Events
    */
 
-  function onLoad( e ) {
-    webfont({
-      default: {
-        family: 'Merriweather',
-        options: {
-          weight: 400
-        }
-      },
-      display: {
-        family: 'Source Sans Pro',
-        options: {
-          weight: 400
-        }
-      }
-    });
-  }
-
   function onClick( e ) {
     var target = e.target;
 
@@ -140,7 +92,6 @@
     onRouteChange( e, e.target.location );
   }
 
-  document.addEventListener( 'DOMContentLoaded', onLoad );
   document.addEventListener( 'click', onClick );
   window.addEventListener( 'popstate', onPopstate );
 }( FontFaceObserver ));

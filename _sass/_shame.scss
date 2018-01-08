@@ -60,12 +60,6 @@
   padding: vr(1) map-get($grid, gutter);
 }
 
-.t-webfont--display {
-  %heading {
-    font-weight: 400;
-  }
-}
-
 [data-trigger="print"] {
   background-color: transparent;
 }

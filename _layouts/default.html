@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="t-webfont" lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
 <head>
   <meta charset="UTF-8">
@@ -22,7 +22,6 @@
   <meta name="msapplication-config" content="{{ "/browserconfig.xml" | relative_url }}">
   <link rel="manifest" href="{{ "/manifest.json" | relative_url }}">
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700|Source+Sans+Pro:400">
   <link rel="stylesheet" href="{{ "/css/main.css" | relative_url }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
@@ -107,19 +106,7 @@
     </div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fontfaceobserver/2.0.4/fontfaceobserver.min.js"></script>
   <script src="{{ "/js/main.js" | relative_url }}" defer></script>
-
-  {% if jekyll.environment == "production" %}
-  <script>
-    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-    e.src='//www.google-analytics.com/analytics.js';
-    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-    ga('create','{{ site.google_analytics }}');ga('send','pageview');
-  </script>
-  {% endif %}
 </body>
 
 </html>
