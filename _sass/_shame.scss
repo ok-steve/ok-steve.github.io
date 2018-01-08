@@ -27,7 +27,9 @@
 
   a {
     @include transition(color .2s);
+  }
 
+  [href*="mailto"] {
     &:hover,
     &:focus {
       color: transparentize(map-get($color, primary), .2);

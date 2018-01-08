@@ -3,21 +3,37 @@
    ========================================================================= */
 
 [href$="feed.xml"] {
-  color: #ff8300;
+  &:hover,
+  &:focus {
+    color: #ff8300;
+  }
+}
 }
 
 [href*="facebook.com"] {
-  color: #3b5998;
+  &:hover,
+  &:focus {
+    color: #3b5998;
+  }
 }
 
 [href*="github.com"] {
-  color: #4183c4;
+  &:hover,
+  &:focus {
+    color: #4183c4;
+  }
 }
 
 [href*="linkedin.com"] {
-  color: #007fb1;
+  &:hover,
+  &:focus {
+    color: #007fb1;
+  }
 }
 
 [href*="twitter.com"] {
-  color: #00aced;
+  &:hover,
+  &:focus {
+    color: #00aced;
+  }
 }

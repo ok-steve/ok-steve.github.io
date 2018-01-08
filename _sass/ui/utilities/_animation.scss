@@ -14,6 +14,7 @@
 
 .u-fade-in {
   @include animation-name(fadeIn);
+  @include animation-duration(map-get($animation, duration));
 }
 
 @keyframes spin {
@@ -27,5 +28,5 @@
 }
 
 .u-spin {
-  animation: spin 1s infinite linear;
+  @include animation(spin 1s infinite linear);
 }

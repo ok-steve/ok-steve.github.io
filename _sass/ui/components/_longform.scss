@@ -21,22 +21,22 @@
   }
 
   a {
+    color: inherit;
+    background-image: linear-gradient(map-get($color, primary), map-get($color, primary));
+    background-repeat: repeat-x;
+    background-position: 0 1.1em;
+    background-size: 1px 1px;
+    text-shadow: .03em 0 #fff, -.03em 0 #fff, 0 .03em #fff, 0 -.03em #fff, .06em 0 #fff, -.06em 0 #fff, .09em 0 #fff, -.09em 0 #fff, .12em 0 #fff, -.12em 0 #fff, .15em 0 #fff, -.15em 0 #fff;
+
     &:hover,
     &:focus {
-      text-decoration: underline;
+      color: map-get($color, primary);
     }
   }
 
   /**
    * Descendants
    */
-
-  /* All paragraphs */
-  p:not(:first-child) + p {
-    //margin-top: 0;
-
-    //text-indent: $indent-default;
-  }
 
   /* Lead paragraph */
   > p:first-child {

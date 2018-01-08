@@ -24,6 +24,6 @@
   }
 
   .o-router__view {
-    @include animation-direction(alternate-reverse);
+    @include animation-direction(reverse);
   }
 }
