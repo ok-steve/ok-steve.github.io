@@ -8,14 +8,14 @@ permalink: /posts/
 
 <ul>
   {% for post in site.posts %}
-    <li resource="{{ post.url | prepend: site.baseurl }}" typeof="schema:BlogPosting">
-      <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    <li resource="{{ post.url | relative_url }}" typeof="schema:BlogPosting">
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
     </li>
   {% endfor %}
 </ul>
 
 <p>
-  <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
+  <a href="{{ "/feed.xml" | relative_url }}">
     <svg class="c-icon">
       <use xlink:href="#rss"/>
     </svg>

@@ -4,7 +4,7 @@ layout: default
 
 <article class="c-content c-content--post">
   <header>
-    <h2>{{ page.title }}</h2>
+    <h2>{{ page.title | escape }}</h2>
     <p>
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
       {% if page.author %} | {{ page.author }}{% endif %}
@@ -21,13 +21,13 @@ layout: default
           <use xlink:href="#code"/>
         </svg>
       </a> |
-      <a href="http://twitter.com/intent/tweet?url={{ page.url | prepend: site.baseurl | prepend: site.url }}">
+      <a href="http://twitter.com/intent/tweet?url={{ page.url | absolute_url }}">
         <svg class="c-icon">
           <title>Tweet</title>
           <use xlink:href="#twitter"/>
         </svg>
       </a> |
-      <a href="http://www.facebook.com/sharer.php?u={{ page.url | prepend: site.baseurl | prepend: site.url }}">
+      <a href="http://www.facebook.com/sharer.php?u={{ page.url | absolute_url }}">
         <svg class="c-icon">
           <title>Post to Facebook</title>
           <use xlink:href="#facebook"/>
@@ -42,7 +42,7 @@ layout: default
     </p>
   </header>
 
-  <div class="c-content__body c-longform">
+  <section class="c-content__body c-longform">
     {{ content }}
-  </div>
+  </section>
 </article>

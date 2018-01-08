@@ -5,11 +5,11 @@ layout: default
 <section class="c-content c-content--page">
   {% if page.title %}
     <header>
-      <h2>{{ page.title }}</h2>
+      <h2>{{ page.title | escape }}</h2>
     </header>
   {% endif %}
 
-  <div class="c-content__body c-longform">
+  <section class="c-content__body c-longform">
     {{ content }}
-  </div>
+  </section>
 </section>
