@@ -8,6 +8,12 @@
     color: #ff8300;
   }
 }
+
+[href*="codepen.io"] {
+  &:hover,
+  &:focus {
+    color: #0ebeff;
+  }
 }
 
 [href*="facebook.com"] {

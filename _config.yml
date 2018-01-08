@@ -7,7 +7,8 @@ baseurl: ""
 url: "https://stevecherry.net"
 repo: sccherry.github.io
 
-twitter_username:   stevenccherry
+#twitter_username:   stevenccherry
+codepen_username:   sccherry
 github_username:    sccherry
 linkedin_username:  sccherry
 google_analytics:   UA-19261191-1
