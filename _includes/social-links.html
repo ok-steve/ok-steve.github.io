@@ -14,6 +14,14 @@
       </li>
     {% endif %}
 
+    {% if site.codepen_username %}
+      <li>
+        <a href="https://codepen.io/{{ site.codepen_username }}">
+          {% include icon.html title="Visit my Codepen pens!" icon="codepen" %}
+        </a>
+      </li>
+    {% endif %}
+
     {% if site.twitter_username %}
       <li>
         <a href="https://twitter.com/{{ site.twitter_username }}">
