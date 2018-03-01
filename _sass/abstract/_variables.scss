@@ -16,6 +16,26 @@ $line-height-default: 1.5 !default;
 $modular-scale-ratio: 1.618 !default; // Golden ratio
 $indent-default:      40px !default; // Browser default
 
+/**
+ * Colors
+ */
+
+$color: (
+  default: #212529,
+  muted: #f1f3f5,
+  primary: #2b8a3e,
+  accent: #c92a2a
+) !default;
+
+/**
+ * Media queries
+ */
+
+$breakpoint: (
+  narrow: 35rem,
+  wide: 60rem
+) !default;
+
 /* ---------------------------------- *\
    #OBJECTS
 \* ---------------------------------- */
@@ -29,6 +49,15 @@ $grid: (
   gutter: 1.5rem
 ) !default;
 
+/**
+ * Layout
+ */
+
+$layout: (
+  breakpoint: map-get($breakpoint, narrow),
+  width: percentage(1 - (1 / $modular-scale-ratio))
+) !default;
+
 /* ---------------------------------- *\
    #UTILITIES
 \* ---------------------------------- */
@@ -39,19 +68,4 @@ $grid: (
 
 $animation: (
   duration: .3s
-) !default;
-
-/* ---------------------------------- *\
-   #THEMES
-\* ---------------------------------- */
-
-/**
- * Colors
- */
-
-$color: (
-  default: #212529,
-  muted: #f1f3f5,
-  primary: #2b8a3e,
-  accent: #c92a2a
 ) !default;

@@ -1,5 +1,5 @@
 /* =========================================================================
-   Typography
+   Functions
    ========================================================================= */
 
 @function vertical-rhythm($num, $font-size: $font-size-default, $line-height: $line-height-default) {
@@ -22,4 +22,8 @@
 
 @function ms($args...) {
   @return modular-scale($args...);
+}
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
 }
