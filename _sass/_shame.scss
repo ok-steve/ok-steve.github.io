@@ -2,6 +2,23 @@
    Shame
    ========================================================================= */
 
+a {
+  @include transition(color .2s);
+}
+
+address {
+  a {
+    color: map-get($color, default);
+  }
+}
+
+[href*="mailto"] {
+  &:hover,
+  &:focus {
+    color: map-get($color, primary);
+  }
+}
+
 [role="banner"],
 [role="contentinfo"] {
   padding: vr(1) map-get($grid, gutter);
@@ -14,17 +31,6 @@
     font-size: ms(2);
 
     margin-top: 0;
-  }
-
-  a {
-    @include transition(color .2s);
-  }
-
-  [href*="mailto"] {
-    &:hover,
-    &:focus {
-      color: transparentize(map-get($color, primary), .2);
-    }
   }
 }
 
