@@ -2,27 +2,18 @@
    Shame
    ========================================================================= */
 
-[role="banner"] {
+[role="banner"],
+[role="contentinfo"] {
   padding: vr(1) map-get($grid, gutter);
+}
+
+[role="banner"] {
   text-align: center;
 
   h1 {
     font-size: ms(2);
 
     margin-top: 0;
-  }
-
-  nav li {
-    display: inline-block;
-
-    a {
-      display: block;
-      padding: lines(.25);
-    }
-  }
-
-  ul {
-    padding-left: 0;
   }
 
   a {
@@ -35,25 +26,17 @@
       color: transparentize(map-get($color, primary), .2);
     }
   }
+}
 
-  @media (max-width: map-get($layout, breakpoint)) {
-    nav {
-      li {
-        display: inline-block;
-      }
-    }
-  }
-
-  @media (min-width: map-get($layout, breakpoint)) {
-    text-align: right;
-
-    h1 {
-      font-size: ms(3);
-    }
-  }
+[role="contentinfo"] {
+  border-top: 1px solid;
 }
 
 @media (max-width: map-get($layout, breakpoint)) {
+  .o-layout__content {
+    margin-top: 0;
+  }
+
   .s-longform {
     margin-right: auto;
     margin-left: auto;
@@ -61,14 +44,19 @@
 }
 
 @media (min-width: map-get($layout, breakpoint)) {
-  main {
-    margin-top: vr(1);
-  }
-}
+  [role="banner"] {
+    text-align: right;
 
-[role="contentinfo"] {
-  border-top: 1px solid;
-  padding: vr(1) map-get($grid, gutter);
+    h1 {
+      font-size: ms(3);
+    }
+
+    nav {
+      li {
+        display: list-item;
+      }
+    }
+  }
 }
 
 [data-trigger="print"] {

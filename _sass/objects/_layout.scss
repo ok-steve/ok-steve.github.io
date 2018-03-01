@@ -2,10 +2,6 @@
    Layout
    ========================================================================= */
 
-.o-layout__content {
-  margin-top: 0;
-}
-
 @media (min-width: map-get($layout, breakpoint)) {
   .o-layout {
     @include display-flex();
