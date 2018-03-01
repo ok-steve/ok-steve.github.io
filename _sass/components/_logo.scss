@@ -3,7 +3,11 @@
    ========================================================================= */
 
 .c-logo {
+  font-size: vr(1);
+
   color: map-get($color, accent);
 
-  @include fluid-type(vr(1), vr(3));
+  @media (min-width: map-get($layout, breakpoint)) {
+    font-size: vr(3);
+  }
 }

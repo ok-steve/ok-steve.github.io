@@ -7,7 +7,7 @@
   text-align: center;
 
   h1 {
-    @include fluid-type(ms(2), ms(3));
+    font-size: ms(2);
 
     margin-top: 0;
   }
@@ -46,6 +46,10 @@
 
   @media (min-width: map-get($layout, breakpoint)) {
     text-align: right;
+
+    h1 {
+      font-size: ms(3);
+    }
   }
 }
 
