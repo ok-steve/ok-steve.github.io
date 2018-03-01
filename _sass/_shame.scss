@@ -63,11 +63,3 @@
 [data-trigger="print"] {
   background-color: transparent;
 }
-
-body > svg:first-child {
-  display: none;
-
-  + * {
-    margin-top: 0;
-  }
-}
