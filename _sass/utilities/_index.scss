@@ -2,6 +2,10 @@
    Utilities
    ========================================================================= */
 
+/*------------------------------------*\
+    #ANIMATIONS
+\*------------------------------------*/
+
 @include keyframes(fadeIn) {
   from {
     opacity: 0;
@@ -15,4 +19,29 @@
 .u-fade-in {
   @include animation-name(fadeIn);
   @include animation-duration(map-get($animation, duration));
+}
+
+/*------------------------------------*\
+    #LISTS
+\*------------------------------------*/
+
+
+.u-list-inline {
+  padding-left: 0;
+
+  li {
+    display: inline-block;
+  }
+}
+
+/*------------------------------------*\
+    #SIZING
+\*------------------------------------*/
+
+.u-h-1vr {
+  height: vr(1, 1em);
+}
+
+.u-w-1vr {
+  width: vr(1, 1em);
 }
