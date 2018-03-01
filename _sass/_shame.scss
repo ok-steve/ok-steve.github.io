@@ -53,6 +53,13 @@
   }
 }
 
+@media (max-width: map-get($layout, breakpoint)) {
+  .s-longform {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
 @media (min-width: map-get($layout, breakpoint)) {
   main {
     margin-top: vr(1);
