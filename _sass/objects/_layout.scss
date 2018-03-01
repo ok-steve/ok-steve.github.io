@@ -8,6 +8,8 @@
 
 @media (min-width: map-get($layout, breakpoint)) {
   .o-layout {
+    @include display-flex();
+
     height: 100vh;
   }
 
@@ -15,9 +17,8 @@
    * Descendents
    */
 
-  .o-layout__banner {
+  [role="banner"] {
     width: map-get($layout, width);
-    position: fixed;
   }
 
   // Incorporates sticky footer
@@ -27,24 +28,13 @@
 
     min-height: 100vh;
 
-    margin-left: map-get($layout, width);
+    > * {
+      overflow: visible;
+    }
   }
 
+  .o-layout__content,
   main {
     @include flex(1);
-  }
-
-  @supports (display: grid) {
-    .o-layout {
-      display: grid;
-      grid-template-rows: min-content;
-      grid-template-columns: map-get($layout, width) 1fr;
-    }
-
-    .o-layout__content {
-      margin-left: 0; /* Override */
-      grid-row: 1;
-      grid-column: 2;
-    }
   }
 }

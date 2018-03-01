@@ -54,7 +54,7 @@ $grid: (
  */
 
 $layout: (
-  breakpoint: map-get($breakpoint, narrow),
+  breakpoint: map-get($breakpoint, wide),
   width: percentage(1 - (1 / $modular-scale-ratio))
 ) !default;
 
