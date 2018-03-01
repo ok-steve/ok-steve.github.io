@@ -33,58 +33,12 @@
   <div class="o-layout">
     <header class="o-layout__banner" role="banner">
       <div class="c-logo">
-        <svg class="c-icon">
-          <use xlink:href="#cherry" />
-        </svg>
+        {% include icon.html title="A cherry icon" icon="cherry" %}
       </div>
 
       <h1><a href="{{ "/" | relative_url }}">{{ site.title | escape }}</a></h1>
 
-      <address class="c-social-links">
-        <ul>
-          <li>
-            <a href="mailto:{{ site.email }}">
-              <svg class="c-icon">
-                <title>Email me!</title>
-                <use xlink:href="#envelope"/>
-              </svg>
-            </a>
-          </li>
-
-          {% if site.github_username %}
-            <li>
-              <a href="https://github.com/{{ site.github_username }}">
-                <svg class="c-icon">
-                  <title>Visit my Github repositories!</title>
-                  <use xlink:href="#github"/>
-                </svg>
-              </a>
-            </li>
-          {% endif %}
-
-          {% if site.twitter_username %}
-            <li>
-              <a href="https://twitter.com/{{ site.twitter_username }}">
-                <svg class="c-icon">
-                  <title>See my tweets!</title>
-                  <use xlink:href="#twitter"/>
-                </svg>
-              </a>
-            </li>
-          {% endif %}
-
-          {% if site.linkedin_username %}
-            <li>
-              <a href="https://linkedin.com/in/{{ site.linkedin_username }}">
-                <svg class="c-icon">
-                  <title>Look at my LinkedIn resume!</title>
-                  <use xlink:href="#linkedin"/>
-                </svg>
-              </a>
-            </li>
-          {% endif %}
-        </ul>
-      </address>
+      {% include social-links.html %}
     </header>
 
     <div class="o-layout__content">
