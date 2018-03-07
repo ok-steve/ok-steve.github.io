@@ -94,4 +94,4 @@
 
   document.addEventListener( 'click', onClick );
   window.addEventListener( 'popstate', onPopstate );
-}( FontFaceObserver ));
+}());
