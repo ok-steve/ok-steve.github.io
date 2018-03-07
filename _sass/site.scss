@@ -7,10 +7,11 @@
 @import "core/code";
 @import "core/embed";
 
+@import "objects/container";
 @import "objects/flex-embed";
 @import "objects/grid";
-@import "objects/layout";
 @import "objects/router";
+@import "objects/sticky-footer";
 
 @import "components/logo";
 

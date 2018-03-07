@@ -6,10 +6,10 @@
   overflow: visible;
 
   /* Measure */
-  max-width: 36em;
+  //max-width: $measure;
   /* Needed for overhanging punctuation */
-  padding-right: map-get($grid, gutter);
-  padding-left: map-get($grid, gutter);
+  //padding-right: map-get($grid, gutter);
+  //padding-left: map-get($grid, gutter);
 
   /* Overhanging lists, module needs padding to display list-style-type */
   ul,

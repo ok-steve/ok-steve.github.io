@@ -1,0 +1,13 @@
+/* =========================================================================
+   Container
+   ========================================================================= */
+
+.o-container {
+  overflow: visible;
+
+  max-width: $measure;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: map-get($grid, gutter);
+  padding-left: map-get($grid, gutter);
+}

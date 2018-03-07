@@ -31,29 +31,10 @@ address {
   border-top: 1px solid;
 }
 
-@media (max-width: map-get($layout, breakpoint)) {
-  .o-layout__content {
-    margin-top: 0;
-  }
-
-  .s-longform {
-    margin-right: auto;
-    margin-left: auto;
-  }
-}
-
-@media (min-width: map-get($layout, breakpoint)) {
+@media (min-width: map-get($breakpoint, wide)) {
   [role="banner"] {
-    text-align: right;
-
     h1 {
       font-size: ms(3);
-    }
-
-    nav {
-      li {
-        display: list-item;
-      }
     }
   }
 }

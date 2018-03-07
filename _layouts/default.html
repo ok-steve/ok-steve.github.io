@@ -27,7 +27,7 @@
   <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
 </head>
 
-<body class="o-router o-layout" prefix="schema: http://schema.org/">
+<body class="o-sticky-footer o-router" prefix="schema: http://schema.org/">
   <header role="banner">
     <div class="c-logo" aria-hidden="true">
       {% include icon.html title="A cherry icon" icon="cherry" %}
@@ -38,17 +38,15 @@
     {% include social-links.html %}
   </header>
 
-  <div class="o-layout__content">
-    <main class="o-router__view u-fade-in" role="main">
-      {{ content }}
-    </main>
+  <main class="o-sticky-footer__content o-container o-router__view u-fade-in" role="main">
+    {{ content }}
+  </main>
 
-    <footer class="o-grid" role="contentinfo">
-      <p>All content licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
+  <footer class="o-grid" role="contentinfo">
+    <p>All content licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
 
-      <p>{{ site.description | escape }}</p>
-    </footer>
-  </div>
+    <p>{{ site.description | escape }}</p>
+  </footer>
 
   <script src="{{ "/js/main.js" | relative_url }}" defer></script>
 </body>

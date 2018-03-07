@@ -15,6 +15,7 @@ $font-size-default:   1rem !default;
 $line-height-default: 1.5 !default;
 $modular-scale-ratio: 1.618 !default; // Golden ratio
 $indent-default:      40px !default; // Browser default
+$measure:             36em !default;
 
 /**
  * Colors
@@ -47,15 +48,6 @@ $breakpoint: (
 $grid: (
   basis: 10rem,
   gutter: 1.5rem
-) !default;
-
-/**
- * Layout
- */
-
-$layout: (
-  breakpoint: map-get($breakpoint, wide),
-  width: percentage(1 - (1 / $modular-scale-ratio))
 ) !default;
 
 /* ---------------------------------- *\

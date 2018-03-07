@@ -1,0 +1,14 @@
+/* =========================================================================
+   Sticky Footer
+   ========================================================================= */
+
+.o-sticky-footer {
+  @include display-flex();
+  @include flex-direction(column);
+
+  min-height: 100vh;
+}
+
+.o-sticky-footer__content {
+  @include flex(1);
+}

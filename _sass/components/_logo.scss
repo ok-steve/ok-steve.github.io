@@ -7,7 +7,7 @@
 
   color: map-get($color, accent);
 
-  @media (min-width: map-get($layout, breakpoint)) {
+  @media (min-width: map-get($breakpoint, wide)) {
     font-size: vr(3);
   }
 }
