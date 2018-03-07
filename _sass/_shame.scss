@@ -30,3 +30,11 @@ a {
 [data-trigger="print"] {
   background-color: transparent;
 }
+
+@media (min-width: 20em) {
+  [role="banner"] {
+    > * {
+      @include flex(none);
+    }
+  }
+}

@@ -5,7 +5,9 @@
 .o-grid {
   @include display-flex(flex);
 
+  @include align-items(center);
   @include flex-wrap(wrap);
+  @include justify-content(space-between);
 
   /**
    * Descendents
