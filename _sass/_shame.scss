@@ -28,7 +28,13 @@ a {
 }
 
 [data-trigger="print"] {
+  font-size: 1em;
+
+  cursor: pointer;
+
+  border-width: 0;
   background-color: transparent;
+  padding: 0;
 }
 
 @media (min-width: 20em) {

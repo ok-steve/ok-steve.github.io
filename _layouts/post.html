@@ -2,32 +2,56 @@
 layout: default
 ---
 
-<article class="c-content c-content--post">
+<article class="c-content c-content--full">
   <header>
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+
     <h2>{{ page.title | escape }}</h2>
-    <p>
-      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
-      {% if page.author %} | {{ page.author }}{% endif %}
-      {% if page.meta %} | {{ page.meta }}{% endif %} |
-      <a href="https://github.com/{{ site.github_username }}/{{ site.repo }}/commits/master/{{ page.path }}">
-        {% include icon.html title="View page history" icon="clock" %}
-      </a> |
-      <a href="https://github.com/{{ site.github_username }}/{{ site.repo }}/blob/master/{{ page.path }}">
-        {% include icon.html title="View page source code" icon="code" %}
-      </a> |
-      <a href="http://twitter.com/intent/tweet?url={{ page.url | absolute_url }}">
-        {% include icon.html title="Tweet this post" icon="twitter" %}
-      </a> |
-      <a href="http://www.facebook.com/sharer.php?u={{ page.url | absolute_url }}">
-        {% include icon.html title="Post to Facebook" icon="facebook" %}
-      </a> |
-      <button data-trigger="print">
-        {% include icon.html title="Print this" icon="printer" %}
-      </button>
-    </p>
+
+    <ul class="u-list-inline">
+      {% if page.author %}
+        <li>{{ page.author }}</li>
+      {% endif %}
+
+      {% if page.meta %}
+      <li>{{ page.meta }}</li>
+      {% endif %}
+
+      {% if site.github_username %}
+        <li>
+          <a href="https://github.com/{{ site.github_username }}/{{ site.repo }}/commits/master/{{ page.path }}">
+            {% include icon.html title="View page history" icon="clock" %}
+          </a>
+        </li>
+
+        <li>
+          <a href="https://github.com/{{ site.github_username }}/{{ site.repo }}/blob/master/{{ page.path }}">
+            {% include icon.html title="View page source code" icon="code" %}
+          </a>
+        </li>
+      {% endif %}
+
+      <li>
+        <a href="http://twitter.com/intent/tweet?url={{ page.url | absolute_url }}">
+          {% include icon.html title="Tweet this post" icon="twitter" %}
+        </a>
+      </li>
+
+      <li>
+        <a href="http://www.facebook.com/sharer.php?u={{ page.url | absolute_url }}">
+          {% include icon.html title="Post to Facebook" icon="facebook" %}
+        </a>
+      </li>
+
+      <li>
+        <button class="t-brand--primary" data-trigger="print">
+          {% include icon.html title="Print this" icon="printer" %}
+        </button>
+      </li>
+    </ul>
   </header>
 
-  <section class="c-content__body s-longform">
+  <section class="s-longform">
     {{ content }}
   </section>
 </article>
