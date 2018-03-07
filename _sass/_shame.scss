@@ -12,13 +12,6 @@ address {
   }
 }
 
-[href*="mailto"] {
-  &:hover,
-  &:focus {
-    color: map-get($color, primary);
-  }
-}
-
 [role="banner"],
 [role="contentinfo"] {
   padding: vr(1) map-get($grid, gutter);
