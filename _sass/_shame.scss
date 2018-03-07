@@ -6,12 +6,6 @@ a {
   @include transition(color .2s);
 }
 
-address {
-  a {
-    color: map-get($color, default);
-  }
-}
-
 [role="banner"],
 [role="contentinfo"] {
   padding: vr(1) map-get($grid, gutter);
@@ -21,22 +15,16 @@ address {
   text-align: center;
 
   h1 {
-    font-size: ms(2);
+    color: map-get($color, accent);
+  }
 
-    margin-top: 0;
+  a {
+    color: inherit;
   }
 }
 
 [role="contentinfo"] {
   border-top: 1px solid;
-}
-
-@media (min-width: map-get($breakpoint, wide)) {
-  [role="banner"] {
-    h1 {
-      font-size: ms(3);
-    }
-  }
 }
 
 [data-trigger="print"] {

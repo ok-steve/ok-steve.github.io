@@ -29,11 +29,11 @@
 
 <body class="o-sticky-footer o-router" prefix="schema: http://schema.org/">
   <header role="banner">
-    <div class="c-logo" aria-hidden="true">
-      {% include icon.html title="A cherry icon" icon="cherry" %}
-    </div>
-
-    <h1><a href="{{ "/" | relative_url }}">{{ site.title | escape }}</a></h1>
+    <h1>
+      <a href="{{ "/" | relative_url }}">
+        {% include icon.html title=site.title icon="cherry" %}
+      </a>
+    </h1>
 
     {% include social-links.html %}
   </header>
