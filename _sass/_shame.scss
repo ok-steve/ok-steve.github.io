@@ -11,13 +11,14 @@ svg {
   width: vr(1, 1em);
 }
 
-[role="banner"],
-[role="contentinfo"] {
-  padding: vr(1) map-get($grid, gutter);
+
+[role="banner"] nav,
+[role="contentinfo"] .c-social-links {
+  @include flex(0 1 6em);
 }
 
 [role="banner"] {
-  text-align: center;
+  @include align-items(center);
 
   h1 {
     color: map-get($color, accent);
@@ -45,6 +46,8 @@ nav {
 
 [role="contentinfo"] {
   border-top: 1px solid;
+  padding-top: vr(.5);
+  padding-bottom: vr(.5);
 }
 
 [data-trigger="print"] {
@@ -55,12 +58,4 @@ nav {
   border-width: 0;
   background-color: transparent;
   padding: 0;
-}
-
-@media (min-width: 20em) {
-  [role="banner"] {
-    > * {
-      @include flex(none);
-    }
-  }
 }

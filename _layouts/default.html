@@ -27,15 +27,13 @@
   <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
 </head>
 
-<body class="o-sticky-footer o-router" prefix="schema: http://schema.org/">
+<body class="o-sticky-footer o-container o-router" prefix="schema: http://schema.org/">
   <header class="o-grid" role="banner">
     <h1>
       <a href="{{ "/" | relative_url }}">
         {% include icon.html title=site.title icon="cherry" %}
       </a>
     </h1>
-
-    {% include social-links.html %}
 
     <nav role="navigation">
       <ul>
@@ -50,7 +48,7 @@
     </nav>
   </header>
 
-  <main class="o-sticky-footer__content o-container o-router__view" role="main">
+  <main class="o-sticky-footer__content o-router__view" role="main">
     {{ content }}
   </main>
 
@@ -58,6 +56,8 @@
     <p>All content licensed <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC-BY-SA</a>.</p>
 
     <p>{{ site.description | escape }}</p>
+
+    {% include social-links.html %}
   </footer>
 
   <script src="{{ "/js/main.js" | relative_url }}" defer></script>

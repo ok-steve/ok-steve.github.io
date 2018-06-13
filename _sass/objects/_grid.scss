@@ -5,7 +5,6 @@
 .o-grid {
   @include display-flex(flex);
 
-  @include align-items(center);
   @include flex-wrap(wrap);
   @include justify-content(space-between);
 
@@ -16,6 +15,6 @@
   > * {
     margin-top: 0;
 
-    @include flex(1 1 map-get($grid, basis));
+    @include flex(auto);
   }
 }
