@@ -2,11 +2,11 @@
 layout: default
 ---
 
+<h2 class="front-title">{{ site.title }}</h2>
+
 {{ content }}
 
 {% if site.posts.size > 0 %}
-  <h2>Posts</h2>
-
   <ul class="c-post-list">
     {% for post in site.posts %}
       <li class="c-post-list__item" resource="{{ post.url | relative_url }}" typeof="schema:BlogPosting">
