@@ -36,6 +36,18 @@
     </h1>
 
     {% include social-links.html %}
+
+    <nav role="navigation">
+      <ul class="u-list-inline">
+        {% for page in site.pages %}
+          {% if page.title and page.layout != "error" %}
+            <li>
+              <a href="{{ page.url | relative_url }}" class="t-brand--primary">{{ page.title | escape }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
   </header>
 
   <main class="o-sticky-footer__content o-container o-router__view u-fade-in" role="main">

@@ -1,6 +1,7 @@
 ---
 layout: page
-permalink: /
+title: About
+permalink: /about/
 ---
 
 I develop software and play the tuba. I'm continuously trying to increase the nerdiness in my life.
