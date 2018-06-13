@@ -3,12 +3,39 @@
    ========================================================================= */
 
 /**
+ * Animations
+ */
+
+@include keyframes(fadeIn) {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@include keyframes(fadeOut) {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/**
  * Descendents
  */
 
 .o-router__view {
   @include transition-timing-function(ease-in);
   @include animation-duration(.2s);
+
+  @include animation-name(fadeIn);
+  @include animation-duration(map-get($animation, duration));
 
   @include animation-fill-mode(both);
 }
@@ -24,6 +51,6 @@
   }
 
   .o-router__view {
-    @include animation-direction(reverse);
+    @include animation-name(fadeOut);
   }
 }

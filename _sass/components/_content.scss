@@ -10,6 +10,14 @@
   }
 }
 
+.c-content__meta {
+  padding-left: 0;
+
+  li {
+    display: inline-block;
+  }
+}
+
 .c-content--full {
   header {
     border-bottom: 7px solid;

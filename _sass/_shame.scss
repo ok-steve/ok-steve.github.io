@@ -6,6 +6,11 @@ a {
   @include transition(color .2s);
 }
 
+svg {
+  height: vr(1, 1em);
+  width: vr(1, 1em);
+}
+
 [role="banner"],
 [role="contentinfo"] {
   padding: vr(1) map-get($grid, gutter);
@@ -24,6 +29,11 @@ a {
 }
 
 nav {
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
   a {
     text-decoration: none;
 
