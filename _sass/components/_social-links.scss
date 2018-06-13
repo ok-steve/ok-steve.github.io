@@ -1,0 +1,78 @@
+/* =========================================================================
+   Social links
+   ========================================================================= */
+
+.c-social-links {
+  font-style: normal;
+
+  ul {
+    padding-left: 0;
+    list-style-type: none;
+  }
+
+  a {
+    @include display-flex();
+    @include align-items(center);
+    color: inherit;
+    text-decoration: none;
+  }
+
+  svg {
+    color: map-get($color, primary);
+  }
+
+  span {
+    margin-top: 0;
+    margin-left: 5px;
+
+    &:hover,
+    &:focus {
+      color: map-get($color, primary);
+      text-decoration: underline;
+    }
+  }
+}
+
+[href$="feed.xml"] {
+  color: #ff8300;
+}
+
+[href*="codepen.io"] {
+  svg,
+  span:hover,
+  span:focus {
+    color: #0ebeff;
+  }
+}
+
+[href*="facebook.com"] {
+  svg,
+  span:hover,
+  span:focus {
+    color: #3b5998;
+  }
+}
+
+[href*="github.com"] {
+  svg,
+  span:hover,
+  span:focus {
+    color: #4183c4;
+  }
+}
+
+[href*="linkedin.com"] {
+  svg,
+  span:hover,
+  span:focus {
+    color: #007fb1;
+  }
+}
+
+[href*="twitter.com"] {
+  svg,
+  span:hover,
+  span:focus {
+    color: #00aced;
+  }
+}

@@ -16,6 +16,10 @@
   li {
     display: inline-block;
   }
+
+  button {
+    color: map-get($color, primary);
+  }
 }
 
 .c-content--full {
