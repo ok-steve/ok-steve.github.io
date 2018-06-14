@@ -63,3 +63,9 @@ nav {
 .front-title {
   border-bottom: 6px solid;
 }
+
+pre.highlight {
+  background-color: map-get($color, muted);
+  overflow-y: auto;
+  padding: vr(.25);
+}

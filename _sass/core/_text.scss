@@ -180,10 +180,7 @@ small {
 
 sub,
 sup {
-  font-size: ms(-1);
-  line-height: 0;
-
-  position: relative;
+  font-size: ms(0);
 
   vertical-align: baseline;
 }
@@ -193,8 +190,6 @@ sup {
  */
 
 sub {
-  bottom: -.25em;
-
   @include font-feature-settings("kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "subs" 1);
 }
 
@@ -203,8 +198,6 @@ sub {
  */
 
 sup {
-  top: -.5em;
-
   @include font-feature-settings("kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "sups" 1);
 }
 

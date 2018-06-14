@@ -48,6 +48,6 @@ Normally I'd be a good citizen and avoid overriding the prototype directly, but 
 
 And that's the gist of it. I did make some minor changes to the original code to remove the Vue dependency, but most of the CSS and JavaScript remained exactly the same[^3]. Furthermore using a progressive enhanvement approach actually simplified some aspects of the code. In particular I was able to replace the JavaScript for the profile chooser on the group page with plain links.
 
-[^3] Be aware that initializing JavaScript functions on document render doesn't work with PJAX, since after the first page load the document render event never fires. I used [Stimulus](https://stimulusjs.org/) since it is designed to work in these situations, and like Turbolinks is made by the good folks at Basecamp.
+[^3]: Be aware that initializing JavaScript functions on document render doesn't work with PJAX, since after the first page load the document render event never fires. I used [Stimulus](https://stimulusjs.org/) since it is designed to work in these situations, and like Turbolinks is made by the good folks at Basecamp.
 
 It can be tempting to reach for a JavaScript framework when you want to add app-like behavior on the web, but you can achieve similar results with with a PJAX approach.
