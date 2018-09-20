@@ -19,6 +19,9 @@ permalink: /posts/:year/:month/:day/:title/
 # Build settings
 markdown: kramdown
 
-exclude: ["README.md"]
+exclude:
+  - README.md
+  - docker-compose.yml
+
 plugins:
   - jekyll-feed
