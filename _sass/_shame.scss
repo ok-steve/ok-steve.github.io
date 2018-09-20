@@ -14,7 +14,7 @@ svg {
 
 [role="banner"] nav,
 [role="contentinfo"] .c-social-links {
-  @include flex(0 1 6em);
+  @include flex(none);
 }
 
 [role="banner"] {
