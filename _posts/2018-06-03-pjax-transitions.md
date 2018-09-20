@@ -20,7 +20,7 @@ To actually handle the transitions I decided to use [Turbolinks](https://github.
 
 [^2]: CSS Tricks featured a [follow up article](https://css-tricks.com/page-transitions-for-everyone/) that introduced [another PJAX library](https://gmrchk.github.io/swup/) for achieving smooth page transitions, but I like Turblinks because it doesn't require special configuration or wrapper elements to work.
 
-```
+```javascript
 document.addEventListener('turbolinks:click', function () {
   document.body.classList.add('is-loading');
 });
@@ -38,7 +38,7 @@ Unfortunately using Turbolinks's default rendering method didn't work to well. R
 
 To fix this problem I added [morphdom](https://github.com/patrick-steele-idem/morphdom/), which will diff and patch an HTML string with the existing DOM, similar to, but not quite a virtual DOM.
 
-```
+```javascript
 Turbolinks.SnapshotRenderer.prototype.assignNewBody = function () {
   morphdom(document.body, this.newBody);
 };
