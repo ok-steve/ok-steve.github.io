@@ -35,6 +35,13 @@
     &:focus {
       color: map-get($color, primary);
     }
+
+    @supports (text-decoration-skip: ink) {
+      text-shadow: initial;
+      background: initial;
+      text-decoration-skip: ink;
+      text-decoration-color: map-get($color, primary);
+    }
   }
 
   /**
