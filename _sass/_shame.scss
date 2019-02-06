@@ -69,3 +69,9 @@ pre.highlight {
   overflow-y: auto;
   padding: vr(.25);
 }
+
+.o-container {
+  overflow: visible;
+  padding-right: map-get($grid, gutter);
+  padding-left: map-get($grid, gutter);
+}
