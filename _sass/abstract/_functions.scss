@@ -2,6 +2,10 @@
    Functions
    ========================================================================= */
 
+/**
+ * Vertical rhythm
+ */
+
 @function vertical-rhythm($num, $font-size: $font-size-default, $line-height: $line-height-default) {
   @return $num * $line-height * $font-size;
 }
@@ -9,6 +13,10 @@
 @function vr($args...) {
   @return vertical-rhythm($args...);
 }
+
+/**
+ * Modular scale
+ */
 
 @function modular-scale($num: 0, $ratio: $modular-scale-ratio, $font-size: $font-size-default) {
   @if $num != 0 {
