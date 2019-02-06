@@ -29,13 +29,11 @@
    */
 
   function render(pathname) {
-    var router = document.querySelector(".o-router");
-    var title = document.querySelector("title");
-    var view = document.querySelector(".o-router__view");
+    var router = document.querySelector(".o-router"),
+      title = document.querySelector("title"),
+      view = document.querySelector(".o-router__view");
 
     router.classList.add("is-loading");
-
-    window.history.pushState(null, null, pathname);
 
     get(pathname, function(response) {
       title.textContent = response.querySelector("title").textContent;
@@ -44,15 +42,14 @@
     });
   }
 
-  function onRouteChange(e, origin, pathname) {
-    console.log("route change", origin, pathname);
+  function shouldRouteChange(pathname, origin) {
     var conditions = {
         noPushState: !window.history.pushState,
         samePath: pathname === window.location.pathname,
         differentOrigin: origin !== window.location.origin,
         isAsset: pathname.search(/\.(xml|css|js|png|jpg|svg)/) !== -1
       },
-      any = Object.keys(conditions)
+      anyConditionsMatch = Object.keys(conditions)
         .map(function(key) {
           return conditions[key];
         })
@@ -60,21 +57,7 @@
           return prev || curr;
         });
 
-    console.log("conditions", conditions);
-
-    if (any) {
-      return;
-    }
-
-    window.history.pushState(
-      { prev: window.location.pathname },
-      null,
-      pathname
-    );
-
-    render(pathname);
-
-    e.preventDefault();
+    return !anyConditionsMatch;
   }
 
   /**
@@ -84,24 +67,21 @@
   function onClick(e) {
     var target = e.target;
 
-    if (target.getAttribute("data-trigger") === "print") {
-      window.print();
-
-      return;
-    }
-
-    while (target.tagName && target.tagName.toLowerCase() !== "a") {
+    while (target.tagName && target.tagName !== "A") {
       target = target.parentNode;
     }
 
     if (target !== document) {
-      onRouteChange(e, target.origin, target.pathname);
+      if (shouldRouteChange(target.pathname, target.origin)) {
+        window.history.pushState(null, null, target.pathname);
+        render(target.pathname);
+        e.preventDefault();
+      }
     }
   }
 
   function onPopstate(e) {
-    e.preventDefault();
-    onRouteChange(e.target.location.origin, e.state.prev);
+    render(e.target.location);
   }
 
   document.addEventListener("click", onClick);
