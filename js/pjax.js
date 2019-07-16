@@ -31,12 +31,16 @@
   function render(pathname) {
     var router = document.querySelector(".o-router"),
       title = document.querySelector("title"),
+      description = document.querySelector("meta[name=description]"),
       view = document.querySelector(".o-router__view");
 
     router.classList.add("is-loading");
 
     get(pathname, function(response) {
       title.textContent = response.querySelector("title").textContent;
+      description.textContent = response.querySelector(
+        "meta[name=description]"
+      ).textContent;
       view.innerHTML = response.querySelector(".o-router__view").innerHTML;
       router.classList.remove("is-loading");
     });
