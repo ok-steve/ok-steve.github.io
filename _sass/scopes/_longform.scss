@@ -41,10 +41,11 @@
       color: map-get($color, primary);
     }
 
-    @supports (text-decoration-skip: ink) {
+    @supports (text-decoration-skip-ink: auto) {
       text-shadow: initial;
       background: initial;
-      text-decoration-skip: ink;
+      text-decoration: underline;
+      text-decoration-skip-ink: auto;
       text-decoration-color: map-get($color, primary);
     }
   }
