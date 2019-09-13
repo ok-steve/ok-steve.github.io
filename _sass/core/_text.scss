@@ -118,7 +118,6 @@ a {
 abbr {
   text-transform: uppercase; /* 1 */
 
-  @include transition(color 0.15s);
   @include font-feature-settings(
     "kern" 1,
     "liga" 1,
