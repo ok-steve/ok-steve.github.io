@@ -1,4 +1,8 @@
 <svg>
   <title>{{ include.title | escape }}</title>
-  <use xlink:href="{{ '/assets/icon-sprite.svg#' | append: include.icon | relative_url }}" />
+  <use
+    xlink:href="{{
+      '/assets/icon-sprite.svg#' | append: include.icon | relative_url
+    }}"
+  />
 </svg>

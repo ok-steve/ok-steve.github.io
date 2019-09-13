@@ -9,7 +9,16 @@
 %heading {
   font-weight: 700;
 
-  @include font-feature-settings("kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 1);
+  @include font-feature-settings(
+    "kern" 1,
+    "liga" 1,
+    "calt" 1,
+    "pnum" 1,
+    "tnum" 0,
+    "onum" 1,
+    "lnum" 0,
+    "dlig" 1
+  );
 }
 
 /**
@@ -88,7 +97,7 @@ a {
 
   -webkit-text-decoration-skip: objects; /* 2 */
   -ms-touch-action: manipulation; /* 4 */
-      touch-action: manipulation; /* 3 */
+  touch-action: manipulation; /* 3 */
 
   /**
    * Remove the outline on focused links when they are also active or hovered
@@ -109,8 +118,18 @@ a {
 abbr {
   text-transform: uppercase; /* 1 */
 
-  @include transition(color .15s);
-  @include font-feature-settings("kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "smcp" 1, "c2sc" 1);
+  @include transition(color 0.15s);
+  @include font-feature-settings(
+    "kern" 1,
+    "liga" 1,
+    "calt" 1,
+    "pnum" 1,
+    "tnum" 0,
+    "onum" 1,
+    "lnum" 0,
+    "smcp" 1,
+    "c2sc" 1
+  );
 
   /**
    * 1. Remove the bottom border in Firefox 39-.
@@ -162,7 +181,7 @@ mark {
 }
 
 q {
-  quotes: "\201c" "\201d" "\2018" "\2019";
+  quotes: "\201c""\201d""\2018""\2019";
 }
 
 /**
@@ -190,7 +209,17 @@ sup {
  */
 
 sub {
-  @include font-feature-settings("kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "subs" 1);
+  @include font-feature-settings(
+    "kern" 1,
+    "liga" 1,
+    "calt" 1,
+    "pnum" 1,
+    "tnum" 0,
+    "onum" 1,
+    "lnum" 0,
+    "dlig" 0,
+    "subs" 1
+  );
 }
 
 /**
@@ -198,11 +227,29 @@ sub {
  */
 
 sup {
-  @include font-feature-settings("kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "sups" 1);
+  @include font-feature-settings(
+    "kern" 1,
+    "liga" 1,
+    "calt" 1,
+    "pnum" 1,
+    "tnum" 0,
+    "onum" 1,
+    "lnum" 0,
+    "dlig" 0,
+    "sups" 1
+  );
 }
 
 time {
-  @include font-feature-settings("kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0);
+  @include font-feature-settings(
+    "kern" 1,
+    "liga" 1,
+    "calt" 1,
+    "pnum" 1,
+    "tnum" 0,
+    "onum" 1,
+    "lnum" 0
+  );
 }
 
 /**

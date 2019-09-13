@@ -43,7 +43,16 @@
 
 html,
 body {
-  @include font-feature-settings("kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0);
+  @include font-feature-settings(
+    "kern" 1,
+    "liga" 1,
+    "calt" 1,
+    "pnum" 1,
+    "tnum" 0,
+    "onum" 1,
+    "lnum" 0,
+    "dlig" 0
+  );
 }
 
 /**
@@ -69,7 +78,7 @@ html {
   color: map-get($color, default);
 
   -webkit-text-size-adjust: 100%; /* 5 */
-      -ms-text-size-adjust: 100%; /* 5 */
+  -ms-text-size-adjust: 100%; /* 5 */
 }
 
 /**

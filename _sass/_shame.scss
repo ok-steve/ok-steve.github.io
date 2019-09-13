@@ -11,7 +11,6 @@ svg {
   width: vr(1, 1em);
 }
 
-
 [role="banner"] nav,
 [role="contentinfo"] .c-social-links {
   @include flex(none);
@@ -46,8 +45,8 @@ nav {
 
 [role="contentinfo"] {
   border-top: 2px solid;
-  padding-top: vr(.5);
-  padding-bottom: vr(.5);
+  padding-top: vr(0.5);
+  padding-bottom: vr(0.5);
 }
 
 [data-trigger="print"] {
@@ -67,7 +66,7 @@ nav {
 pre.highlight {
   background-color: map-get($color, muted);
   overflow-y: auto;
-  padding: vr(.25);
+  padding: vr(0.25);
 }
 
 .o-container {

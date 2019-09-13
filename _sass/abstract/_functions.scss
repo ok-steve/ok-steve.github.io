@@ -6,7 +6,11 @@
  * Vertical rhythm
  */
 
-@function vertical-rhythm($num, $font-size: $font-size-default, $line-height: $line-height-default) {
+@function vertical-rhythm(
+  $num,
+  $font-size: $font-size-default,
+  $line-height: $line-height-default
+) {
   @return $num * $line-height * $font-size;
 }
 
@@ -18,7 +22,11 @@
  * Modular scale
  */
 
-@function modular-scale($num: 0, $ratio: $modular-scale-ratio, $font-size: $font-size-default) {
+@function modular-scale(
+  $num: 0,
+  $ratio: $modular-scale-ratio,
+  $font-size: $font-size-default
+) {
   @if $num != 0 {
     @for $i from 1 through abs($num) {
       $font-size: if($num > 0, $font-size * $ratio, $font-size / $ratio);

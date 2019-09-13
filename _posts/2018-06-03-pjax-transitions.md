@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Progressively enhanced app-like page transitions"
-date:   2018-06-03
+title: "Progressively enhanced app-like page transitions"
+date: 2018-06-03
 ---
 
 Many native apps effectively use page transitions to improve user experience/engagement. When replicating those same transitions on the web one might reach for a single-page application framework like React or Vue. But did you know it's also possible to design those engaging animations using the HTML you already have?
@@ -17,20 +17,19 @@ To actually handle the transitions I decided to use [Turbolinks](https://github.
 *[PJAX]: pushState + Ajax
 
 [^1]: PJAX is a technique the uses JavaScript to intercept browser navigation, fetch new pages, and replace the HTML without a full page refresh.
-
 [^2]: CSS Tricks featured a [follow up article](https://css-tricks.com/page-transitions-for-everyone/) that introduced [another PJAX library](https://gmrchk.github.io/swup/) for achieving smooth page transitions, but I like Turblinks because it doesn't require special configuration or wrapper elements to work.
 
 ```javascript
-document.addEventListener('turbolinks:click', function () {
-  document.body.classList.add('is-loading');
+document.addEventListener("turbolinks:click", function() {
+  document.body.classList.add("is-loading");
 });
 
-document.addEventListener('turbolinks:before-render', function (e) {
-  e.data.newBody.classList.add('is-rendering');
+document.addEventListener("turbolinks:before-render", function(e) {
+  e.data.newBody.classList.add("is-rendering");
 });
 
-document.addEventListener('turbolinks:load', function () {
-  document.body.classList.remove('is-rendering');
+document.addEventListener("turbolinks:load", function() {
+  document.body.classList.remove("is-rendering");
 });
 ```
 
@@ -39,7 +38,7 @@ Unfortunately using Turbolinks's default rendering method didn't work to well. R
 To fix this problem I added [morphdom](https://github.com/patrick-steele-idem/morphdom/), which will diff and patch an HTML string with the existing DOM, similar to, but not quite a virtual DOM.
 
 ```javascript
-Turbolinks.SnapshotRenderer.prototype.assignNewBody = function () {
+Turbolinks.SnapshotRenderer.prototype.assignNewBody = function() {
   morphdom(document.body, this.newBody);
 };
 ```

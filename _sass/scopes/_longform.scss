@@ -24,12 +24,17 @@
 
   a {
     color: inherit;
-    background-image: linear-gradient(map-get($color, primary), map-get($color, primary));
+    background-image: linear-gradient(
+      map-get($color, primary),
+      map-get($color, primary)
+    );
     background-repeat: repeat-x;
     background-position: 0 1.1em;
     background-size: 1px 1px;
     text-decoration: none;
-    text-shadow: .03em 0 #fff, -.03em 0 #fff, 0 .03em #fff, 0 -.03em #fff, .06em 0 #fff, -.06em 0 #fff, .09em 0 #fff, -.09em 0 #fff, .12em 0 #fff, -.12em 0 #fff, .15em 0 #fff, -.15em 0 #fff;
+    text-shadow: 0.03em 0 #fff, -0.03em 0 #fff, 0 0.03em #fff, 0 -0.03em #fff,
+      0.06em 0 #fff, -0.06em 0 #fff, 0.09em 0 #fff, -0.09em 0 #fff,
+      0.12em 0 #fff, -0.12em 0 #fff, 0.15em 0 #fff, -0.15em 0 #fff;
 
     &:hover,
     &:focus {
@@ -55,11 +60,11 @@
     /* Drop caps, placed on lead paragraph */
     &::first-letter {
       font-size: vr(1.9, 1em);
-      line-height: .9;
+      line-height: 0.9;
 
       float: left;
 
-      padding-top: .1em;
+      padding-top: 0.1em;
       padding-right: map-get($grid, gutter) / 4;
     }
   }

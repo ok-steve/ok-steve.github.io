@@ -1,5 +1,4 @@
-sccherry.github.io
-==================
+# sccherry.github.io
 
 The online home of Steve Cherry.
 

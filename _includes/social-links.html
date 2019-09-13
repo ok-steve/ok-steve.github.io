@@ -8,39 +8,35 @@
     </li>
 
     {% if site.github_username %}
-      <li>
-        <a href="https://github.com/{{ site.github_username }}">
-          {% include icon.html title="Visit my Github repositories!" icon="github" %}
-          <span>Github</span>
-        </a>
-      </li>
-    {% endif %}
-
-    {% if site.codepen_username %}
-      <li>
-        <a href="https://codepen.io/{{ site.codepen_username }}">
-          {% include icon.html title="Visit my Codepen pens!" icon="codepen" %}
-          <span>Codepen</span>
-        </a>
-      </li>
-    {% endif %}
-
-    {% if site.twitter_username %}
-      <li>
-        <a href="https://twitter.com/{{ site.twitter_username }}">
-          {% include icon.html title="See my tweets!" icon="twitter" %}
-          <span>Twitter</span>
-        </a>
-      </li>
-    {% endif %}
-
-    {% if site.linkedin_username %}
-      <li>
-        <a href="https://linkedin.com/in/{{ site.linkedin_username }}">
-          {% include icon.html title="Look at my LinkedIn résumé!" icon="linkedin" %}
-          <span>LinkedIn</span>
-        </a>
-      </li>
+    <li>
+      <a href="https://github.com/{{ site.github_username }}">
+        {% include icon.html title="Visit my Github repositories!" icon="github"
+        %}
+        <span>Github</span>
+      </a>
+    </li>
+    {% endif %} {% if site.codepen_username %}
+    <li>
+      <a href="https://codepen.io/{{ site.codepen_username }}">
+        {% include icon.html title="Visit my Codepen pens!" icon="codepen" %}
+        <span>Codepen</span>
+      </a>
+    </li>
+    {% endif %} {% if site.twitter_username %}
+    <li>
+      <a href="https://twitter.com/{{ site.twitter_username }}">
+        {% include icon.html title="See my tweets!" icon="twitter" %}
+        <span>Twitter</span>
+      </a>
+    </li>
+    {% endif %} {% if site.linkedin_username %}
+    <li>
+      <a href="https://linkedin.com/in/{{ site.linkedin_username }}">
+        {% include icon.html title="Look at my LinkedIn résumé!" icon="linkedin"
+        %}
+        <span>LinkedIn</span>
+      </a>
+    </li>
     {% endif %}
   </ul>
 </address>
