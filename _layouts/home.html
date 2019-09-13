@@ -12,7 +12,7 @@ layout: default
       <li class="c-post-list__item" resource="{{ post.url | relative_url }}" typeof="schema:BlogPosting">
         <article class="c-content c-content--excerpt">
           <header>
-            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
 
             <h3>
               <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
