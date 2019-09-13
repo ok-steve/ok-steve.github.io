@@ -4,7 +4,7 @@ const MEDIA_CACHE = 'media';
 const STATIC_CACHE = 'static';
 
 const OFFLINE = {
-  page: './offline',
+  page: './offline.html',
   image: './assets/safari-pinned-tab.svg',
 };
 
