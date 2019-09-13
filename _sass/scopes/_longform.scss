@@ -72,8 +72,12 @@
   /* Run-ins */
   h3 + p::first-line {
     font-size: 1.1em;
+    @include font-feature-settings("onum", "smcp", "c2sc" 0);
 
-    color: mix(map-get($color, default), #fff, 60%);
+    @supports (font-variant-settings: small-caps) {
+      @include font-feature-settings("c2sc");
+      font-variant-settings: small-caps;
+    }
   }
 }
 
