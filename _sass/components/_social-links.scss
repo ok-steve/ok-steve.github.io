@@ -11,8 +11,8 @@
   }
 
   a {
-    @include display-flex();
-    @include align-items(center);
+    display: flex;
+    align-items: center;
     color: inherit;
     text-decoration: none;
   }

@@ -31,13 +31,7 @@
  */
 
 .o-router__view {
-  @include transition-timing-function(ease-in);
-  @include animation-duration(0.2s);
-
-  @include animation-name(fadeIn);
-  @include animation-duration(map-get($animation, duration));
-
-  @include animation-fill-mode(both);
+  @include animation(0.3s ease-in both fadeIn);
 }
 
 /**

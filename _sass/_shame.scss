@@ -9,11 +9,11 @@ svg {
 
 [role="banner"] nav,
 [role="contentinfo"] .c-social-links {
-  @include flex(none);
+  flex: none;
 }
 
 [role="banner"] {
-  @include align-items(center);
+  align-items: center;
 
   h1 {
     color: map-get($color, accent);
