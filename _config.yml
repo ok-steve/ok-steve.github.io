@@ -23,6 +23,7 @@ exclude:
   - README.md
   - docker-compose.yml
   - CNAME
+  - Makefile
 
 plugins:
   - jekyll-feed
