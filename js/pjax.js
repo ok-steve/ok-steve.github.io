@@ -29,10 +29,10 @@
    */
 
   function render(pathname) {
-    var router = document.querySelector(".o-router"),
+    var router = document.querySelector("body"),
       title = document.querySelector("title"),
       description = document.querySelector("meta[name=description]"),
-      view = document.querySelector(".o-router__view");
+      view = document.querySelector("main");
 
     router.classList.add("is-loading");
 
@@ -41,27 +41,24 @@
       description.textContent = response.querySelector(
         "meta[name=description]"
       ).textContent;
-      view.innerHTML = response.querySelector(".o-router__view").innerHTML;
+      view.innerHTML = response.querySelector("main").innerHTML;
       router.classList.remove("is-loading");
     });
   }
 
   function shouldRouteChange(pathname, origin) {
-    var conditions = {
-        noPushState: !window.history.pushState,
-        samePath: pathname === window.location.pathname,
-        differentOrigin: origin !== window.location.origin,
-        isAsset: pathname.search(/\.(xml|css|js|png|jpg|svg)/) !== -1
-      },
-      anyConditionsMatch = Object.keys(conditions)
-        .map(function(key) {
-          return conditions[key];
-        })
-        .reduce(function(prev, curr) {
-          return prev || curr;
-        });
-
-    return !anyConditionsMatch;
+    return [
+      // Push state
+      window.history.pushState,
+      // Different paths
+      pathname !== window.location.pathname,
+      // Same origin
+      origin === window.location.origin,
+      // Not assets
+      pathname.search(/\.(xml|css|js|png|jpg|svg)/) === -1
+    ].reduce(function(prev, curr) {
+      return prev && curr;
+    });
   }
 
   /**

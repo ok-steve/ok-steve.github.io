@@ -2,70 +2,13 @@
 layout: default
 ---
 
-<article class="c-content c-content--full">
+<article>
   <header>
-    <time datetime="{{ page.date | date_to_xmlschema }}">{{
-      page.date | date: "%b %d, %Y"
-    }}</time>
-
     <h2>{{ page.title | escape }}</h2>
-
-    <ul class="c-content__meta">
-      {% if page.author %}
-      <li>{{ page.author }}</li>
-      {% endif %} {% if page.meta %}
-      <li>{{ page.meta }}</li>
-      {% endif %} {% if site.github_username %}
-      <li>
-        <a
-          href="https://github.com/{{ site.github_username }}/{{
-            site.repo
-          }}/commits/master/{{ page.path }}"
-        >
-          {% include icon.html title="View page history" icon="clock" %}
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="https://github.com/{{ site.github_username }}/{{
-            site.repo
-          }}/blob/master/{{ page.path }}"
-        >
-          {% include icon.html title="View page source code" icon="code" %}
-        </a>
-      </li>
-      {% endif %}
-
-      <li>
-        <a
-          href="http://twitter.com/intent/tweet?url={{
-            page.url | absolute_url
-          }}"
-        >
-          {% include icon.html title="Tweet this post" icon="twitter" %}
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="http://www.facebook.com/sharer.php?u={{
-            page.url | absolute_url
-          }}"
-        >
-          {% include icon.html title="Post to Facebook" icon="facebook" %}
-        </a>
-      </li>
-
-      <li>
-        <button data-trigger="print">
-          {% include icon.html title="Print this" icon="printer" %}
-        </button>
-      </li>
-    </ul>
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %d, %Y" }}</time>
   </header>
 
-  <section class="s-longform">
+  <div class="s-longform">
     {{ content }}
-  </section>
+  </div>
 </article>

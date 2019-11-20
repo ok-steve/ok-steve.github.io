@@ -2,34 +2,21 @@
 layout: default
 ---
 
-<h2 class="front-title">{{ site.title }}</h2>
-
 {{ content }}
 
-{% if site.posts.size > 0 %}
-  <ul class="c-post-list">
-    {% for post in site.posts %}
-      <li class="c-post-list__item" resource="{{ post.url | relative_url }}" typeof="schema:BlogPosting">
-        <article class="c-content c-content--excerpt">
-          <header>
-            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+{%- if site.posts.size > 0 -%}
+  {%- for post in site.posts -%}
+    <article resource="{{ post.url | relative_url }}" typeof="schema:BlogPosting">
+      <header>
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+      </header>
 
-            <h3>
-              <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-            </h3>
-          </header>
+      {{ post.excerpt }}
+    </article>
 
-          <section>
-            {{ post.excerpt }}
-          </section>
-        </article>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p>
-    <a href="{{ "/feed.xml" | relative_url }}">
-      {% include icon.html title="Subscribe via RSS!" icon="rss" %}
-    </a>
-  </p>
-{% endif %}
+    {%- if forloop.last == false -%}
+      <hr>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}

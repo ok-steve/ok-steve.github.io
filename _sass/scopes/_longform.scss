@@ -3,14 +3,6 @@
    ========================================================================= */
 
 .s-longform {
-  overflow: visible;
-
-  /* Measure */
-  //max-width: $measure;
-  /* Needed for overhanging punctuation */
-  //padding-right: map-get($grid, gutter);
-  //padding-left: map-get($grid, gutter);
-
   /* Overhanging lists, module needs padding to display list-style-type */
   ul,
   ol {
@@ -18,44 +10,9 @@
 
     ul,
     ol {
-      padding-left: $indent-default;
+      padding-left: 40px; // Browser default
     }
   }
-
-  a {
-    background-image: linear-gradient(
-      map-get($color, primary),
-      map-get($color, primary)
-    );
-    background-repeat: repeat-x;
-    background-position: 0 1.1em;
-    background-size: 1px 1px;
-    text-decoration: none;
-    text-shadow: 0.03em 0 #fff, -0.03em 0 #fff, 0 0.03em #fff, 0 -0.03em #fff,
-      0.06em 0 #fff, -0.06em 0 #fff, 0.09em 0 #fff, -0.09em 0 #fff,
-      0.12em 0 #fff, -0.12em 0 #fff, 0.15em 0 #fff, -0.15em 0 #fff;
-
-    &:visited {
-      color: inherit;
-    }
-
-    &:hover,
-    &:focus {
-      color: map-get($color, primary);
-    }
-
-    @supports (text-decoration-skip-ink: auto) {
-      text-shadow: initial;
-      background: initial;
-      text-decoration: underline;
-      text-decoration-skip-ink: auto;
-      text-decoration-color: map-get($color, primary);
-    }
-  }
-
-  /**
-   * Descendants
-   */
 
   /* Lead paragraph */
   > p:first-child {
@@ -63,19 +20,17 @@
 
     /* Drop caps, placed on lead paragraph */
     &::first-letter {
+      float: left;
       font-size: vr(1.9, 1em);
       line-height: 0.9;
-
-      float: left;
-
+      padding-right: vr(1) / 4;
       padding-top: 0.1em;
-      padding-right: map-get($grid, gutter) / 4;
     }
   }
 
   /* Run-ins */
   h3 + p::first-line {
-    font-size: 1.1em;
+    font-size: ms(1);
     @include font-feature-settings("onum", "smcp", "c2sc" 0);
 
     @supports (font-variant-settings: small-caps) {

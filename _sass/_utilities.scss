@@ -1,20 +1,16 @@
 /* =========================================================================
-   Grid
+   Utilities
    ========================================================================= */
 
-.o-grid {
-  display: flex;
+.u-list-inline {
+  list-style-type: none;
+  padding-left: 0;
 
-  flex-wrap: wrap;
-  justify-content: space-between;
+  li {
+    display: inline-block;
 
-  /**
-   * Descendents
-   */
-
-  > * {
-    margin-top: 0;
-
-    flex: auto;
+    + li {
+      margin-left: 5px;
+    }
   }
 }
