@@ -5,12 +5,11 @@
 .u-list-inline {
   list-style-type: none;
   padding-left: 0;
+  display: flex;
 
   li {
-    display: inline-block;
-
     + li {
-      margin-left: 5px;
+      margin-left: vr(.5);
     }
   }
 }
