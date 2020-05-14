@@ -1,5 +1,5 @@
 ---
-layout: error
+layout: error.html
 title: Offline
 permalink: /offline.html
 ---

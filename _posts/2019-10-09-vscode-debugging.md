@@ -1,7 +1,8 @@
 ---
-layout: post
+layout: post.html
 title: "Debugging Drupal in VS Code"
 date: 2019-10-09
+permalink: "posts/2019/10/09/vscode-debugging/"
 ---
 
 I use [docker4drupal](https://github.com/wodby/docker4drupal), the [Drupal Composer template](https://github.com/drupal-composer/drupal-project), and VS Code for my local Drupal development. Below is a description of how to configure VS Code's debugging tools to work with this setup.
@@ -22,4 +23,4 @@ I use [docker4drupal](https://github.com/wodby/docker4drupal), the [Drupal Compo
 
 I create a gist to display the complete configuration file:
 
-{% gist 3338e8855387e489b1bf97553348bde6 launch.json %}
+<script src="https://gist.github.com/sccherry/3338e8855387e489b1bf97553348bde6.js"></script>

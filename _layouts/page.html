@@ -1,15 +1,15 @@
 ---
-layout: default
+layout: default.html
 ---
 
 <section>
-  {%- if page.title -%}
+  {%- if title -%}
   <header>
-    <h2>{{ page.title | escape }}</h2>
+    <h2>{{ title | escape }}</h2>
   </header>
   {%- endif -%}
 
   <div class="s-longform">
-    {{ content }}
+    {{ content | safe }}
   </div>
 </section>

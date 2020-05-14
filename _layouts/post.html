@@ -1,14 +1,14 @@
 ---
-layout: default
+layout: default.html
 ---
 
 <article>
   <header>
-    <h2>{{ page.title | escape }}</h2>
-    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %d, %Y" }}</time>
+    <h2>{{ title }}</h2>
+    <time datetime="{{ page.date.toISOString() }}">{{ page.date.toDateString() }}</time>
   </header>
 
   <div class="s-longform">
-    {{ content }}
+    {{ content | safe }}
   </div>
 </article>

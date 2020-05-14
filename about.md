@@ -1,7 +1,9 @@
 ---
-layout: page
+layout: page.html
 title: About
 permalink: /about/
+eleventyNavigation:
+  key: About
 ---
 
 I develop software and play the tuba. I'm continuously trying to increase the nerdiness in my life.

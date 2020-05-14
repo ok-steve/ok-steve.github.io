@@ -1,21 +1,21 @@
 ---
-layout: default
+layout: default.html
 ---
 
 {{ content }}
 
-{%- if site.posts.size > 0 -%}
-  {%- for post in site.posts -%}
-    <article resource="{{ post.url | relative_url }}" typeof="schema:BlogPosting">
+{%- if collections.posts.length > 0 -%}
+  {%- for post in collections.posts -%}
+    <article resource="{{ post.url }}" typeof="schema:BlogPosting">
       <header>
-        <h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
-        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+        <h2><a href="{{ post.url }}">{{ post.data.title | escape }}</a></h2>
+        <time datetime="{{ post.date.toISOString() }}">{{ post.date.toDateString() }}</time>
       </header>
 
       {{ post.excerpt }}
     </article>
 
-    {%- if forloop.last == false -%}
+    {%- if loop.last == false -%}
       <hr>
     {%- endif -%}
   {%- endfor -%}

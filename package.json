@@ -1,0 +1,33 @@
+{
+  "name": "sccherry.github.io",
+  "private": true,
+  "version": "1.0.0",
+  "description": "The online home of Steve Cherry",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf _site",
+    "prebuild": "npm run clean",
+    "build:site": "eleventy --config eleventy.config.js",
+    "build:css": "node-sass css/main.scss _site/css/main.css",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build:site -- --serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sccherry/sccherry.github.io.git"
+  },
+  "author": "Steve Cherry <stevenccherry@gmail.com> (https://stevecherry.net/)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/sccherry/sccherry.github.io/issues"
+  },
+  "homepage": "https://github.com/sccherry/sccherry.github.io#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.0",
+    "@11ty/eleventy-navigation": "^0.1.5",
+    "@11ty/eleventy-plugin-rss": "^1.0.7",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
+    "node-sass": "^4.14.1",
+    "rimraf": "^3.0.2"
+  }
+}
