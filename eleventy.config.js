@@ -9,14 +9,11 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
 
-  eleventyConfig.addPassthroughCopy('js');
-  eleventyConfig.addPassthroughCopy('assets');
-  eleventyConfig.addPassthroughCopy('browserconfig.xml');
-  eleventyConfig.addPassthroughCopy('crossdomain.xml');
-  eleventyConfig.addPassthroughCopy('humans.txt');
-  eleventyConfig.addPassthroughCopy('manifest.json');
-  eleventyConfig.addPassthroughCopy('robots.txt');
-  eleventyConfig.addPassthroughCopy('service-worker.js');
+  eleventyConfig.addPassthroughCopy('src/js');
+  eleventyConfig.addPassthroughCopy('src/assets');
+  eleventyConfig.addPassthroughCopy('src/*.{txt,xml}');
+  eleventyConfig.addPassthroughCopy('src/manifest.json');
+  eleventyConfig.addPassthroughCopy('src/sw.js');
 
   eleventyConfig.addCollection('posts', (collection) => {
     return collection.getFilteredByGlob('src/posts/*.md').sort((a, b) => {
