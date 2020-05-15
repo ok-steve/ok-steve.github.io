@@ -9,6 +9,7 @@
     "prebuild": "npm run clean",
     "build:site": "eleventy --config eleventy.config.js",
     "build:css": "node-sass css/main.scss _site/css/main.css",
+    "build": "npm run build:site && npm run build:css",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run build:site -- --serve"
   },
