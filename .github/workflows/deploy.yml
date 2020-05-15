@@ -1,6 +1,6 @@
 # This is a basic workflow to publish to Github Pages
 
-name: gh-pages
+name: Deploy
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -35,6 +35,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
+          publish_dir: ./dist
           publish_branch: master
           cname: stevecherry.net

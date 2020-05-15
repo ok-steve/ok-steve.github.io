@@ -1,5 +1,4 @@
 ---
-layout: post.html
 title: "Debugging Drupal in VS Code"
 date: 2019-10-09
 permalink: "posts/2019/10/09/vscode-debugging/"

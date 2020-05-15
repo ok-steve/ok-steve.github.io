@@ -1,5 +1,4 @@
 ---
-layout: post.html
 title: "Hello World!"
 date: 2011-01-23
 permalink: false

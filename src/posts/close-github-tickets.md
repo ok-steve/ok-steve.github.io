@@ -1,5 +1,4 @@
 ---
-layout: post.html
 title: "What closes a Github ticket?"
 date: 2019-10-07
 permalink: "posts/2019/10/07/close-github-tickets/"

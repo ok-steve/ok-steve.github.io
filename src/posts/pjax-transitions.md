@@ -1,5 +1,4 @@
 ---
-layout: post.html
 title: "Progressively enhanced app-like page transitions"
 date: 2018-06-03
 permalink: "posts/2018/06/03/pjax-transitions/"

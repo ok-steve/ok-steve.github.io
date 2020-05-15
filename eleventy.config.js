@@ -19,7 +19,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy('service-worker.js');
 
   eleventyConfig.addCollection('posts', (collection) => {
-    return collection.getFilteredByGlob('_posts/*.md').sort((a, b) => {
+    return collection.getFilteredByGlob('src/posts/*.md').sort((a, b) => {
       return b.date - a.date;
     }).filter(item => {
       return item.permalink !== false;
@@ -30,6 +30,8 @@ module.exports = (eleventyConfig) => {
     htmlTemplateEngine: 'njk',
     dataTemplateEngine: 'njk',
     dir: {
+      input: 'src',
+      output: 'dist',
       layouts: '_layouts',
     },
   };
