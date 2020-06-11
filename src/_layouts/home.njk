@@ -12,7 +12,7 @@ layout: default.njk
         <time datetime="{{ post.date.toISOString() }}">{{ post.date.toDateString() }}</time>
       </header>
 
-      {{ post.excerpt }}
+      {{ post.data.page.excerpt | md | safe }}
     </article>
 
     {%- if loop.last == false -%}
