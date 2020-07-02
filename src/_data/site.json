@@ -1,11 +1,10 @@
 {
-  "title": "Cherry on Top",
+  "name": "Cherry on Top",
   "author": "Steve Cherry",
   "email": "stevenccherry@gmail.com",
-  "description": "The online home of Steve Cherry.",
-  "baseurl": "",
+  "description": "{{ pkg.description }}",
+  "color": "#2b8a3e",
   "url": "https://stevecherry.net",
-  "repo": "sccherry.github.io",
   "codepen_username": "sccherry",
   "github_username": "sccherry"
 }

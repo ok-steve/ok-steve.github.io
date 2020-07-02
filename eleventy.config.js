@@ -15,7 +15,6 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy('src/js');
   eleventyConfig.addPassthroughCopy('src/assets');
   eleventyConfig.addPassthroughCopy('src/*.{txt,xml}');
-  eleventyConfig.addPassthroughCopy('src/manifest.json');
   eleventyConfig.addPassthroughCopy('src/sw.js');
 
   eleventyConfig.setFrontMatterParsingOptions({
