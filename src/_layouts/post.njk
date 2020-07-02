@@ -5,7 +5,7 @@ layout: default.njk
 <article>
   <header>
     <h2>{{ title }}</h2>
-    <time datetime="{{ page.date.toISOString() }}">{{ page.date.toDateString() }}</time>
+    <time datetime="{{ page.date.toISOString() }}">{{ page.date.toLocaleDateString('en-US', { dateStyle: 'long' }) }}</time>
   </header>
 
   <div class="longform">
