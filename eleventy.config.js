@@ -1,9 +1,17 @@
 const pluginNavigation = require('@11ty/eleventy-navigation');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
-const MarkdownIt = require('markdown-it');
+const markdownIt = require('markdown-it');
+const markdownItAbbr = require('markdown-it-abbr');
+const markdownItFootnote = require('markdown-it-footnote');
 
-const md = new MarkdownIt({ html: true });
+const markdownLib = new markdownIt({
+  html: true,
+  linkify: true,
+  typographer: true,
+})
+  .use(markdownItAbbr)
+  .use(markdownItFootnote);
 
 module.exports = (eleventyConfig) => {
   eleventyConfig.setWatchJavaScriptDependencies(false);
@@ -16,6 +24,8 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy('src/assets');
   eleventyConfig.addPassthroughCopy('src/*.{txt,xml}');
   eleventyConfig.addPassthroughCopy('src/sw.js');
+
+  eleventyConfig.setLibrary('md', markdownLib);
 
   eleventyConfig.setFrontMatterParsingOptions({
     excerpt: true,
@@ -31,7 +41,7 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.addFilter('md', (value) => {
     if (!value) return value;
-    return md.render(value);
+    return markdownLib.render(value);
   });
 
   return {
