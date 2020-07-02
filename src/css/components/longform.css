@@ -1,0 +1,52 @@
+/**
+ * Overhanging lists, module needs padding to display list-style-type
+ */
+.longform ul,
+.longform ol {
+  padding-left: 0;
+}
+
+/* Browser default */
+.longform ul ul,
+.longform ol ul,
+.longform ul ol,
+.longform ol ol {
+  padding-left: 40px;
+}
+
+/**
+ * Lead paragraph
+ */
+.longform > p:first-child {
+  font-size: theme('fontSize.lg');
+}
+
+/**
+ * Drop caps
+ */
+.longform > p:first-child::first-letter {
+  float: left;
+  font-size: calc(1.5em * 1.9);
+  line-height: 0.9;
+  padding-right: calc(1.5rem / 4);
+  padding-top: 0.1em;
+}
+
+/**
+ * Run-ins
+ */
+.longform h3 + p::first-line {
+  font-size: theme('fontSize.lg');
+  font-feature-settings: 'onum', 'smcp', 'c2sc' 0;
+}
+
+@supports (font-variant-settings: small-caps) {
+  .longform h3 + p::first-line {
+    font-feature-settings: 'c2sc';
+    font-variant-settings: small-caps;
+  }
+}
+
+.footnotes {
+  font-size: theme('fontSize.sm');
+}
