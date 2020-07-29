@@ -39,9 +39,9 @@ module.exports = (eleventyConfig) => {
     });
   });
 
-  eleventyConfig.addFilter('md', (value) => {
-    if (!value) return value;
-    return markdownLib.render(value);
+  eleventyConfig.addPairedShortcode('markdown', (content) => {
+    if (!content) return;
+    return markdownLib.render(content);
   });
 
   return {

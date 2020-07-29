@@ -12,7 +12,9 @@ layout: default.njk
         <time datetime="{{ post.date.toISOString() }}">{{ post.date.toLocaleDateString('en-US', { dateStyle: 'long' }) }}</time>
       </header>
 
-      {{ post.data.page.excerpt | md | safe }}
+      {% markdown %}
+        {{ post.data.page.excerpt }}
+      {% endmarkdown %}
     </article>
 
     {%- if loop.last == false -%}
