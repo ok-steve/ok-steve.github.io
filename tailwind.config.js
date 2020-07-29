@@ -2,6 +2,9 @@ module.exports = {
   purge: ['src/**/*.{html,njk}'],
   theme: {
     colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      white: 'white',
       default: '#212529',
       muted: '#f1f3f5',
       primary: '#2b8a3e',
