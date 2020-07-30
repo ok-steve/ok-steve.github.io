@@ -16,6 +16,7 @@ permalink: "posts/2017/10/02/spectrogram/"
 } %}
 {% codepen settings %}
 <pre data-lang="html"><code class="language-html">{% set html %}<div id="app">
+  <p>Click document to start</p>
   <bar-chart width="960" height="600" :data="frequencies"></bar-chart>
 </div>
 
@@ -26,7 +27,7 @@ permalink: "posts/2017/10/02/spectrogram/"
 </template>
 {% endset -%}
 {{ html }}</code></pre>
-<pre data-lang="css"><code class="language-css">:root {
+<pre data-lang="css"><code class="language-css">html {
   background-color: black;
 }
 
@@ -34,6 +35,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+p {
+  color: white;
+  text-align: center;
 }
 
 #app {
@@ -159,5 +165,13 @@ const vm = new Vue({
 
 frequencyData.subscribe(data => {
   vm.frequencies = data;
-});</code></pre>
+}, err => console.warn(err.message));
+
+function resumeAudioContext() {
+  CONTEXT.resume().then(() => {
+    document.removeEventListener('click', resumeAudioContext);
+  });
+}
+
+document.addEventListener('click', resumeAudioContext);</code></pre>
 {% endcodepen %}
