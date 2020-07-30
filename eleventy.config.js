@@ -24,6 +24,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy('src/assets');
   eleventyConfig.addPassthroughCopy('src/*.{txt,xml}');
   eleventyConfig.addPassthroughCopy('src/sw.js');
+  eleventyConfig.addPassthroughCopy({ 'node_modules/prismjs/prism.js': 'js/prism.js' });
 
   eleventyConfig.setLibrary('md', markdownLib);
 
@@ -46,12 +47,10 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.addPairedShortcode('codepen', (content, settings) => {
     return `
-      <div data-height="265"
-        data-default-tab="js,result"
-        data-prefill='${JSON.stringify(settings)}'>
+      <div data-default-tab="js,result" data-prefill='${JSON.stringify(settings)}'>
         ${content}
       </div>
-      <script async src="https://unpkg.com/prismjs@1.20.0/prism.js"></script>
+      <script async src="/js/prism.js"></script>
       <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
       <script>
       // Loop over all elements with the 'data-prefill' attribute
