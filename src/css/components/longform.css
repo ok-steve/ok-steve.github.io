@@ -40,10 +40,10 @@
   font-feature-settings: 'onum', 'smcp', 'c2sc' 0;
 }
 
-@supports (font-variant-settings: small-caps) {
+@supports (font-variant-caps: small-caps) {
   .longform h3 + p::first-line {
     font-feature-settings: 'c2sc';
-    font-variant-settings: small-caps;
+    font-variant-caps: small-caps;
   }
 }
 

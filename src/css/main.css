@@ -1,14 +1,18 @@
 @charset "utf-8";
 
+/* Base */
 @import 'sanitize.css';
 @import 'normalize-opentype.css/normalize-opentype.css';
 @import 'core.css';
 
+/* Components */
 @import 'prismjs/themes/prism-solarizedlight.css';
 @import 'tailwindcss/components';
 @import 'components/longform.css';
 @import 'components/router.css';
 
+/* Utilities */
 @import 'tailwindcss/utilities';
 
+/* Print */
 @import 'print.css';

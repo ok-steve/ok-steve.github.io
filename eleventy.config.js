@@ -33,11 +33,14 @@ module.exports = (eleventyConfig) => {
   });
 
   eleventyConfig.addCollection('posts', (collection) => {
-    return collection.getFilteredByGlob('src/posts/*.{md,njk}').sort((a, b) => {
-      return b.date - a.date;
-    }).filter(item => {
-      return item.permalink !== false;
-    });
+    return collection
+      .getFilteredByGlob('src/posts/*.{md,njk}')
+      .sort((a, b) => {
+        return b.date - a.date;
+      })
+      .filter((item) => {
+        return item.permalink !== false;
+      });
   });
 
   eleventyConfig.addPairedShortcode('markdown', (content) => {
