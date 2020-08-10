@@ -1,9 +1,16 @@
+/* eslint-disable import/no-extraneous-dependencies */
+const postcssClean = require('postcss-clean');
+const postcssImport = require('postcss-import');
+const postcssNormalize = require('postcss-normalize');
+const postcssPresetEnv = require('postcss-preset-env');
+const tailwind = require('tailwindcss');
+
 module.exports = {
   plugins: [
-    require('postcss-import'),
-    require('postcss-normalize')(),
-    require('tailwindcss'),
-    require('postcss-preset-env'),
-    ...(process.env.NODE_ENV === 'production' ? [require('postcss-clean')] : []),
+    postcssImport,
+    postcssNormalize(),
+    tailwind,
+    postcssPresetEnv,
+    ...(process.env.NODE_ENV === 'production' ? [postcssClean] : []),
   ],
 };

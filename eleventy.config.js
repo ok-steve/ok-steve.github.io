@@ -1,12 +1,13 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const pluginNavigation = require('@11ty/eleventy-navigation');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
-const markdownIt = require('markdown-it');
+const MarkdownIt = require('markdown-it');
 const markdownItAbbr = require('markdown-it-abbr');
 const markdownItFootnote = require('markdown-it-footnote');
 const htmlmin = require('html-minifier');
 
-const markdownLib = new markdownIt({
+const markdownLib = new MarkdownIt({
   html: true,
   linkify: true,
   typographer: true,
@@ -59,7 +60,6 @@ module.exports = (eleventyConfig) => {
   });
 
   eleventyConfig.addPairedShortcode('markdown', (content) => {
-    if (!content) return;
     return markdownLib.render(content);
   });
 
