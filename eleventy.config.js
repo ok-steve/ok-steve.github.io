@@ -4,6 +4,7 @@ const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const markdownIt = require('markdown-it');
 const markdownItAbbr = require('markdown-it-abbr');
 const markdownItFootnote = require('markdown-it-footnote');
+const htmlmin = require('html-minifier');
 
 const markdownLib = new markdownIt({
   html: true,
@@ -19,6 +20,20 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(pluginNavigation);
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
+
+  eleventyConfig.addTransform('htmlmin', (content, outputPath) => {
+    if (process.env.ELEVENTY_ENV === 'production' && outputPath.endsWith('.html')) {
+      const minified = htmlmin.minify(content, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true,
+      });
+
+      return minified;
+    }
+
+    return content;
+  });
 
   eleventyConfig.addPassthroughCopy('src/js');
   eleventyConfig.addPassthroughCopy('src/assets');
