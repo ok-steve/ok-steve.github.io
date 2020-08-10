@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.name | escape }}{% endif %} | {{ site.name | escape }}</title>
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.name }}{% endif %} | {{ site.name }}</title>
   <style>
     * {
       box-sizing: border-box;
@@ -48,7 +48,7 @@
   </style>
 </head>
 <body>
-  <h1>{{ page.title | escape }}</h1>
+  <h1>{{ page.title }}</h1>
 
   {{ content }}
 </body>

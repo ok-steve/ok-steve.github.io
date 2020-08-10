@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>{{ (renderData and renderData.title) or title or site.name }} | {{ site.name }}</title>
-  <meta name="description" content="{{ page.excerpt | default(content) | default(site.description) | striptags | truncate(160) | escape }}">
+  <meta name="description" content="{{ page.excerpt | default(content) | default(site.description) | striptags | truncate(160) }}">
 
   <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/apple-touch-icon.png" | url }}">
   <link rel="apple-touch-startup-image" href="{{ "/assets/android-chrome-192x192.png" | url }}">
@@ -16,21 +16,21 @@
   <link rel="mask-icon" href="{{ "/assets/safari-pinned-tab.svg" | url }}" color="{{ site.color }}">
   <link rel="shortcut icon" href="{{ "/assets/favicon.ico" | url }}">
 
-  <meta name="apple-mobile-web-app-title" content="{{ site.name | escape }}">
+  <meta name="apple-mobile-web-app-title" content="{{ site.name }}">
   <meta name="theme-color" content="{{ site.color }}">
-  <meta name="application-name" content="{{ site.name | escape }}">
+  <meta name="application-name" content="{{ site.name }}">
   <meta name="msapplication-TileColor" content="{{ site.color }}">
   <meta name="msapplication-config" content="{{ "/browserconfig.xml" | url }}">
   <link rel="manifest" href="{{ "/manifest.json" | url }}">
 
   <link rel="stylesheet" href="{{ "/css/main.css" | url }}">
   <link rel="canonical" href="{{ site.url }}{{ page.url | url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.name | escape }}" href="{{ "/feed.xml" | url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ "/feed.xml" | url }}">
 </head>
 
 <body class="font-sans text-default flex flex-col min-h-screen max-w-xl mx-auto px-3" prefix="schema: http://schema.org/">
   <header role="banner">
-    <h1><a href="{{ "/" | url }}" class="text-primary no-underline">{{ site.name | escape }}</a></h1>
+    <h1><a href="{{ "/" | url }}" class="text-primary no-underline">{{ site.name }}</a></h1>
   </header>
 
   <nav role="navigation">
@@ -44,7 +44,7 @@
   <footer class="mb-6" role="contentinfo">
     <hr>
 
-    <p>{{ site.description | escape }}</p>
+    <p>{{ site.description }}</p>
 
     <ul class="list-none pl-0 flex">
       <li><a href="{{ "/feed.xml" | url }}" class="hover:text-rss focus:text-rss">Feed</a></li>
