@@ -1,64 +1,64 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default(site.lang) | default('en') }}">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title or site.name }} | {{ site.name }}</title>
+    <meta name="description" content="{{ page.excerpt | default(content) | default(site.description) | striptags | truncate(160) }}">
 
-  <title>{{ (renderData and renderData.title) or title or site.name }} | {{ site.name }}</title>
-  <meta name="description" content="{{ page.excerpt | default(content) | default(site.description) | striptags | truncate(160) }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/apple-touch-icon.png' | url }}">
+    <link rel="apple-touch-startup-image" href="{{ '/assets/android-chrome-192x192.png' | url }}">
+    <link rel="icon" type="image/png" href="{{ '/assets/favicon-32x32.png' | url }}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{ '/assets/favicon-16x16.png' | url }}" sizes="16x16">
+    <link rel="mask-icon" href="{{ '/assets/safari-pinned-tab.svg' | url }}" color="{{ site.color }}">
+    <link rel="shortcut icon" href="{{ '/assets/favicon.ico' | url }}">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/apple-touch-icon.png" | url }}">
-  <link rel="apple-touch-startup-image" href="{{ "/assets/android-chrome-192x192.png" | url }}">
-  <link rel="icon" type="image/png" href="{{ "/assets/favicon-32x32.png" | url }}" sizes="32x32">
-  <link rel="icon" type="image/png" href="{{ "/assets/favicon-16x16.png" | url }}" sizes="16x16">
-  <link rel="mask-icon" href="{{ "/assets/safari-pinned-tab.svg" | url }}" color="{{ site.color }}">
-  <link rel="shortcut icon" href="{{ "/assets/favicon.ico" | url }}">
+    <meta name="apple-mobile-web-app-title" content="{{ site.name }}">
+    <meta name="theme-color" content="{{ site.color }}">
+    <meta name="application-name" content="{{ site.name }}">
+    <meta name="msapplication-TileColor" content="{{ site.color }}">
+    <meta name="msapplication-config" content="{{ '/browserconfig.xml' | url }}">
+    <link rel="manifest" href="{{ '/manifest.json' | url }}">
 
-  <meta name="apple-mobile-web-app-title" content="{{ site.name }}">
-  <meta name="theme-color" content="{{ site.color }}">
-  <meta name="application-name" content="{{ site.name }}">
-  <meta name="msapplication-TileColor" content="{{ site.color }}">
-  <meta name="msapplication-config" content="{{ "/browserconfig.xml" | url }}">
-  <link rel="manifest" href="{{ "/manifest.json" | url }}">
+    <link rel="stylesheet" href="{{ '/css/main.css' | url }}">
+    <link rel="canonical" href="{{ site.url }}{{ page.url | url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ '/feed.xml' | url }}">
+  </head>
+  <body class="font-sans text-default flex flex-col min-h-screen max-w-xl mx-auto px-3" prefix="schema: http://schema.org/">
+    <header role="banner">
+      <h1><a href="{{ '/' | url }}" class="text-primary no-underline">{{ site.name }}</a></h1>
+    </header>
 
-  <link rel="stylesheet" href="{{ "/css/main.css" | url }}">
-  <link rel="canonical" href="{{ site.url }}{{ page.url | url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ "/feed.xml" | url }}">
-</head>
+    <nav role="navigation">
+      <ul>
+        {% for page in collections.all | eleventyNavigation %}
+          <li><a href="{{ page.url | url }}">{{ page.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
 
-<body class="font-sans text-default flex flex-col min-h-screen max-w-xl mx-auto px-3" prefix="schema: http://schema.org/">
-  <header role="banner">
-    <h1><a href="{{ "/" | url }}" class="text-primary no-underline">{{ site.name }}</a></h1>
-  </header>
+    <main class="flex-1" role="main">
+      {{ content | safe }}
+    </main>
 
-  <nav role="navigation">
-    {{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }}
-  </nav>
+    <footer class="border-0 border-solid border-primary border-t mb-6 pt-6" role="contentinfo">
+      <p>{{ site.description }}</p>
 
-  <main class="flex-1" role="main">
-    {{ content | safe }}
-  </main>
+      <ul class="list-none pl-0 flex">
+        <li><a href="{{ '/feed.xml' | url }}" class="hover:text-rss focus:text-rss">Feed</a></li>
+        <li class="ml-3"><a href="mailto:{{ site.email }}">Email</a></li>
+        {% if site.github_username %}
+        <li class="ml-3"><a href="https://github.com/{{ site.github_username }}" class="hover:text-github focus:text-github">Github</a></li>
+        {% endif %}
+        {% if site.codepen_username %}
+        <li class="ml-3"><a href="https://codepen.io/{{ site.codepen_username }}" class="hover:text-codepen focus:text-codepen">Codepen</a></li>
+        {% endif %}
+      </ul>
+    </footer>
 
-  <footer class="mb-6" role="contentinfo">
-    <hr>
-
-    <p>{{ site.description }}</p>
-
-    <ul class="list-none pl-0 flex">
-      <li><a href="{{ "/feed.xml" | url }}" class="hover:text-rss focus:text-rss">Feed</a></li>
-      <li class="ml-3"><a href="mailto:{{ site.email }}">Email</a></li>
-      {%- if site.github_username -%}
-      <li class="ml-3"><a href="https://github.com/{{ site.github_username }}" class="hover:text-github focus:text-github">Github</a></li>
-      {%- endif -%}
-      {%- if site.codepen_username -%}
-      <li class="ml-3"><a href="https://codepen.io/{{ site.codepen_username }}" class="hover:text-codepen focus:text-codepen">Codepen</a></li>
-      {%- endif -%}
-    </ul>
-  </footer>
-
-  <script src="{{ "/js/pjax.js" | url }}" defer></script>
-  <script src="{{ "/js/main.js" | url }}" defer></script>
-</body>
+    <script src="{{ '/js/pjax.js' | url }}" defer></script>
+    <script src="{{ '/js/main.js' | url }}" defer></script>
+  </body>
 </html>

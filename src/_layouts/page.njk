@@ -3,11 +3,11 @@ layout: default.njk
 ---
 
 <section>
-  {%- if title -%}
+  {% if title %}
   <header>
     <h2>{{ title }}</h2>
   </header>
-  {%- endif -%}
+  {% endif %}
 
   <div class="longform">
     {{ content | safe }}
