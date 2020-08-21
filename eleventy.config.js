@@ -41,6 +41,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy('src/*.{txt,xml}');
   eleventyConfig.addPassthroughCopy('src/sw.js');
   eleventyConfig.addPassthroughCopy({ 'node_modules/prismjs/prism.js': 'js/prism.js' });
+  eleventyConfig.addPassthroughCopy('src/admin/config.yml');
 
   eleventyConfig.setLibrary('md', markdownLib);
 
@@ -48,46 +49,8 @@ module.exports = (eleventyConfig) => {
     excerpt: true,
   });
 
-  eleventyConfig.addCollection('posts', (collection) => {
-    return collection
-      .getFilteredByGlob('src/posts/*.{md,njk}')
-      .sort((a, b) => {
-        return b.date - a.date;
-      })
-      .filter((item) => {
-        return item.permalink !== false;
-      });
-  });
-
   eleventyConfig.addPairedShortcode('markdown', (content) => {
     return markdownLib.render(content);
-  });
-
-  eleventyConfig.addPairedShortcode('codepen', (content, settings) => {
-    return `
-      <div data-default-tab="js,result" data-prefill='${JSON.stringify(settings)}'>
-        ${content}
-      </div>
-      <script async src="/js/prism.js"></script>
-      <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
-      <script>
-      // Loop over all elements with the 'data-prefill' attribute
-      Array.from(document.querySelectorAll('[data-prefill]'), (el) => {
-        // Create a Click to Run button
-        const button = document.createElement('button');
-        button.innerHTML = 'Click to Run';
-        button.setAttribute('class', 'prefill-click-to-run');
-        button.classList.add('bg-transparent', 'border', 'border-primary', 'border-solid', 'hover:bg-primary', 'hover:text-white', 'p-2', 'text-primary', 'w-full');
-        el.appendChild(button);
-
-        // On click, the element will become the embed!
-        button.addEventListener('click', () => {
-          el.classList.add('codepen'); // Add the codepen class back.
-          window.__CPEmbed(); // Trigger the CodePen embed script to run again.
-        });
-      });
-      </script>
-    `;
   });
 
   return {

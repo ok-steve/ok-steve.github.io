@@ -1,0 +1,39 @@
+---
+layout: post.njk
+---
+
+{{ content | safe }}
+
+{% set settings = {
+  title: title,
+  tags: [],
+  scripts: scripts,
+  stylesheets: stylesheets
+} %}
+
+<div data-default-tab="js,result" data-prefill='{{ settings | dump }}'>
+  {% if html.code %}
+    <pre data-lang="{{ html.lang }}"><code class="language-{{ html.lang }}">{{ html.code }}</code></pre>
+  {% endif %}
+
+  {% if css.code %}
+    <pre data-lang="{{ css.lang }}"><code class="language-{{ css.lang }}">{{ css.code }}</code></pre>
+  {% endif %}
+
+  {% if js.code %}
+    <pre data-lang="{{ js.lang }}"><code class="language-{{ js.lang }}">{{ js.code }}</code></pre>
+  {% endif %}
+</div>
+
+<button class="prefill-click-to-run bg-transparent border border-primary border-solid hover:bg-primary hover:text-white p-2 text-primary w-full">Click to Run</button>
+
+<script async src="{{ '/js/prism.js' | url }}"></script>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<script>
+// On click, the element will become the embed!
+document.querySelector('.prefill-click-to-run').addEventListener('click', function(e) {
+  document.querySelector('[data-prefill]').classList.add('codepen'); // Add the codepen class back.
+  window.__CPEmbed(); // Trigger the CodePen embed script to run again.
+});
+</script>
