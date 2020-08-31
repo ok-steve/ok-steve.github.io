@@ -2,7 +2,7 @@
   "name": "sccherry.github.io",
   "private": true,
   "version": "1.0.0",
-  "description": "The online home of Steve Cherry",
+  "description": "The online home of Steve Cherry.",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
