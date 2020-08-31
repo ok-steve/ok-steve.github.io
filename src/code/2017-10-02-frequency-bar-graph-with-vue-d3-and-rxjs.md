@@ -2,6 +2,7 @@
 layout: code.njk
 title: Frequency bar graph (with Vue, D3, and Rxjs)
 date: 2017-10-02
+permalink: "code/{{ date.toISOString().split('T')[0].split('-').join('/') }}/{{ page.fileSlug }}/"
 tags:
   - posts
 html:

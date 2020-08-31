@@ -2,6 +2,7 @@
 layout: post.njk
 title: Debugging Drupal in VS Code
 date: 2019-10-09
+permalink: "posts/{{ date.toISOString().split('T')[0].split('-').join('/') }}/{{ page.fileSlug }}/"
 tags: 
   - posts
 ---

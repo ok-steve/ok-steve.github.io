@@ -2,6 +2,7 @@
 layout: post.njk
 title: Hello World!
 date: 2011-01-23
+permalink: "posts/{{ date.toISOString().split('T')[0].split('-').join('/') }}/{{ page.fileSlug }}/"
 tags:
   - posts
 ---
