@@ -32,9 +32,9 @@
     </header>
 
     <nav role="navigation">
-      <ul>
+      <ul class="flex">
         {% for page in collections.all | eleventyNavigation %}
-          <li><a href="{{ page.url | url }}">{{ page.title }}</a></li>
+          <li class="{{ 'ml-3' if loop.index0 > 0 }}"><a href="{{ page.url | url }}">{{ page.title }}</a></li>
         {% endfor %}
       </ul>
     </nav>
