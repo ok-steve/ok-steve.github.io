@@ -4,6 +4,7 @@ title: Frequency bar graph (with Vue, D3, and Rxjs)
 date: 2017-10-02
 permalink: "code/{{ date.toISOString().split('T')[0].split('-').join('/') }}/{{ page.fileSlug }}/"
 tags:
+  - code
   - posts
 html:
   lang: html
@@ -39,13 +40,14 @@ css:
     #app {
       flex: 1;
     }
-scripts:
-  - https://unpkg.com/vue@2.4.4/dist/vue.min.js
-  - https://cdnjs.cloudflare.com/ajax/libs/d3/4.10.2/d3.min.js
-  - https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.4.3/Rx.min.js
 js:
   lang: javascript
   code: |-
+    import { interpolateRainbow, range, scaleBand, scaleLinear, scalePow } from 'https://cdn.skypack.dev/d3@^5.16.0';
+    import { animationFrame, interval, of, Scheduler } from 'https://cdn.skypack.dev/rxjs@^6.5.5';
+    import { map, mergeMap, tap, withLatestFrom } from 'https://cdn.skypack.dev/rxjs@^6.5.5/operators';
+    import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.min.js';
+
     /**
      * Global variables
      */
@@ -57,17 +59,17 @@ js:
     const CONTEXT = new AudioContext();
 
     /**
-    * Utility functions
-    */
+     * Utility functions
+     */
 
     const average = list => list.reduce((x, y) => x + y) / list.length;
 
-    const nToFreq = d3.scalePow()
+    const nToFreq = scalePow()
       .exponent(2)
       .domain([0, NUM_BARS])
       .range([MIN_FREQ, MAX_FREQ]);
 
-    const freqToBin = d3.scaleLinear()
+    const freqToBin = scaleLinear()
       .domain([0, CONTEXT.sampleRate / 2])
       .range([0, FFT_SIZE / 2]);
 
@@ -87,8 +89,8 @@ js:
     };
 
     /**
-    * Vue
-    */
+     * Vue
+     */
 
     const BarChart = {
       template: '#bar-chart',
@@ -101,12 +103,12 @@ js:
         bars() {
           const len = this.data.length;
 
-          const xScale = d3.scaleBand()
-            .domain(d3.range(len))
+          const xScale = scaleBand()
+            .domain(range(len))
             .rangeRound([0, this.width])
             .paddingInner(0.05);
 
-          const yScale = d3.scaleLinear()
+          const yScale = scaleLinear()
             .range([0, this.height])
             .domain([0, 255]); // TODO don't hardcode this value
 
@@ -116,7 +118,7 @@ js:
               y: this.height - yScale(d),
               width: xScale.bandwidth(),
               height: yScale(d),
-              fill: d3.interpolateRainbow(i / len),
+              fill: interpolateRainbow(i / len),
             };
           });
         },
@@ -127,8 +129,8 @@ js:
     };
 
     /**
-    * Audio
-    */
+     * Audio
+     */
 
     const analyser = CONTEXT.createAnalyser();
 
@@ -136,23 +138,28 @@ js:
 
     const dataArray = new Uint8Array(analyser.frequencyBinCount);
 
-    const microphone = Rx.Observable.of(navigator)
-      .flatMap(nav => nav.mediaDevices.getUserMedia({ audio: true, video: false }));
+    const microphone = of(navigator).pipe(
+      mergeMap(nav => nav.mediaDevices.getUserMedia({ audio: true, video: false }))
+    );
 
-    const mediaStream = microphone.map(stream => CONTEXT.createMediaStreamSource(stream))
-      .do(source => source.connect(analyser));
+    const mediaStream = microphone.pipe(
+      map(stream => CONTEXT.createMediaStreamSource(stream)),
+      tap(source => source.connect(analyser))
+    );
 
-    const animationFrame = Rx.Observable.interval(0, Rx.Scheduler.animationFrame);
+    const animationFrame$ = interval(0, animationFrame);
 
-    const frequencyData = animationFrame.withLatestFrom(mediaStream).map(([frame, source]) => {
-      analyser.getByteFrequencyData(dataArray);
-
-      return aggregate(dataArray.slice(BIN_LOWER, BIN_UPPER), NUM_BARS);
-    });
+    const frequencyData = animationFrame$.pipe(
+      withLatestFrom(mediaStream),
+      map(([frame, source]) => {
+        analyser.getByteFrequencyData(dataArray);
+        return aggregate(dataArray.slice(BIN_LOWER, BIN_UPPER), NUM_BARS);
+      })
+    );
 
     /**
-    * App
-    */
+     * App
+     */
 
     const vm = new Vue({
       el: '#app',

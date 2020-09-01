@@ -74,7 +74,7 @@ collections:
           widget: 'hidden',
           default: 'code/{{ date.toISOString().split("T")[0].split("-").join("/") }}/{{ page.fileSlug }}/',
         }
-      - { label: 'Tags', name: 'tags', widget: 'hidden', default: ['posts'] }
+      - { label: 'Tags', name: 'tags', widget: 'hidden', default: ['code', 'posts'] }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - {
           label: 'HTML',
@@ -84,23 +84,11 @@ collections:
           allow_language_selection: false,
         }
       - {
-          label: 'Styles',
-          name: 'stylesheets',
-          widget: 'list',
-          field: { label: 'URL', name: 'url', widget: 'string' },
-        }
-      - {
           label: 'CSS',
           name: 'css',
           widget: 'code',
           default_language: 'css',
           allow_language_selection: false,
-        }
-      - {
-          label: 'Scripts',
-          name: 'scripts',
-          widget: 'list',
-          field: { label: 'URL', name: 'url', widget: 'string' },
         }
       - {
           label: 'JavaScript',

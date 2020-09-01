@@ -21,5 +21,10 @@ module.exports = {
       xl: '1.44rem',
       '2xl': '1.728rem',
     },
+    extend: {
+      spacing: {
+        '9/16': '56.25%',
+      },
+    },
   },
 };

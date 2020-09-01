@@ -40,7 +40,6 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy('src/assets');
   eleventyConfig.addPassthroughCopy('src/*.{txt,xml}');
   eleventyConfig.addPassthroughCopy('src/sw.js');
-  eleventyConfig.addPassthroughCopy({ 'node_modules/prismjs/prism.js': 'js/prism.js' });
   eleventyConfig.addPassthroughCopy('src/admin/config.yml');
 
   eleventyConfig.setLibrary('md', markdownLib);

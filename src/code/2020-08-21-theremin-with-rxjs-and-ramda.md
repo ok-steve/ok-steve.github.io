@@ -4,18 +4,22 @@ title: Theremin (with Rxjs and Ramda)
 date: 2017-10-02
 permalink: "code/{{ date.toISOString().split('T')[0].split('-').join('/') }}/{{ page.fileSlug }}/"
 tags:
+  - code
   - posts
 html:
   lang: html
-  code: ""
+  code: |-
+    <p>Drag cursor to begin playing.</p>
+    <p>See <a href="https://www.smashingmagazine.com/2016/06/make-music-in-the-browser-with-a-web-audio-theremin/">https://www.smashingmagazine.com/2016/06/make-music-in-the-browser-with-a-web-audio-theremin/</a></p>
 css:
   lang: css
-scripts:
-  - https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.4.3/Rx.min.js
-  - https://cdnjs.cloudflare.com/ajax/libs/ramda/0.24.1/ramda.min.js
 js:
   lang: javascript
   code: |-
+    import { add, clamp, compose, curry, divide, head, ifElse, isNil, multiply, not, prop, subtract } from 'https://cdn.skypack.dev/ramda@^0.27.0';
+    import { fromEvent, merge } from 'https://cdn.skypack.dev/rxjs@^6.5.5';
+    import { map, mergeMap, takeUntil } from 'https://cdn.skypack.dev/rxjs@^6.5.5/operators';
+
     /**
      * Global variables
      */
@@ -29,33 +33,33 @@ js:
      * Math
      */
 
-    const linearScale = R.curry(([dMin, dMax], [rMin, rMax], val) => {
-      return R.add(
-        R.multiply(
-          R.divide(
-            R.subtract(val, dMin),
-            R.subtract(dMax, dMin)
+    const linearScale = curry(([dMin, dMax], [rMin, rMax], val) => {
+      return add(
+        multiply(
+          divide(
+            subtract(val, dMin),
+            subtract(dMax, dMin)
           ),
-          R.subtract(rMax, rMin)
+          subtract(rMax, rMin)
         ),
         rMin
       );
     });
 
-    const getClient = (propName) => R.ifElse(
-      R.compose(R.not, R.isNil, R.prop('touches')),
-      R.compose(R.prop(propName), R.head, R.prop('touches')),
-      R.prop(propName)
+    const getClient = (propName) => ifElse(
+      compose(not, isNil, prop('touches')),
+      compose(prop(propName), head, prop('touches')),
+      prop(propName)
     );
 
-    const calculateFrequency = R.compose(
-      R.clamp(MIN_FREQUENCY, MAX_FREQUENCY),
+    const calculateFrequency = compose(
+      clamp(MIN_FREQUENCY, MAX_FREQUENCY),
       linearScale([0, window.innerWidth], [MIN_FREQUENCY, MAX_FREQUENCY]),
       getClient('clientX')
     );
 
-    const calculateGain = R.compose(
-      R.clamp(MIN_GAIN, MAX_GAIN),
+    const calculateGain = compose(
+      clamp(MIN_GAIN, MAX_GAIN),
       linearScale([0, window.innerHeight], [MIN_GAIN, MAX_GAIN]),
       getClient('clientY')
     );
@@ -72,30 +76,30 @@ js:
      */
 
     const pointerdown = (target) => {
-      return Rx.Observable.merge(
-        Rx.Observable.fromEvent(target, 'mousedown'),
-        Rx.Observable.fromEvent(target, 'touchstart')
+      return merge(
+        fromEvent(target, 'mousedown'),
+        fromEvent(target, 'touchstart')
       );
     };
 
     const pointermove = (target) => {
-      return Rx.Observable.merge(
-        Rx.Observable.fromEvent(target, 'mousemove'),
-        Rx.Observable.fromEvent(target, 'touchmove')
+      return merge(
+        fromEvent(target, 'mousemove'),
+        fromEvent(target, 'touchmove')
       );
     };
 
     const pointerup = (target) => {
-      return Rx.Observable.merge(
-        Rx.Observable.fromEvent(target, 'mouseup'),
-        Rx.Observable.fromEvent(target, 'touchend')
+      return merge(
+        fromEvent(target, 'mouseup'),
+        fromEvent(target, 'touchend')
       );
     };
 
     const pointerdrag = (target) => {
-      return pointerdown(target).mergeMap(() => {
-        return pointermove(target).takeUntil(pointerup(target));
-      });
+      return pointerdown(target).pipe(
+        mergeMap(() => pointermove(target).pipe(takeUntil(pointerup(target))))
+      )
     };
 
     /**
@@ -139,11 +143,11 @@ js:
      */
 
     const app = (target) => {
-      pointerdown(target).map(values).subscribe(([freq, gain]) => {
+      pointerdown(target).pipe(map(values)).subscribe(([freq, gain]) => {
         start(freq, gain);
       });
 
-      pointerdrag(target).map(values).subscribe(([freq, gain]) => {
+      pointerdrag(target).pipe(map(values)).subscribe(([freq, gain]) => {
         setTargetAtTime(freq, gain);
       });
 
@@ -152,6 +156,3 @@ js:
 
     app(document);
 ---
-Drag cursor to begin playing
-  
-See https://www.smashingmagazine.com/2016/06/make-music-in-the-browser-with-a-web-audio-theremin/
