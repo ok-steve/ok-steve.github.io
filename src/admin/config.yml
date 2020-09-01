@@ -53,7 +53,7 @@ collections:
       - label: 'Permalink'
         name: 'permalink'
         widget: 'hidden'
-        default: 'posts/{{ date.toISOString().split("T")[0].split("-").join("/") }}/{{ page.fileSlug }}/'
+        default: '{{ date.toISOString().split("T")[0].split("-").join("/") }}/{{ page.fileSlug }}/'
       - { label: 'Tags', name: 'tags', widget: 'hidden', default: ['posts'] }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'code' # Used in routes, e.g., /admin/collections/blog
@@ -70,7 +70,7 @@ collections:
       - label: 'Permalink'
         name: 'permalink'
         widget: 'hidden'
-        default: 'code/{{ date.toISOString().split("T")[0].split("-").join("/") }}/{{ page.fileSlug }}/'
+        default: '{{ date.toISOString().split("T")[0].split("-").join("/") }}/{{ page.fileSlug }}/'
       - { label: 'Tags', name: 'tags', widget: 'hidden', default: ['code', 'posts'] }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - label: 'HTML'
