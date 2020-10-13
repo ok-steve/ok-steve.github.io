@@ -2,7 +2,8 @@
 layout: post.njk
 title: Progressively enhanced app-like page transitions
 date: 2018-06-03
-permalink: "{{ date.toISOString().split('T')[0].split('-').join('/') }}/{{ page.fileSlug }}/"
+published: true
+permalink: "posts/{{ date.toISOString().split('T')[0].split('-').join('/') }}/{{ page.fileSlug }}/"
 tags:
   - posts
 ---

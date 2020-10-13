@@ -22,8 +22,16 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
 
+  eleventyConfig.addFilter('published', (value) => {
+    return value.filter((item) => item.data.permalink);
+  });
+
   eleventyConfig.addTransform('htmlmin', (content, outputPath) => {
-    if (process.env.ELEVENTY_ENV === 'production' && outputPath.endsWith('.html')) {
+    if (
+      process.env.ELEVENTY_ENV === 'production' &&
+      outputPath &&
+      outputPath.endsWith('.html')
+    ) {
       const minified = htmlmin.minify(content, {
         useShortDoctype: true,
         removeComments: true,
