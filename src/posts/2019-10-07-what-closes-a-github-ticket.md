@@ -3,7 +3,6 @@ layout: post.njk
 title: What closes a Github ticket?
 date: 2019-10-07
 published: true
-permalink: "posts/{{ date.toISOString().split('T')[0].split('-').join('/') }}/{{ page.fileSlug }}/"
 tags:
   - posts
 ---

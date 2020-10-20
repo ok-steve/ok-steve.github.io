@@ -3,7 +3,6 @@ layout: code.njk
 title: Theremin (with Rxjs and Ramda)
 date: 2017-10-02
 published: true
-permalink: "code/{{ date.toISOString().split('T')[0].split('-').join('/') }}/{{ page.fileSlug }}/"
 tags:
   - code
 html:

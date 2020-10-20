@@ -8,7 +8,15 @@ module.exports = {
         return false;
       }
 
-      return data.permalink;
+      if (data.permalink) {
+        return data.permalink;
+      }
+
+      return `code/${data.page.date
+        .toISOString()
+        .split('T')[0]
+        .split('-')
+        .join('/')}/${data.page.fileSlug}/`;
     },
   },
 };
