@@ -48,7 +48,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy('src/assets');
   eleventyConfig.addPassthroughCopy('src/*.{txt,xml}');
   eleventyConfig.addPassthroughCopy('src/sw.js');
-  eleventyConfig.addPassthroughCopy('src/admin/config.yml');
+  eleventyConfig.addPassthroughCopy('src/admin');
 
   eleventyConfig.setLibrary('md', markdownLib);
 
