@@ -9,7 +9,6 @@ html:
   lang: html
   code: |-
     <p>Drag cursor to begin playing.</p>
-    <p>See <a href="https://www.smashingmagazine.com/2016/06/make-music-in-the-browser-with-a-web-audio-theremin/">https://www.smashingmagazine.com/2016/06/make-music-in-the-browser-with-a-web-audio-theremin/</a></p>
 css:
   lang: css
 js:
@@ -155,3 +154,5 @@ js:
 
     app(document);
 ---
+
+See https://www.smashingmagazine.com/2016/06/make-music-in-the-browser-with-a-web-audio-theremin/
