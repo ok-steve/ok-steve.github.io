@@ -1,0 +1,40 @@
+---js
+{
+  pagination: {
+    data: 'collections.code',
+    size: 1,
+    alias: 'code'
+  },
+  permalink: 'embed.html',
+  eleventyComputed: {
+    permalink: data => {
+      if (!data.code.url) {
+        return false;
+      }
+
+      return `${data.code.url}${data.permalink}`;
+    }
+  }
+}
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title or site.name }} | {{ site.name }}</title>
+  </head>
+  <body>
+    {% if code.data.css.code %}
+      <link rel="stylesheet" href="{{ './style.css' | url }}">
+    {% endif %}
+
+    {% if code.data.html.code %}
+      {{ code.data.html.code | safe }}
+    {% endif %}
+
+    {% if code.data.js.code %}
+      <script src="{{ './script.js' | url }}" type="module"></script>
+    {% endif %}
+  </body>
+</html>

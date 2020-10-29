@@ -10,7 +10,6 @@ module.exports = {
       primary: '#2b8a3e',
       accent: '#c92a2a',
       rss: '#ff8300',
-      codepen: '#0ebeff',
       github: '#4183c4',
     },
     fontSize: {

@@ -1,0 +1,22 @@
+---js
+{
+  pagination: {
+    data: 'collections.code',
+    size: 1,
+    alias: 'code'
+  },
+  permalink: 'script.js',
+  eleventyComputed: {
+    permalink: data => {
+      if (!data.code.url || !data.code.data.js.code) {
+        return false;
+      }
+
+      return `${data.code.url}${data.permalink}`;
+    }
+  }
+}
+---
+{% if code.data.js.code %}
+{{ code.data.js.code | safe }}
+{% endif %}

@@ -5,6 +5,5 @@
   "description": "{{ pkg.description }}",
   "color": "#2b8a3e",
   "url": "https://stevecherry.net",
-  "codepen_username": "sccherry",
   "github_username": "sccherry"
 }
