@@ -1,5 +1,11 @@
 module.exports = {
-  purge: ['src/**/*.{html,njk}'],
+  future: {
+    purgeLayersByDefault: true,
+  },
+  purge: {
+    layers: ['utilities'],
+    content: ['src/**/*.{html,njk}'],
+  },
   theme: {
     colors: {
       transparent: 'transparent',
