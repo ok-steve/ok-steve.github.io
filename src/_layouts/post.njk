@@ -2,13 +2,11 @@
 layout: default.njk
 ---
 
-<article>
+<article class="prose mx-auto">
   <header>
     <h2>{{ title }}</h2>
-    <time datetime="{{ page.date.toISOString() }}">{{ page.date.toLocaleDateString('en-US', { dateStyle: 'long' }) }}</time>
+    <time class="text-sm" datetime="{{ page.date.toISOString() }}">{{ page.date.toLocaleDateString('en-US', { dateStyle: 'long' }) }}</time>
   </header>
 
-  <div class="longform">
-    {{ content | safe }}
-  </div>
+  {{ content | safe }}
 </article>

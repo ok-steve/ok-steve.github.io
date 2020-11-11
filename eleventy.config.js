@@ -15,6 +15,22 @@ const markdownLib = new MarkdownIt({
   .use(markdownItAbbr)
   .use(markdownItFootnote);
 
+markdownLib.renderer.rules.paragraph_open = (
+  tokens,
+  idx,
+  options,
+  env,
+  renderer
+) => {
+  const token = tokens[idx];
+
+  if (idx === 0 && token.level === 0) {
+    return `<p class="lead">`;
+  }
+
+  return renderer.renderToken(tokens, idx, options);
+};
+
 module.exports = (eleventyConfig) => {
   eleventyConfig.setWatchJavaScriptDependencies(false);
 
@@ -44,6 +60,9 @@ module.exports = (eleventyConfig) => {
     return content;
   });
 
+  eleventyConfig.addPassthroughCopy({
+    './node_modules/turbolinks/dist/turbolinks.js': './js/turbolinks.js',
+  });
   eleventyConfig.addPassthroughCopy('src/js');
   eleventyConfig.addPassthroughCopy('src/assets');
   eleventyConfig.addPassthroughCopy('src/*.{txt,xml}');
@@ -58,6 +77,17 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.addPairedShortcode('markdown', (content) => {
     return markdownLib.render(content);
+  });
+
+  eleventyConfig.setBrowserSyncConfig({
+    snippetOptions: {
+      rule: {
+        match: /<\/head>/i,
+        fn: function (snippet, match) {
+          return snippet + match;
+        },
+      },
+    },
   });
 
   return {

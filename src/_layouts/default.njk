@@ -25,37 +25,45 @@
     <link rel="stylesheet" href="{{ '/css/main.css' | url }}">
     <link rel="canonical" href="{{ site.url }}{{ page.url | url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ '/feed.xml' | url }}">
+
+    <script src="{{ '/js/turbolinks.js' | url }}" defer></script>
+    <script src="{{ '/js/main.js' | url }}" defer></script>
   </head>
-  <body class="font-sans text-default flex flex-col min-h-screen max-w-xl mx-auto px-3" prefix="schema: http://schema.org/">
-    <header role="banner">
-      <h1><a href="{{ '/' | url }}" class="text-primary no-underline">{{ site.name }}</a></h1>
+  <body class="antialiased flex flex-col min-h-screen" prefix="schema: http://schema.org/">
+    <header class="flex items-center justify-between px-4 py-2" role="banner">
+      <h1 class="font-bold text-2xl hover:text-green-600">
+        <a href="{{ '/' | url }}">{{ site.name }}</a>
+      </h1>
+
+      <nav role="navigation">
+        <ul class="flex">
+          {% for page in collections.all | eleventyNavigation %}
+            <li class="{{ 'ml-2' if loop.index0 > 0 }}">
+              <a class="underline hover:text-green-600" href="{{ page.url | url }}">{{ page.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
     </header>
 
-    <nav role="navigation">
-      <ul class="flex">
-        {% for page in collections.all | eleventyNavigation %}
-          <li class="{{ 'ml-3' if loop.index0 > 0 }}"><a href="{{ page.url | url }}">{{ page.title }}</a></li>
-        {% endfor %}
-      </ul>
-    </nav>
-
-    <main class="flex-1" role="main">
+    <main class="flex-1 px-2" role="main">
       {{ content | safe }}
     </main>
 
-    <footer class="border-0 border-solid border-primary border-t mb-6 pt-6" role="contentinfo">
+    <footer class="flex items-center justify-between px-2 py-4" role="contentinfo">
       <p>{{ site.description }}</p>
 
-      <ul class="list-none pl-0 flex">
-        <li><a href="{{ '/feed.xml' | url }}" class="hover:text-rss focus:text-rss">Feed</a></li>
-        <li class="ml-3"><a href="mailto:{{ site.email }}">Email</a></li>
-        {% if site.github_username %}
-        <li class="ml-3"><a href="https://github.com/{{ site.github_username }}" class="hover:text-github focus:text-github">Github</a></li>
-        {% endif %}
+      <ul class="flex">
+        <li>
+          <a class="underline hover:text-green-600" href="{{ '/feed.xml' | url }}">Feed</a>
+        </li>
+        <li class="ml-2">
+          <a class="underline hover:text-rss" href="mailto:{{ site.email }}">Email</a>
+        </li>
+        <li class="ml-2">
+          <a class="underline hover:text-github" href="https://github.com/{{ site.github_username }}">Github</a>
+        </li>
       </ul>
     </footer>
-
-    <script src="{{ '/js/pjax.js' | url }}" defer></script>
-    <script src="{{ '/js/main.js' | url }}" defer></script>
   </body>
 </html>

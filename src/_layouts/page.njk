@@ -2,14 +2,12 @@
 layout: default.njk
 ---
 
-<section>
+<section class="prose mx-auto">
   {% if title %}
   <header>
     <h2>{{ title }}</h2>
   </header>
   {% endif %}
 
-  <div class="longform">
-    {{ content | safe }}
-  </div>
+  {{ content | safe }}
 </section>
