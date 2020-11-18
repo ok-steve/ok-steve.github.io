@@ -14,10 +14,17 @@ How many possible combinations of four chords are there?
 ## Diatonic
 
 1. Chords: I ii iii IV V vi (no viidim), sus and inversions are alterations
-2. 6*5*4*3 = 360 (permutation)
+2. 6x5x4x3 = 360 (permutation), or 6x6x6x6 (BaseN)
 3. Rotations: 360/4 = 90
-4. CEGa = FACd, so 4*3*2*1/4 = 6, 90-6=84
+4. CEGa = FACd, so 4x3x2x1/4 = 6, 90-6=84
 5. So 84 total progressions
+
+## Diatonic extended
+
+All possible combinations.
+
+1. 6x6x6x6 = 1296 (BaseN)
+2. Considering rotations and transpositions: 266
 
 ## Chromatic
 
