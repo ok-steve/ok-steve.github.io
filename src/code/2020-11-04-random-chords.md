@@ -2,11 +2,12 @@
 layout: code.njk
 title: Random Chords
 date: 2020-11-04
-name: true
+name: false
 tags:
   - code
 html:
   lang: html
+  code: <div id="app"></div>
 css:
   lang: css
 js:
@@ -128,7 +129,7 @@ js:
       html`
         <${App} />
       `,
-      document.body
+      document.querySelector('#app')
     );
 ---
 Generate random chord progressions.
