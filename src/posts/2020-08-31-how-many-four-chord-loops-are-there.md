@@ -26,6 +26,11 @@ All possible combinations.
 1. 6x6x6x6 = 1296 (BaseN)
 2. Considering rotations and transpositions: 266
 
+## Modal interchange
+
+1. Include every possible modal interchange chord, permutations: 2808
+2. BaseN with modal interchange chords: 6566
+
 ## Chromatic
 
 1. Chords: still M and m, all roots
