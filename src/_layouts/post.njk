@@ -5,7 +5,6 @@ layout: default.njk
 <article class="prose mx-auto">
   <header>
     <h2>{{ title }}</h2>
-    <time class="text-sm" datetime="{{ page.date.toISOString() }}">{{ page.date.toLocaleDateString('en-US', { dateStyle: 'long' }) }}</time>
   </header>
 
   {{ content | safe }}

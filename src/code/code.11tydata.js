@@ -12,11 +12,7 @@ module.exports = {
         return data.permalink;
       }
 
-      return `code/${data.page.date
-        .toISOString()
-        .split('T')[0]
-        .split('-')
-        .join('/')}/${data.page.fileSlug}/`;
+      return `code/${data.page.fileSlug}/`;
     },
   },
 };
