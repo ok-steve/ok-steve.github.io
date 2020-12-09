@@ -2,7 +2,7 @@
 layout: code.njk
 title: Sequenced
 date: 2019-01-30
-published: false
+published: true
 tags:
   - code
 html:

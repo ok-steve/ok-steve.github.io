@@ -2,6 +2,7 @@
 layout: code.njk
 title: Nexus/Tone components
 date: 2017-02-07
+published: true
 tags:
   - code
 html:

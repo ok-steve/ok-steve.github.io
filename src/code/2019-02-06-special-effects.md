@@ -2,7 +2,7 @@
 layout: code.njk
 title: Special effects
 date: 2019-02-06
-published: false
+published: true
 tags:
   - code
 html:
