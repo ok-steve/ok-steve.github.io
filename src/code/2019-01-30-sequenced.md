@@ -213,7 +213,7 @@ css:
 js:
   lang: javascript
   code: |-
-    import { createAmplitudeEnvelope, createFilter, createFrequencyEnvelope, createLfo, createLoop, createOmniOscillator, createPiano, createTransport } from '/code/2017/02/07/nexus-tone-components/script.js';
+    import { createAmplitudeEnvelope, createFilter, createFrequencyEnvelope, createLfo, createLoop, createOmniOscillator, createPiano, createTransport } from '/code/nexus-tone-components/script.js';
     
     const options = {
       synth: {

@@ -130,7 +130,7 @@ css:
 js:
   lang: javascript
   code: |-
-    import { createAutoFilter, createFreeverb, createNoise, createPiano, createTransport } from '/code/2017/02/07/nexus-tone-components/script.js';
+    import { createAutoFilter, createFreeverb, createNoise, createPiano, createTransport } from '/code/nexus-tone-components/script.js';
 
     const options = {
       noise: {
