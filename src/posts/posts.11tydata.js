@@ -12,7 +12,7 @@ module.exports = {
         return data.permalink;
       }
 
-      return `posts/${data.page.fileSlug}/`;
+      return `${data.page.fileSlug}/`;
     },
   },
 };

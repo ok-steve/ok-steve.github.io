@@ -17,7 +17,7 @@ html:
 css:
   lang: css
   code: |-
-    @import url("/code/2019/06/19/base-styles/style.css");
+    @import url("/base-styles/style.css");
 
     .aspect-ratio {
       position: relative;

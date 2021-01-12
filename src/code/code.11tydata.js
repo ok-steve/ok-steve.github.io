@@ -12,7 +12,7 @@ module.exports = {
         return data.permalink;
       }
 
-      return `code/${data.page.fileSlug}/`;
+      return `${data.page.fileSlug}/`;
     },
   },
 };
