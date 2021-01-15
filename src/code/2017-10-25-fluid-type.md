@@ -241,3 +241,4 @@ css:
 js:
   lang: javascript
 ---
+Fluid typography with locks example.

@@ -8,13 +8,14 @@ tags:
 html:
   lang: html
   code: |-
-    <script src="https://cdn.jsdelivr.net/npm/@magenta/music@1.12.0/dist/magentamusic.min.js"></script>
     <button id="toggle" aria-pressed="false">Start</button>
 css:
   lang: css
 js:
   lang: javascript
   code: |-
+    import mm from 'https://cdn.skypack.dev/@magenta/music';
+
     /**
      * Globals
      */
@@ -118,3 +119,4 @@ js:
       e.target.setAttribute('aria-pressed', !playing);
     });
 ---
+A demo of Magenta's MusicRNN.

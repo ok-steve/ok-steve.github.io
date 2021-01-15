@@ -57,7 +57,7 @@ css:
 js:
   lang: javascript
 ---
-
-https://css-tricks.com/aspect-ratio-boxes/
-https://www.smashingmagazine.com/2014/02/making-embedded-content-work-in-responsive-design/
-https://css-tricks.com/aspect-ratio-media-elements-and-intrinsicsize/
+See:
+- https://css-tricks.com/aspect-ratio-boxes/
+- https://www.smashingmagazine.com/2014/02/making-embedded-content-work-in-responsive-design/
+- https://css-tricks.com/aspect-ratio-media-elements-and-intrinsicsize/

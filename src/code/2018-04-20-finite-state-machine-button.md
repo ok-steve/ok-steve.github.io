@@ -8,8 +8,6 @@ tags:
 html:
   lang: html
   code: |-
-    <script src="https://unpkg.com/javascript-state-machine@3.0.1/dist/state-machine.min.js"></script>
-    
     <button>Button</button>
 css:
   lang: css
@@ -47,6 +45,8 @@ css:
 js:
   lang: javascript
   code: |-
+    import StateMachine from 'https://cdn.skypack.dev/javascript-state-machine';
+
     const btn = document.querySelector('button');
 
     const ToggleFSM = StateMachine.factory({
@@ -75,3 +75,4 @@ js:
       btn.setAttribute('aria-pressed', toggle.state === 'on');
     });
 ---
+A toggle button using a finite state machine.

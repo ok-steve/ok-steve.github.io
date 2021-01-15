@@ -2,14 +2,12 @@
 layout: code.njk
 title: Sequenced
 date: 2019-01-30
-published: true
+published: false
 tags:
   - code
 html:
   lang: html
   code: |-
-    <script src="https://cdn.jsdelivr.net/npm/nexusui@2.0.7/dist/NexusUI.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tone@13.3.1/build/Tone.min.js"></script>
     <div class="container">
       <div class="columns">
         <div class="column">
@@ -209,11 +207,12 @@ html:
 css:
   lang: css
   code: |-
-    @import url("https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.min.css");
+    @import url("/nexus-tone-components/style.css");
 js:
   lang: javascript
   code: |-
-    import { createAmplitudeEnvelope, createFilter, createFrequencyEnvelope, createLfo, createLoop, createOmniOscillator, createPiano, createTransport } from '/code/nexus-tone-components/script.js';
+    import { LFO, Loop, Master, Midi, MonoSynth, PolySynth, Transport } from 'https://cdn.skypack.dev/tone';
+    import { createAmplitudeEnvelope, createFilter, createFrequencyEnvelope, createLfo, createLoop, createOmniOscillator, createPiano, createTransport } from '/nexus-tone-components/script.js';
     
     const options = {
       synth: {
@@ -249,24 +248,43 @@ js:
       }
     };
 
-    const synth = new Tone.PolySynth(4, Tone.MonoSynth, options.synth);
-    const lfo = new Tone.LFO(options.lfo.frequency, options.lfo.min, options.lfo.max);
+    const lfo = new LFO(options.lfo.frequency, options.lfo.min, options.lfo.max);
 
-    synth.chain(Tone.Master);
+    class SequencedPolySynth extends PolySynth {
+      _getNextAvailableVoice() {
+        // if there are available voices, return the first one
+        if (this._availableVoices.length) {
+          return this._availableVoices.shift();
+        } else if (this._voices.length < this.maxPolyphony) {
+          // otherwise if there is still more maxPolyphony, make a new voice
+          const voice = new this.voice(Object.assign(this.options, {
+            context: this.context,
+            onsilence: this._makeVoiceAvailable.bind(this),
+          }));
+          voice.connect(this.output);
+          this._voices.push(voice);
+          lfo.connect(voice.filter.frequency);
+          return voice;
+        } else {
+          warn("Max polyphony exceeded. Note dropped.");
+        }
+      }
+    }
 
-    synth.voices.forEach(voice => {
-      lfo.connect(voice.filter.frequency);
-    });
+    const synth = new SequencedPolySynth(MonoSynth, { maxPolyphony: 4, ...options.synth });
+
+    synth.chain(Master);
+
     lfo.type = options.lfo.type;
     lfo.sync().start();
 
-    if (options.transport.state === 'started') Tone.Transport.start();
+    if (options.transport.state === 'started') Transport.start();
 
     const voices = new Set();
 
-    const loop = new Tone.Loop((time) => {
+    const loop = new Loop((time) => {
       if (voices.size > 0) {
-        const freqs = Array.from(voices).map(note => Tone.Midi(note).toFrequency());
+        const freqs = Array.from(voices).map(note => Midi(note).toFrequency());
         synth.triggerAttackRelease(freqs, '1n', time);
       }
     }, options.loop.interval).start();
@@ -311,25 +329,26 @@ js:
     });
 
     createTransport('#transport', {
-      bpm: Tone.Transport.bpm.value,
-      state: Tone.Transport.state === 'started'
+      bpm: Transport.bpm.value,
+      state: Transport.state === 'started'
     }, value => {
       Object.keys(value).forEach(key => {
         switch (key) {
           case 'bpm': {
-            Tone.Transport.bpm.value = value[key];
+            Transport.bpm.value = value[key];
             break;
           }
           case 'state': {
             if (value[key]) {
-              Tone.Transport.start();
+              Transport.start();
             } else {
-              Tone.Transport.stop();
+              Transport.stop();
             }
           }
         }
       })
     })
 
-    createPiano('#piano', { mode: 'button' }, onMidi);
+    createPiano('#piano', { mode: 'toggle' }, onMidi);
 ---
+A sequenced synth.

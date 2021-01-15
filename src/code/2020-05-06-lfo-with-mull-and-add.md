@@ -1,6 +1,6 @@
 ---
 layout: code.njk
-title: LFO with mull and add
+title: LFO with mul and add
 date: 2020-05-06
 published: false
 tags:
@@ -53,3 +53,4 @@ js:
       }
     });
 ---
+Demo of an LFO with params for mul and add.

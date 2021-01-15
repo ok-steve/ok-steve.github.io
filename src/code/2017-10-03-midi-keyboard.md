@@ -7,14 +7,16 @@ tags:
   - code
 html:
   lang: html
-  code: |-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.5.2/rxjs.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.26.1/ramda.min.js"></script>
 css:
   lang: css
 js:
   lang: javascript
   code: |-
+    import { add, always, clamp, compose, contains, divide, either, equals, flip, ifElse, indexOf, multiply, not, prop, toLower } from 'https://cdn.skypack.dev/ramda@^0.27.0';
+    import { fromEvent, merge } from 'https://cdn.skypack.dev/rxjs@^6.5.5';
+    import { distinctUntilChanged, filter, map, scan, startWith, withLatestFrom } from 'https://cdn.skypack.dev/rxjs@^6.5.5/operators';
+
+    const CHANNEL = 0;
     const NOTE_KEYS = 'awsedftgyhujk';
     const VELOCITY_KEYS = '1234567890';
     const OCTAVE = 5;
@@ -22,45 +24,45 @@ js:
     const MOD_WHEEL = 64;
     const VELOCITY = 5;
 
-    const keydown = rxjs.fromEvent(document, 'keydown').pipe(
-      rxjs.operators.filter(R.compose(R.not, R.prop('repeat')))
+    const keydown = fromEvent(document, 'keydown').pipe(
+      filter(compose(not, prop('repeat')))
     );
 
-    const keyup = rxjs.fromEvent(document, 'keyup');
+    const keyup = fromEvent(document, 'keyup');
 
     const octavechange = keydown.pipe(
-      rxjs.operators.map(R.prop('keyCode')),
-      rxjs.operators.filter(R.either(R.equals(88), R.equals(90))),
-      rxjs.operators.map(R.ifElse(R.equals(88), R.always(1), R.always(-1))),
-      rxjs.operators.startWith(OCTAVE),
-      rxjs.operators.scan(R.add),
-      rxjs.operators.map(R.clamp(0, 8)),
-      rxjs.operators.distinctUntilChanged()
+      map(prop('keyCode')),
+      filter(either(equals(88), equals(90))),
+      map(ifElse(equals(88), always(1), always(-1))),
+      startWith(OCTAVE),
+      scan(add),
+      map(clamp(0, 8)),
+      distinctUntilChanged()
     );
 
     const velocitychange = keydown.pipe(
-      rxjs.operators.map(R.prop('key')),
-      rxjs.operators.filter(R.flip(R.contains)(VELOCITY_KEYS)),
-      rxjs.operators.startWith(VELOCITY),
-      rxjs.operators.map(R.compose(R.flip(R.divide)(R.prop('length', VELOCITY_KEYS)), R.add(1), R.flip(R.indexOf)(VELOCITY_KEYS))),
-      rxjs.operators.map(R.compose(Math.floor, R.multiply(127))),
-      rxjs.operators.distinctUntilChanged()
+      map(prop('key')),
+      filter(flip(contains)(VELOCITY_KEYS)),
+      startWith(VELOCITY),
+      map(compose(flip(divide)(prop('length', VELOCITY_KEYS)), add(1), flip(indexOf)(VELOCITY_KEYS))),
+      map(compose(Math.floor, multiply(127))),
+      distinctUntilChanged()
     );
 
-    const notemessage = rxjs.merge(keydown, keyup).pipe(
-      rxjs.operators.filter(R.compose(R.flip(R.contains)(NOTE_KEYS), R.toLower, R.prop('key'))),
-      rxjs.operators.withLatestFrom(octavechange, velocitychange),
-      rxjs.operators.map(([e, octave, velocity]) => {
+    const notemessage = merge(keydown, keyup).pipe(
+      filter(compose(flip(contains)(NOTE_KEYS), toLower, prop('key'))),
+      withLatestFrom(octavechange, velocitychange),
+      map(([e, octave, velocity]) => {
         // TODO use Ramda
-        const message = e.type === 'keydown' ? 144 : 128;
+        const message = (e.type === 'keydown' ? 9 : 8) * 16 + CHANNEL;
         const note = NOTE_KEYS.indexOf(e.key.toLowerCase()) + 12 * (octave + +e.shiftKey);
         return Uint8Array.of(message, note, velocity);
       })
     );
 
-    const pitchbendmessage = rxjs.merge(keydown, keyup).pipe(
-      rxjs.operators.filter(R.compose(R.either(R.equals(38), R.equals(40)), R.prop('keyCode'))),
-      rxjs.operators.map(e => {
+    const pitchbendmessage = merge(keydown, keyup).pipe(
+      filter(compose(either(equals(38), equals(40)), prop('keyCode'))),
+      map(e => {
         // TODO use Ramda
         const [coarse, fine] = e.type === 'keyup' ? [PITCH_BEND, 0] : (e.keyCode === 40 ? [0, 0] : [127, 127]);
         return Uint8Array.of(224, coarse, fine);
@@ -68,15 +70,16 @@ js:
     );
 
     const modwheelmessage = keydown.pipe(
-      rxjs.operators.map(R.prop('keyCode')),
-      rxjs.operators.filter(R.either(R.equals(37), R.equals(39))),
-      rxjs.operators.map(R.ifElse(R.equals(39), R.always(1), R.always(-1))),
-      rxjs.operators.map(R.multiply(5)),
-      rxjs.operators.scan(R.compose(R.clamp(0, 127), R.add), MOD_WHEEL),
-      rxjs.operators.distinctUntilChanged(),
-      rxjs.operators.map(value => Uint8Array.of(176, 1, value))
+      map(prop('keyCode')),
+      filter(either(equals(37), equals(39))),
+      map(ifElse(equals(39), always(1), always(-1))),
+      map(multiply(5)),
+      scan(compose(clamp(0, 127), add), MOD_WHEEL),
+      distinctUntilChanged(),
+      map(value => Uint8Array.of(176, 1, value))
     );
 
     // TODO add Web MIDI API
-    const midimessage = rxjs.merge(notemessage, pitchbendmessage, modwheelmessage);
+    export default merge(notemessage, pitchbendmessage, modwheelmessage);
 ---
+Trigger MIDI messages with a computer keyboard. Uses Rxjs and Ramda. Imitates the Web MIDI API.

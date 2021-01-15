@@ -8,22 +8,17 @@ tags:
 html:
   lang: html
   code: |-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.8.12/Tone.js"></script>
-    <script src="https://unpkg.com/nexusui@2.0.10/dist/NexusUI.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.8.6/umd/react.development.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.8.6/umd/react-dom.development.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.26.1/ramda.min.js"></script>
-
-    <div class="section">
-      <div class="container" id="root">
-        <button class="button">Start</button>
+    <div id="root" class="section">
+      <div class="container">
+        <div id="app">
+          <button class="button">Start</button>
+        </div>
       </div>
     </div>
 css:
   lang: css
   code: |-
-    @import url("https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css");
-    @import url("https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css");
+    @import url("https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css");
 
     .is-nexus-centered > [nexus-ui] {
       margin-right: auto;
@@ -36,9 +31,18 @@ css:
 js:
   lang: javascript
   code: |-
+    import { h, Component, createContext, render } from 'https://cdn.skypack.dev/preact';
+    import htm from 'https://cdn.skypack.dev/htm';
+    import { useCallback, useContext, useEffect, useReducer, useRef, useState } from 'https://cdn.skypack.dev/preact/hooks';
+    import Nexus from 'https://cdn.skypack.dev/nexusui';
+    import { AmplitudeEnvelope, Channel, Envelope, Filter, Gain, Oscillator } from 'https://cdn.skypack.dev/tone';
+    import { mergeDeepRight } from 'https://cdn.jsdelivr.net/npm/ramda@0.27.1/es/index.js';
+
     /**
      * Utilities
      */
+
+    const html = htm.bind(h);
 
     const pubsub = () => {
       const subscribers = new Set();
@@ -63,17 +67,16 @@ js:
       }
     };
 
-
     /**
      * Nexus components
      */
      
     function NexusComponent({ type, value, onChange, onStep, ...props }) {
-      const el = React.useRef(null);
-      const nexus = React.useRef(null);
+      const el = useRef(null);
+      const nexus = useRef(null);
 
-      const handleChange = React.useCallback(value => onChange !== undefined ? onChange(value) : undefined, [onChange]);
-      const handleStep = React.useCallback(value => onStep !== undefined ? onStep(value) : undefined,[onStep]);
+      const handleChange = useCallback(value => onChange !== undefined ? onChange(value) : undefined, [onChange]);
+      const handleStep = useCallback(value => onStep !== undefined ? onStep(value) : undefined,[onStep]);
 
       const getNexus = () => {
         if (el.current !== null && nexus.current === null) {
@@ -87,17 +90,15 @@ js:
         return nexus.current;
       };
 
-      React.useEffect(() => {
+      useEffect(() => {
         const ui = getNexus();
         return () => ui.destroy();
       }, [el, nexus]);
 
-      return <div ref={el}></div>;
+      return html`<div ref=${el}></div>`;
     }
 
-    const makeNexusComponent = type => props => (
-      <NexusComponent {...props} type={type} />
-    );
+    const makeNexusComponent = type => props =>   html`<${NexusComponent} ...${props} type=${type}/>`;
 
     // Core
 
@@ -138,29 +139,45 @@ js:
      * Contexts
      */
 
-    const MidiContext = React.createContext(pubsub());
-    const ToneBusContext = React.createContext(null);
+    const MidiContext = createContext(pubsub());
+    const ToneBusContext = createContext(null);
 
     /**
      * Hooks
      */
 
     function useToneBus(node) {
-      const { send, receive } = React.useContext(ToneBusContext);
+      const { send, receive } = useContext(ToneBusContext);
+      const input = useRef(null);
+      const output = useRef(null);
 
-      React.useEffect(() => {
-        if (send !== undefined && node !== undefined) node.send(send, 1);
-      }, [send, node]);
+      useEffect(() => {
+        if (send !== undefined && node !== undefined) {
+          if (output.current === null) {
+            output.current = new Channel();
+          }
 
-      React.useEffect(() => {
-        if (receive !== undefined && node !== undefined) node.receive(receive);
-      }, [receive, node]);
+          node.connect(output.current);
+          output.current.send(send, 1);
+        }
+      }, [send, node, output]);
+
+      useEffect(() => {
+        if (receive !== undefined && node !== undefined) {
+          if (input.current === null) {
+            input.current = new Channel();
+          }
+
+          input.current.connect(node);
+          input.current.receive(receive);
+        }
+      }, [receive, node, input]);
     }
 
     function useMidi(onMessage) {
-      const { subscribe } = React.useContext(MidiContext);
+      const { subscribe } = useContext(MidiContext);
       
-      React.useEffect(() => {
+      useEffect(() => {
         const listener = (subscribe !== undefined && onMessage !== undefined) ? subscribe(onMessage) : undefined;
     
         return () => {
@@ -174,46 +191,44 @@ js:
      */
 
     function BulmaCard({ title, children }) {
-      return (
+      return html`
         <div className="card">
           <div className="card-header">
-            <h2 className="card-header-title">{title}</h2>
+            <h2 className="card-header-title">${title}</h2>
           </div>
           <div className="card-content">
-            {children}
+            ${children}
           </div>
         </div>
-      );
+      `;
     }
 
     function ToneWrapper({ node, onMessage, children }) {
       useToneBus(node);
       useMidi(onMessage);
-      
-      React.useEffect(() => {
+
+      useEffect(() => {
         return () => {
           if (node !== undefined) node.dispose();
         };
       }, [node]);
         
-      return (
-        <React.Fragment>
-          {children}
-        </React.Fragment>
-      );
+      return html`
+        ${children}
+      `;
     }
 
     function ToneAmplitudeEnvelope({ attack, decay, sustain, release, onChange }) {
-      const [node] = React.useState(() => new Tone.AmplitudeEnvelope({ attack, decay, sustain, release }));
-      const [envelope] = React.useState([attack, decay, sustain, release]);
-      const [keys] = React.useState(() => ['attack', 'decay', 'sustain', 'release']);
+      const [node] = useState(() => new AmplitudeEnvelope({ attack, decay, sustain, release }));
+      const [envelope] = useState([attack, decay, sustain, release]);
+      const [keys] = useState(() => ['attack', 'decay', 'sustain', 'release']);
 
-      const handleChange = React.useCallback(({ index, value }) => {
+      const handleChange = useCallback(({ index, value }) => {
         const key = keys[index];
         if (onChange !== undefined) onChange({ [key]: value });
       }, [onChange]);
 
-      const handleMessage = React.useCallback(([status, data0, data1]) => {
+      const handleMessage = useCallback(([status, data0, data1]) => {
         switch (status) {
           case 144:
             node.triggerAttack();
@@ -224,163 +239,163 @@ js:
         } 
       }, [node]);
       
-      React.useEffect(() => {
-        node.set('attack', attack);
+      useEffect(() => {
+        node.set({ attack });
       }, [attack, node]);
       
-      React.useEffect(() => {
-        node.set('decay', decay);
+      useEffect(() => {
+        node.set({ decay });
       }, [decay, node]);
       
-      React.useEffect(() => {
-        node.set('sustain', sustain);
+      useEffect(() => {
+        node.set({ sustain });
       }, [sustain, node]);
       
-      React.useEffect(() => {
-        node.set('release', release);
+      useEffect(() => {
+        node.set({ release });
       }, [release, node]);
         
-      return (
-        <ToneWrapper node={node} onMessage={handleMessage}>
-          <NexusMultislider numberOfSliders={envelope.length} min={0} max={2} step={0.001} values={envelope} onChange={handleChange} />
-        </ToneWrapper>
-      );
+      return html`
+        <${ToneWrapper} node=${node} onMessage=${handleMessage}>
+          <${NexusMultislider} numberOfSliders=${envelope.length} min=${0} max=${2} step=${0.001} values=${envelope} onChange=${handleChange}/>
+        <//>
+      `;
     }
 
     function ToneFilter({ frequency, type, rolloff, onChange }) {
-      const [node] = React.useState(() => new Tone.Filter({ frequency, type, rolloff }));
-      const [types] = React.useState(() => ['lowpass', 'highpass', 'bandpass', 'lowshelf', 'highshelf', 'notch', 'allpass', 'peaking']);
-      const [rolloffs] = React.useState(() => [-12, -24, -48, -96]);
+      const [node] = useState(() => new Filter({ frequency, type, rolloff }));
+      const [types] = useState(() => ['lowpass', 'highpass', 'bandpass', 'lowshelf', 'highshelf', 'notch', 'allpass', 'peaking']);
+      const [rolloffs] = useState(() => [-12, -24, -48, -96]);
 
-      const setFrequency = React.useCallback(frequency => {
+      const setFrequency = useCallback(frequency => {
         if (onChange !== undefined) onChange({ frequency });
       }, [onChange]);
       
-      const setType = React.useCallback(({ index, value }) => {
+      const setType = useCallback(({ index, value }) => {
         if (onChange !== undefined) onChange({ type: value });
       }, [onChange]);
       
-      const setRolloff = React.useCallback(({ index, value }) => {
+      const setRolloff = useCallback(({ index, value }) => {
         if (onChange !== undefined) onChange({ rolloff: value });
       }, [onChange]);
     
-      React.useEffect(() => {    
-        node.set('frequency', frequency);
+      useEffect(() => {    
+        node.set({ frequency });
       }, [frequency, node]);
 
-      React.useEffect(() => {    
-        node.set('type', type);
+      useEffect(() => {    
+        node.set({ type });
       }, [type, node]);
 
-      React.useEffect(() => {    
-        node.set('rolloff', rolloff);
+      useEffect(() => {    
+        node.set({ rolloff });
       }, [rolloff, node]);
 
-      return (
-        <ToneWrapper node={node}>
+      return html`
+        <${ToneWrapper} node=${node}>
           <h3 className="is-size-7">Frequency</h3>
-          <NexusSlider min={20} max={20000} step={1} value={frequency} onChange={setFrequency}/>
+          <${NexusSlider} min=${20} max=${20000} step=${1} value=${frequency} onChange=${setFrequency}/>
           <h3 className="is-size-7">Type</h3>
-          <NexusSelect value={type} options={types} onChange={setType}/>
+          <${NexusSelect} value=${type} options=${types} onChange=${setType}/>
           <h3 className="is-size-7">Rolloff</h3>
-          <NexusSelect value={rolloff} options={rolloffs} onChange={setRolloff}/>
-        </ToneWrapper>
-      );
+          <${NexusSelect} value=${rolloff} options=${rolloffs} onChange=${setRolloff}/>
+        <//>
+      `;
     }
 
     function ToneOscillator({ detune, type, onChange }) {
-      const [node] = React.useState(() => new Tone.Oscillator({ detune, type }).start());
-      const [mute, setMute] = React.useState(false);
-      const [types] = React.useState(() => Object.values(Tone.Oscillator.Type).filter(type => type !== 'custom'));
+      const [node] = useState(() => new Oscillator({ detune, type }).start());
+      const [mute, setMute] = useState(false);
+      const [types] = useState(() => ['sine', 'triangle', 'square', 'sawtooth']);
       
-      const setDetune = React.useCallback(detune => {
+      const setDetune = useCallback(detune => {
         if (onChange !== undefined) onChange({ detune });
       }, [onChange]);
-      
-      const setType = React.useCallback(({ index, value }) => {
+
+      const setType = useCallback(({ index, value }) => {
         if (onChange !== undefined) onChange({ type: value }); 
       }, [onChange]);
       
       const handleMessage = ([status, data0, data1]) => {
         if (status === 144) {
-          const freq = Nexus.mtof(data0);
-          node.set('frequency', freq);
+          const frequency = Nexus.mtof(data0);
+          node.set({ frequency });
         }
       };
       
-      /*React.useEffect(() => {
+      /*useEffect(() => {
         node.mute = mute;
       }, [mute, node]);*/
       
-      React.useEffect(() => {
-        node.set('detune', detune);
+      useEffect(() => {
+        node.set({ detune });
       }, [detune]);
       
-      React.useEffect(() => {
-        node.set('type', type);
+      useEffect(() => {
+        node.set({ type });
       }, [type]);
         
-      return (
-        <ToneWrapper node={node} onMessage={handleMessage}>
+      return html`
+        <${ToneWrapper} node=${node} onMessage=${handleMessage}>
           <div className="columns">
             <div className="column">
               <h3 className="is-size-7">Type</h3>
-              <NexusSelect value={type} options={types} onChange={setType} />
+              <${NexusSelect} value=${type} options=${types} onChange=${setType}/>
             </div>
             <div className="column">
               <h3 className="is-size-7">Detune</h3>
-              <NexusDial value={detune} min={-100} max={100} step={1} size={[32, 32]} onChange={setDetune} />
+              <${NexusDial} value=${detune} min=${-100} max=${100} step=${1} size=${[32, 32]} onChange=${setDetune}/>
             </div>
             <div className="column">
               <h3 className="is-size-7">Mute</h3>
-              <NexusToggle state={mute} onChange={setMute}/>
+              <${NexusToggle} state=${mute} onChange=${setMute}/>
             </div>
           </div>
-        </ToneWrapper>
-      );
+        <//>
+      `;
     }
 
-    function ToneMaster({ gain, onChange }) {
-      const [node] = React.useState(() => new Tone.Gain({ gain }).toMaster());
+    function ToneMaster({ gain = 1, onChange }) {
+      const [node] = useState(() => new Gain({ gain }));
+
+      useEffect(() => {
+        node.toDestination();
+      }, []);
     
-      React.useEffect(() => {
-        node.set('gain', gain);
+      useEffect(() => {
+        node.set({ gain });
       }, [gain, node]);
 
-      return (
-        <ToneWrapper node={node}>
-          <h3 className="is-size-7">Gain</h3>
-          <NexusSlider min={0} max={1} value={gain} onChange={onChange}/>
-        </ToneWrapper>
-      );
-    }
+      const setGain = useCallback(gain => {
+        if (onChange !== undefined) onChange({ gain });
+      }, [onChange]);
 
-    ToneMaster.defaultProps = {
-      gain: 1
-    };
+      return html`
+        <${ToneWrapper} node=${node}>
+          <h3 className="is-size-7">Gain</h3>
+          <${NexusSlider} min=${0} max=${1} value=${gain} onChange=${setGain}/>
+        <//>
+      `;
+    }
 
     function OscillatorBank({ oscillators, onChange, ...props }) {
       // TODO use hooks?
       const handleChange = key => payload => onChange({ [key]: payload });
       
-      return (
-        <React.Fragment>
-          {Object.keys(oscillators).map(key => {
-            return <ToneOscillator {...props} {...oscillators[key]} key={key} onChange={handleChange(key)}/>
-          })}
-        </React.Fragment>
-      );
+      return Object.keys(oscillators).map(key => {
+        return html`<${ToneOscillator} ...${props} ...${oscillators[key]} key=${key} onChange=${handleChange(key)}/>`;
+      });
     }
 
     function MidiPiano(props) {
-      const { publish } = React.useContext(MidiContext);
+      const { publish } = useContext(MidiContext);
 
-      const handleChange = React.useCallback(({ note, state }) => {
+      const handleChange = useCallback(({ note, state }) => {
         const status = state ? 144 : 128;
         publish([status, note, 127]);
       }, [publish]);
 
-      return <NexusPiano {...props} onChange={handleChange} />;
+      return html`<${NexusPiano} ...${props} onChange=${handleChange}/>`;
     }
 
     /**
@@ -388,17 +403,18 @@ js:
      */
 
     const initialState = {
-      envelope: Tone.Envelope.defaults,
-      filter: Tone.Filter.defaults,
-      oscillator1: { ...Tone.Oscillator.defaults, type: 'sawtooth' },
-      oscillator2: { ...Tone.Oscillator.defaults, type: 'sawtooth', detune: -5 },
-      oscillator3: { ...Tone.Oscillator.defaults, type: 'sawtooth', detune: 5 }
+      envelope: Envelope.getDefaults(),
+      filter: Filter.getDefaults(),
+      oscillator1: { ...Oscillator.getDefaults(), type: 'sawtooth' },
+      oscillator2: { ...Oscillator.getDefaults(), type: 'sawtooth', detune: -5 },
+      oscillator3: { ...Oscillator.getDefaults(), type: 'sawtooth', detune: 5 },
+      master: { gain: 1 }
     };
 
     const appReducer = (state, { type, ...payload }) => {
       switch (type) {
         case 'update': {
-          return R.mergeDeepRight(state, payload);
+          return mergeDeepRight(state, payload);
         }
         default: {
           return state;
@@ -407,54 +423,54 @@ js:
     };
 
     function App() {
-      const [state, dispatch] = React.useReducer(appReducer, initialState);
-      const { filter, envelope, ...oscillators } = state;
-      
-      return (
-        <React.Fragment>
-          <div className="columns">
-            <div className="column">
-              <BulmaCard title="Oscillators">
-                <ToneBusContext.Provider value={{ send: 'filter' }}>
-                  <OscillatorBank oscillators={oscillators} onChange={payload => dispatch({ type: 'update', ...payload })} />
-                </ToneBusContext.Provider>
-              </BulmaCard>
-            </div>
-            <div className="column">
-              <BulmaCard title="Envelope">
-                <ToneBusContext.Provider value={{ receive: 'envelope', send: 'master' }}>
-                  <ToneAmplitudeEnvelope {...envelope} onChange={envelope => dispatch({ type: 'update', envelope })} />
-                </ToneBusContext.Provider>
-              </BulmaCard>
-            </div>
-            <div className="column">
-              <BulmaCard title="Filter">
-                <ToneBusContext.Provider value={{ receive: 'filter', send: 'envelope' }}>
-                  <ToneFilter {...filter} onChange={filter => dispatch({ type: 'update', filter })} />
-                </ToneBusContext.Provider>
-              </BulmaCard>
-            </div>
-            <div className="column">
-              <BulmaCard title="Master">
-                <ToneBusContext.Provider value={{ receive: 'master' }}>
-                  <ToneMaster />
-                </ToneBusContext.Provider>
-              </BulmaCard>
-            </div>
+      const [state, dispatch] = useReducer(appReducer, initialState);
+      const { filter, envelope, master, ...oscillators } = state;
+
+      return html`
+        <div className="columns">
+          <div className="column">
+            <${BulmaCard} title="Oscillators">
+              <${ToneBusContext.Provider} value=${{ send: 'filter' }}>
+                <${OscillatorBank} oscillators=${oscillators} onChange=${payload => dispatch({ type: 'update', ...payload })}/>
+              <//>
+            <//>
           </div>
-          <div className="is-nexus-centered">
-            <MidiPiano lowNote={21} highNote={108} size={[1000,125]}/>
+          <div className="column">
+            <${BulmaCard} title="Envelope">
+              <${ToneBusContext.Provider} value=${{ receive: 'envelope', send: 'master' }}>
+                <${ToneAmplitudeEnvelope} ...${envelope} onChange=${envelope => dispatch({ type: 'update', envelope })}/>
+              <//>
+            <//>
           </div>
-        </React.Fragment>
-      );
+          <div className="column">
+            <${BulmaCard} title="Filter">
+              <${ToneBusContext.Provider} value=${{ receive: 'filter', send: 'envelope' }}>
+                <${ToneFilter} ...${filter} onChange=${filter => dispatch({ type: 'update', filter })}/>
+              <//>
+            <//>
+          </div>
+          <div className="column">
+            <${BulmaCard} title="Master">
+              <${ToneBusContext.Provider} value=${{ receive: 'master' }}>
+                <${ToneMaster} ...${master} onChange=${master => dispatch({ type: 'update', master })} />
+              <//>
+            <//>
+          </div>
+        </div>
+        <div className="container mt-5 is-nexus-centered">
+          <${MidiPiano} lowNote=${21} highNote=${108} size=${[1000,125]}/>
+        </div>
+      `;
     }
 
     // Audio context needs a user event to begin playing
     // https://developer.mozilla.org/en-US/docs/Web/Media/Autoplay_guide#Autoplay_using_the_Web_Audio_API
-    document.querySelector('#root > button').addEventListener('click', () => {
-      ReactDOM.render(
-        <App />,
-        document.getElementById('root')
+    document.querySelector('#app > button').addEventListener('click', () => {
+      render(
+        html`<${App}/>`,
+        document.getElementById('root'),
+        document.getElementById('app')
       );
-    });
+    }, { once: true });
 ---
+A modular synthesizer using Preact.

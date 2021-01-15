@@ -2,7 +2,7 @@
 layout: code.njk
 title: Frequency bar graph (with Vue, D3, and Rxjs)
 date: 2017-10-02
-published: true
+published: false
 tags:
   - code
 html:
@@ -43,7 +43,7 @@ js:
   lang: javascript
   code: |-
     import { interpolateRainbow, range, scaleBand, scaleLinear, scalePow } from 'https://cdn.skypack.dev/d3@^5.16.0';
-    import { animationFrame, interval, of, Scheduler } from 'https://cdn.skypack.dev/rxjs@^6.5.5';
+    import { animationFrame, interval, of } from 'https://cdn.skypack.dev/rxjs@^6.5.5';
     import { map, mergeMap, tap, withLatestFrom } from 'https://cdn.skypack.dev/rxjs@^6.5.5/operators';
     import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.min.js';
 
@@ -182,3 +182,4 @@ js:
 
     document.addEventListener('click', resumeAudioContext);
 ---
+Frequency bar graph.

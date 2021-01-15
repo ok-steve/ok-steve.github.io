@@ -67,5 +67,4 @@ css:
 js:
   lang: javascript
 ---
-
-https://philipwalton.github.io/solved-by-flexbox/demos/media-object/
+See: https://philipwalton.github.io/solved-by-flexbox/demos/media-object/

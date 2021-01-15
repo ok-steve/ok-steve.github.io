@@ -8,8 +8,6 @@ tags:
 html:
   lang: html
   code: |-
-    <script src="https://unpkg.com/vue@2.4.4/dist/vue.min.js"></script>
-    
     <div id="app">
       <color v-for="color in colors" :color="color" :primary="primary" v-on:removecolor="removeColor" v-on:setprimary="setPrimary"></color>
       <button v-on:click="addColor">+</button>
@@ -39,6 +37,8 @@ css:
 js:
   lang: javascript
   code: |-
+    import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.min.js';
+    
     const Color = {
       template: '#color',
       props: {
@@ -85,3 +85,4 @@ js:
       },
     });
 ---
+A tool to build color schemes.

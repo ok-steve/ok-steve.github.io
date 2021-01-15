@@ -8,13 +8,14 @@ tags:
 html:
   lang: html
   code: |-
-    <script src="https://cdn.jsdelivr.net/npm/@magenta/music@1.12.0/dist/magentamusic.min.js"></script>
     <canvas id="canvas"></canvas>
 css:
   lang: css
 js:
   lang: javascript
   code: |-
+    import mm from 'https://cdn.skypack.dev/@magenta/music';
+
     /**
      * Libraries
      */
@@ -102,7 +103,8 @@ js:
       playVAE();
     };
 
-    /*model.initialize().then(() => {
+    model.initialize().then(() => {
       app();
-    });*/
-    ---
+    });
+---
+A demo of Magenta's MusicVAE.

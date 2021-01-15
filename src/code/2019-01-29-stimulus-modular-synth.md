@@ -8,7 +8,6 @@ tags:
 html:
   lang: html
   code: |-
-    <script src="https://unpkg.com/stimulus@1.1.0/dist/stimulus.umd.js"></script>
     <form data-controller="storage" data-action="change->storage#save" data-storage-name="synth">
       <button data-action="click->storage#clear">Clear</button>
       <div class="grid">
@@ -16,11 +15,11 @@ html:
           <legend>Oscillator 1</legend>
           <div class="field field__number">
             <label for="oscillator-1-detune">Detune</label>
-            <input type="number" name="oscillator-1-detune" id="oscillator-1-detune" min="-3600" max="3600" value="0" data-target="oscillator.detune" data-action="input->oscillator#setDetune"/>
+            <input type="number" name="oscillator-1-detune" id="oscillator-1-detune" min="-3600" max="3600" value="0" data-oscillator-target="detune" data-action="input->oscillator#setDetune"/>
           </div>
           <div class="field field__select">
             <label for="oscillator-1-type">Type</label>
-            <select name="oscillator-1-type" id="oscillator-1-type" data-target="oscillator.type" data-action="change->oscillator#setType">
+            <select name="oscillator-1-type" id="oscillator-1-type" data-oscillator-target="type" data-action="change->oscillator#setType">
               <option value="sine" selected="selected">sine</option>
               <option value="square">square</option>
               <option value="sawtooth">sawtooth</option>
@@ -30,7 +29,7 @@ html:
           </div>
           <div class="field field__select">
             <label for="oscillator-1-wave">Periodic wave</label>
-            <select name="oscillator-1-wave" id="oscillator-1-wave" data-target="oscillator.wave" data-action="change->oscillator#setPeriodicWave">
+            <select name="oscillator-1-wave" id="oscillator-1-wave" data-oscillator-target="wave" data-action="change->oscillator#setPeriodicWave">
               <option value="Bass">Bass</option>
               <option value="BassAmp360">BassAmp360</option>
               <option value="BassFuzz">BassFuzz</option>
@@ -89,31 +88,31 @@ html:
           <legend>Gain 1</legend>
           <div class="field field__range" data-controller="field">
             <label for="gain-1-gain">Gain</label>
-            <input type="range" name="gain-1-gain" id="gain-1-gain" max="1" step="0.125" value="1" data-target="gain.gain field.input" data-action="input->gain#setGain input->field#update"/>
-            <output data-target="field.output"></output>
+            <input type="range" name="gain-1-gain" id="gain-1-gain" max="1" step="0.125" value="1" data-gain-target="gain" data-field-target="input" data-action="input->gain#setGain input->field#update"/>
+            <output data-field-target="output"></output>
           </div>
           <div class="field field__checkbox">
             <label for="gain-1-mute">Mute</label>
-            <input type="checkbox" name="gain-1-mute" id="gain-1-mute" data-target="gain.mute" data-action="change->gain#setGain"/>
+            <input type="checkbox" name="gain-1-mute" id="gain-1-mute" data-gain-target="mute" data-action="change->gain#setGain"/>
           </div>
         </fieldset>
         <fieldset class="stereo-panner" data-controller="panner" id="panner-1" data-receive="panner-1" data-send="envelope">
           <legend>Panner 1</legend>
           <div class="field field__range" data-controller="field">
             <label for="panner-1-pan">Pan</label>
-            <input type="range" name="panner-1-pan" id="panner-1-pan" min="-1" max="1" step="0.1" value="0" data-target="panner.pan field.input" data-action="input->panner#setPan input->field#update"/>
-            <output data-target="field.output"></output>
+            <input type="range" name="panner-1-pan" id="panner-1-pan" min="-1" max="1" step="0.1" value="0" data-panner-target="pan" data-field-target="input" data-action="input->panner#setPan input->field#update"/>
+            <output data-field-target="output"></output>
           </div>
         </fieldset>
         <fieldset class="oscillator" data-controller="oscillator" id="oscillator-2" data-send="gain-2">
           <legend>Oscillator 2</legend>
           <div class="field field__number">
             <label for="oscillator-2-detune">Detune</label>
-            <input type="number" name="oscillator-2-detune" id="oscillator-2-detune" min="-3600" max="3600" value="0" data-target="oscillator.detune" data-action="input->oscillator#setDetune"/>
+            <input type="number" name="oscillator-2-detune" id="oscillator-2-detune" min="-3600" max="3600" value="0" data-oscillator-target="detune" data-action="input->oscillator#setDetune"/>
           </div>
           <div class="field field__select">
             <label for="oscillator-2-type">Type</label>
-            <select name="oscillator-2-type" id="oscillator-2-type" data-target="oscillator.type" data-action="change->oscillator#setType">
+            <select name="oscillator-2-type" id="oscillator-2-type" data-oscillator-target="type" data-action="change->oscillator#setType">
               <option value="sine" selected="selected">sine</option>
               <option value="square">square</option>
               <option value="sawtooth">sawtooth</option>
@@ -123,7 +122,7 @@ html:
           </div>
           <div class="field field__select">
             <label for="oscillator-2-wave">Periodic wave</label>
-            <select name="oscillator-2-wave" id="oscillator-2-wave" data-target="oscillator.wave" data-action="change->oscillator#setPeriodicWave">
+            <select name="oscillator-2-wave" id="oscillator-2-wave" data-oscillator-target="wave" data-action="change->oscillator#setPeriodicWave">
               <option value="Bass">Bass</option>
               <option value="BassAmp360">BassAmp360</option>
               <option value="BassFuzz">BassFuzz</option>
@@ -182,31 +181,31 @@ html:
           <legend>Gain 2</legend>
           <div class="field field__range" data-controller="field">
             <label for="gain-1-gain">Gain</label>
-            <input type="range" name="gain-1-gain" id="gain-1-gain" max="1" step="0.125" value="1" data-target="gain.gain field.input" data-action="input->gain#setGain input->field#update"/>
-            <output data-target="field.output"></output>
+            <input type="range" name="gain-1-gain" id="gain-1-gain" max="1" step="0.125" value="1" data-gain-target="gain" data-field-target="input" data-action="input->gain#setGain input->field#update"/>
+            <output data-field-target="output"></output>
           </div>
           <div class="field field__checkbox">
             <label for="gain-1-mute">Mute</label>
-            <input type="checkbox" name="gain-1-mute" id="gain-1-mute" checked="checked" data-target="gain.mute" data-action="change->gain#setGain"/>
+            <input type="checkbox" name="gain-1-mute" id="gain-1-mute" checked="checked" data-gain-target="mute" data-action="change->gain#setGain"/>
           </div>
         </fieldset>
         <fieldset class="stereo-panner" data-controller="panner" id="panner-2" data-receive="panner-2" data-send="envelope">
           <legend>Panner 2</legend>
           <div class="field field__range" data-controller="field">
             <label for="panner-2-pan">Pan</label>
-            <input type="range" name="panner-2-pan" id="panner-2-pan" min="-1" max="1" step="0.1" value="0" data-target="panner.pan field.input" data-action="input->panner#setPan input->field#update"/>
-            <output data-target="field.output"></output>
+            <input type="range" name="panner-2-pan" id="panner-2-pan" min="-1" max="1" step="0.1" value="0" data-panner-target="pan" data-field-target="input" data-action="input->panner#setPan input->field#update"/>
+            <output data-field-target="output"></output>
           </div>
         </fieldset>
         <fieldset class="oscillator" data-controller="oscillator" id="oscillator-3" data-send="gain-3">
           <legend>Oscillator 3</legend>
           <div class="field field__number">
             <label for="oscillator-3-detune">Detune</label>
-            <input type="number" name="oscillator-3-detune" id="oscillator-3-detune" min="-3600" max="3600" value="0" data-target="oscillator.detune" data-action="input->oscillator#setDetune"/>
+            <input type="number" name="oscillator-3-detune" id="oscillator-3-detune" min="-3600" max="3600" value="0" data-oscillator-target="detune" data-action="input->oscillator#setDetune"/>
           </div>
           <div class="field field__select">
             <label for="oscillator-3-type">Type</label>
-            <select name="oscillator-3-type" id="oscillator-3-type" data-target="oscillator.type" data-action="change->oscillator#setType">
+            <select name="oscillator-3-type" id="oscillator-3-type" data-oscillator-target="type" data-action="change->oscillator#setType">
               <option value="sine" selected="selected">sine</option>
               <option value="square">square</option>
               <option value="sawtooth">sawtooth</option>
@@ -216,7 +215,7 @@ html:
           </div>
           <div class="field field__select">
             <label for="oscillator-3-wave">Periodic wave</label>
-            <select name="oscillator-3-wave" id="oscillator-3-wave" data-target="oscillator.wave" data-action="change->oscillator#setPeriodicWave">
+            <select name="oscillator-3-wave" id="oscillator-3-wave" data-oscillator-target="wave" data-action="change->oscillator#setPeriodicWave">
               <option value="Bass">Bass</option>
               <option value="BassAmp360">BassAmp360</option>
               <option value="BassFuzz">BassFuzz</option>
@@ -275,67 +274,67 @@ html:
           <legend>Gain 3</legend>
           <div class="field field__range" data-controller="field">
             <label for="gain-1-gain">Gain</label>
-            <input type="range" name="gain-1-gain" id="gain-1-gain" max="1" step="0.125" value="1" data-target="gain.gain field.input" data-action="input->gain#setGain input->field#update"/>
-            <output data-target="field.output"></output>
+            <input type="range" name="gain-1-gain" id="gain-1-gain" max="1" step="0.125" value="1" data-gain-target="gain" data-field-target="input" data-action="input->gain#setGain input->field#update"/>
+            <output data-field-target="output"></output>
           </div>
           <div class="field field__checkbox">
             <label for="gain-1-mute">Mute</label>
-            <input type="checkbox" name="gain-1-mute" id="gain-1-mute" checked="checked" data-target="gain.mute" data-action="change->gain#setGain"/>
+            <input type="checkbox" name="gain-1-mute" id="gain-1-mute" checked="checked" data-gain-target="mute" data-action="change->gain#setGain"/>
           </div>
         </fieldset>
         <fieldset class="stereo-panner" data-controller="panner" id="panner-3" data-receive="panner-3" data-send="envelope">
           <legend>Panner 3</legend>
           <div class="field field__range" data-controller="field">
             <label for="panner-3-pan">Pan</label>
-            <input type="range" name="panner-3-pan" id="panner-3-pan" min="-1" max="1" step="0.1" value="0" data-target="panner.pan field.input" data-action="input->panner#setPan input->field#update"/>
-            <output data-target="field.output"></output>
+            <input type="range" name="panner-3-pan" id="panner-3-pan" min="-1" max="1" step="0.1" value="0" data-panner-target="pan" data-field-target="input" data-action="input->panner#setPan input->field#update"/>
+            <output data-field-target="output"></output>
           </div>
         </fieldset>
         <fieldset class="envelope" data-controller="envelope" id="envelope" data-receive="envelope" data-send="filter">
           <legend>Envelope</legend>
           <div class="field field__range" data-controller="field">
             <label for="envelope-attack">Attack</label>
-            <input type="range" name="envelope-attack" id="envelope-attack" max="1" step="0.1" value="0.01" data-target="envelope.attack field.input" data-action="input->envelope#setAttack input->field#update"/>
-            <output data-target="field.output"></output>
+            <input type="range" name="envelope-attack" id="envelope-attack" max="1" step="0.1" value="0.01" data-envelope-target="attack" data-field-target="input" data-action="input->envelope#setAttack input->field#update"/>
+            <output data-field-target="output"></output>
           </div>
           <div class="field field__range" data-controller="field">
             <label for="envelope-decay">Decay</label>
-            <input type="range" name="envelope-decay" id="envelope-decay" max="1" step="0.1" value="0.1" data-target="envelope.decay field.input" data-action="input->envelope#setDecay input->field#update"/>
-            <output data-target="field.output"></output>
+            <input type="range" name="envelope-decay" id="envelope-decay" max="1" step="0.1" value="0.1" data-envelope-target="decay" data-field-target="input" data-action="input->envelope#setDecay input->field#update"/>
+            <output data-field-target="output"></output>
           </div>
           <div class="field field__range" data-controller="field">
             <label for="envelope-sustain">Sustain</label>
-            <input type="range" name="envelope-sustain" id="envelope-sustain" max="1" step="0.1" value="0.5" data-target="envelope.sustain field.input" data-action="input->envelope#setSustain input->field#update"/>
-            <output data-target="field.output"></output>
+            <input type="range" name="envelope-sustain" id="envelope-sustain" max="1" step="0.1" value="0.5" data-envelope-target="sustain" data-field-target="input" data-action="input->envelope#setSustain input->field#update"/>
+            <output data-field-target="output"></output>
           </div>
           <div class="field field__range" data-controller="field">
             <label for="envelope-release">Release</label>
-            <input type="range" name="envelope-release" id="envelope-release" max="1" step="0.1" value="0.2" data-target="envelope.release field.input" data-action="input->envelope#setRelease input->field#update"/>
-            <output data-target="field.output"></output>
+            <input type="range" name="envelope-release" id="envelope-release" max="1" step="0.1" value="0.2" data-envelope-target="release" data-field-target="input" data-action="input->envelope#setRelease input->field#update"/>
+            <output data-field-target="output"></output>
           </div>
         </fieldset>
         <fieldset class="biquad-filter" data-controller="filter" id="filter" data-receive="filter" data-send="delay master">
           <legend>Filter</legend>
           <div class="field field__number">
             <label for="filter-frequency">Frequency</label>
-            <input type="number" name="filter-frequency" id="filter-frequency" min="10" max="24000" value="350" data-target="filter.frequency" data-action="input->filter#setFrequency"/>
+            <input type="number" name="filter-frequency" id="filter-frequency" min="10" max="24000" value="350" data-filter-target="frequency" data-action="input->filter#setFrequency"/>
           </div>
           <div class="field field__number">
             <label for="filter-detune">Detune</label>
-            <input type="number" name="filter-detune" id="filter-detune" min="-3600" max="3600" value="0" data-target="filter.detune" data-action="input->filter#setDetune"/>
+            <input type="number" name="filter-detune" id="filter-detune" min="-3600" max="3600" value="0" data-filter-target="detune" data-action="input->filter#setDetune"/>
           </div>
           <div class="field field__number">
             <label for="filter-q">Q</label>
-            <input type="number" name="filter-q" id="filter-q" min="0.0001" max="1000" step="0.0001" value="1" data-target="filter.Q" data-action="input->filter#setQ"/>
+            <input type="number" name="filter-q" id="filter-q" min="0.0001" max="1000" step="0.0001" value="1" data-filter-target="Q" data-action="input->filter#setQ"/>
           </div>
           <div class="field field__range" data-controller="field">
             <label for="filter-gain">Gain</label>
-            <input type="range" name="filter-gain" id="filter-gain" min="-40" max="40" value="0" data-target="filter.gain field.input" data-action="input->filter#setGain input->field#update"/>
-            <output data-target="field.output"></output>
+            <input type="range" name="filter-gain" id="filter-gain" min="-40" max="40" value="0" data-filter-target="gain" data-field-target="input" data-action="input->filter#setGain input->field#update"/>
+            <output data-field-target="output"></output>
           </div>
           <div class="field field__select">
             <label for="filter-type">Type</label>
-            <select name="filter-type" id="filter-type" data-target="filter.type" data-action="change->filter#setType">
+            <select name="filter-type" id="filter-type" data-filter-target="type" data-action="change->filter#setType">
               <option value="lowpass" selected="selected">lowpass</option>
               <option value="highpass">highpass</option>
               <option value="bandpass">bandpass</option>
@@ -351,12 +350,12 @@ html:
           <legend>LFO</legend>
           <div class="field field__range" data-controller="field">
             <label for="lfo-frequency">Frequency</label>
-            <input type="range" name="lfo-frequency" id="lfo-frequency" max="20" step="0.5" value="0.5" data-target="lfo.frequency field.input" data-action="input->lfo#setFrequency input->field#update"/>
-            <output data-target="field.output"></output>
+            <input type="range" name="lfo-frequency" id="lfo-frequency" max="20" step="0.5" value="0.5" data-lfo-target="frequency" data-field-target="input" data-action="input->lfo#setFrequency input->field#update"/>
+            <output data-field-target="output"></output>
           </div>
           <div class="field field__select">
             <label for="lfo-type">Type</label>
-            <select name="lfo-type" id="lfo-type" data-target="lfo.type" data-action="change->lfo#setType">
+            <select name="lfo-type" id="lfo-type" data-lfo-target="type" data-action="change->lfo#setType">
               <option value="sine" selected="selected">sine</option>
               <option value="square">square</option>
               <option value="sawtooth">sawtooth</option>
@@ -365,43 +364,43 @@ html:
           </div>
           <div class="field field__number">
             <label for="lfo-gain">Gain</label>
-            <input type="number" name="lfo-gain" id="lfo-gain" max="3600" value="1" data-target="lfo.gain" data-action="input->lfo#setGain"/>
+            <input type="number" name="lfo-gain" id="lfo-gain" max="3600" value="1" data-lfo-target="gain" data-action="input->lfo#setGain"/>
           </div>
           <div class="field field__checkbox">
             <label for="lfo-mute">Mute</label>
-            <input type="checkbox" name="lfo-mute" id="lfo-mute" checked="checked" data-target="lfo.mute" data-action="change->lfo#setGain"/>
+            <input type="checkbox" name="lfo-mute" id="lfo-mute" checked="checked" data-lfo-target="mute" data-action="change->lfo#setGain"/>
           </div>
         </fieldset>
         <fieldset class="delay" data-controller="delay" data-delay="1" id="delay" data-receive="delay" data-send="master delay-feedback">
           <legend>Delay</legend>
           <div class="field field__range" data-controller="field">
             <label for="delay-delay-time">Delay time</label>
-            <input type="range" name="delay-delay-time" id="delay-delay-time" max="1" step="0.125" value="0" data-target="delay.delayTime field.input" data-action="input->delay#setDelayTime input->field#update"/>
-            <output data-target="field.output"></output>
+            <input type="range" name="delay-delay-time" id="delay-delay-time" max="1" step="0.125" value="0" data-delay-target="delayTime" data-field-target="input" data-action="input->delay#setDelayTime input->field#update"/>
+            <output data-field-target="output"></output>
           </div>
         </fieldset>
         <fieldset class="gain" data-controller="gain" id="delay-feedback" data-receive="delay-feedback" data-send="delay">
           <legend>Delay feedback</legend>
           <div class="field field__range" data-controller="field">
             <label for="delay-feedback-gain">Gain</label>
-            <input type="range" name="delay-feedback-gain" id="delay-feedback-gain" max="1" step="0.125" value="1" data-target="gain.gain field.input" data-action="input->gain#setGain input->field#update"/>
-            <output data-target="field.output"></output>
+            <input type="range" name="delay-feedback-gain" id="delay-feedback-gain" max="1" step="0.125" value="1" data-gain-target="gain" data-field-target="input" data-action="input->gain#setGain input->field#update"/>
+            <output data-field-target="output"></output>
           </div>
           <div class="field field__checkbox">
             <label for="delay-feedback-mute">Mute</label>
-            <input type="checkbox" name="delay-feedback-mute" id="delay-feedback-mute" checked="checked" data-target="gain.mute" data-action="change->gain#setGain"/>
+            <input type="checkbox" name="delay-feedback-mute" id="delay-feedback-mute" checked="checked" data-gain-target="mute" data-action="change->gain#setGain"/>
           </div>
         </fieldset>
         <fieldset class="gain" data-controller="gain" id="master" data-receive="master" data-send="destination">
           <legend>Master</legend>
           <div class="field field__range" data-controller="field">
             <label for="master-gain">Gain</label>
-            <input type="range" name="master-gain" id="master-gain" max="1" step="0.125" value="0.5" data-target="gain.gain field.input" data-action="input->gain#setGain input->field#update"/>
-            <output data-target="field.output"></output>
+            <input type="range" name="master-gain" id="master-gain" max="1" step="0.125" value="0.5" data-gain-target="gain" data-field-target="input" data-action="input->gain#setGain input->field#update"/>
+            <output data-field-target="output"></output>
           </div>
           <div class="field field__checkbox">
             <label for="master-mute">Mute</label>
-            <input type="checkbox" name="master-mute" id="master-mute" data-target="gain.mute" data-action="change->gain#setGain"/>
+            <input type="checkbox" name="master-mute" id="master-mute" data-gain-target="mute" data-action="change->gain#setGain"/>
           </div>
         </fieldset>
       </div>
@@ -411,8 +410,8 @@ html:
       <legend>Piano</legend>
       <div class="field field__range" data-controller="field">
         <label for="piano-octave">Octave</label>
-        <input type="range" name="piano-octave" id="piano-octave" min="1" max="7" value="4" data-target="piano.octave field.input" data-action="input->field#update"/>
-        <output data-target="field.output"></output>
+        <input type="range" name="piano-octave" id="piano-octave" min="1" max="7" value="4" data-piano-target="octave" data-field-target="input" data-action="input->field#update"/>
+        <output data-field-target="output"></output>
       </div>
       <svg class="piano" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 616 162" aria-labelledby="piano-title piano-desc">
         <title id="piano-title">Piano</title>
@@ -424,31 +423,31 @@ html:
           <rect id="full" width="40" height="160"></rect>
           <rect id="accidental" width="21" height="80"></rect>
         </defs>
-        <use class="piano__key piano__key--natural" xlink:href="#left" x="1" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="0"></use>
-        <use class="piano__key piano__key--accidental" xlink:href="#accidental" x="31" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="1"></use>
-        <use class="piano__key piano__key--natural" xlink:href="#middle" x="42" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="2"></use>
-        <use class="piano__key piano__key--accidental" xlink:href="#accidental" x="72" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="3"></use>
-        <use class="piano__key piano__key--natural" xlink:href="#right" x="83" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="4"></use>
-        <use class="piano__key piano__key--natural" xlink:href="#left" x="124" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="5"></use>
-        <use class="piano__key piano__key--accidental" xlink:href="#accidental" x="154" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="6"></use>
-        <use class="piano__key piano__key--natural" xlink:href="#middle" x="165" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="7"></use>
-        <use class="piano__key piano__key--accidental" xlink:href="#accidental" x="195" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="8"></use>
-        <use class="piano__key piano__key--natural" xlink:href="#middle" x="206" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="9"></use>
-        <use class="piano__key piano__key--accidental" xlink:href="#accidental" x="236" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="10"></use>
-        <use class="piano__key piano__key--natural" xlink:href="#right" x="247" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="11"></use>
-        <use class="piano__key piano__key--natural" xlink:href="#left" x="288" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="12"></use>
-        <use class="piano__key piano__key--accidental" xlink:href="#accidental" x="318" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="13"></use>
-        <use class="piano__key piano__key--natural" xlink:href="#middle" x="329" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="14"></use>
-        <use class="piano__key piano__key--accidental" xlink:href="#accidental" x="359" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="15"></use>
-        <use class="piano__key piano__key--natural" xlink:href="#right" x="370" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="16"></use>
-        <use class="piano__key piano__key--natural" xlink:href="#left" x="411" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="17"></use>
-        <use class="piano__key piano__key--accidental" xlink:href="#accidental" x="441" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="18"></use>
-        <use class="piano__key piano__key--natural" xlink:href="#middle" x="452" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="19"></use>
-        <use class="piano__key piano__key--accidental" xlink:href="#accidental" x="482" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="20"></use>
-        <use class="piano__key piano__key--natural" xlink:href="#middle" x="493" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="21"></use>
-        <use class="piano__key piano__key--accidental" xlink:href="#accidental" x="523" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="22"></use>
-        <use class="piano__key piano__key--natural" xlink:href="#right" x="534" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="23"></use>
-        <use class="piano__key piano__key--natural" xlink:href="#full" x="575" y="1" tabindex="0" data-target="piano.key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="24"></use>
+        <use class="piano__key piano__key--natural" xlink:href="#left" x="1" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="0"></use>
+        <use class="piano__key piano__key--accidental" xlink:href="#accidental" x="31" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="1"></use>
+        <use class="piano__key piano__key--natural" xlink:href="#middle" x="42" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="2"></use>
+        <use class="piano__key piano__key--accidental" xlink:href="#accidental" x="72" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="3"></use>
+        <use class="piano__key piano__key--natural" xlink:href="#right" x="83" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="4"></use>
+        <use class="piano__key piano__key--natural" xlink:href="#left" x="124" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="5"></use>
+        <use class="piano__key piano__key--accidental" xlink:href="#accidental" x="154" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="6"></use>
+        <use class="piano__key piano__key--natural" xlink:href="#middle" x="165" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="7"></use>
+        <use class="piano__key piano__key--accidental" xlink:href="#accidental" x="195" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="8"></use>
+        <use class="piano__key piano__key--natural" xlink:href="#middle" x="206" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="9"></use>
+        <use class="piano__key piano__key--accidental" xlink:href="#accidental" x="236" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="10"></use>
+        <use class="piano__key piano__key--natural" xlink:href="#right" x="247" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="11"></use>
+        <use class="piano__key piano__key--natural" xlink:href="#left" x="288" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="12"></use>
+        <use class="piano__key piano__key--accidental" xlink:href="#accidental" x="318" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="13"></use>
+        <use class="piano__key piano__key--natural" xlink:href="#middle" x="329" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="14"></use>
+        <use class="piano__key piano__key--accidental" xlink:href="#accidental" x="359" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="15"></use>
+        <use class="piano__key piano__key--natural" xlink:href="#right" x="370" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="16"></use>
+        <use class="piano__key piano__key--natural" xlink:href="#left" x="411" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="17"></use>
+        <use class="piano__key piano__key--accidental" xlink:href="#accidental" x="441" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="18"></use>
+        <use class="piano__key piano__key--natural" xlink:href="#middle" x="452" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="19"></use>
+        <use class="piano__key piano__key--accidental" xlink:href="#accidental" x="482" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="20"></use>
+        <use class="piano__key piano__key--natural" xlink:href="#middle" x="493" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="21"></use>
+        <use class="piano__key piano__key--accidental" xlink:href="#accidental" x="523" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="22"></use>
+        <use class="piano__key piano__key--natural" xlink:href="#right" x="534" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="23"></use>
+        <use class="piano__key piano__key--natural" xlink:href="#full" x="575" y="1" tabindex="0" data-piano-target="key" data-action="keydown->piano#noteOn keyup->piano#noteOff mousedown->piano#noteOn mouseup->piano#noteOff touchstart->piano#noteOn touchend->piano#noteOff pointerdown->piano#noteOn pointerup->piano#noteOff" data-note="24"></use>
       </svg>
     </fieldset>
 css:
@@ -539,6 +538,8 @@ css:
 js:
   lang: javascript
   code: |-
+    import { Application, Controller } from 'https://cdn.skypack.dev/stimulus';
+
     /**
      * Utilities
      */
@@ -659,7 +660,7 @@ js:
      * Controllers
      */
 
-    class FieldController extends Stimulus.Controller {
+    class FieldController extends Controller {
       static get targets() {
         return [
           'input',
@@ -676,7 +677,7 @@ js:
       }
     }
 
-    class MidiController extends Stimulus.Controller {
+    class MidiController extends Controller {
       static get targets() {
         return [
           'input'
@@ -759,7 +760,7 @@ js:
       }
     }
 
-    class PianoController extends Stimulus.Controller {
+    class PianoController extends Controller {
       static get targets() {
         return [
           'octave',
@@ -854,7 +855,7 @@ js:
       }
     }
 
-    class BiquadFilterController extends Stimulus.Controller {
+    class BiquadFilterController extends Controller {
       static get targets() {
         return [
           'frequency',
@@ -916,7 +917,7 @@ js:
       }
     }
 
-    class DelayController extends Stimulus.Controller {
+    class DelayController extends Controller {
       static get targets() {
         return [
           'delayTime'
@@ -958,7 +959,7 @@ js:
       }
     }
 
-    class GainController extends Stimulus.Controller {
+    class GainController extends Controller {
       static get targets() {
         return [
           'gain',
@@ -998,7 +999,7 @@ js:
       }
     }
 
-    class OscillatorController extends Stimulus.Controller {
+    class OscillatorController extends Controller {
       static get targets() {
         return [
           'detune',
@@ -1078,7 +1079,7 @@ js:
       }
     }
 
-    class StereoPannerController extends Stimulus.Controller {
+    class StereoPannerController extends Controller {
       static get targets() {
         return [
           'pan'
@@ -1116,7 +1117,7 @@ js:
       }
     }
 
-    class EnvelopeController extends Stimulus.Controller {
+    class EnvelopeController extends Controller {
       static get targets() {
         return [
           'attack',
@@ -1189,7 +1190,7 @@ js:
       }
     }
 
-    class LFOController extends Stimulus.Controller {
+    class LFOController extends Controller {
       static get targets() {
         return [
           'frequency',
@@ -1253,7 +1254,7 @@ js:
       }
     }
 
-    class StorageController extends Stimulus.Controller {
+    class StorageController extends Controller {
       initialize() {
         this.load();
       }
@@ -1306,7 +1307,7 @@ js:
      * App
      */
 
-    const application = Stimulus.Application.start();
+    const application = Application.start();
 
     application.register('delay', DelayController);
     application.register('envelope', EnvelopeController);

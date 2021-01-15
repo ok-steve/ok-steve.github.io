@@ -27,7 +27,6 @@ html:
       
     </div>
 
-    <!-- https://tympanus.net/codrops/2019/02/05/svg-filter-effects-duotone-images-with-fecomponenttransfer/ -->
     <svg xmlns="http://www.w3.org/2000/svg">
       <filter id="duotone">
         <!-- Grab the SourceGraphic (implicit) and convert it to grayscale -->
@@ -131,3 +130,4 @@ js:
 
     setColors();
 ---
+See https://tympanus.net/codrops/2019/02/05/svg-filter-effects-duotone-images-with-fecomponenttransfer/

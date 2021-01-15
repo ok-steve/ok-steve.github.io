@@ -8,14 +8,14 @@ tags:
 html:
   lang: html
   code: |-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.12.2/flowchart.min.js"></script>
     <div id="diagram"></div>
 css:
   lang: css
 js:
   lang: javascript
   code: |-
+    import flowchart from 'https://cdn.skypack.dev/flowchart.js';
+
     const code = `
     st=>start: Start
     e=>end:>
@@ -49,3 +49,4 @@ js:
     const diagram = flowchart.parse(code);
     diagram.drawSVG('diagram');
 ---
+A flowchart showing the decision making process of Inbox zero.

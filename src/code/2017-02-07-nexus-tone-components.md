@@ -2,57 +2,44 @@
 layout: code.njk
 title: Nexus/Tone components
 date: 2017-02-07
-published: true
+published: false
 tags:
   - code
 html:
   lang: html
 css:
   lang: css
+  code: |-
+    @import url("https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.min.css");
 js:
   lang: javascript
   code: |-
-    const { Multislider, Piano, Select, Slider, Toggle } = window.Nexus;
-    const { defaultArg, CtrlPattern, OmniOscillator, Oscillator, Synth, Time } = window.Tone;
+    import Nexus from 'https://cdn.skypack.dev/nexusui';
+    import { optionsFromArguments, OmniOscillator, Synth, Time } from 'https://cdn.skypack.dev/tone';
+    const { Multislider, Piano, Select, Slider, Toggle } = Nexus;
 
     /**
      * Global variables
      */
 
-    const TONE_OSCILLATOR_TYPES = Object.values(Oscillator.Type).filter(
-      (type) => type !== 'custom'
-    );
-
+    const TONE_OSCILLATOR_TYPES = ['sine', 'triangle', 'square', 'sawtooth'];
     const TONE_OSCILLATOR_PREFIXES = ['fm', 'am', 'fat', 'pwm', 'pulse'];
-
     const TONE_NOISE_TYPES = ['white', 'pink', 'brown'];
-
     const TONE_ENVELOPE_KEYS = ['attack', 'decay', 'sustain', 'release'];
-
-    const TONE_FILTER_TYPES = [
-      'lowpass',
-      'highpass',
-      'bandpass',
-      'lowshelf',
-      'highshelf',
-      'notch',
-      'allpass',
-      'peaking',
-    ];
-
+    const TONE_FILTER_TYPES = ['lowpass', 'highpass', 'bandpass', 'lowshelf', 'highshelf', 'notch', 'allpass', 'peaking'];
     const TONE_FILTER_ROLLOFFS = [-12, -24, -48, -96];
-    const TONE_PATTERN_TYPES = Object.values(CtrlPattern.Type);
+    const TONE_PATTERN_TYPES = ['up', 'down', 'upDown', 'downUp', 'alternateUp', 'alternateDown', 'random', 'randomOnce', 'randomWalk'];
     const TONE_TIME_INTERVALS = ['4n', '8n', '16n'];
 
     /**
      * Utilities
      */
 
-    export const clamp = (min, max) => (value) => {
+    export const clamp = (min, max) => value => {
       return Math.max(min, Math.min(max, value));
     };
 
-    export const linearScale = ([dMin, dMax], [rMin, rMax]) => (value) => {
+    export const linearScale = ([dMin, dMax], [rMin, rMax]) => value => {
       return rMin + (rMax - rMin) * ((value - dMin) / (dMax - dMin));
     };
 
@@ -61,9 +48,16 @@ js:
      */
 
     export class MultiSynth extends Synth {
-      constructor(options) {
-        options = defaultArg(options, Synth.defaults);
-        super(options);
+      static getDefaults() {
+        return {
+          ...Synth.getDefaults(),
+          suboscillators: []
+        };
+      }
+
+      constructor() {
+        super(optionsFromArguments(MultiSynth.getDefaults(), arguments));
+        const options = optionsFromArguments(MultiSynth.getDefaults(), arguments);
 
         this.suboscillators = options.suboscillators.map((oscOptions) => {
           return new OmniOscillator(oscOptions);
@@ -117,6 +111,21 @@ js:
           }),
         };
       }
+
+      set(obj) {
+        Object.keys(obj).forEach(key => {
+          if (key === 'suboscillators') {
+            Object.keys(obj[key]).forEach(i => {
+              this.suboscillators[i].set(obj[key][i]);
+            });
+          } else {
+            super.set(obj);
+          }
+
+        });
+
+        return this;
+      }
     }
 
     /**
@@ -125,7 +134,7 @@ js:
 
     export const createAmplitudeEnvelope = (
       selector,
-      { attack, decay, sustain, release },
+      { attack = 0.01, decay = 0.1, sustain = 0.5, release = 1 },
       onChange
     ) => {
       new Multislider(`${selector}-envelope`, {
@@ -163,7 +172,7 @@ js:
         max: 2000,
         step: 1,
         value: baseFrequency,
-      }).on('change', (value) => {
+      }).on('change', value => {
         onChange({ baseFrequency: value });
       });
 
@@ -172,7 +181,7 @@ js:
         max: 20,
         step: 1,
         value: octaves,
-      }).on('change', (value) => {
+      }).on('change', value => {
         onChange({ octaves: value });
       });
 
@@ -193,7 +202,7 @@ js:
         max: 8,
         step: 1,
         value: filter.Q,
-      }).on('change', (value) => {
+      }).on('change', value => {
         onChange({ filter: { Q: value } });
       });
     };
@@ -208,7 +217,7 @@ js:
         max: 10,
         step: 0.001,
         value: frequency,
-      }).on('change', (value) => {
+      }).on('change', value => {
         onChange({ frequency: value });
       });
 
@@ -217,7 +226,7 @@ js:
         max: 2,
         step: 0.001,
         value: delayTime,
-      }).on('change', (value) => {
+      }).on('change', value => {
         onChange({ delayTime: value });
       });
 
@@ -226,7 +235,7 @@ js:
         max: 1,
         step: 0.001,
         value: depth,
-      }).on('change', (value) => {
+      }).on('change', value => {
         onChange({ depth: value });
       });
     };
@@ -237,7 +246,7 @@ js:
         max: 0,
         step: 1,
         value: threshold,
-      }).on('change', (value) => {
+      }).on('change', value => {
         onChange({ threshold: value });
       });
 
@@ -246,7 +255,7 @@ js:
         max: 20,
         step: 1,
         value: ratio,
-      }).on('change', (value) => {
+      }).on('change', value => {
         onChange({ ratio: value });
       });
     };
@@ -257,7 +266,7 @@ js:
         max: 2,
         step: 0.001,
         value: delayTime,
-      }).on('change', (value) => {
+      }).on('change', value => {
         onChange({ delayTime: value });
       });
     };
@@ -278,14 +287,14 @@ js:
         max: 1,
         step: 0.001,
         value: feedback,
-      }).on('change', (value) => {
+      }).on('change', value => {
         onChange({ feedback: value });
       });
     };
 
     export const createFilter = (
       selector,
-      { frequency, Q, type, rolloff },
+      { frequency = 350, Q = 1, type = 'lowpass', rolloff = -12 },
       onChange
     ) => {
       new Select(`${selector}-type`, {
@@ -305,7 +314,7 @@ js:
         max: 24000,
         step: 1,
         value: frequency,
-      }).on('change', (value) => {
+      }).on('change', value => {
         onChange({ frequency: value });
       });
 
@@ -314,7 +323,7 @@ js:
         max: 8,
         step: 1,
         value: Q,
-      }).on('change', (value) => {
+      }).on('change', value => {
         onChange({ Q: value });
       });
     };
@@ -325,7 +334,7 @@ js:
         max: 2,
         step: 0.001,
         value: roomSize,
-      }).on('change', (value) => {
+      }).on('change', value => {
         onChange({ roomSize: value });
       });
 
@@ -334,14 +343,14 @@ js:
         max: 20000,
         step: 1,
         value: dampening,
-      }).on('change', (value) => {
+      }).on('change', value => {
         onChange({ dampening: value });
       });
     };
 
     export const createFrequencyEnvelope = (
       selector,
-      { attack, decay, sustain, release, baseFrequency, octaves, exponent },
+      { attack = 0.01, decay = 0.1, sustain = 0.5, release = 1, baseFrequency = 200, octaves = 4, exponent = 1 },
       onChange
     ) => {
       new Multislider(`${selector}-envelope`, {
@@ -361,7 +370,7 @@ js:
         max: 24000,
         step: 1,
         value: baseFrequency,
-      }).on('change', (value) => {
+      }).on('change', value => {
         onChange({ baseFrequency: value });
       });
 
@@ -370,7 +379,7 @@ js:
         max: 20,
         step: 1,
         value: octaves,
-      }).on('change', (value) => {
+      }).on('change', value => {
         onChange({ octaves: value });
       });
 
@@ -379,7 +388,7 @@ js:
         max: 5,
         step: 1,
         value: exponent,
-      }).on('change', (value) => {
+      }).on('change', value => {
         onChange({ exponent: value });
       });
     };
@@ -390,7 +399,7 @@ js:
         max: 1,
         step: 0.001,
         value: gain,
-      }).on('change', (value) => {
+      }).on('change', value => {
         onChange({ gain: value });
       });
     };
@@ -417,7 +426,7 @@ js:
         max: 20,
         step: 1,
         value: min,
-      }).on('change', (value) => {
+      }).on('change', value => {
         onChange({ min: value });
       });
 
@@ -426,7 +435,7 @@ js:
         max: 20,
         step: 1,
         value: max,
-      }).on('change', (value) => {
+      }).on('change', value => {
         onChange({ max: value });
       });
     };
@@ -449,7 +458,7 @@ js:
 
     export const createOmniOscillator = (
       selector,
-      { type, detune, phase },
+      { type = 'sine', detune = 0, phase = 0 },
       onChange
     ) => {
       const prefix =
@@ -482,19 +491,19 @@ js:
         value: (detune % 1200) % 100,
       });
 
-      octaveDetune.on('change', (value) => {
+      octaveDetune.on('change', value => {
         onChange({
           detune: value + coarseDetune.value + fineDetune.value,
         });
       });
 
-      coarseDetune.on('change', (value) => {
+      coarseDetune.on('change', value => {
         onChange({
           detune: octaveDetune.value + value + fineDetune.value,
         });
       });
 
-      fineDetune.on('change', (value) => {
+      fineDetune.on('change', value => {
         onChange({
           detune: octaveDetune.value + coarseDetune.value + value,
         });
@@ -505,7 +514,7 @@ js:
         max: 180,
         step: 1,
         value: phase,
-      }).on('change', (value) => {
+      }).on('change', value => {
         onChange({ phase: value });
       });
     };
@@ -541,14 +550,15 @@ js:
         max: 220,
         step: 1,
         value: bpm,
-      }).on('change', (value) => {
+      }).on('change', value => {
         onChange({ bpm: value });
       });
 
       new Toggle(`${selector}-state`, {
         state,
-      }).on('change', (value) => {
+      }).on('change', value => {
         onChange({ state: value });
       });
     };
 ---
+Components for using Nexus UI with Tone.

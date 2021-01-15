@@ -2,7 +2,7 @@
 layout: code.njk
 title: Theremin (with Rxjs and Ramda)
 date: 2017-10-02
-published: true
+published: false
 tags:
   - code
 html:
@@ -154,5 +154,4 @@ js:
 
     app(document);
 ---
-
 See https://www.smashingmagazine.com/2016/06/make-music-in-the-browser-with-a-web-audio-theremin/

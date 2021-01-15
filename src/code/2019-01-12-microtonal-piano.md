@@ -8,11 +8,6 @@ tags:
 html:
   lang: html
   code: |-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.8.12/Tone.min.js"></script>
-    <script src="https://unpkg.com/nexusui@2.0.10/dist/NexusUI.min.js"></script>
-    <script src="https://gitcdn.xyz/repo/abbernie/tune/master/tune-api-only.js"></script>
-    <script src="https://gitcdn.xyz/repo/abbernie/tune-scales/master/tunings.js"></script>
-
     <div class="container">
       <div class="tuning">
         <div id="tuning"></div>
@@ -66,89 +61,103 @@ css:
 js:
   lang: javascript
   code: |-
-    /**
-     * Tune.js
-     * https://github.com/abbernie/tune-api
-     */
+    import Nexus from 'https://cdn.skypack.dev/nexusui';
+    import { Frequency, Midi, now, PolySynth, Synth } from 'https://cdn.skypack.dev/tone';
 
-    TuningList['etmajor'] = {
-      description: '12-tone equal temperament',
-      frequencies: Array.from(new Array(12), (_, i) => i + 60).map(note => Tone.Midi(note).toFrequency())
-    };
+    async function init() {
+      /**
+       * Fake modules
+       */
+      const res = await fetch('https://gitcdn.xyz/repo/abbernie/tune-scales/master/tunings.js');
+      const data = await res.text();
+      const TuningList = JSON.parse(data.slice(17));
 
-    TuningList['hindemith'] = {
-      description: 'From The Craft of Musical Composition by Paul Hindemith',
-      frequencies: [64, 68.27, 72, 76.8, 80, 85.33333, 91.02, 96, 102.4, 106.66666, 113.78, 120].map(freq => freq * 4)
-    };
+      /**
+       * Tune.js
+       * https://github.com/abbernie/tune-api
+       * https://github.com/abbernie/tune-scales
+       */
 
-    const tune = new Tune();
+      TuningList['etmajor'] = {
+        description: '12-tone equal temperament',
+        frequencies: Array.from(new Array(12), (_, i) => i + 60).map(note => Midi(note).toFrequency())
+      };
 
+      TuningList['hindemith'] = {
+        description: 'From The Craft of Musical Composition by Paul Hindemith',
+        frequencies: [64, 68.27, 72, 76.8, 80, 85.33333, 91.02, 96, 102.4, 106.66666, 113.78, 120].map(freq => freq * 4)
+      };
 
-    /**
-     * Utilities
-     */
+      /**
+       * Utilities
+       */
 
-    const ftom = freq => 69 + 12 * Math.log2(freq / 440);
+      const ftom = freq => 69 + 12 * Math.log2(freq / 440);
 
-    // MIDI-to-frequency with tuning
-    const mtof = midi => {
-      const note = midi - 9;
-      let stepIn = note % 12;
+      // MIDI-to-frequency with tuning
+      const mtof = midi => {
+        const note = midi - 9;
+        let stepIn = note % 12;
 
-      while (stepIn < 0) {
-        stepIn += 12;
-      }
+        while (stepIn < 0) {
+          stepIn += 12;
+        }
 
-      const octaveIn = Math.floor((note / 12) - 5) + Math.floor(stepIn / 12);
-      const freq = tune.note(stepIn, octaveIn);
-      
-      return freq;
-    };
+        const octaveIn = Math.floor((note / 12) - 5) + Math.floor(stepIn / 12);
+        const freq = Nexus.note(stepIn, octaveIn);
+        console.log('mtof', freq);
+        
+        return freq;
+      };
 
-    const midiToDetune = midi => {
-      const note = ftom(mtof(midi));
-      const detune = (note - midi) * 100;
-      
-      return detune;
-    };
+      const midiToDetune = midi => {
+        const note = ftom(mtof(midi));
+        const detune = (note - midi) * 100;
+        
+        return detune;
+      };
 
+      /**
+       * App
+       */
 
-    /**
-     * App
-     */
+      const synth = new PolySynth(Synth, { maxPolyphony: 10 }).toDestination();
+      const tuningDescription = document.querySelector('#tuning-description');
 
-    const synth = new Tone.PolySynth(10).toMaster();
-    const tuningDescription = document.querySelector('#tuning-description');
+      new Nexus.Select('#tuning', {
+        options: Object.keys(TuningList).sort()
+      }).on('change', ({ index, value }) => {
+        Nexus.tune.loadScaleFromFrequencies(TuningList[value].frequencies);
+        
+        tuningDescription.textContent = TuningList[value].description;
+        
+        synth._voices.filter(voice => {
+          return voice.envelope.value > 0;
+        }).forEach((voice, i) => {
+          const midi = Frequency(voice.frequency.value).toMidi();
+          voice.detune.setValueAtTime(midiToDetune(midi), now());
+        });
+      }).value = 'etmajor';
 
-    new Nexus.Select('#tuning', {
-      options: Object.keys(TuningList).sort()
-    }).on('change', ({ index, value }) => {
-      tune.loadScale(value);
-      
-      tuningDescription.textContent = TuningList[value].description;
-      
-      synth.voices.filter(voice => {
-        return voice.envelope.value > 0;
-      }).forEach((voice, i) => {
-        const midi = Tone.Frequency(voice.frequency.value).toMidi();
-        voice.detune.setValueAtTime(midiToDetune(midi), Tone.now());
+      new Nexus.Piano('#piano', {
+        size: [1000, 125],
+        lowNote: 21,
+        highNote: 108,
+        mode: 'toggle'
+      }).on('change', ({ note, state }) => {
+        const freq = Midi(note).toFrequency();
+
+        if (state) {
+          const currentTime = now();
+          synth.triggerAttack(freq, currentTime);
+          const { voice } = synth._activeVoices[synth._activeVoices.length - 1];
+          voice.detune.setValueAtTime(midiToDetune(note), currentTime);
+        } else {
+          synth.triggerRelease(freq);
+        }
       });
-    }).value = 'etmajor';
+    }
 
-    new Nexus.Piano('#piano', {
-      size: [1000, 125],
-      lowNote: 21,
-      highNote: 108,
-      mode: 'toggle'
-    }).on('change', ({ note, state }) => {
-      const freq = Tone.Midi(note).toFrequency();
-
-      if (state) {
-        synth.triggerAttack(freq);
-        const voice = synth._getClosestVoice(Tone.now(), freq);
-        voice.detune.setValueAtTime(midiToDetune(note), Tone.now());
-      } else {
-        synth.triggerRelease(freq);
-      }
-    });
+    init();
 ---
+A microtonal piano.

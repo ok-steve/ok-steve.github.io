@@ -8,7 +8,6 @@ tags:
 html:
   lang: html
   code: |-
-    <script src="https://unpkg.com/stimulus@1.1.0/dist/stimulus.umd.js"></script>
     <div class="grid" data-controller="vfont">
       <aside>
         <div class="field" data-controller="field">
@@ -120,7 +119,9 @@ css:
 js:
   lang: javascript
   code: |-
-    class FieldController extends Stimulus.Controller {
+    import { Application, Controller } from 'https://cdn.skypack.dev/stimulus';
+
+    class FieldController extends Controller {
       static get targets() {
         return [
           'input',
@@ -137,7 +138,7 @@ js:
       }
     }
 
-    class VariableFontController extends Stimulus.Controller {
+    class VariableFontController extends Controller {
       static get targets() {
         return [
           'content'
@@ -149,8 +150,9 @@ js:
       }
     }
 
-    const application = Stimulus.Application.start();
+    const application = Application.start();
 
     application.register('field', FieldController);
     application.register('vfont', VariableFontController);
 ---
+A tool to test variable fonts.

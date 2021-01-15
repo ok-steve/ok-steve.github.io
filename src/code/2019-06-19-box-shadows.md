@@ -45,8 +45,21 @@ css:
     .shadow.is-raised::after {
       opacity: 1;
     }
+
+    /**
+     * Extra styles
+     */
+    
+    body {
+      background-color: gray;
+    }
+    
+    .shadow {
+      background-color: white;
+      margin: 1em;
+      padding: 1em;
+    }
 js:
   lang: javascript
 ---
-
-http://tobiasahlin.com/blog/how-to-animate-box-shadow
+See: http://tobiasahlin.com/blog/how-to-animate-box-shadow

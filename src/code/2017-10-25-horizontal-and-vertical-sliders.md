@@ -8,35 +8,33 @@ tags:
 html:
   lang: html
   code: |-
-    <script src="https://gitcdn.xyz/repo/ckrack/scrollsnap-polyfill/v0.1.0/dist/scrollsnap-polyfill.bundled.js"></script>
-    <script src="https://unpkg.com/stimulus@1.1.0/dist/stimulus.umd.js"></script>
     <div class="container">
-      <div class="slider is-horizontal" data-controller="slider" data-action="keydown@window-&gt;slider#switch" data-slider-direction="horizontal">
-        <section class="slider-slide" data-target="slider.slide" data-index="0">
+      <div class="slider is-horizontal" data-controller="slider" data-action="keydown@window->slider#switch" data-slider-direction="horizontal">
+        <section class="slider-slide" data-slider-target="slide" data-index="0">
           <h1>Slide 1</h1>
           <p>Lorem lean startup ipsum product market fit customer development acquihire technical cofounder.</p>
         </section>
-        <section class="slider-slide" data-target="slider.slide" data-index="1">
+        <section class="slider-slide" data-slider-target="slide" data-index="1">
           <h1>Slide 2</h1>
           <p>User engagement A/B testing shrink a market venture capital pitch deck.</p>
         </section>
-        <section class="slider-slide" data-target="slider.slide" data-index="2">
+        <section class="slider-slide" data-slider-target="slide" data-index="2">
           <h1>Slide 3</h1>
           <p>Social bookmarking group buying crowded market pivot onboarding freemium prototype ping pong.</p>
         </section>
       </div>
     </div>
     <div class="container">
-      <div class="slider is-vertical" data-controller="slider" data-action="keydown@window-&gt;slider#switch">
-        <section class="slider-slide" data-target="slider.slide" data-index="0">
+      <div class="slider is-vertical" data-controller="slider" data-action="keydown@window->slider#switch">
+        <section class="slider-slide" data-slider-target="slide" data-index="0">
           <h1>Slide 1</h1>
           <p>Lorem lean startup ipsum product market fit customer development acquihire technical cofounder.</p>
         </section>
-        <section class="slider-slide" data-target="slider.slide" data-index="1">
+        <section class="slider-slide" data-slider-target="slide" data-index="1">
           <h1>Slide 2</h1>
           <p>User engagement A/B testing shrink a market venture capital pitch deck.</p>
         </section>
-        <section class="slider-slide" data-target="slider.slide" data-index="2">
+        <section class="slider-slide" data-slider-target="slide" data-index="2">
           <h1>Slide 3</h1>
           <p>Social bookmarking group buying crowded market pivot onboarding freemium prototype ping pong.</p>
         </section>
@@ -122,7 +120,9 @@ css:
 js:
   lang: javascript
   code: |-
-    class SliderController extends Stimulus.Controller {
+    import { Application, Controller } from 'https://cdn.skypack.dev/stimulus';
+
+    class SliderController extends Controller {
       static get targets() {
         return [
           'slide'
@@ -205,7 +205,8 @@ js:
       }
     }
 
-    const application = Stimulus.Application.start();
+    const application = Application.start();
 
     application.register('slider', SliderController);
 ---
+Horizontal and vertical sliders using Stimulus.

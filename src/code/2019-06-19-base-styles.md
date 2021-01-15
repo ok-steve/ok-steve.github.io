@@ -1111,9 +1111,9 @@ css:
 js:
   lang: javascript
 ---
-
-https://necolas.github.io/normalize.css/8.0.1/normalize.css
-https://csstools.github.io/sanitize.css/10.0.0/sanitize.css
-https://raw.githubusercontent.com/kennethormandy/normalize-opentype.css/v0.2.4/normalize-opentype.css
-https://raw.githubusercontent.com/h5bp/html5-boilerplate/v7.2.0/dist/css/main.css
-https://github.com/benfrain/app-reset/blob/master/app-reset.css
+See:
+- https://necolas.github.io/normalize.css/8.0.1/normalize.css
+- https://csstools.github.io/sanitize.css/10.0.0/sanitize.css
+- https://raw.githubusercontent.com/kennethormandy/normalize-opentype.css/v0.2.4/normalize-opentype.css
+- https://raw.githubusercontent.com/h5bp/html5-boilerplate/v7.2.0/dist/css/main.css
+- https://github.com/benfrain/app-reset/blob/master/app-reset.css

@@ -8,16 +8,15 @@ tags:
 html:
   lang: html
   code: |-
-    <script src="https://unpkg.com/stimulus@1.1.0/dist/stimulus.umd.js"></script>
     <ul class="container">
       <li>
         <figure class="figure">
           <div class="meter" data-controller="meter" data-meter-value="7.50">
             <svg class="meter__svg" width="84" height="84">
               <circle class="meter__circle" cx="41" cy="41" r="38"></circle>
-              <circle class="meter__circle meter__circle--fill" cx="41" cy="41" r="38" pathLength="1" data-target="meter.fill"></circle>
+              <circle class="meter__circle meter__circle--fill" cx="41" cy="41" r="38" pathLength="1" data-meter-target="fill"></circle>
             </svg>
-            <div class="meter__number"><span class="meter__int" data-target="meter.int">0.</span><span class="meter__dec" data-target="meter.dec">00</span></div>
+            <div class="meter__number"><span class="meter__int" data-meter-target="int">0.</span><span class="meter__dec" data-meter-target="dec">00</span></div>
           </div>
           <figcaption class="figure__caption">Transparent</figcaption>
         </figure>
@@ -27,9 +26,9 @@ html:
           <div class="meter" data-controller="meter" data-meter-value="9.27">
             <svg class="meter__svg" width="84" height="84">
               <circle class="meter__circle" cx="41" cy="41" r="38"></circle>
-              <circle class="meter__circle meter__circle--fill" cx="41" cy="41" r="38" pathLength="1" data-target="meter.fill"></circle>
+              <circle class="meter__circle meter__circle--fill" cx="41" cy="41" r="38" pathLength="1" data-meter-target="fill"></circle>
             </svg>
-            <div class="meter__number"><span class="meter__int" data-target="meter.int">0.</span><span class="meter__dec" data-target="meter.dec">00</span></div>
+            <div class="meter__number"><span class="meter__int" data-meter-target="int">0.</span><span class="meter__dec" data-meter-target="dec">00</span></div>
           </div>
           <figcaption class="figure__caption">Reasonable</figcaption>
         </figure>
@@ -39,9 +38,9 @@ html:
           <div class="meter" data-controller="meter" data-meter-value="6.93">
             <svg class="meter__svg" width="84" height="84">
               <circle class="meter__circle" cx="41" cy="41" r="38"></circle>
-              <circle class="meter__circle meter__circle--fill" cx="41" cy="41" r="38" pathLength="1" data-target="meter.fill"></circle>
+              <circle class="meter__circle meter__circle--fill" cx="41" cy="41" r="38" pathLength="1" data-meter-target="fill"></circle>
             </svg>
-            <div class="meter__number"><span class="meter__int" data-target="meter.int">0.</span><span class="meter__dec" data-target="meter.dec">00</span></div>
+            <div class="meter__number"><span class="meter__int" data-meter-target="int">0.</span><span class="meter__dec" data-meter-target="dec">00</span></div>
           </div>
           <figcaption class="figure__caption">Usable</figcaption>
         </figure>
@@ -51,9 +50,9 @@ html:
           <div class="meter" data-controller="meter" data-meter-value="8.72">
             <svg class="meter__svg" width="84" height="84">
               <circle class="meter__circle" cx="41" cy="41" r="38"></circle>
-              <circle class="meter__circle meter__circle--fill" cx="41" cy="41" r="38" pathLength="1" data-target="meter.fill"></circle>
+              <circle class="meter__circle meter__circle--fill" cx="41" cy="41" r="38" pathLength="1" data-meter-target="fill"></circle>
             </svg>
-            <div class="meter__number"><span class="meter__int" data-target="meter.int">0.</span><span class="meter__dec" data-target="meter.dec">00</span></div>
+            <div class="meter__number"><span class="meter__int" data-meter-target="int">0.</span><span class="meter__dec" data-meter-target="dec">00</span></div>
           </div>
           <figcaption class="figure__caption">Exemplary</figcaption>
         </figure>
@@ -169,7 +168,9 @@ css:
 js:
   lang: javascript
   code: |-
-    class MeterController extends Stimulus.Controller {
+    import { Application, Controller } from 'https://cdn.skypack.dev/stimulus';
+
+    class MeterController extends Controller {
       static get targets() {
         return [
           'fill',
@@ -230,8 +231,7 @@ js:
       }
     }
 
-    const application = Stimulus.Application.start();
+    const application = Application.start();
     application.register('meter', MeterController);
 ---
-
-https://www.smashingmagazine.com/2019/01/html5-svg-fill-animation-css3-vanilla-javascript/
+See https://www.smashingmagazine.com/2019/01/html5-svg-fill-animation-css3-vanilla-javascript/.

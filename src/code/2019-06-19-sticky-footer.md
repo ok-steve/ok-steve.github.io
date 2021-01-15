@@ -49,5 +49,4 @@ css:
 js:
   lang: javascript
 ---
-
-https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
+See: https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/

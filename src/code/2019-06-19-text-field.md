@@ -136,3 +136,4 @@ css:
 js:
   lang: javascript
 ---
+Typographic styles for Markdown or body content.

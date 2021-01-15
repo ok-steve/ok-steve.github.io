@@ -8,7 +8,6 @@ tags:
 html:
   lang: html
   code: |-
-    <script src="https://unpkg.com/stimulus@1.1.1/dist/stimulus.umd.js"></script>
     <div data-controller="fullscreen">
       <button data-action="click->fullscreen#toggle">&times;</button>
     </div>`
@@ -19,7 +18,9 @@ css:
 js:
   lang: javascript
   code: |-
-    class FullscreenController extends Stimulus.Controller {
+    import { Application, Controller } from 'https://cdn.skypack.dev/stimulus';
+
+    class FullscreenController extends Controller {
       toggle() {
         if (document.fullscreenElement && document.exitFullscreen) {
           document.exitFullscreen(); 
@@ -29,7 +30,7 @@ js:
       }
     }
 
-    const application = Stimulus.Application.start();
+    const application = Application.start();
 
     application.register('fullscreen', FullscreenController);
 ---
