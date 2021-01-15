@@ -21,10 +21,6 @@ module.exports = {
       },
     },
     extend: {
-      colors: {
-        rss: '#ff8300',
-        github: '#4183c4',
-      },
       spacing: {
         '9/16': '56.25%',
       },
