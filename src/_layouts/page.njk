@@ -2,12 +2,14 @@
 layout: default.njk
 ---
 
-<section class="prose mx-auto">
+<section class="flow visible pi-2">
   {% if title %}
   <header>
     <h2>{{ title }}</h2>
   </header>
   {% endif %}
 
-  {{ content | safe }}
+  <div class="flow text">
+    {{ content | safe }}
+  </div>
 </section>

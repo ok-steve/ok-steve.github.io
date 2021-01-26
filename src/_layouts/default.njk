@@ -26,53 +26,54 @@
     <link rel="canonical" href="{{ site.url }}{{ page.url | url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ '/feed.xml' | url }}">
 
-    <script src="{{ '/js/turbolinks.js' | url }}" defer></script>
-    <script src="{{ '/js/main.js' | url }}" defer></script>
   </head>
-  <body class="antialiased flex flex-col min-h-screen" prefix="schema: http://schema.org/">
-    <header class="flex items-center justify-between px-4 py-2" role="banner">
-      <h1 class="font-bold text-2xl">
+  <body class="flow sticky-footer pbe-1 router" prefix="schema: http://schema.org/">
+    <header class="row pi-2" role="banner">
+      <h1>
         <a href="{{ '/' | url }}">{{ site.name }}</a>
       </h1>
 
       <nav role="navigation">
-        <ul class="flex">
+        <ul>
           {% for page in collections.all | eleventyNavigation %}
-            <li class="{{ 'ml-2' if loop.index0 > 0 }}">
-              <a class="underline" href="{{ page.url | url }}">{{ page.title }}</a>
+            <li class="inline-block {{ 'mis-1' if loop.index0 > 0 }}">
+              <a href="{{ page.url | url }}">{{ page.title }}</a>
             </li>
           {% endfor %}
         </ul>
       </nav>
     </header>
 
-    <main class="flex-1 px-2" role="main">
+    <main class="container flow sticky-footer__content router__view" role="main">
       {{ content | safe }}
     </main>
 
-    <footer class="flex items-center justify-between px-2 py-4" role="contentinfo">
+    <footer class="row pi-2" role="contentinfo">
       <p>{{ site.description }}</p>
 
-      <ul class="flex">
-        <li>
-          <a class="block w-6" href="{{ '/feed.xml' | url }}">
+      <ul class="row">
+        <li class="inline-block">
+          <a class="block w-2" href="{{ '/feed.xml' | url }}">
             {% include "icons/rss.njk" %}
             <span class="sr-only">Feed</span>
           </a>
         </li>
-        <li class="ml-2">
-          <a class="block w-6" href="mailto:{{ site.email }}">
+        <li class="inline-block mis-1">
+          <a class="block w-2" href="mailto:{{ site.email }}">
             {% include "icons/email.njk" %}
             <span class="sr-only">Email</span>
           </a>
         </li>
-        <li class="ml-2">
-          <a class="block w-6" href="https://github.com/{{ site.github_username }}">
+        <li class="inline-block mis-1">
+          <a class="block w-2" href="https://github.com/{{ site.github_username }}">
             {% include "icons/github.njk" %}
             <span class="sr-only">Github</span>
           </a>
         </li>
       </ul>
     </footer>
+
+    <script src="{{ '/js/router.js' | url }}" defer></script>
+    <script src="{{ '/js/main.js' | url }}" defer></script>
   </body>
 </html>

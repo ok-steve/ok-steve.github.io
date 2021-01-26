@@ -5,7 +5,7 @@ layout: default.njk
 {{ content | safe }}
 
 {% for post in collections.posts | published | reverse %}
-  <article class="prose mx-auto" resource="{{ post.url }}" typeof="schema:BlogPosting">
+  <article class="flow pi-2" resource="{{ post.url }}" typeof="schema:BlogPosting">
     <header>
       <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
     </header>

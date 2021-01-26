@@ -2,10 +2,12 @@
 layout: default.njk
 ---
 
-<article class="prose mx-auto">
+<article class="flow visible pi-2">
   <header>
     <h2>{{ title }}</h2>
   </header>
 
-  {{ content | safe }}
+  <div class="flow text">
+    {{ content | safe }}
+  </div>
 </article>

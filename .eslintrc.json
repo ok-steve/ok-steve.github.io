@@ -1,0 +1,9 @@
+{
+  "extends": ["airbnb-base", "plugin:compat/recommended", "prettier"],
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "import/extensions": ["error", "ignorePackages", { "js": "ignorePackages" }]
+  }
+}
