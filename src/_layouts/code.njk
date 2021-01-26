@@ -8,9 +8,12 @@ layout: post.njk
 
 {% macro syntaxhighlight(code) %}
   {% if code.code %}
-    {% highlight code.lang %}
-      {{ code.code | safe }}
-    {% endhighlight %}
+    <details>
+      <summary>{{ code.lang | upper }}</summary>
+      {% highlight code.lang %}
+        {{ code.code | safe }}
+      {% endhighlight %}
+    </details>
   {% endif %}
 {% endmacro %}
 
