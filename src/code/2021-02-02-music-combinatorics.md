@@ -12,7 +12,7 @@ css:
   lang: css
 js:
   lang: javascript
-  code: >
+  code: >-
     import { h, render } from 'https://cdn.skypack.dev/preact';
 
     import htm from 'https://cdn.skypack.dev/htm';
@@ -31,37 +31,38 @@ js:
     const html = htm.bind(h);
 
 
-    const notes = ['C','C#','D','Eb','E','F','F#','G','Ab','A','Bb','B'];
+    const notes = ['C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B'];
+
+
+    function notesToAbc(seed) {
+      return seed.map(n => AbcNotation.scientificToAbcNotation(`${n}4`)).join('');
+    }
 
 
     function calculateCombinationPermutation({ seed = [], size = 2 }) {
-      const sets = new Set();
+      //const sets = new Set();
       const it = new Combination(seed, size);
-      const xit = new Xiterable(it).filter(s => {
+      const xit = new Xiterable(it)/*.filter(s => {
         const { normalized } = PcSet.get(s);
         if (sets.has(normalized)) return false;
         sets.add(normalized);
         return true;
-      }).flatMap(s => {
+      })*/.flatMap(s => {
         return new Permutation(s);
-      });
+      }).map(notesToAbc);
      
-      return xit.toArray();
-    }
-
-
-    function createNotation(seed) {
-      return seed.map(n => AbcNotation.scientificToAbcNotation(`${n}4`));
+      return xit.toArray().reduce((str, n, i) => {
+        return `${str}|${i % 4 === 0 ? '\n' : ''}${n}`;
+      });
     }
 
 
     function Notation({ notation }) {
       const ref = useRef();
-      //const data = seed.map(n => AbcNotation.scientificToAbcNotation(`${n}4`));
      
       useEffect(() => {
-        abcjs.renderAbc(ref.current, `X:1\n${notation}|]`);
-      }, [notation]);
+        abcjs.renderAbc(ref.current, `X:1\n${notation}|]`, { responsive: "resize" });
+      });
 
       return html`<div ref=${ref}></div>`;
     }
@@ -71,7 +72,7 @@ js:
       const [seed, setSeed] = useState(['C', 'Eb', 'F', 'G', 'Bb']);
       const [size, setSize] = useState(4);
       const data = useMemo(() => calculateCombinationPermutation({ seed, size }), [seed, size]);
-      
+
       const handleChange = ({ target }) => {
         const { value, checked } = target;
         const n = checked ? [...seed, value] : seed.filter(s => s !== value);
@@ -89,11 +90,16 @@ js:
             `;
           })}
           
+          <label>
+            Num
+            <input type="number" min="1" max=${seed.length} value=${size} onChange=${e => setSize(e.target.value)}>
+          </label>
+          
           <h2>Scale</h2>
-          <p>${seed.join(' ')}</p>
-          <${Notation} notation=${createNotation(seed)} />
+          <${Notation} notation=${notesToAbc(seed)} />
         
           <h2>Permutations</h2>
+          <${Notation} notation=${data} />
         </div>
       `;
     };
