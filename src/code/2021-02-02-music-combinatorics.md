@@ -50,6 +50,11 @@ js:
     }
 
 
+    function createNotation(seed) {
+      return seed.map(n => AbcNotation.scientificToAbcNotation(`${n}4`));
+    }
+
+
     function Notation({ notation }) {
       const ref = useRef();
       //const data = seed.map(n => AbcNotation.scientificToAbcNotation(`${n}4`));
@@ -85,7 +90,8 @@ js:
           })}
           
           <h2>Scale</h2>
-          <${Notation} notation=${seed.map(n => `${n}4`).join(' ')} />
+          <p>${seed.join(' ')}</p>
+          <${Notation} notation=${createNotation(seed)} />
         
           <h2>Permutations</h2>
         </div>
