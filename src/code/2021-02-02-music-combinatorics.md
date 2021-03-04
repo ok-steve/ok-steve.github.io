@@ -92,7 +92,7 @@ js:
           
           <label>
             Num
-            <input type="number" min="1" max=${seed.length} value=${size} onChange=${e => setSize(e.target.value)}>
+            <input type="number" min="1" max=${seed.length} value=${size} onChange=${e => setSize(e.target.value)} />
           </label>
           
           <h2>Scale</h2>
