@@ -1114,7 +1114,8 @@ css:
      */
 
     .container {
-      max-width: 36em; /* Measure	*/
+      max-width: 60em;
+      max-width: var(--container-width, 60em);
       margin-right: auto;
       margin-left: auto;
     }
