@@ -8,12 +8,12 @@
     <title>{{ title or site.name }} | {{ site.name }}</title>
     <meta name="description" content="{{ page.excerpt | default(content) | default(site.description) | striptags | truncate(160) }}">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/apple-touch-icon.png' | url }}">
-    <link rel="apple-touch-startup-image" href="{{ '/assets/android-chrome-192x192.png' | url }}">
-    <link rel="icon" type="image/png" href="{{ '/assets/favicon-32x32.png' | url }}" sizes="32x32">
-    <link rel="icon" type="image/png" href="{{ '/assets/favicon-16x16.png' | url }}" sizes="16x16">
-    <link rel="mask-icon" href="{{ '/assets/safari-pinned-tab.svg' | url }}" color="{{ site.color }}">
-    <link rel="shortcut icon" href="{{ '/assets/favicon.ico' | url }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/public/img/apple-touch-icon.png' | url }}">
+    <link rel="apple-touch-startup-image" href="{{ '/public/img/android-chrome-192x192.png' | url }}">
+    <link rel="icon" type="image/png" href="{{ '/public/img/favicon-32x32.png' | url }}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{ '/public/img/favicon-16x16.png' | url }}" sizes="16x16">
+    <link rel="mask-icon" href="{{ '/public/img/safari-pinned-tab.svg' | url }}" color="{{ site.color }}">
+    <link rel="shortcut icon" href="{{ '/public/img/favicon.ico' | url }}">
 
     <meta name="apple-mobile-web-app-title" content="{{ site.name }}">
     <meta name="theme-color" content="{{ site.color }}">
@@ -23,9 +23,9 @@
     <link rel="manifest" href="{{ '/manifest.json' | url }}">
 
     <link rel="stylesheet" href="{{ '/normcore/style.css' | url }}">
-    <link rel="stylesheet" href="{{ '/css/syntax-highlighting.css' | url }}">
-    <link rel="stylesheet" href="{{ '/css/main.css' | url }}">
-    <link rel="stylesheet" href="{{ '/css/print.css' | url }}" media="print">
+    <link rel="stylesheet" href="{{ '/public/syntax-highlighting.css' | url }}">
+    <link rel="stylesheet" href="{{ '/public/style.css' | url }}">
+    <link rel="stylesheet" href="{{ '/public/print.css' | url }}" media="print">
     <link rel="canonical" href="{{ site.url }}{{ page.url | url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ '/feed.xml' | url }}">
 
@@ -76,7 +76,7 @@
       </footer>
     </div>
 
-    <script src="{{ '/js/router.js' | url }}" defer></script>
-    <script src="{{ '/js/main.js' | url }}" defer></script>
+    <script src="{{ '/public/router.js' | url }}" defer></script>
+    <script src="{{ '/public/script.js' | url }}" defer></script>
   </body>
 </html>

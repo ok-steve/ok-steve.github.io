@@ -5,20 +5,21 @@ const STATIC_CACHE = 'static';
 
 const OFFLINE = {
   page: './offline.html',
-  image: './assets/safari-pinned-tab.svg',
+  image: './public/img/safari-pinned-tab.svg',
 };
 
 const STATIC_ASSETS = [
   ...Object.values(OFFLINE),
-  './assets/android-chrome-192x192.png',
-  './assets/android-chrome-512x512.png',
-  './assets/apple-touch-icon.png',
-  './assets/favicon-16x16.png',
-  './assets/favicon-32x32.png',
-  './assets/mstile-150x150.png',
-  './assets/favicon.ico',
-  './css/main.css',
-  './js/main.js',
+  './public/img/android-chrome-192x192.png',
+  './public/img/android-chrome-512x512.png',
+  './public/img/apple-touch-icon.png',
+  './public/img/favicon-16x16.png',
+  './public/img/favicon-32x32.png',
+  './public/img/mstile-150x150.png',
+  './public/img/favicon.ico',
+  './public/style.css',
+  './public/script.js',
+  './index.html',
   './',
 ];
 

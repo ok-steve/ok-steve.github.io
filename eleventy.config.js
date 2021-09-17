@@ -46,11 +46,9 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.addPassthroughCopy({
     './node_modules/prismjs/themes/prism-solarizedlight.css':
-      './css/syntax-highlighting.css',
+      './public/syntax-highlighting.css',
   });
-  eleventyConfig.addPassthroughCopy('src/css');
-  eleventyConfig.addPassthroughCopy('src/js');
-  eleventyConfig.addPassthroughCopy('src/assets');
+  eleventyConfig.addPassthroughCopy('public');
   eleventyConfig.addPassthroughCopy('src/*.{txt,xml}');
   eleventyConfig.addPassthroughCopy('src/sw.js');
   eleventyConfig.addPassthroughCopy('src/admin');
