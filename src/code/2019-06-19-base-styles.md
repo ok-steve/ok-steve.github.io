@@ -1,8 +1,9 @@
 ---
 layout: code.njk
-title: Base styles
+title: Normcore
 date: 2019-06-19
 published: true
+permalink: normcore/
 tags:
   - code
 html:
@@ -1140,12 +1141,13 @@ css:
 js:
   lang: javascript
 ---
-My own, highly opinionated normalize styles.
+My own, highly opinionated, normalize styles and minimal front-end framework.
 
 
 
 References
 
+* https://cube.fyi
 * https://github.com/necolas/normalize.css
 * https://github.com/csstools/sanitize.css
 * https://github.com/kennethormandy/normalize-opentype.css
