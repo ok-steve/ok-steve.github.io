@@ -22,56 +22,59 @@
     <meta name="msapplication-config" content="{{ '/browserconfig.xml' | url }}">
     <link rel="manifest" href="{{ '/manifest.json' | url }}">
 
+    <link rel="stylesheet" href="{{ '/normcore/style.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/syntax-highlighting.css' | url }}">
     <link rel="stylesheet" href="{{ '/css/main.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/print.css' | url }}" media="print">
     <link rel="canonical" href="{{ site.url }}{{ page.url | url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ '/feed.xml' | url }}">
 
   </head>
-  <body class="flow sticky-footer pbe-1 router" prefix="schema: http://schema.org/">
-    <header class="row pi-2" role="banner">
-      <h1>
-        <a href="{{ '/' | url }}">{{ site.name }}</a>
-      </h1>
+  <body class="router" prefix="schema: http://schema.org/">
+    <div class="flow cover">
+      <header class="row pi-2" role="banner">
+        <h1>
+          <a href="{{ '/' | url }}">{{ site.name }}</a>
+        </h1>
+        <nav role="navigation">
+          <ul>
+            {% for page in collections.all | eleventyNavigation %}
+              <li class="inline-block {{ 'mis-1' if loop.index0 > 0 }}">
+                <a href="{{ page.url | url }}">{{ page.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </header>
 
-      <nav role="navigation">
-        <ul>
-          {% for page in collections.all | eleventyNavigation %}
-            <li class="inline-block {{ 'mis-1' if loop.index0 > 0 }}">
-              <a href="{{ page.url | url }}">{{ page.title }}</a>
-            </li>
-          {% endfor %}
+      <main class="[ router__view ] [ container flow ] [ flex-1 ]" role="main">
+        {{ content | safe }}
+      </main>
+
+      <footer class="row pi-2 pbe-1" role="contentinfo">
+        <p>{{ site.description }}</p>
+        <ul class="row">
+          <li class="inline-block">
+            <a class="block w-2" href="{{ '/feed.xml' | url }}">
+              {% include "icons/rss.njk" %}
+              <span hidden aria-hidden="false">Feed</span>
+            </a>
+          </li>
+          <li class="inline-block mis-1">
+            <a class="block w-2" href="mailto:{{ site.email }}">
+              {% include "icons/email.njk" %}
+              <span hidden aria-hidden="false">Email</span>
+            </a>
+          </li>
+          <li class="inline-block mis-1">
+            <a class="block w-2" href="https://github.com/{{ site.github_username }}">
+              {% include "icons/github.njk" %}
+              <span hidden aria-hidden="false">Github</span>
+            </a>
+          </li>
         </ul>
-      </nav>
-    </header>
-
-    <main class="container flow sticky-footer__content router__view" role="main">
-      {{ content | safe }}
-    </main>
-
-    <footer class="row pi-2" role="contentinfo">
-      <p>{{ site.description }}</p>
-
-      <ul class="row">
-        <li class="inline-block">
-          <a class="block w-2" href="{{ '/feed.xml' | url }}">
-            {% include "icons/rss.njk" %}
-            <span class="sr-only">Feed</span>
-          </a>
-        </li>
-        <li class="inline-block mis-1">
-          <a class="block w-2" href="mailto:{{ site.email }}">
-            {% include "icons/email.njk" %}
-            <span class="sr-only">Email</span>
-          </a>
-        </li>
-        <li class="inline-block mis-1">
-          <a class="block w-2" href="https://github.com/{{ site.github_username }}">
-            {% include "icons/github.njk" %}
-            <span class="sr-only">Github</span>
-          </a>
-        </li>
-      </ul>
-    </footer>
+      </footer>
+    </div>
 
     <script src="{{ '/js/router.js' | url }}" defer></script>
     <script src="{{ '/js/main.js' | url }}" defer></script>

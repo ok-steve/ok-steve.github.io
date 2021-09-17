@@ -17,6 +17,6 @@
   }
 }
 ---
-{% if code.data.js.code %}
+{% if code.data.js.code -%}
 {{ code.data.js.code | safe }}
-{% endif %}
+{%- endif %}

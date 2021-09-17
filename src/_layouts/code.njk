@@ -4,8 +4,6 @@ layout: post.njk
 
 {{ content | safe }}
 
-<link rel="stylesheet" href="{{ '/css/syntax-highlighting.css' | url }}">
-
 {% macro syntaxhighlight(code) %}
   {% if code.code %}
     <details>
