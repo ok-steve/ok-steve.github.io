@@ -2,7 +2,7 @@
 layout: code.njk
 title: Base styles
 date: 2019-06-19
-published: false
+published: true
 tags:
   - code
 html:
@@ -11,15 +11,26 @@ html:
 css:
   lang: css
   code: >-
-    /* Document
-     * ========================================================================== */
+    @charset "utf-8";
+
+
+    /*------------------------------------*\
+      #BASE
+    \*------------------------------------*/
+
+
+    /**
+     * 1. Add inherited box sizing in all browsers (opinionated).
+     * 2. Backgrounds do not repeat by default (opinionated).
+     */
 
     *,
 
     ::before,
 
     ::after {
-      box-sizing: inherit;
+      box-sizing: inherit; /* 1 */
+      background-repeat: no-repeat; /* 2 */
     }
 
 
@@ -61,6 +72,7 @@ css:
     /**
      * Only display focus style for keyboard interactions.
      */
+
     :focus:not(:focus-visible) {
       outline: none;
     }
@@ -74,7 +86,8 @@ css:
     html,
 
     body {
-      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0;
+      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0,
+        "onum" 1, "lnum" 0, "dlig" 0;
     }
 
 
@@ -92,7 +105,15 @@ css:
 
     html {
       cursor: default; /* 1 */
-      color: #222;
+      line-height: 1.5; /* 2 */
+      -moz-tab-size: 4; /* 3 */
+        -o-tab-size: 4; /* 3 */
+           tab-size: 4; /* 3 */
+      -webkit-tap-highlight-color: transparent /* 4 */;
+          -ms-text-size-adjust: 100%; /* 5 */
+      -webkit-text-size-adjust: 100%; /* 5 */
+      word-break: break-word; /* 6 */
+      box-sizing: border-box; /* 7 */
       font-family:
         system-ui,
         /* macOS 10.11-10.12 */ -apple-system,
@@ -106,15 +127,7 @@ css:
         /* Windows emoji */ "Segoe UI Emoji",
         /* Windows emoji */ "Segoe UI Symbol",
         /* Linux emoji */ "Noto Color Emoji"; /* 8 */
-      font-size: 1em;
-      line-height: 1.5; /* 2 */
-      -moz-tab-size: 4; /* 3 */
-           tab-size: 4; /* 3 */
-      -webkit-tap-highlight-color: transparent /* 4 */;
-          -ms-text-size-adjust: 100%; /* 5 */
-      -webkit-text-size-adjust: 100%; /* 5 */
-      word-break: break-word; /* 6 */
-      box-sizing: border-box; /* 7 */
+      color: #222;
     }
 
 
@@ -127,26 +140,14 @@ css:
     }
 
 
-    /* Sections
-     * ========================================================================== */
-
     /**
      * 1. Remove the margin in all browsers (opinionated).
-     * 2. Nicer looking fonts for OS X and iOS.
+     * 2. Nicer looking fonts for OS X and iOS
      */
 
     body {
       margin: 0; /* 1 */
-      -webkit-font-smoothing: antialised: /* 2 */
-    }
-
-
-    /**
-     * Add default margin to all elements.
-     */
-
-    body * + * {
-      margin-top: 1.5em;
+      -webkit-font-smoothing: antialiased; /* 2 */
     }
 
 
@@ -159,26 +160,27 @@ css:
     h2,
 
     h3 {
-      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 1;
+      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0,
+        "onum" 1, "lnum" 0, "dlig" 1;
     }
 
 
     /**
-     * Use modular scale for headings sizes.
+     * Use modular scale in all browsers (opinionated).
      */
 
     h1 {
-      font-size: 1.953em;
+      font-size: 1.728em;
     }
 
 
     h2 {
-      font-size: 1.563em;
+      font-size: 1.44em;
     }
 
 
     h3 {
-      font-size: 1.25em;
+      font-size: 1.2em;
     }
 
 
@@ -188,30 +190,12 @@ css:
 
 
     h5 {
-      font-size: 0.8em;
+      font-size: .833em;
     }
 
 
     h6 {
-      font-size: 0.64em;
-    }
-
-
-    /* Grouping content
-     * ========================================================================== */
-
-    /**
-     * Smartly align text.
-     */
-
-    figure {
-      text-align: center;
-    }
-
-
-    figcaption {
-      display: inline-block;
-      text-align: start;
+      font-size: .694em;
     }
 
 
@@ -248,13 +232,17 @@ css:
 
 
     /**
-     * Remove the margin in all browsers (opinionated).
+     * Smartly align text.
      */
 
-    li,
+    figure {
+      text-align: center;
+    }
 
-    dd {
-      margin-top: 0;
+
+    figcaption {
+      display: inline-block;
+      text-align: start;
     }
 
 
@@ -284,12 +272,42 @@ css:
 
 
     /**
+     * Hang numbers.
+     */
+
+    ol {
+      counter-reset: li;
+    }
+
+
+    ol > li {
+      position: relative;
+      list-style: none;
+    }
+
+
+    ol > li::before {
+      position: absolute;
+      padding-inline-end: 0.5em;
+      text-align: end;
+      transform: translateX(-100%);
+      content: counter(li) ".";
+      counter-increment: li;
+      font-feature-settings: "kern" 0, "tnum" 1, "onum" 1, "liga" 1;
+    }
+
+
+    /**
      * Remove the list style on navigation lists in all browsers (opinionated).
      */
 
     nav ol,
 
-    nav ul {
+    nav ul,
+
+    ol[class],
+
+    ul[class] {
       list-style: none;
       padding: 0;
     }
@@ -307,10 +325,15 @@ css:
     /**
      * 1. Use the default monospace user interface font in all browsers (opinionated).
      * 2. Correct the odd `em` font sizing in all browsers.
-     * 3. Prevent overflow of the container in all browsers (opinionated).
-     * 4. Turn off kerning and ligatures.
-     *    Turn on lining, tabular numerals, slashed zero.
+     * 3. Turn off kerning and ligatures,
+     *    turn on lining, tabular numerals, slashed zero.
      */
+
+    code,
+
+    kbd,
+
+    samp,
 
     pre {
       font-family:
@@ -327,17 +350,28 @@ css:
         /* Windows emoji */ "Segoe UI Symbol",
         /* Linux emoji */ "Noto Color Emoji"; /* 1 */
       font-size: 1em; /* 2 */
-      overflow: auto; /* 3 */
-      -ms-overflow-style: scrollbar; /* 3 */
-      font-feature-settings: "kern" 0, "liga" 0, "calt" 1, "dlig" 0, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1; /* 4 */
+      font-feature-settings: "kern" 0, "liga" 0, "calt" 1, "dlig" 0, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1;
     }
 
 
-    /* Text-level semantics
-     * ========================================================================== */
+    /**
+     * Prevent overflow of the container in all browsers (opinionated).
+     */
+
+    pre {
+      overflow: auto;
+      -ms-overflow-style: scrollbar;
+    }
+
+
+    /**
+     * 1. Remove the gray background on active links in IE 10.
+     * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+     */
 
     a {
-      text-decoration-skip-ink: auto;
+      background-color: transparent; /* 1 */
+      text-decoration-skip-ink: auto; /* 2 */
     }
 
 
@@ -348,7 +382,8 @@ css:
 
     abbr {
       text-transform: uppercase; /* 1 */
-      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "smcp" 1, "c2sc" 1; /* 2 */
+      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0,
+        "onum" 1, "lnum" 0, "smcp" 1, "c2sc" 1; /* 2 */
     }
 
 
@@ -374,41 +409,24 @@ css:
 
 
     /**
-     * 1. Use the default monospace user interface font in all browsers (opinionated).
-     * 2. Correct the odd `em` font sizing in all browsers.
-     * 3. Turn off kerning and ligatures.
-     *    Turn on lining, tabular numerals, slashed zero.
+     * Use modular scale in all browsers (opinionated).
      */
 
-    code,
-
-    kbd,
-
-    samp {
-      font-family:
-        /* macOS 10.10+ */ "Menlo",
-        /* Windows 6+ */ "Consolas",
-        /* Android 4+ */ "Roboto Mono",
-        /* Ubuntu 10.10+ */ "Ubuntu Monospace",
-        /* KDE Plasma 5+ */ "Noto Mono",
-        /* KDE Plasma 4+ */ "Oxygen Mono",
-        /* Linux/OpenOffice fallback */ "Liberation Mono",
-        /* fallback */ monospace,
-        /* macOS emoji */ "Apple Color Emoji",
-        /* Windows emoji */ "Segoe UI Emoji",
-        /* Windows emoji */ "Segoe UI Symbol",
-        /* Linux emoji */ "Noto Color Emoji"; /* 1 */
-      font-size: 1em; /* 2 */
-      font-feature-settings: "kern" 0, "liga" 0, "calt" 1, "dlig" 0, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1; /* 3 */
+    small {
+      font-size: 0.833em;
     }
 
 
     /**
-     * Add the correct font size in all browsers.
+     * Prevent `sub` and `sup` elements from affecting the line height in
+     * all browsers.
      */
 
-    small {
-      font-size: 0.8em;
+    sub,
+
+    sup {
+      font-size: 1rem;
+      vertical-align: baseline;
     }
 
 
@@ -417,45 +435,47 @@ css:
      */
 
     sub {
-      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "subs" 1;
+      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0,
+        "onum" 1, "lnum" 0, "dlig" 0, "subs" 1;
     }
 
 
     /**
-     * Turn on proper supercript numerals.
+     * Turn on proper supercript numerals
      */
 
     sup {
-      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "sups" 1;
+      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0,
+        "onum" 1, "lnum" 0, "dlig" 0, "sups" 1;
     }
 
 
     time {
-      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0;
+      white-space: nowrap;
+      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0,
+        "onum" 1, "lnum" 0;
     }
 
 
     /**
-     * 1. Inherit style issues with custom selections.
-     * 2. Remove text-shadow in selection highlight.
+     * 1. Inherit style issues with custom selections, per robsterlini.co.uk/journal/opentype-and-selection-dont-mix.
+     * 2. Remove text-shadow in selection highlight:
+     *    https://twitter.com/miketaylr/status/12228805301
      */
 
     ::-moz-selection {
       color: inherit; /* 1 */
-      text-shadow: inherit; /* 2 */
+      text-shadow: none; /* 2 */
       background-color: #b3d4fc; /* 1 */
     }
 
 
     ::selection {
       color: inherit; /* 1 */
-      text-shadow: inherit; /* 2 */
+      text-shadow: none; /* 2 */
       background-color: #b3d4fc; /* 1 */
     }
 
-
-    /* Embedded content
-     * ========================================================================== */
 
     /**
      * Change the alignment on media elements in all browsers (opinionated).
@@ -495,10 +515,40 @@ css:
 
 
     /**
+     * Add the correct display in IE 9-.
+     */
+
+    audio,
+
+    video {
+      display: inline-block;
+    }
+
+
+    /**
+     * Add the correct display in iOS 4-7.
+     */
+
+    audio:not([controls]) {
+      display: none;
+      height: 0;
+    }
+
+
+    /**
      * Remove the border on iframes in all browsers (opinionated).
      */
 
     iframe {
+      border-style: none;
+    }
+
+
+    /**
+     * Remove the border on images within links in IE 10-.
+     */
+
+    img {
       border-style: none;
     }
 
@@ -521,9 +571,6 @@ css:
     }
 
 
-    /* Tabular data
-     * ========================================================================== */
-
     /**
      * 1. Collapse border spacing in all browsers (opinionated).
      * 2. Correct table border color inheritance in all Chrome, Edge, and Safari.
@@ -533,11 +580,12 @@ css:
      */
 
     table {
-      width: 100%;
       border-collapse: collapse; /* 1 */
       border-color: inherit; /* 2 */
       text-indent: 0; /* 3 */
-      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0; /* 4 */
+      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0,
+        "onum" 1, "lnum" 0, "dlig" 0; /* 4 */
+      width: 100%;
     }
 
 
@@ -548,7 +596,8 @@ css:
     tbody,
 
     caption {
-      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1;
+      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 0, "tnum" 1,
+        "onum" 0, "lnum" 1, "zero" 1;
     }
 
 
@@ -556,9 +605,6 @@ css:
       text-align: start;
     }
 
-
-    /* Forms
-     * ========================================================================== */
 
     /**
      * 1. Change the inconsistent appearance in all browsers (opinionated).
@@ -657,28 +703,13 @@ css:
     /**
      * 1. Correct the text wrapping in Edge 18- and IE.
      * 2. Correct the color inheritance from `fieldset` elements in IE.
-     * 3. Remove the padding so developers are not caught out when they zero out
-     *    `fieldset` elements in all browsers.
      */
 
     legend {
       color: inherit; /* 2 */
       display: table; /* 1 */
       max-width: 100%; /* 1 */
-      padding: 0; /* 3 */
       white-space: normal; /* 1 */
-    }
-
-
-    option,
-
-    optgroup {
-      margin-top: 0;
-    }
-
-
-    meter {
-
     }
 
 
@@ -700,8 +731,8 @@ css:
 
     select {
       text-transform: none; /* 1 */
-      -moz-appearance: none;
       -webkit-appearance: none;
+         -moz-appearance: none;
       background: no-repeat right center / 1em;
       border-radius: 0;
       padding-right: 1em;
@@ -724,11 +755,11 @@ css:
      */
 
     textarea {
-      width: 100%;
       margin: 0; /* 1 */
       overflow: auto; /* 2 */
       resize: vertical; /* 3 */
       resize: block; /* 3 */
+      width: 100%;
     }
 
 
@@ -751,7 +782,19 @@ css:
     [type="tel"],
 
     [type="week"] {
-      font-feature-settings: "kern" 0, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 0, "lnum" 1, "zero" 0;
+      font-feature-settings: "kern" 0, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0,
+        "onum" 0, "lnum" 1, "zero" 0;
+    }
+
+
+    /**
+     * Remove the padding in IE 10-.
+     */
+
+    [type="checkbox"],
+
+    [type="radio"] {
+      padding: 0;
     }
 
 
@@ -865,9 +908,6 @@ css:
     }
 
 
-    /* Interactive
-     * ========================================================================== */
-
     /**
      * Add the correct display in Edge 18- and IE.
      */
@@ -925,11 +965,22 @@ css:
     }
 
 
-    /* Scripting
-     * ========================================================================== */
+    meter {
+
+    }
+
 
     /**
-     * Add the correct display in IE.
+     * Add the correct display in IE 9-.
+     */
+
+    canvas {
+      display: inline-block;
+    }
+
+
+    /**
+     * Add the correct display in IE 10+.
      */
 
     template {
@@ -937,16 +988,42 @@ css:
     }
 
 
-    /* User interaction
-     * ========================================================================== */
+    /**
+     * 1. Remove the tapping delay in IE 10.
+     * 2. Remove the tapping delay on clickable elements
+          in all browsers (opinionated).
+     */
 
-    [hidden] + * {
-      margin-top: 0;
+    a,
+
+    area,
+
+    button,
+
+    input,
+
+    label,
+
+    select,
+
+    summary,
+
+    textarea,
+
+    [tabindex] {
+      -ms-touch-action: manipulation; /* 1 */
+          touch-action: manipulation; /* 2 */
     }
 
 
-    /* Accessibility
-     * ========================================================================== */
+    /**
+     * Add the correct display in IE 10-.
+     */
+
+    [hidden] {
+      display: none !important;
+    }
+
 
     /**
      * Change the cursor on busy elements in all browsers (opinionated).
@@ -981,20 +1058,94 @@ css:
     /**
      * Change the display on visually hidden accessible elements
      * in all browsers (opinionated).
+     * 1. Prevent screen readers from interpreting text as one word.
      */
 
     [aria-hidden="false"][hidden] {
-      display: initial;
+      display: initial !important;
     }
 
 
     [aria-hidden="false"][hidden]:not(:focus) {
+      border: 0;
       clip: rect(0, 0, 0, 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
       position: absolute;
+      white-space: nowrap; /* 1 */
+      width: 1px;
+    }
+
+
+    /* ---------------------------------- *\
+      #COMPOSITION
+    \* ---------------------------------- */
+
+
+    /**
+     * Aspect ratios for media objects.
+     */
+
+    .aspect-ratio {
+      height: 0;
+      padding-top: 56.25%; /* 16:9 */
+      padding-top: var(--aspect-ratio, 56.25%);
+      position: relative;
+    }
+
+
+    .aspect-ratio > * {
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+    }
+
+
+    /**
+     * Container
+     */
+
+    .container {
+      max-width: 36em; /* Measure	*/
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+
+    /**
+     * Cover
+     */
+
+    .cover {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+
+    /**
+     * Flow
+     */
+
+    .flow > * + * {
+      margin-top: 1.5rem;
     }
 js:
   lang: javascript
 ---
+My own, highly opinionated normalize styles.
+
+
+
+References
+
 * https://github.com/necolas/normalize.css
 * https://github.com/csstools/sanitize.css
 * https://github.com/kennethormandy/normalize-opentype.css
@@ -1011,3 +1162,7 @@ js:
 * https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
 * http://juicystudio.com/article/screen-readers-display-none.php
 * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+* https://github.com/aprietof/every-layout
+* https://github.com/kennethormandy/dodging-bullets
+* https://meowni.ca/hidden.is.a.lie.html
+* https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
