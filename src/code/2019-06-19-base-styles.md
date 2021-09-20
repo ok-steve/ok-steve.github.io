@@ -8,10 +8,52 @@ tags:
   - code
 html:
   lang: html
-  code: ""
+  code: >-
+    <h2>Composition</h2>
+
+
+    <h3>Aspect ratio boxes</h3>
+
+
+    <div class="aspect-ratio" style="--aspect-ratio: calc(100% * 9/ 16);">
+      <iframe src="https://www.youtube.com/embed/d81N0_zZhEA"></iframe>
+    </div>
+
+
+    <div class="aspect-ratio" style="--aspect-ratio: calc(100% * 3 / 4);">
+      <iframe src="https://www.youtube.com/embed/d81N0_zZhEA"></iframe>
+    </div> 
+
+
+    <h2>Blocks</h2>
+
+
+    <h3>Media objects</h3>
+
+
+    <div class="media">
+      <div class="media-object">
+        <img src="http://placehold.it/64x64" alt="placeholder image"/>
+      </div>
+     
+      <div class="media-body">
+        <p>Lorem lean startup ipsum product market fit customer development acquihire technical cofounder.</p>
+      </div>
+    </div>
+
+
+    <div class="media" data-orientation="reverse">
+      <div class="media-object">
+        <img src="http://placehold.it/64x64" alt="placeholder image"/>
+      </div>
+     
+      <div class="media-body">
+        <p>Lorem lean startup ipsum product market fit customer development acquihire technical cofounder.</p>
+      </div>
+    </div>
 css:
   lang: css
-  code: >-
+  code: >
     @charset "utf-8";
 
 
@@ -1139,6 +1181,37 @@ css:
     .flow > * + * {
       margin-top: 1.5rem;
     }
+
+
+    /* ---------------------------------- *\
+      #BLOCKS
+    \* ---------------------------------- */
+
+
+    /**
+     * Media objects
+     */
+
+    .media {
+      display: flex;
+      align-items: flex-start;
+    }
+
+
+    .media-body {
+      flex: 1;
+    }
+
+
+    .media:not([data-orientation]) .media-object {
+      margin-right: var(--media-padding, 1em);
+    }
+
+
+    .media[data-orientation="reverse"] .media-object {
+      order: 1;
+      margin-left: var(--media-padding, 1em);
+    }
 js:
   lang: javascript
 ---
@@ -1169,3 +1242,10 @@ References
 * https://github.com/kennethormandy/dodging-bullets
 * https://meowni.ca/hidden.is.a.lie.html
 * https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+* https://philipwalton.github.io/solved-by-flexbox
+
+
+### Aspect ratio boxes 
+* https://css-tricks.com/aspect-ratio-boxes/
+* https://www.smashingmagazine.com/2014/02/making-embedded-content-work-in-responsive-design/
+* https://css-tricks.com/aspect-ratio-media-elements-and-intrinsicsize/
