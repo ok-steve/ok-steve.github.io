@@ -49,16 +49,18 @@
     });
   }
 
-  function shouldRouteChange(pathname, origin) {
+  function shouldRouteChange(target) {
     return [
+      // Target marked as ignored
+      !target.hasAttribute('data-router-ignore'),
       // Push state
       window.history.pushState,
       // Different paths
-      pathname !== window.location.pathname,
+      target.pathname !== window.location.pathname,
       // Same origin
-      origin === window.location.origin,
+      target.origin === window.location.origin,
       // Not assets
-      pathname.search(/\.(xml|css|js|png|jpg|svg)/) === -1,
+      target.pathname.search(/\.(xml|css|js|png|jpg|svg)/) === -1,
     ].reduce((prev, curr) => prev && curr);
   }
 
@@ -74,7 +76,7 @@
     }
 
     if (target && target !== document) {
-      if (shouldRouteChange(target.pathname, target.origin)) {
+      if (shouldRouteChange(target)) {
         window.history.pushState(null, null, target.pathname);
         render(target.pathname);
         e.preventDefault();
