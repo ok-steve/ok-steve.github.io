@@ -32,12 +32,11 @@
   </head>
   <body class="router" prefix="schema: http://schema.org/">
     <div class="flow cover">
-      <header class="row pi-2" role="banner">
-        <h1>
-          <a href="{{ '/' | url }}">{{ site.name }}</a>
-        </h1>
+      <header class="[ row ] [ pi-2 ]" role="banner">
+        <a href="{{ '/' | url }}" class="bold block ms-3">{{ site.name }}</a>
+
         <nav role="navigation">
-          <ul>
+          <ul role="list">
             {% for page in collections.all | eleventyNavigation %}
               <li class="inline-block {{ 'mis-1' if loop.index0 > 0 }}">
                 <a href="{{ page.url | url }}">{{ page.title }}</a>
@@ -47,13 +46,14 @@
         </nav>
       </header>
 
-      <main class="[ router__view ] [ container flow ] [ flex-1 ]" role="main">
+      <main class="[ router__view ] [ container ] [ flex-1 fluid-type pi-2 ]" role="main">
         {{ content | safe }}
       </main>
 
-      <footer class="row pi-2 pbe-1" role="contentinfo">
+      <footer class="[ row ] [ pi-2 pbe-1 ]" role="contentinfo">
         <p>{{ site.description }}</p>
-        <ul class="row">
+
+        <ul role="list">
           <li class="inline-block">
             <a class="block w-2" href="{{ '/feed.xml' | url }}">
               {% include "icons/rss.njk" %}

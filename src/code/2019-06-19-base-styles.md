@@ -360,23 +360,13 @@ css:
     }
 
     /**
-     * Remove the list style on navigation lists in all browsers (opinionated).
-     */
-
-    nav ol,
-    nav ul,
-    ol[class],
-    ul[class] {
-      padding: 0;
-    }
-
-    /**
-     * Only remove list style for proper semantics.
+     * Remove the list style with proper semantics in all browsers (opinionated).
      */
 
     ol[role="list"],
     ul[role="list"] {
       list-style: none;
+      padding: 0;
     }
 
     /**

@@ -1,17 +1,20 @@
 ---
 layout: default.njk
 ---
+<div class="flow">
+  <h1 hidden aria-hidden="false">{{ title or site.name }}</h1>
 
-{{ content | safe }}
+  {{ content | safe }}
 
-{% for post in collections.posts | published | reverse %}
-  <article class="flow pi-2" resource="{{ post.url | url }}" typeof="schema:BlogPosting">
-    <header>
-      <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
-    </header>
+  {% for post in collections.posts | published | reverse %}
+    <article class="flow" resource="{{ post.url | url }}" typeof="schema:BlogPosting">
+      <header>
+        <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
+      </header>
 
-    {% markdown %}
-      {{ post.data.page.excerpt }}
-    {% endmarkdown %}
-  </article>
-{% endfor %}
+      {% markdown %}
+        {{ post.data.page.excerpt }}
+      {% endmarkdown %}
+    </article>
+  {% endfor %}
+</div>

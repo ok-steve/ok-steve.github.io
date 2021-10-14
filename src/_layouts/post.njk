@@ -1,11 +1,12 @@
 ---
 layout: default.njk
 ---
-
-<article class="flow visible pi-2">
-  <header>
-    <h2>{{ title }}</h2>
-  </header>
+<article class="flow">
+  {% if title %}
+    <header>
+      <h1>{{ title }}</h1>
+    </header>
+  {% endif %}
 
   <div class="flow text">
     {{ content | safe }}
