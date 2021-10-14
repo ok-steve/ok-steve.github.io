@@ -9,6 +9,44 @@ tags:
 html:
   lang: html
   code: >-
+    <h2>Base</h2>
+
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+    <h3>Heading 3</h3>
+    <h4>Heading 4</h4>
+    <h5>Heading 5</h5>
+    <h6>Heading 6</h6>
+
+    <p>Paragraph text</p>
+
+    <ul>
+      <li>List item</li>
+      <li>List item</li>
+    </ul>
+
+    <ol>
+      <li>List item</li>
+      <li>List item</li>
+    </ol>
+
+    <dl>
+      <dt>Term</dt>
+      <dd>Definition</dd>
+      <dt>Term</dt>
+      <dd>Definition</dd>
+    </dl>
+
+    <blockquote>
+      <p>This is a quote.</p>
+      <cite>Quote source</cite>
+    </blockquote>
+
+    <figure>
+      <img src="https://via.placeholder.com/420x270" alt="placeholder image">
+      <figcaption>Caption for a placeholder image</figcaption>
+    </figure>
+
     <h2>Composition</h2>
 
     <h3>Aspect ratio boxes</h3>
@@ -67,7 +105,7 @@ css:
     *,
     ::before,
     ::after {
-      box-sizing: inherit; /* 1 */
+      box-sizing: border-box; /* 1 */
       background-repeat: no-repeat; /* 2 */
     }
 
@@ -130,8 +168,7 @@ css:
      * 5. Prevent adjustments of font size after orientation changes in
      *    IE on Windows Phone and in iOS.
      * 6. Breaks words to prevent overflow in all browsers (opinionated).
-     * 7. Add border box sizing in all browsers (opinionated).
-     * 8. Use the default user interface font in all browsers (opinionated).
+     * 7. Use the default user interface font in all browsers (opinionated).
      */
 
     html {
@@ -144,7 +181,6 @@ css:
           -ms-text-size-adjust: 100%; /* 5 */
       -webkit-text-size-adjust: 100%; /* 5 */
       word-break: break-word; /* 6 */
-      box-sizing: border-box; /* 7 */
       font-family:
         system-ui,
         /* macOS 10.11-10.12 */ -apple-system,
@@ -157,8 +193,9 @@ css:
         /* macOS emoji */ "Apple Color Emoji",
         /* Windows emoji */ "Segoe UI Emoji",
         /* Windows emoji */ "Segoe UI Symbol",
-        /* Linux emoji */ "Noto Color Emoji"; /* 8 */
+        /* Linux emoji */ "Noto Color Emoji"; /* 7 */
       color: #222;
+      color: var(--text-color, #222);
     }
 
     /**
@@ -177,6 +214,28 @@ css:
     body {
       margin: 0; /* 1 */
       -webkit-font-smoothing: antialiased; /* 2 */
+      min-height: 100vh;
+      text-rendering: optimizeSpeed;
+    }
+
+    /**
+     * Remove the margin in all browsers (opinionated)/
+     */
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ul,
+    ol,
+    dl,
+    dd,
+    figure,
+    blockquote {
+      margin: 0;
     }
 
     /**
@@ -308,8 +367,16 @@ css:
     nav ul,
     ol[class],
     ul[class] {
-      list-style: none;
       padding: 0;
+    }
+
+    /**
+     * Only remove list style for proper semantics.
+     */
+
+    ol[role="list"],
+    ul[role="list"] {
+      list-style: none;
     }
 
     /**
@@ -358,13 +425,19 @@ css:
     }
 
     /**
-     * 1. Remove the gray background on active links in IE 10.
-     * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+     * Remove the gray background on active links in IE 10.
      */
 
     a {
-      background-color: transparent; /* 1 */
-      text-decoration-skip-ink: auto; /* 2 */
+      background-color: transparent;
+    }
+
+    /**
+     * Remove gaps in links underline in iOS 8+ and Safari 8+.
+     */
+
+    a:not([class]) {
+      text-decoration-skip-ink: auto;
     }
 
     /**
@@ -510,11 +583,13 @@ css:
     }
 
     /**
-     * Remove the border on images within links in IE 10-.
+     * 1. Remove the border on images within links in IE 10-.
+     * 2. Better default display for image.
      */
 
     img {
-      border-style: none;
+      border-style: none; /* 1 */
+      display: block;
     }
 
     /**
@@ -1063,6 +1138,8 @@ References
 * https://github.com/kennethormandy/normalize-opentype.css
 * https://github.com/h5bp/html5-boilerplate
 * https://github.com/benfrain/app-reset/blob/master/app-reset.css
+* https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+* https://piccalil.li/blog/a-modern-css-reset/
 * https://css-tricks.com/the-focus-visible-trick/
 * https://yeun.github.io/open-color
 * https://alistapart.com/article/axiomatic-css-and-lobotomized-owls
@@ -1071,7 +1148,6 @@ References
 * https://github.com/mrmrs/fluidity
 * http://www.smashingmagazine.com/2014/11/28/complete-polyfill-html5-details-element
 * https://css-tricks.com/html5-meter-element
-* https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
 * http://juicystudio.com/article/screen-readers-display-none.php
 * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
 * https://github.com/aprietof/every-layout

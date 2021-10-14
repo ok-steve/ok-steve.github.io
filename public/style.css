@@ -8,16 +8,6 @@ html {
   color: #212529;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul,
-ol,
-dl,
 pre,
 code,
 hr {
@@ -49,21 +39,6 @@ a:focus {
   #COMPOSITION
 \* ---------------------------------- */
 
-
-/**
- * Inline list
- */
-
-.list-inline {
-  list-style-type: none;
-  padding-left: 0;
-  display: flex;
-}
-
-.list-inline li + li {
-  margin-left: 0.75rem;
-}
-
 /**
  * Row
  */
@@ -80,8 +55,12 @@ a:focus {
   #COMPOSITION
 \* ---------------------------------- */
 
+/**
+ * Container
+ */
+
 .container {
-  --container-width: 36em; /* Measure */
+  max-width: 36em; /* Measure */
 }
 
 /* ---------------------------------- *\
