@@ -22,6 +22,11 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
 
+  eleventyConfig.addFilter('excerpt', value => {
+    if (!value) return '';
+    return value.split('\n')[0];
+  });
+
   eleventyConfig.addFilter('published', (value) =>
     value.filter((item) => item.data.permalink)
   );
@@ -54,14 +59,6 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy('src/admin');
 
   eleventyConfig.setLibrary('md', markdownLib);
-
-  eleventyConfig.setFrontMatterParsingOptions({
-    excerpt: true,
-  });
-
-  eleventyConfig.addPairedShortcode('markdown', (content) =>
-    markdownLib.render(content)
-  );
 
   return {
     htmlTemplateEngine: 'njk',
