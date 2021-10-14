@@ -83,8 +83,8 @@ a:focus {
   display: block;
 }
 
-.inline-block {
-  display: inline-block;
+.flex {
+  display: flex;
 }
 
 /**
@@ -208,6 +208,29 @@ a:focus {
 .text ul ol,
 .text ol ol {
   padding-left: 40px; /* Browser default */
+}
+
+/**
+ * Hang numbers.
+ */
+
+.text ol {
+  counter-reset: li;
+}
+
+.text ol > li {
+  position: relative;
+  list-style: none;
+}
+
+.text ol > li::before {
+  position: absolute;
+  padding-inline-end: 0.5em;
+  text-align: end;
+  transform: translateX(-100%);
+  content: counter(li) ".";
+  counter-increment: li;
+  font-feature-settings: "kern" 0, "tnum" 1, "onum" 1, "liga" 1;
 }
 
 /* Lead paragraph */

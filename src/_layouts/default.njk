@@ -36,9 +36,9 @@
         <a href="{{ '/' | url }}" class="bold block ms-3">{{ site.name }}</a>
 
         <nav role="navigation">
-          <ul role="list">
+          <ul class="flex" role="list">
             {% for page in collections.all | eleventyNavigation %}
-              <li class="inline-block {{ 'mis-1' if loop.index0 > 0 }}">
+              <li class="{{ 'mis-1' if loop.index0 > 0 }}">
                 <a href="{{ page.url | url }}">{{ page.title }}</a>
               </li>
             {% endfor %}
@@ -53,20 +53,20 @@
       <footer class="[ row ] [ pi-2 pbe-1 ]" role="contentinfo">
         <p>{{ site.description }}</p>
 
-        <ul role="list">
-          <li class="inline-block">
+        <ul class="flex" role="list">
+          <li>
             <a class="block w-2" href="{{ '/feed.xml' | url }}">
               {% include "icons/rss.njk" %}
               <span hidden aria-hidden="false">Feed</span>
             </a>
           </li>
-          <li class="inline-block mis-1">
+          <li class="mis-1">
             <a class="block w-2" href="mailto:{{ site.email }}">
               {% include "icons/email.njk" %}
               <span hidden aria-hidden="false">Email</span>
             </a>
           </li>
-          <li class="inline-block mis-1">
+          <li class="mis-1">
             <a class="block w-2" href="https://github.com/{{ site.github_username }}">
               {% include "icons/github.njk" %}
               <span hidden aria-hidden="false">Github</span>

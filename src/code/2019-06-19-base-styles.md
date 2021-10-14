@@ -337,34 +337,13 @@ css:
     }
 
     /**
-     * Hang numbers.
+     * Remove the list style on navigation lists in all browsers (opinionated).
      */
 
-    ol {
-      counter-reset: li;
-    }
-
-    ol > li {
-      position: relative;
-      list-style: none;
-    }
-
-    ol > li::before {
-      position: absolute;
-      padding-inline-end: 0.5em;
-      text-align: end;
-      transform: translateX(-100%);
-      content: counter(li) ".";
-      counter-increment: li;
-      font-feature-settings: "kern" 0, "tnum" 1, "onum" 1, "liga" 1;
-    }
-
-    /**
-     * Remove the list style with proper semantics in all browsers (opinionated).
-     */
-
-    ol[role="list"],
-    ul[role="list"] {
+    nav ol,
+    nav ul,
+    ol[class][role="list"],
+    ul[class][role="list"] {
       list-style: none;
       padding: 0;
     }
@@ -373,7 +352,9 @@ css:
      * Prevent VoiceOver from ignoring list semantics in Safari (opinionated).
      */
 
-    nav li::before {
+    nav li::before,
+    ol[class] li::before,
+    ul[class] li::before {
       content: "\200B";
     }
 
