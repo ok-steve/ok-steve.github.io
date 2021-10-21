@@ -1,10 +1,7 @@
 ---
-layout: code.njk
 title: GanSynth demo
 date: 2019-11-22
 published: false
-tags:
-  - code
 html:
   lang: html
   code: |-

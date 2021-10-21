@@ -1,11 +1,7 @@
 ---
-layout: code.njk
 title: Normcore
 date: 2019-06-19
 published: true
-permalink: normcore/
-tags:
-  - code
 html:
   lang: html
   code: >-

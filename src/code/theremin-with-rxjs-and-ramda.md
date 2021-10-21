@@ -1,10 +1,7 @@
 ---
-layout: code.njk
 title: Theremin (with Rxjs and Ramda)
 date: 2017-10-02
 published: false
-tags:
-  - code
 html:
   lang: html
   code: |-

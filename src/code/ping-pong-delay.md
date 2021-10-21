@@ -1,10 +1,7 @@
 ---
-layout: code.njk
 title: Ping Pong delay
 date: 2020-05-16
 published: false
-tags:
-  - code
 html:
   lang: html
   code: |-

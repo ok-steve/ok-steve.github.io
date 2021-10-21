@@ -1,10 +1,7 @@
 ---
-layout: code.njk
 title: Modular synthesizer (with React)
 date: 2018-04-25
 published: false
-tags:
-  - code
 html:
   lang: html
   code: |-

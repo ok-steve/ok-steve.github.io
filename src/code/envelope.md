@@ -1,10 +1,7 @@
 ---
-layout: code.njk
 title: Envelope
 date: 2020-05-19
 published: false
-tags:
-  - code
 html:
   lang: html
   code: |-

@@ -1,10 +1,7 @@
 ---
-layout: code.njk
 title: MIDI Keyboard (with Rxjs and Ramda)
 date: 2017-10-03
 published: false
-tags:
-  - code
 html:
   lang: html
 css:

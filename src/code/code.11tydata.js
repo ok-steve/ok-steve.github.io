@@ -1,18 +1,10 @@
 module.exports = {
+  layout: 'code.njk',
   eleventyComputed: {
-    permalink: (data) => {
-      if (
-        process.env.ELEVENTY_ENV === 'production' &&
-        data.published === false
-      ) {
-        return false;
-      }
-
-      if (data.permalink) {
-        return data.permalink;
-      }
-
-      return `${data.page.fileSlug}/`;
+    permalink: ({ env, published, permalink, page }) => {
+      if (env === 'production' && !published) return false;
+      if (permalink) return permalink;
+      return `${page.filePathStem}/`;
     },
   },
 };

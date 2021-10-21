@@ -1,10 +1,7 @@
 ---
-layout: code.njk
 title: Horizontal and vertical sliders
 date: 2017-10-25
 published: false
-tags:
-  - code
 html:
   lang: html
   code: |-

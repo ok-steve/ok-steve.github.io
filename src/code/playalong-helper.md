@@ -1,10 +1,7 @@
 ---
-layout: code.njk
 title: Playalong helper
 date: 2020-12-15
 published: false
-tags:
-  - code
 html:
   lang: html
   code: |-

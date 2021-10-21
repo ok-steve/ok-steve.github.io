@@ -1,10 +1,7 @@
 ---
-layout: code.njk
 title: Box shadows 
 date: 2019-06-19
 published: false
-tags:
-  - code
 html:
   lang: html
   code: |-

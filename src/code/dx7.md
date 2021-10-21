@@ -1,10 +1,7 @@
 ---
-layout: code.njk
 title: Dx7
 date: 2020-01-13
 published: false
-tags:
-  - code
 html:
   lang: html
   code: |-

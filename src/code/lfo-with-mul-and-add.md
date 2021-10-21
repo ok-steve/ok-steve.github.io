@@ -1,10 +1,7 @@
 ---
-layout: code.njk
 title: LFO with mul and add
 date: 2020-05-06
 published: false
-tags:
-  - code
 html:
   lang: html
   code: |-

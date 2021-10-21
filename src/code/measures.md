@@ -1,10 +1,7 @@
 ---
-layout: code.njk
 title: Measures
 date: 2020-11-04
 published: false
-tags:
-  - code
 html:
   lang: html
   code: <div id="app"></div>

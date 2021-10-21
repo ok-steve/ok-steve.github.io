@@ -1,10 +1,7 @@
 ---
-layout: code.njk
 title: MusicRNN demo
 date: 2019-02-25
 published: false
-tags:
-  - code
 html:
   lang: html
   code: |-

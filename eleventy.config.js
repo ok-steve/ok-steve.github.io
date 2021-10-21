@@ -22,6 +22,10 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
 
+  eleventyConfig.addCollection('code', (collectionApi) =>
+    collectionApi.getFilteredByGlob('src/code/*.md')
+  );
+
   eleventyConfig.addCollection('writing', (collectionApi) =>
     collectionApi.getFilteredByGlob('src/writing/*.md')
   );

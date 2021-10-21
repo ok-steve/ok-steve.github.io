@@ -1,10 +1,7 @@
 ---
-layout: code.njk
 title: MusicVAE demo
 date: 2019-05-25
 published: false
-tags:
-  - code
 html:
   lang: html
   code: |-

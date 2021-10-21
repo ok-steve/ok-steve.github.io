@@ -1,10 +1,7 @@
 ---
-layout: code.njk
 title: Microtonal piano
 date: 2019-01-12
 published: false
-tags:
-  - code
 html:
   lang: html
   code: |-
