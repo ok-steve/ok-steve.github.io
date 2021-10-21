@@ -37,9 +37,9 @@
 
         <nav role="navigation">
           <ul class="flex" role="list">
-            {% for page in collections.all | eleventyNavigation %}
+            {% for entry in collections.all | eleventyNavigation %}
               <li class="{{ 'mis-1' if loop.index0 > 0 }}">
-                <a href="{{ page.url | url }}">{{ page.title }}</a>
+                <a href="{{ entry.url | url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a>
               </li>
             {% endfor %}
           </ul>
