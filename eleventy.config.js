@@ -18,9 +18,37 @@ const markdownLib = new MarkdownIt({
 module.exports = (eleventyConfig) => {
   eleventyConfig.setWatchJavaScriptDependencies(false);
 
+  /**
+   * Plugins
+   */
+
   eleventyConfig.addPlugin(pluginNavigation);
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
+
+  /**
+   * Passthrough copy
+   */
+
+  eleventyConfig.addPassthroughCopy({
+    './node_modules/prismjs/themes/prism-solarizedlight.css':
+      './public/syntax-highlighting.css',
+  });
+  eleventyConfig.addPassthroughCopy('public');
+  eleventyConfig.addPassthroughCopy('src/*.{txt,xml}');
+  eleventyConfig.addPassthroughCopy('src/sw.js');
+  eleventyConfig.addPassthroughCopy('src/admin');
+
+
+  /**
+   * Libraries
+   */
+
+  eleventyConfig.setLibrary('md', markdownLib);
+
+  /**
+   * Collections
+   */
 
   eleventyConfig.addCollection('code', (collectionApi) =>
     collectionApi.getFilteredByGlob('src/code/*.md')
@@ -30,6 +58,10 @@ module.exports = (eleventyConfig) => {
     collectionApi.getFilteredByGlob('src/writing/*.md')
   );
 
+  /**
+   * Filters
+   */
+
   eleventyConfig.addFilter('excerpt', value => {
     if (!value) return '';
     return value.split('\n')[0];
@@ -38,6 +70,10 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addFilter('published', (value) =>
     value.filter((item) => item.data.permalink)
   );
+
+  /**
+   * Transforms
+   */
 
   eleventyConfig.addTransform('htmlmin', (content, outputPath) => {
     if (
@@ -57,17 +93,6 @@ module.exports = (eleventyConfig) => {
     return content;
   });
 
-  eleventyConfig.addPassthroughCopy({
-    './node_modules/prismjs/themes/prism-solarizedlight.css':
-      './public/syntax-highlighting.css',
-  });
-  eleventyConfig.addPassthroughCopy('public');
-  eleventyConfig.addPassthroughCopy('src/*.{txt,xml}');
-  eleventyConfig.addPassthroughCopy('src/sw.js');
-  eleventyConfig.addPassthroughCopy('src/admin');
-
-  eleventyConfig.setLibrary('md', markdownLib);
-
   return {
     htmlTemplateEngine: 'njk',
     dataTemplateEngine: 'njk',
@@ -78,4 +103,4 @@ module.exports = (eleventyConfig) => {
       layouts: '_layouts',
     },
   };
-};
+};;
