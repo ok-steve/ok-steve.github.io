@@ -7,12 +7,9 @@
   },
   permalink: 'embed.html',
   eleventyComputed: {
-    permalink: data => {
-      if (!data.code.url) {
-        return false;
-      }
-
-      return `${data.code.url}${data.permalink}`;
+    permalink: ({ code, permalink }) => {
+      if (!code.url) return false;
+      return `${code.url}${permalink}`;
     }
   }
 }

@@ -7,12 +7,9 @@
   },
   permalink: 'script.js',
   eleventyComputed: {
-    permalink: data => {
-      if (!data.code.url || !data.code.data.js.code) {
-        return false;
-      }
-
-      return `${data.code.url}${data.permalink}`;
+    permalink: ({ code, permalink })=> {
+      if (!code.url || !code.data.js.code) return false;
+      return `${code.url}${permalink}`;
     }
   }
 }
