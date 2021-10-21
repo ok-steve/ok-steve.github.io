@@ -39,20 +39,18 @@ collections:
             fields:
               - { label: 'Key', name: 'key', type: 'string' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
-  - name: 'posts' # Used in routes, e.g., /admin/collections/blog
-    label: 'Posts' # Used in the UI
-    folder: 'src/posts' # The path to the folder where the documents are stored
+  - name: 'article' # Used in routes, e.g., /admin/collections/blog
+    label: 'Articles' # Used in the UI
+    folder: 'src/writing' # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
+    slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
     editor:
       preview: false
     fields: # The fields for each document, usually in front matter
-      - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'post.njk' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime', format: 'YYYY-MM-DD', date_format: true, time_format: false }
       - { label: 'Published', name: 'published', widget: 'boolean', default: true, required: false }
-      - { label: 'Permalink', name: 'permalink', widget: 'string', required: false }
-      - { label: 'Tags', name: 'tags', widget: 'list', default: ['posts'] }
+      - { label: 'Tags', name: 'tags', widget: 'list' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'code' # Used in routes, e.g., /admin/collections/blog
     label: 'Code' # Used in the UI

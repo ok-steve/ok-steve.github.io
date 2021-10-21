@@ -22,6 +22,10 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
 
+  eleventyConfig.addCollection('writing', (collectionApi) =>
+    collectionApi.getFilteredByGlob('src/writing/*.md')
+  );
+
   eleventyConfig.addFilter('excerpt', value => {
     if (!value) return '';
     return value.split('\n')[0];

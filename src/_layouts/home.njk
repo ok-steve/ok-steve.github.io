@@ -6,13 +6,13 @@ layout: default.njk
 
   {{ content | safe }}
 
-  {% for post in collections.posts | published | reverse %}
-    <article class="flow" resource="{{ post.url | url }}" typeof="schema:BlogPosting">
+  {% for item in collections.writing | published | reverse %}
+    <article class="flow" resource="{{ item.url | url }}" typeof="schema:BlogPosting">
       <header>
-        <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
+        <h2><a href="{{ item.url | url }}">{{ item.data.title }}</a></h2>
       </header>
 
-      {{ post.data.content | excerpt | safe }}
+      {{ item.data.content | excerpt | safe }}
     </article>
   {% endfor %}
 </div>
