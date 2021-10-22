@@ -1,4 +1,4 @@
-(function pjax() {
+(function router() {
   /**
    * XMLHttpRequest utility function
    */
@@ -27,33 +27,37 @@
    */
 
   function render(pathname) {
-    const router = document.querySelector('body');
+    const routerRoot = document.querySelector('.router');
     const title = document.querySelector('title');
     const description = document.querySelector('meta[name=description]');
     const canonical = document.querySelector('link[rel=canonical]');
-    const view = document.querySelector('main');
 
-    router.classList.add('is-loading');
+    routerRoot.classList.add('is-loading');
 
     get(pathname, (response) => {
       title.textContent = response.querySelector('title').textContent;
+
       description.textContent = response.querySelector(
         'meta[name=description]'
       ).textContent;
+
       canonical.setAttribute(
         'href',
         response.querySelector('link[rel=canonical]').getAttribute('href')
       );
-      view.innerHTML = response.querySelector('main').innerHTML;
-      router.classList.remove('is-loading');
+
+      routerRoot.innerHTML = response.querySelector('.router').innerHTML;
+      routerRoot.classList.remove('is-loading');
     });
   }
 
   function shouldRouteChange(target) {
     return [
-      // Target marked as ignored
+      // Target is not a hash
+      target.hash === '',
+      // Target is not marked as ignored
       !target.hasAttribute('data-router-ignore'),
-      // Push state
+      // Browser supports push state
       window.history.pushState,
       // Different paths
       target.pathname !== window.location.pathname,
@@ -68,14 +72,18 @@
    * Events
    */
 
+  let previousUrl = window.location.pathname;
+
   function onClick(e) {
-    let { target } = e;
+    const target = e.path.reduce((link, el) => {
+      if (link !== null) return link;
+      if (el.tagName && el.tagName.toLowerCase() === 'a') return el;
+      return null;
+    }, null);
 
-    while (target && target.tagName && target.tagName !== 'A') {
-      target = target.parentNode;
-    }
+    if (target !== null) {
+      previousUrl = window.location.pathname;
 
-    if (target && target !== document) {
       if (shouldRouteChange(target)) {
         window.history.pushState(null, null, target.pathname);
         render(target.pathname);
@@ -85,7 +93,12 @@
   }
 
   function onPopstate(e) {
+    if (e.target.location.hash || previousUrl === e.target.location.pathname) {
+      return;
+    }
+
     render(e.target.location);
+    previousUrl = e.target.location.href;
   }
 
   document.addEventListener('click', onClick);
