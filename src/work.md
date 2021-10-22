@@ -1,8 +1,8 @@
 ---
 layout: page.njk
-title: Résumé
+title: Work
 eleventyNavigation:
-  key: Résumé
+  key: Work
 ---
 
 ### Experience

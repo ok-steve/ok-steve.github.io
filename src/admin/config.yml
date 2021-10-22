@@ -28,7 +28,7 @@ collections:
           - { label: 'Body', name: 'body', widget: 'markdown' }
       - name: 'resume'
         label: 'Résumé'
-        file: 'src/resume.md'
+        file: 'src/work.md'
         fields:
           - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'page.njk' }
           - { label: 'Title', name: 'title', widget: 'string' }
