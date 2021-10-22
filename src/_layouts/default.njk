@@ -61,21 +61,18 @@
 
         <ul class="flex" role="list">
           <li>
-            <a class="block w-2" href="{{ '/feed.xml' | url }}">
+            <a class="inline-block w-2" href="{{ '/feed.xml' | url }}">
               {% include "icons/rss.njk" %}
-              <span hidden aria-hidden="false">Feed</span>
             </a>
           </li>
           <li class="mis-1">
-            <a class="block w-2" href="mailto:{{ site.email }}">
+            <a class="inline-block w-2" href="mailto:{{ site.email }}">
               {% include "icons/email.njk" %}
-              <span hidden aria-hidden="false">Email</span>
             </a>
           </li>
           <li class="mis-1">
-            <a class="block w-2" href="https://github.com/{{ site.github_username }}">
+            <a class="inline-block w-2" href="https://github.com/{{ site.github_username }}">
               {% include "icons/github.njk" %}
-              <span hidden aria-hidden="false">Github</span>
             </a>
           </li>
         </ul>

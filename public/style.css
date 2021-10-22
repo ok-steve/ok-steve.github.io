@@ -87,6 +87,10 @@ a:focus {
   display: flex;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 /**
  * Flexbox
  */
