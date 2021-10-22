@@ -46,8 +46,14 @@
         </nav>
       </header>
 
-      <main class="[ router__view ] [ container ] [ flex-1 fluid-type pi-2 ]" role="main">
-        {{ content | safe }}
+      <main class="[ router__view ] [ container flow ] [ flex-1 fluid-type pi-2 ]" role="main">
+        {% block content %}
+          {% if title %}
+            <h1>{{ title }}</h1>
+          {% endif %}
+
+          {{ content | safe }}
+        {% endblock %}
       </main>
 
       <footer class="[ row ] [ pi-2 pbe-1 ]" role="contentinfo">
