@@ -50,6 +50,9 @@
         {% block content %}
           {% if title %}
             <h1>{{ title }}</h1>
+          {% else %}
+            {# For the home page, assumes all other pages will have a title #}
+            <h1 hidden aria-hidden="false">{{ title or site.name }}</h1>
           {% endif %}
 
           {{ content | safe }}

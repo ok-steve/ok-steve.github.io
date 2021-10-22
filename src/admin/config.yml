@@ -15,10 +15,9 @@ collections:
     files:
       - name: 'about'
         label: 'About'
-        file: 'src/about.md'
+        file: 'src/index.md'
         fields:
           - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'page.njk' }
-          - { label: 'Title', name: 'title', widget: 'string' }
           - label: 'Navigation'
             name: 'eleventyNavigation'
             widget: 'object'

@@ -1,0 +1,15 @@
+---
+layout: default.njk
+title: Writing
+eleventyNavigation:
+  key: Writing
+---
+{% for item in collections.writing | published | reverse %}
+  <article class="flow" resource="{{ item.url | url }}" typeof="schema:BlogPosting">
+    <header>
+      <h2><a href="{{ item.url | url }}">{{ item.data.title }}</a></h2>
+    </header>
+
+    {{ item.templateContent | excerpt | safe }}
+  </article>
+{% endfor %}
