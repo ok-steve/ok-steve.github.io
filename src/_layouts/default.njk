@@ -8,27 +8,20 @@
     <title>{{ title or site.name }} | {{ site.name }}</title>
     <meta name="description" content="{{ page.excerpt | default(content) | default(site.description) | striptags | truncate(160) }}">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/public/img/apple-touch-icon.png' | url }}">
-    <link rel="apple-touch-startup-image" href="{{ '/public/img/android-chrome-192x192.png' | url }}">
-    <link rel="icon" type="image/png" href="{{ '/public/img/favicon-32x32.png' | url }}" sizes="32x32">
-    <link rel="icon" type="image/png" href="{{ '/public/img/favicon-16x16.png' | url }}" sizes="16x16">
-    <link rel="mask-icon" href="{{ '/public/img/safari-pinned-tab.svg' | url }}" color="{{ site.color }}">
-    <link rel="shortcut icon" href="{{ '/public/img/favicon.ico' | url }}">
-
-    <meta name="apple-mobile-web-app-title" content="{{ site.name }}">
+    <link rel="icon" href="{{ '/public/img/favicon.ico' | url }}" size="any">
+    <link rel="icon" href="{{ '/public/img/icon.svg' | url }}" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="{{ '/public/img/apple-touch-icon.png' | url }}">
+    <link rel="manifest" href="{{ '/site.webmanifest' | url }}">
     <meta name="theme-color" content="{{ site.color }}">
-    <meta name="application-name" content="{{ site.name }}">
-    <meta name="msapplication-TileColor" content="{{ site.color }}">
-    <meta name="msapplication-config" content="{{ '/browserconfig.xml' | url }}">
-    <link rel="manifest" href="{{ '/manifest.json' | url }}">
 
     <link rel="stylesheet" href="{{ '/code/normcore/style.css' | url }}">
     <link rel="stylesheet" href="{{ '/public/syntax-highlighting.css' | url }}">
     <link rel="stylesheet" href="{{ '/public/style.css' | url }}">
     <link rel="stylesheet" href="{{ '/public/print.css' | url }}" media="print">
-    <link rel="canonical" href="{{ site.url }}{{ page.url | url }}">
-    <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ '/feed.xml' | url }}">
 
+    <link rel="canonical" href="{{ site.url }}{{ page.url | url }}">
+
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ '/feed.xml' | url }}">
   </head>
   <body prefix="schema: http://schema.org/">
     <div class="[ router ] [ flow cover ]">
