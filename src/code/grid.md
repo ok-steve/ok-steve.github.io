@@ -46,7 +46,7 @@ html:
 css:
   lang: css
   code: |-
-    @import url("/base-styles/style.css");
+    @import url("/normcore/style.css");
 
     :root {
       --grid-basis: 20em;

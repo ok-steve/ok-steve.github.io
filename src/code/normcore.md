@@ -2,6 +2,7 @@
 title: Normcore
 date: 2019-06-19
 published: true
+permalink: normcore/
 html:
   lang: html
   code: >-

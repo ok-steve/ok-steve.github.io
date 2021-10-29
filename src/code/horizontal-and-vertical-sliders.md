@@ -40,7 +40,7 @@ html:
 css:
   lang: css
   code: |-
-    @import url("/base-styles/style.css");
+    @import url("/normcore/style.css");
 
     .slider {
       scroll-behavior: smooth;
