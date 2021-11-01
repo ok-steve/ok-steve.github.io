@@ -1,4 +1,14 @@
+@charset "utf-8";
+
 @media print {
+  /* ---------------------------------- *\
+    #BASE
+  \* ---------------------------------- */
+
+  @page {
+    margin: 1in;
+  }
+
   *,
   *::before,
   *::after {
@@ -13,6 +23,7 @@
   a,
   a:visited {
     text-decoration: underline;
+    page-break-inside: avoid;
   }
 
   a[href]::after {
@@ -27,6 +38,7 @@
    * Don't show links that are fragment identifiers,
    * or use the `javascript:` pseudo protocol
    */
+
   a[href^="#"]::after,
   a[href^="javascript:"]::after {
     content: "";
@@ -46,6 +58,7 @@
    * Printing Tables:
    * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
    */
+
   thead {
     display: table-header-group;
   }
@@ -62,12 +75,57 @@
     widows: 3;
   }
 
+  h1,
   h2,
-  h3 {
+  h3,
+  h4,
+  h5,
+  h6 {
     page-break-after: avoid;
   }
 
+  ul,
+  ol,
+  dl {
+    page-break-before: avoid;
+  }
+
   form {
+    display: none;
+  }
+
+  /* ---------------------------------- *\
+    #COMPOSITION
+  \* ---------------------------------- */
+
+  .aspect-ratio {
+    padding-top: 0;
+  }
+
+  /**
+  * Container
+  */
+
+  .container {
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  /* ---------------------------------- *\
+    #BLOCKS
+  \* ---------------------------------- */
+
+  header a {
+    text-decoration: none;
+  }
+
+  header a[href]::after {
+    content: "";
+  }
+
+  nav,
+  footer {
     display: none;
   }
 }
