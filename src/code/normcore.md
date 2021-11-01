@@ -216,7 +216,7 @@ css:
     }
 
     /**
-     * Remove the margin in all browsers (opinionated)/
+     * Remove the margin in all browsers (opinionated).
      */
 
     h1,
@@ -252,26 +252,32 @@ css:
 
     h1 {
       font-size: 1.728em;
+      font-size: var(--modular-scale-3, 1.728em);
     }
 
     h2 {
       font-size: 1.44em;
+      font-size: var(--modular-scale-2, 1.44em);
     }
 
     h3 {
       font-size: 1.2em;
+      font-size: var(--modular-scale-1, 1.2em);
     }
 
     h4 {
       font-size: 1em;
+      font-size: var(--modular-scale-0, 1em);
     }
 
     h5 {
-      font-size: .833em;
+      font-size: 0.833em;
+      font-size: var(--modular-scale--1, 0.833em);
     }
 
     h6 {
-      font-size: .694em;
+      font-size: 0.694em;
+      font-size: var(--modular-scale--2, 0.694em);
     }
 
     /**
@@ -443,6 +449,7 @@ css:
 
     small {
       font-size: 0.833em;
+      font-size: var(--modular-scale--1, 0.833em);
     }
 
     /**
@@ -1023,6 +1030,7 @@ css:
       height: 0;
       padding-top: 56.25%; /* 16:9 */
       padding-top: var(--aspect-ratio, 56.25%);
+      padding-block-start: var(--aspect-ratio, 56.25%);
       position: relative;
     }
 
@@ -1046,6 +1054,7 @@ css:
       max-width: var(--container-width, 60em);
       margin-right: auto;
       margin-left: auto;
+      margin-inline: auto;
     }
 
     /**
@@ -1055,7 +1064,7 @@ css:
     .cover {
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
+      height: 100vh;
     }
 
     /**
@@ -1064,6 +1073,53 @@ css:
 
     .flow > * + * {
       margin-top: 1.5rem;
+    }
+
+    /* ---------------------------------- *\
+      #UTILITIES
+    \* ---------------------------------- */
+
+    /**
+     * Display
+     */
+
+    .block {
+      display: block;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    /**
+     * Flexbox
+     */
+
+    .flex-1 {
+      flex: 1;
+    }
+
+    /**
+     * Spacing
+     */
+    
+    .mis-1 {
+      margin-left: 0.75em;
+      margin-left: var(--vertical-rhythm * 1, 0.75em);
+      margin-inline-start: var(--vertical-rhythm * 1, 0.75em);
+    }
+
+    /**
+     * Typography
+     */
+
+    .bold {
+      font-weight: 700;
+    }
+
+    .ms-3 {
+      font-size: 1.728em;
+      font-size: var(--modular-scale-3, 1.728em);
     }
 
     /* ---------------------------------- *\
