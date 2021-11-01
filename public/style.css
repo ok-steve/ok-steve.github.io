@@ -166,7 +166,7 @@ a:focus {
  */
 
 .text hr {
-  color: #212529;
+  clear: both;
 }
 
 /* Overhanging lists, module needs padding to display list-style-type */

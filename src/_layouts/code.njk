@@ -7,8 +7,8 @@ layout: writing.njk
 
 {% macro syntaxhighlight(code) %}
   {% if code.code %}
-    <details>
-      <summary>{{ code.lang | upper }}</summary>
+    <details typeof="schema:SoftwareSourceCode">
+      <summary property="schema:programmingLanguage">{{ code.lang | upper }}</summary>
       {% highlight code.lang %}
         {{ code.code | safe }}
       {% endhighlight %}

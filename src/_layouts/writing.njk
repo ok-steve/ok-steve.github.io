@@ -1,14 +1,14 @@
 {% extends "./default.njk" %}
 
 {% block content %}
-  <article class="flow">
+  <article class="flow" typeof="schema:BlogPosting">
     {% if title %}
       <header>
-        <h1>{{ title }}</h1>
+        <h1 property="schema:name">{{ title }}</h1>
       </header>
     {% endif %}
 
-    <div class="flow text">
+    <div class="flow text" property="schema:articleBody">
       {{ content | safe }}
     </div>
   </article>

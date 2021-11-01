@@ -23,7 +23,7 @@
 
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ '/feed.xml' | url }}">
   </head>
-  <body prefix="schema: http://schema.org/">
+  <body typeof="schema:WebPage">
     <div class="[ router ] [ flow cover ]">
       <header class="[ row ] [ pi-2 ]" role="banner">
         <a href="{{ '/' | url }}" class="bold block ms-3">{{ site.name }}</a>
@@ -42,13 +42,15 @@
       <main class="[ router__view ] [ container flow ] [ flex-1 fluid-type pi-2 ]" role="main">
         {% block content %}
           {% if title %}
-            <h1>{{ title }}</h1>
+            <h1 property="schema:name">{{ title }}</h1>
           {% else %}
             {# For the home page, assumes all other pages will have a title #}
-            <h1 hidden aria-hidden="false">{{ title or site.name }}</h1>
+            <h1 hidden aria-hidden="false" property="schema:name">{{ title or site.name }}</h1>
           {% endif %}
 
-          {{ content | safe }}
+          <div class="schema:mainContentOfPage">
+            {{ content | safe }}
+          </div>
         {% endblock %}
       </main>
 
