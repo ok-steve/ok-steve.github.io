@@ -39,7 +39,6 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy('src/sw.js');
   eleventyConfig.addPassthroughCopy('src/admin');
 
-
   /**
    * Libraries
    */
@@ -62,7 +61,7 @@ module.exports = (eleventyConfig) => {
    * Filters
    */
 
-  eleventyConfig.addFilter('excerpt', value => {
+  eleventyConfig.addFilter('excerpt', (value) => {
     if (!value) return '';
     return value.split('\n')[0];
   });
@@ -103,4 +102,4 @@ module.exports = (eleventyConfig) => {
       layouts: '_layouts',
     },
   };
-};;
+};
