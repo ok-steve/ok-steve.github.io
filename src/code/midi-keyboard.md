@@ -10,7 +10,7 @@ js:
   lang: javascript
   code: |-
     import { add, always, clamp, compose, contains, divide, either, equals, flip, ifElse, indexOf, multiply, not, prop, toLower } from 'https://cdn.skypack.dev/ramda@^0.27.0';
-    import { fromEvent, merge } from 'https://cdn.skypack.dev/rxjs@^6.5.5';
+    import { fromEvent, fromPromise, merge } from 'https://cdn.skypack.dev/rxjs@^6.5.5';
     import { distinctUntilChanged, filter, map, scan, startWith, withLatestFrom } from 'https://cdn.skypack.dev/rxjs@^6.5.5/operators';
 
     const CHANNEL = 0;
@@ -76,7 +76,25 @@ js:
       map(value => Uint8Array.of(176, 1, value))
     );
 
-    // TODO add Web MIDI API
-    export default merge(notemessage, pitchbendmessage, modwheelmessage);
+    const webmidimessage = fromPromise(() => new Promise((resolve, reject) => {
+      if (navigator.requestMIDIAccess()) {
+        reject('Web MIDI API is not supported');
+      }
+
+      navigator.requestMIDIAccess().then(access => {
+        for (let [key, input] of access.inputs) {
+          input.addEventListener('midimessage', resolve);
+        }
+
+        access.addEventListener('statechange', e => {
+          for (let [key, input] of e.target.inputs) {
+            input.addEventListener('midimessage', resolve);
+          }
+        });
+      }).catch(reject);
+    }));
+
+    const midimessage = merge(notemessage, pitchbendmessage, modwheelmessage, webmidimessage);
+    export default midimessage;
 ---
 Trigger MIDI messages with a computer keyboard. Uses Rxjs and Ramda. Imitates the Web MIDI API.
