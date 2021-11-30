@@ -49,7 +49,7 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime', format: 'YYYY-MM-DD', date_format: true, time_format: false }
       - { label: 'Published', name: 'published', widget: 'boolean', default: true, required: false }
-      - { label: 'Tags', name: 'tags', widget: 'list' }
+      - { label: 'Tags', name: 'tags', widget: 'select', options: [{ label: 'Music', value: 'music' }, { label: 'Life', value: 'life' }, { label: 'Work', value: 'work' }], multiple: true, required: false }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'code' # Used in routes, e.g., /admin/collections/blog
     label: 'Code' # Used in the UI
