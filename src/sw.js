@@ -1,23 +1,22 @@
-const CACHE_VERSION = 'v1';
+const CACHE_VERSION = 'v2';
 const CONTENT_CACHE = 'content';
 const MEDIA_CACHE = 'media';
 const STATIC_CACHE = 'static';
 
 const OFFLINE = {
   page: './offline.html',
-  image: './public/img/safari-pinned-tab.svg',
+  image: './public/img/icon.svg',
 };
 
 const STATIC_ASSETS = [
   ...Object.values(OFFLINE),
-  './public/img/android-chrome-192x192.png',
-  './public/img/android-chrome-512x512.png',
   './public/img/apple-touch-icon.png',
-  './public/img/favicon-16x16.png',
-  './public/img/favicon-32x32.png',
-  './public/img/mstile-150x150.png',
   './public/img/favicon.ico',
+  './public/img/icon-192.png',
+  './public/img/icon-512.png',
+  './public/print.css',
   './public/style.css',
+  './public/router.js',
   './public/script.js',
   './index.html',
   './',
@@ -123,7 +122,9 @@ const onActivate = () => {
     .keys()
     .then((keys) =>
       Promise.all(
-        keys.filter((key) => key.indexOf(CACHE_VERSION) !== 0).map((key) => caches.delete(key))
+        keys
+          .filter((key) => key.indexOf(CACHE_VERSION) !== 0)
+          .map((key) => caches.delete(key))
       )
     );
 };
