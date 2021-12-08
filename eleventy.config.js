@@ -49,6 +49,10 @@ module.exports = (eleventyConfig) => {
    * Collections
    */
 
+  eleventyConfig.addCollection('brag', (collectionApi) =>
+    collectionApi.getFilteredByGlob('src/brag/*.md')
+  );
+
   eleventyConfig.addCollection('code', (collectionApi) =>
     collectionApi.getFilteredByGlob('src/code/*.md')
   );
