@@ -109,3 +109,23 @@ collections:
         widget: 'code'
         default_language: 'javascript'
         allow_language_selection: false
+  - name: 'brag'
+    label: 'Brags'
+    folder: 'src/brag'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - label: 'Publish Date'
+        name: 'date'
+        widget: 'datetime'
+        format: 'YYYY-MM-DD'
+        date_format: true
+        time_format: false
+      - label: 'Published'
+        name: 'published'
+        widget: 'boolean'
+        default: true
+        required: false
+      - { label: 'Tags', name: 'tags', widget: 'list' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
