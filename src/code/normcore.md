@@ -8,12 +8,7 @@ html:
   code: >-
     <h2>Base</h2>
 
-    <h1>Heading 1</h1>
-    <h2>Heading 2</h2>
-    <h3>Heading 3</h3>
-    <h4>Heading 4</h4>
-    <h5>Heading 5</h5>
-    <h6>Heading 6</h6>
+    <h1>Heading 1</h1> <h2>Heading 2</h2> <h3>Heading 3</h3> <h4>Heading 4</h4> <h5>Heading 5</h5> <h6>Heading 6</h6>
 
     <p>Paragraph text</p>
 
@@ -90,9 +85,11 @@ css:
   code: >
     @charset "utf-8";
 
+
     /*------------------------------------*\
       #BASE
     \*------------------------------------*/
+
 
     /**
      * 1. Add inherited box sizing in all browsers (opinionated).
@@ -100,11 +97,14 @@ css:
      */
 
     *,
+
     ::before,
+
     ::after {
       box-sizing: border-box; /* 1 */
       background-repeat: no-repeat; /* 2 */
     }
+
 
     /**
      * 1. Remove animations when motion is reduced (opinionated).
@@ -127,16 +127,19 @@ css:
       }
     }
 
+
     /**
      * 1. Add text decoration inheritance in all browsers (opinionated).
      * 2. Add vertical alignment inheritance in all browsers (opinionated).
      */
 
     ::before,
+
     ::after {
       text-decoration: inherit; /* 1 */
       vertical-align: inherit; /* 2 */
     }
+
 
     /**
      * Only display focus style for keyboard interactions.
@@ -146,16 +149,19 @@ css:
       outline: none;
     }
 
+
     /**
      * Turn on kerning, standard ligatures, and proportional, oldstyle numerals.
      * Turn off all other ligatures, tabular, lining numerals, and alternates.
      */
 
     html,
+
     body {
       font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0,
         "onum" 1, "lnum" 0, "dlig" 0;
     }
+
 
     /**
      * 1. Use the default cursor in all browsers (opinionated).
@@ -193,7 +199,10 @@ css:
         /* Linux emoji */ "Noto Color Emoji"; /* 7 */
       color: #222;
       color: var(--text-color, #222);
+      background-color: white;
+      background-color: var(--background-color, white);
     }
+
 
     /**
      * Smooth scroll, except for find on page.
@@ -215,36 +224,53 @@ css:
       text-rendering: optimizeSpeed;
     }
 
+
     /**
      * Remove the margin in all browsers (opinionated).
      */
 
     h1,
+
     h2,
+
     h3,
+
     h4,
+
     h5,
+
     h6,
+
     p,
+
     ul,
+
     ol,
+
     dl,
+
     dd,
+
     figure,
+
     blockquote {
       margin: 0;
     }
+
 
     /**
      * Turn on discretionary ligatures for larger headings.
      */
 
     h1,
+
     h2,
+
     h3 {
       font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0,
         "onum" 1, "lnum" 0, "dlig" 1;
     }
+
 
     /**
      * Use modular scale in all browsers (opinionated).
@@ -255,53 +281,68 @@ css:
       font-size: var(--modular-scale-3, 1.728em);
     }
 
+
     h2 {
       font-size: 1.44em;
       font-size: var(--modular-scale-2, 1.44em);
     }
+
 
     h3 {
       font-size: 1.2em;
       font-size: var(--modular-scale-1, 1.2em);
     }
 
+
     h4 {
       font-size: 1em;
       font-size: var(--modular-scale-0, 1em);
     }
+
 
     h5 {
       font-size: 0.833em;
       font-size: var(--modular-scale--1, 0.833em);
     }
 
+
     h6 {
       font-size: 0.694em;
       font-size: var(--modular-scale--2, 0.694em);
     }
+
 
     /**
      * Remove the margin on nested lists in Chrome, Edge, IE, and Safari.
      */
 
     dl dl,
+
     dl ol,
+
     dl ul,
+
     ol dl,
+
     ul dl {
       margin: 0;
     }
+
 
     /**
      * Remove the margin on nested lists in Edge 18- and IE.
      */
 
     ol ol,
+
     ol ul,
+
     ul ol,
+
     ul ul {
       margin: 0;
     }
+
 
     /**
      * Smartly align text.
@@ -311,10 +352,12 @@ css:
       text-align: center;
     }
 
+
     figcaption {
       display: inline-block;
       text-align: start;
     }
+
 
     /**
      * 1. Correct the inheritance of border color in Firefox.
@@ -331,6 +374,7 @@ css:
       border-top: 1px solid currentColor; /* 4 */
     }
 
+
     /**
      * Add the correct display in IE.
      */
@@ -339,27 +383,35 @@ css:
       display: block;
     }
 
+
     /**
      * Remove the list style on navigation lists in all browsers (opinionated).
      */
 
     nav ol,
+
     nav ul,
+
     ol[class][role="list"],
+
     ul[class][role="list"] {
       list-style: none;
       padding: 0;
     }
+
 
     /**
      * Prevent VoiceOver from ignoring list semantics in Safari (opinionated).
      */
 
     nav li::before,
+
     ol[class] li::before,
+
     ul[class] li::before {
       content: "\200B";
     }
+
 
     /**
      * 1. Use the default monospace user interface font in all browsers (opinionated).
@@ -369,8 +421,11 @@ css:
      */
 
     code,
+
     kbd,
+
     samp,
+
     pre {
       font-family:
         /* macOS 10.10+ */ "Menlo",
@@ -389,6 +444,7 @@ css:
       font-feature-settings: "kern" 0, "liga" 0, "calt" 1, "dlig" 0, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1;
     }
 
+
     /**
      * Prevent overflow of the container in all browsers (opinionated).
      */
@@ -398,6 +454,7 @@ css:
       -ms-overflow-style: scrollbar;
     }
 
+
     /**
      * Remove the gray background on active links in IE 10.
      */
@@ -406,6 +463,7 @@ css:
       background-color: transparent;
     }
 
+
     /**
      * Remove gaps in links underline in iOS 8+ and Safari 8+.
      */
@@ -413,6 +471,7 @@ css:
     a:not([class]) {
       text-decoration-skip-ink: auto;
     }
+
 
     /**
      * 1. Change all letters to uppercase.
@@ -425,6 +484,7 @@ css:
         "onum" 1, "lnum" 0, "smcp" 1, "c2sc" 1; /* 2 */
     }
 
+
     /**
      * Add the correct text decoration in Edge 18-, IE, and Safari.
      */
@@ -434,14 +494,17 @@ css:
       text-decoration: underline dotted;
     }
 
+
     /**
      * Add the correct font weight in Chrome, Edge, and Safari.
      */
 
     b,
+
     strong {
       font-weight: bolder;
     }
+
 
     /**
      * Use modular scale in all browsers (opinionated).
@@ -452,16 +515,19 @@ css:
       font-size: var(--modular-scale--1, 0.833em);
     }
 
+
     /**
      * Prevent `sub` and `sup` elements from affecting the line height in
      * all browsers.
      */
 
     sub,
+
     sup {
       font-size: 1rem;
       vertical-align: baseline;
     }
+
 
     /**
      * Turn on proper subscript numerals.
@@ -472,6 +538,7 @@ css:
         "onum" 1, "lnum" 0, "dlig" 0, "subs" 1;
     }
 
+
     /**
      * Turn on proper supercript numerals
      */
@@ -481,11 +548,13 @@ css:
         "onum" 1, "lnum" 0, "dlig" 0, "sups" 1;
     }
 
+
     time {
       white-space: nowrap;
       font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0,
         "onum" 1, "lnum" 0;
     }
+
 
     /**
      * 1. Inherit style issues with custom selections, per robsterlini.co.uk/journal/opentype-and-selection-dont-mix.
@@ -499,46 +568,61 @@ css:
       background-color: #b3d4fc; /* 1 */
     }
 
+
     ::selection {
       color: inherit; /* 1 */
       text-shadow: none; /* 2 */
       background-color: #b3d4fc; /* 1 */
     }
 
+
     /**
      * Change the alignment on media elements in all browsers (opinionated).
      */
 
     audio,
+
     canvas,
+
     iframe,
+
     img,
+
     svg,
+
     video {
       vertical-align: middle;
     }
+
 
     /**
      * Restrict sizing to the page width in all browsers (opinionated).
      */
 
     canvas,
+
     iframe,
+
     img,
+
     svg,
+
     video {
       height: auto;
       max-width: 100%;
     }
+
 
     /**
      * Add the correct display in IE 9-.
      */
 
     audio,
+
     video {
       display: inline-block;
     }
+
 
     /**
      * Add the correct display in iOS 4-7.
@@ -549,6 +633,7 @@ css:
       height: 0;
     }
 
+
     /**
      * Remove the border on iframes in all browsers (opinionated).
      */
@@ -556,6 +641,7 @@ css:
     iframe {
       border-style: none;
     }
+
 
     /**
      * 1. Remove the border on images within links in IE 10-.
@@ -567,6 +653,7 @@ css:
       display: block;
     }
 
+
     /**
      * Change the fill color to match the text color in all browsers (opinionated).
      */
@@ -575,6 +662,7 @@ css:
       fill: currentColor;
     }
 
+
     /**
      * Hide the overflow in IE.
      */
@@ -582,6 +670,7 @@ css:
     svg:not(:root) {
       overflow: hidden;
     }
+
 
     /**
      * 1. Collapse border spacing in all browsers (opinionated).
@@ -600,19 +689,23 @@ css:
       width: 100%;
     }
 
+
     /**
      * Turn on tabular, lining numerals and slashed zero.
      */
 
     tbody,
+
     caption {
       font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 0, "tnum" 1,
         "onum" 0, "lnum" 1, "zero" 1;
     }
 
+
     th {
       text-align: start;
     }
+
 
     /**
      * 1. Change the inconsistent appearance in all browsers (opinionated).
@@ -620,9 +713,8 @@ css:
      */
 
     button,
-    input,
-    select,
-    textarea {
+
+    input, select, textarea {
       background-color: transparent; /* 1 */
       border: 1px solid WindowFrame; /* 1 */
       color: inherit; /* 1 */
@@ -635,9 +727,7 @@ css:
      * Restrict sizing to the page width in all browsers (opinionated).
      */
 
-    input,
-    select,
-    textarea {
+    input, select, textarea {
       height: auto;
       max-width: 100%;
     }
@@ -646,9 +736,7 @@ css:
      * Remove the margin on controls in Safari.
      */
 
-    button,
-    input,
-    select {
+    button, input, select {
       margin: 0;
     }
 
@@ -666,10 +754,7 @@ css:
      * Correct the inability to style buttons in iOS and Safari.
      */
 
-    button,
-    [type="button"],
-    [type="reset"],
-    [type="submit"] {
+    button, [type="button"], [type="reset"], [type="submit"] {
       -webkit-appearance: button;
     }
 
@@ -753,14 +838,7 @@ css:
      * Turn on lining, proportional numerals without clarified zeroes.
      */
 
-    [type="color"],
-    [type="date"],
-    [type="datetime"],
-    [type="datetime-local"],
-    [type="number"],
-    [type="range"],
-    [type="tel"],
-    [type="week"] {
+    [type="color"], [type="date"], [type="datetime"], [type="datetime-local"], [type="number"], [type="range"], [type="tel"], [type="week"] {
       font-feature-settings: "kern" 0, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0,
         "onum" 0, "lnum" 1, "zero" 0;
     }
@@ -769,8 +847,7 @@ css:
      * Remove the padding in IE 10-.
      */
 
-    [type="checkbox"],
-    [type="radio"] {
+    [type="checkbox"], [type="radio"] {
       padding: 0;
     }
 
@@ -778,8 +855,7 @@ css:
      * Remove the border and padding in all browsers (opinionated).
      */
 
-    [type="color"],
-    [type="range"] {
+    [type="color"], [type="range"] {
       border-width: 0;
       padding: 0;
     }
@@ -806,8 +882,7 @@ css:
      * Correct the cursor style of increment and decrement buttons in Safari.
      */
 
-    ::-webkit-inner-spin-button,
-    ::-webkit-outer-spin-button {
+    ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
       height: auto;
     }
 
@@ -949,15 +1024,7 @@ css:
           in all browsers (opinionated).
      */
 
-    a,
-    area,
-    button,
-    input,
-    label,
-    select,
-    summary,
-    textarea,
-    [tabindex] {
+    a, area, button, input, label, select, summary, textarea, [tabindex] {
       -ms-touch-action: manipulation; /* 1 */
           touch-action: manipulation; /* 2 */
     }
@@ -991,8 +1058,7 @@ css:
      * inoperable elements in all browsers (opinionated).
      */
 
-    [aria-disabled="true"],
-    [disabled] {
+    [aria-disabled="true"], [disabled] {
       cursor: not-allowed;
     }
 
@@ -1102,7 +1168,7 @@ css:
     /**
      * Spacing
      */
-    
+
     .mis-1 {
       margin-left: 0.75em;
       margin-left: var(--vertical-rhythm * 1, 0.75em);
