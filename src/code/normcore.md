@@ -125,7 +125,6 @@ css:
         transition-delay: 0s !important; /* 4 */
         transition-duration: 0s !important; /* 4 */
       }
-
     }
 
 
@@ -280,37 +279,37 @@ css:
 
     h1 {
       font-size: 1.728em;
-      font-size: var(--modular-scale-3, 1.728em);
+      font-size: var(--modular-scale-4, 1.728em);
     }
 
 
     h2 {
       font-size: 1.44em;
-      font-size: var(--modular-scale-2, 1.44em);
+      font-size: var(--modular-scale-3, 1.44em);
     }
 
 
     h3 {
       font-size: 1.2em;
-      font-size: var(--modular-scale-1, 1.2em);
+      font-size: var(--modular-scale-2, 1.2em);
     }
 
 
     h4 {
       font-size: 1em;
-      font-size: var(--modular-scale-0, 1em);
+      font-size: var(--modular-scale-1, 1em);
     }
 
 
     h5 {
       font-size: 0.833em;
-      font-size: var(--modular-scale-01, 0.833em);
+      font-size: var(--modular-scale-02, 0.833em);
     }
 
 
     h6 {
       font-size: 0.694em;
-      font-size: var(--modular-scale-02, 0.694em);
+      font-size: var(--modular-scale-03, 0.694em);
     }
 
 
@@ -514,7 +513,7 @@ css:
 
     small {
       font-size: 0.833em;
-      font-size: var(--modular-scale--1, 0.833em);
+      font-size: var(--modular-scale-05, 0.833em);
     }
 
 
@@ -1290,12 +1289,6 @@ css:
 
     .bold {
       font-weight: 700;
-    }
-
-
-    .ms-3 {
-      font-size: 1.728em;
-      font-size: var(--modular-scale-3, 1.728em);
     }
 
 
