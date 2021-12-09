@@ -82,7 +82,7 @@ html:
     </div>
 css:
   lang: css
-  code: >
+  code: >-
     @charset "utf-8";
 
 
@@ -212,6 +212,7 @@ css:
       scroll-behavior: smooth;
     }
 
+
     /**
      * 1. Remove the margin in all browsers (opinionated).
      * 2. Nicer looking fonts for OS X and iOS
@@ -278,37 +279,37 @@ css:
 
     h1 {
       font-size: 1.728em;
-      font-size: var(--modular-scale-3, 1.728em);
+      font-size: var(--modular-scale-4, 1.728em);
     }
 
 
     h2 {
       font-size: 1.44em;
-      font-size: var(--modular-scale-2, 1.44em);
+      font-size: var(--modular-scale-3, 1.44em);
     }
 
 
     h3 {
       font-size: 1.2em;
-      font-size: var(--modular-scale-1, 1.2em);
+      font-size: var(--modular-scale-2, 1.2em);
     }
 
 
     h4 {
       font-size: 1em;
-      font-size: var(--modular-scale-0, 1em);
+      font-size: var(--modular-scale-1, 1em);
     }
 
 
     h5 {
       font-size: 0.833em;
-      font-size: var(--modular-scale--1, 0.833em);
+      font-size: var(--modular-scale-02, 0.833em);
     }
 
 
     h6 {
       font-size: 0.694em;
-      font-size: var(--modular-scale--2, 0.694em);
+      font-size: var(--modular-scale-03, 0.694em);
     }
 
 
@@ -512,7 +513,7 @@ css:
 
     small {
       font-size: 0.833em;
-      font-size: var(--modular-scale--1, 0.833em);
+      font-size: var(--modular-scale-05, 0.833em);
     }
 
 
@@ -714,7 +715,11 @@ css:
 
     button,
 
-    input, select, textarea {
+    input,
+
+    select,
+
+    textarea {
       background-color: transparent; /* 1 */
       border: 1px solid WindowFrame; /* 1 */
       color: inherit; /* 1 */
@@ -723,22 +728,33 @@ css:
       padding: 0.25em 0.375em; /* 1 */
     }
 
+
     /**
      * Restrict sizing to the page width in all browsers (opinionated).
      */
 
-    input, select, textarea {
+    input,
+
+    select,
+
+    textarea {
       height: auto;
       max-width: 100%;
     }
+
 
     /**
      * Remove the margin on controls in Safari.
      */
 
-    button, input, select {
+    button,
+
+    input,
+
+    select {
       margin: 0;
     }
+
 
     /**
      * 1. Show the overflow in IE.
@@ -750,13 +766,21 @@ css:
       text-transform: none; /* 2 */
     }
 
+
     /**
      * Correct the inability to style buttons in iOS and Safari.
      */
 
-    button, [type="button"], [type="reset"], [type="submit"] {
+    button,
+
+    [type="button"],
+
+    [type="reset"],
+
+    [type="submit"] {
       -webkit-appearance: button;
     }
+
 
     /**
      * 1. Change the inconsistent appearance in all browsers (opinionated).
@@ -768,6 +792,7 @@ css:
       padding: 0.35em 0.75em 0.625em; /* 2 */
     }
 
+
     /**
      * Show the overflow in Edge 18- and IE.
      */
@@ -775,6 +800,7 @@ css:
     input {
       overflow: visible;
     }
+
 
     /**
      * 1. Correct the text wrapping in Edge 18- and IE.
@@ -788,6 +814,7 @@ css:
       white-space: normal; /* 1 */
     }
 
+
     /**
      * 1. Add the correct display in Edge 18- and IE.
      * 2. Add the correct vertical alignment in Chrome, Edge, and Firefox.
@@ -797,6 +824,7 @@ css:
       display: inline-block; /* 1 */
       vertical-align: baseline; /* 2 */
     }
+
 
     /**
      * Change the inconsistent appearance in all browsers (opinionated).
@@ -812,6 +840,7 @@ css:
       padding-right: 1em;
     }
 
+
     /**
      * Change the inconsistent appearance in all browsers (opinionated).
      */
@@ -819,6 +848,7 @@ css:
     select:not([multiple]):not([size]) {
       background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E");
     }
+
 
     /**
      * 1. Remove the margin in Firefox and Safari.
@@ -834,31 +864,53 @@ css:
       width: 100%;
     }
 
+
     /**
      * Turn on lining, proportional numerals without clarified zeroes.
      */
 
-    [type="color"], [type="date"], [type="datetime"], [type="datetime-local"], [type="number"], [type="range"], [type="tel"], [type="week"] {
+    [type="color"],
+
+    [type="date"],
+
+    [type="datetime"],
+
+    [type="datetime-local"],
+
+    [type="number"],
+
+    [type="range"],
+
+    [type="tel"],
+
+    [type="week"] {
       font-feature-settings: "kern" 0, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0,
         "onum" 0, "lnum" 1, "zero" 0;
     }
+
 
     /**
      * Remove the padding in IE 10-.
      */
 
-    [type="checkbox"], [type="radio"] {
+    [type="checkbox"],
+
+    [type="radio"] {
       padding: 0;
     }
+
 
     /**
      * Remove the border and padding in all browsers (opinionated).
      */
 
-    [type="color"], [type="range"] {
+    [type="color"],
+
+    [type="range"] {
       border-width: 0;
       padding: 0;
     }
+
 
     /**
      * 1. Correct the odd appearance in Chrome, Edge, and Safari.
@@ -870,6 +922,7 @@ css:
       outline-offset: -2px; /* 2 */
     }
 
+
     /**
      * Change the inconsistent appearance in IE (opinionated).
      */
@@ -878,13 +931,17 @@ css:
       display: none;
     }
 
+
     /**
      * Correct the cursor style of increment and decrement buttons in Safari.
      */
 
-    ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+    ::-webkit-inner-spin-button,
+
+    ::-webkit-outer-spin-button {
       height: auto;
     }
+
 
     /**
      * Correct the inconsistent appearance in IE (opinionated).
@@ -893,6 +950,7 @@ css:
     :-ms-input-placeholder {
       color: rgba(0, 0, 0, 0.54);
     }
+
 
     /**
      * Correct the text style of placeholders in Chrome, Edge, and Safari.
@@ -903,6 +961,7 @@ css:
       opacity: 0.54;
     }
 
+
     /**
      * Remove the inner padding in Chrome, Edge, and Safari on macOS.
      */
@@ -910,6 +969,7 @@ css:
     ::-webkit-search-decoration {
       -webkit-appearance: none;
     }
+
 
     /**
      * 1. Correct the inability to style upload buttons in iOS and Safari.
@@ -921,6 +981,7 @@ css:
       font: inherit; /* 2 */
     }
 
+
     /**
      * Remove the inner border and padding of focus outlines in Firefox.
      */
@@ -930,6 +991,7 @@ css:
       padding: 0;
     }
 
+
     /**
      * Restore the focus outline styles unset by the previous rule in Firefox.
      */
@@ -937,6 +999,7 @@ css:
     :-moz-focusring {
       outline: 1px dotted ButtonText;
     }
+
 
     /**
      * Remove the additional :invalid styles in Firefox.
@@ -946,6 +1009,7 @@ css:
       box-shadow: none;
     }
 
+
     /**
      * Add the correct display in Edge 18- and IE.
      */
@@ -953,6 +1017,7 @@ css:
     details {
       display: block;
     }
+
 
     /**
      * Add the correct styles in Edge 18-, IE, and Safari.
@@ -976,9 +1041,11 @@ css:
       width: fit-content;
     }
 
+
     dialog:not([open]) {
       display: none;
     }
+
 
     /**
      * 1. Add the correct display in all browsers.
@@ -990,6 +1057,7 @@ css:
       cursor: pointer; /* 2 */
     }
 
+
     /**
      * Display nested block elements inline.
      */
@@ -998,9 +1066,11 @@ css:
       display: inline;
     }
 
+
     meter {
 
     }
+
 
     /**
      * Add the correct display in IE 9-.
@@ -1010,6 +1080,7 @@ css:
       display: inline-block;
     }
 
+
     /**
      * Add the correct display in IE 10+.
      */
@@ -1018,16 +1089,34 @@ css:
       display: none;
     }
 
+
     /**
      * 1. Remove the tapping delay in IE 10.
      * 2. Remove the tapping delay on clickable elements
           in all browsers (opinionated).
      */
 
-    a, area, button, input, label, select, summary, textarea, [tabindex] {
+    a,
+
+    area,
+
+    button,
+
+    input,
+
+    label,
+
+    select,
+
+    summary,
+
+    textarea,
+
+    [tabindex] {
       -ms-touch-action: manipulation; /* 1 */
           touch-action: manipulation; /* 2 */
     }
+
 
     /**
      * Add the correct display in IE 10-.
@@ -1037,6 +1126,7 @@ css:
       display: none !important;
     }
 
+
     /**
      * Change the cursor on busy elements in all browsers (opinionated).
      */
@@ -1044,6 +1134,7 @@ css:
     [aria-busy="true"] {
       cursor: progress;
     }
+
 
     /**
      * Change the cursor on control elements in all browsers (opinionated).
@@ -1053,14 +1144,18 @@ css:
       cursor: pointer;
     }
 
+
     /**
      * Change the cursor on disabled, not-editable, or otherwise
      * inoperable elements in all browsers (opinionated).
      */
 
-    [aria-disabled="true"], [disabled] {
+    [aria-disabled="true"],
+
+    [disabled] {
       cursor: not-allowed;
     }
+
 
     /**
      * Change the display on visually hidden accessible elements
@@ -1071,6 +1166,7 @@ css:
     [aria-hidden="false"][hidden] {
       display: initial !important;
     }
+
 
     [aria-hidden="false"][hidden]:not(:focus) {
       border: 0;
@@ -1084,9 +1180,11 @@ css:
       width: 1px;
     }
 
+
     /* ---------------------------------- *\
       #COMPOSITION
     \* ---------------------------------- */
+
 
     /**
      * Aspect ratios for media objects.
@@ -1100,6 +1198,7 @@ css:
       position: relative;
     }
 
+
     .aspect-ratio > * {
       height: 100%;
       position: absolute;
@@ -1110,6 +1209,7 @@ css:
       width: 100%;
       z-index: 100;
     }
+
 
     /**
      * Container
@@ -1123,6 +1223,7 @@ css:
       margin-inline: auto;
     }
 
+
     /**
      * Cover
      */
@@ -1133,6 +1234,7 @@ css:
       height: 100vh;
     }
 
+
     /**
      * Flow
      */
@@ -1141,9 +1243,11 @@ css:
       margin-top: 1.5rem;
     }
 
+
     /* ---------------------------------- *\
       #UTILITIES
     \* ---------------------------------- */
+
 
     /**
      * Display
@@ -1153,9 +1257,11 @@ css:
       display: block;
     }
 
+
     .flex {
       display: flex;
     }
+
 
     /**
      * Flexbox
@@ -1164,6 +1270,7 @@ css:
     .flex-1 {
       flex: 1;
     }
+
 
     /**
      * Spacing
@@ -1175,6 +1282,7 @@ css:
       margin-inline-start: var(--vertical-rhythm * 1, 0.75em);
     }
 
+
     /**
      * Typography
      */
@@ -1183,14 +1291,11 @@ css:
       font-weight: 700;
     }
 
-    .ms-3 {
-      font-size: 1.728em;
-      font-size: var(--modular-scale-3, 1.728em);
-    }
 
     /* ---------------------------------- *\
       #BLOCKS
     \* ---------------------------------- */
+
 
     /**
      * Media objects
@@ -1201,13 +1306,16 @@ css:
       align-items: flex-start;
     }
 
+
     .media-body {
       flex: 1;
     }
 
+
     .media:not([data-orientation]) .media-object {
       margin-right: var(--media-padding, 1em);
     }
+
 
     .media[data-orientation="reverse"] .media-object {
       order: 1;
