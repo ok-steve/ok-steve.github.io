@@ -104,6 +104,10 @@ a:focus {
  * Typography
  */
 
+.font-size-4 {
+  font-size: 1.728em;
+}
+
 .fluid-type {
   font-size: 1rem;
 }
