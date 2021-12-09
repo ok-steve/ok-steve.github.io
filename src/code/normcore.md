@@ -8,19 +8,34 @@ html:
   code: >-
     <h2>Base</h2>
 
-    <h1>Heading 1</h1> <h2>Heading 2</h2> <h3>Heading 3</h3> <h4>Heading 4</h4> <h5>Heading 5</h5> <h6>Heading 6</h6>
+
+    <h1>Heading 1</h1>
+
+    <h2>Heading 2</h2>
+
+    <h3>Heading 3</h3>
+
+    <h4>Heading 4</h4>
+
+    <h5>Heading 5</h5>
+
+    <h6>Heading 6</h6>
+
 
     <p>Paragraph text</p>
+
 
     <ul>
       <li>List item</li>
       <li>List item</li>
     </ul>
 
+
     <ol>
       <li>List item</li>
       <li>List item</li>
     </ol>
+
 
     <dl>
       <dt>Term</dt>
@@ -29,37 +44,48 @@ html:
       <dd>Definition</dd>
     </dl>
 
+
     <blockquote>
       <p>This is a quote.</p>
       <cite>Quote source</cite>
     </blockquote>
+
 
     <figure>
       <img src="https://via.placeholder.com/420x270" alt="placeholder image">
       <figcaption>Caption for a placeholder image</figcaption>
     </figure>
 
+
     <h2>Composition</h2>
 
+
     <h3>Aspect ratio boxes</h3>
+
 
     <div class="aspect-ratio" style="--aspect-ratio: calc(100% * 9/ 16);">
       <iframe src="https://www.youtube.com/embed/d81N0_zZhEA"></iframe>
     </div>
 
+
     <div class="aspect-ratio" style="--aspect-ratio: calc(100% * 3 / 4);">
       <iframe src="https://www.youtube.com/embed/d81N0_zZhEA"></iframe>
     </div> 
 
+
     <h3>Containers</h3>
+
 
     <div class="container">
       <p>Lorem lean startup ipsum product market fit customer development acquihire technical cofounder. User engagement A/B testing shrink a market venture capital pitch deck. Social bookmarking group buying crowded market pivot onboarding freemium prototype ping pong. Early stage disruptive ecosystem community outreach dynamic location based strategic investor.</p>
     </div>
 
+
     <h2>Blocks</h2>
 
+
     <h3>Media objects</h3>
+
 
     <div class="media">
       <div class="media-object">
@@ -70,6 +96,7 @@ html:
         <p>Lorem lean startup ipsum product market fit customer development acquihire technical cofounder.</p>
       </div>
     </div>
+
 
     <div class="media" data-orientation="reverse">
       <div class="media-object">
