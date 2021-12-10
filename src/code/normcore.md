@@ -179,14 +179,15 @@ css:
 
     /**
      * Turn on kerning, standard ligatures, and proportional, oldstyle numerals.
-     * Turn off all other ligatures, tabular, lining numerals, and alternates.
      */
 
     html,
 
     body {
-      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0,
-        "onum" 1, "lnum" 0, "dlig" 0;
+      /* TODO how does this affect `text-rendering`? */
+      font-kerning: normal;
+      font-variant-ligatures: normal;
+      font-variant-numeric: proportional-nums oldstyle-nums;
     }
 
 
@@ -203,7 +204,7 @@ css:
 
     html {
       cursor: default; /* 1 */
-      line-height: 1.5; /* 2 */
+      line-height: var(--vertical-rhythm, 1.5); /* 2 */
       -moz-tab-size: 4; /* 3 */
         -o-tab-size: 4; /* 3 */
            tab-size: 4; /* 3 */
@@ -295,8 +296,7 @@ css:
     h2,
 
     h3 {
-      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0,
-        "onum" 1, "lnum" 0, "dlig" 1;
+      font-variant-ligatures: common-ligatures contextual discretionary-ligatures;
     }
 
 
@@ -306,37 +306,37 @@ css:
 
     h1 {
       font-size: 1.728em;
-      font-size: var(--modular-scale-4, 1.728em);
+      font-size: var(--modular-scale-3, 1.728em);
     }
 
 
     h2 {
       font-size: 1.44em;
-      font-size: var(--modular-scale-3, 1.44em);
+      font-size: var(--modular-scale-2, 1.44em);
     }
 
 
     h3 {
       font-size: 1.2em;
-      font-size: var(--modular-scale-2, 1.2em);
+      font-size: var(--modular-scale-1, 1.2em);
     }
 
 
     h4 {
       font-size: 1em;
-      font-size: var(--modular-scale-1, 1em);
+      font-size: var(--modular-scale-0, 1em);
     }
 
 
     h5 {
       font-size: 0.833em;
-      font-size: var(--modular-scale-02, 0.833em);
+      font-size: var(--modular-scale-01, 0.833em);
     }
 
 
     h6 {
       font-size: 0.694em;
-      font-size: var(--modular-scale-03, 0.694em);
+      font-size: var(--modular-scale-02, 0.694em);
     }
 
 
@@ -469,7 +469,10 @@ css:
         /* Windows emoji */ "Segoe UI Symbol",
         /* Linux emoji */ "Noto Color Emoji"; /* 1 */
       font-size: 1em; /* 2 */
-      font-feature-settings: "kern" 0, "liga" 0, "calt" 1, "dlig" 0, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1;
+      /* TODO how is kerning affected by `text-rendering`? */
+      font-kerning: none; /* 3 */
+      font-variant-ligatures: contextual; /* 3 */
+      font-variant-numeric: tabular-nums lining-nums zero; /* 3 */
     }
 
 
@@ -508,8 +511,7 @@ css:
 
     abbr {
       text-transform: uppercase; /* 1 */
-      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0,
-        "onum" 1, "lnum" 0, "smcp" 1, "c2sc" 1; /* 2 */
+      font-variant: all-small-caps; /* 2 */
     }
 
 
@@ -577,10 +579,13 @@ css:
     }
 
 
+    /**
+     * Turn on proportional, oldstyle numerals, and diagonal fractions.
+     */
+
     time {
       white-space: nowrap;
-      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0,
-        "onum" 1, "lnum" 0;
+      font-variant-numeric: proportional-nums oldstyle-nums diagonal-fractions;
     }
 
 
@@ -705,15 +710,16 @@ css:
      * 2. Correct table border color inheritance in all Chrome, Edge, and Safari.
      * 3. Remove text indentation from table contents in Chrome, Edge, and Safari.
      * 4. Turn on kerning, standard ligatures, and proportional, oldstyle numerals.
-     *    Turn off all other ligatures, tabular, lining numerals, and alternates.
      */
 
     table {
       border-collapse: collapse; /* 1 */
       border-color: inherit; /* 2 */
       text-indent: 0; /* 3 */
-      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0,
-        "onum" 1, "lnum" 0, "dlig" 0; /* 4 */
+      /* TODO are these needed if inherited from `body`? */
+      font-kerning: normal; /* 4 */
+      font-variant-ligatures: normal; /* 4 */
+      font-variant-numeric: proportional-nums oldstyle-nums; /* 4 */
       width: 100%;
     }
 
@@ -725,8 +731,7 @@ css:
     tbody,
 
     caption {
-      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 0, "tnum" 1,
-        "onum" 0, "lnum" 1, "zero" 1;
+      font-variant-numeric: tabular-nums lining-num slashed-zero;
     }
 
 
@@ -911,8 +916,9 @@ css:
     [type="tel"],
 
     [type="week"] {
-      font-feature-settings: "kern" 0, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0,
-        "onum" 0, "lnum" 1, "zero" 0;
+      /* TODO how is kerning affected by `text-rendering`? */
+      font-kerning: none;
+      font-variant-numeric: proportional-nums lining-nums;
     }
 
 
