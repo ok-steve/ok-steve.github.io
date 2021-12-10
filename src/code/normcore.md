@@ -560,26 +560,6 @@ css:
 
 
     /**
-     * Turn on proper subscript numerals.
-     */
-
-    sub {
-      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0,
-        "onum" 1, "lnum" 0, "dlig" 0, "subs" 1;
-    }
-
-
-    /**
-     * Turn on proper supercript numerals
-     */
-
-    sup {
-      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0,
-        "onum" 1, "lnum" 0, "dlig" 0, "sups" 1;
-    }
-
-
-    /**
      * Turn on proportional, oldstyle numerals, and diagonal fractions.
      */
 
