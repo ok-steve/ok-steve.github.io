@@ -1291,9 +1291,17 @@ css:
 
     .mis-1 {
       margin-left: 0.75em;
-      margin-left: var(--vertical-rhythm * 1, 0.75em);
-      margin-inline-start: var(--vertical-rhythm * 1, 0.75em);
+      margin-left: var(--vertical-rhythm * 0.5, 0.75em);
+      margin-inline-start: var(--vertical-rhythm * 0.5, 0.75em);
     }
+
+
+    .mis-2 {
+      margin-left: 1.5em;
+      margin-left: var(--vertical-rhythm * 1, 1.5em);
+      margin-inline-start: var(--vertical-rhythm * 1, 1.5em);
+    }
+
 
 
     /**
