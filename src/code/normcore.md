@@ -560,12 +560,12 @@ css:
 
 
     /**
-     * Turn on proportional, oldstyle numerals, and diagonal fractions.
+     * Turn on proportional and oldstyle numerals.
      */
 
     time {
       white-space: nowrap;
-      font-variant-numeric: proportional-nums oldstyle-nums diagonal-fractions;
+      font-variant-numeric: proportional-nums oldstyle-nums;
     }
 
 
