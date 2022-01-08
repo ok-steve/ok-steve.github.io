@@ -1273,6 +1273,7 @@ css:
 
     .flex {
       display: flex;
+      flex-wrap: wrap;
     }
 
 
