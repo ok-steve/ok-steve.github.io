@@ -13,12 +13,7 @@ The demo made heavy use of Vue's `transition` and `transition-group` elements to
 
 To find out I set myself the goal of recreating [her travel app demo](https://page-transitions.com/) without Vue. I decided to use [Jekyll](https://jekyllrb.com/) since I planned to host the site on Github. And if this technique could work on a simple static site, it could work anywhere.
 
-To actually handle the transitions I decided to use [Turbolinks](https://github.com/turbolinks/turbolinks/), though any PJAX[^1] library could work[^2]. I used Turbolinks's events to add `is-loading` and `is-rendering` classes to trigger page exit and enter transitions.
-
-*[PJAX]: pushState + Ajax
-
-[^1]: PJAX is a technique the uses JavaScript to intercept browser navigation, fetch new pages, and replace the HTML without a full page refresh.
-[^2]: CSS Tricks featured a [follow up article](https://css-tricks.com/page-transitions-for-everyone/) that introduced [another PJAX library](https://gmrchk.github.io/swup/) for achieving smooth page transitions, but I like Turblinks because it doesn't require special configuration or wrapper elements to work.
+To actually handle the transitions I decided to use [Turbolinks](https://github.com/turbolinks/turbolinks/), though any PJAX (pushState + Ajax) library could work. I used Turbolinks's events to add `is-loading` and `is-rendering` classes to trigger page exit and enter transitions.
 
 ```javascript
 document.addEventListener("turbolinks:click", function() {
@@ -46,8 +41,6 @@ Turbolinks.SnapshotRenderer.prototype.assignNewBody = function() {
 
 Normally I'd be a good citizen and avoid overriding the prototype directly, but for a demo I think it's okay to make an exception.
 
-And that's the gist of it. I did make some minor changes to the original code to remove the Vue dependency, but most of the CSS and JavaScript remained exactly the same[^3]. Furthermore using a progressive enhanvement approach actually simplified some aspects of the code. In particular I was able to replace the JavaScript for the profile chooser on the group page with plain links.
-
-[^3]: Be aware that initializing JavaScript functions on document render doesn't work with PJAX, since after the first page load the document render event never fires. I used [Stimulus](https://stimulusjs.org/) since it is designed to work in these situations, and like Turbolinks is made by the good folks at Basecamp.
+And that's the gist of it. I did make some minor changes to the original code to remove the Vue dependency, but most of the CSS and JavaScript remained exactly the same. Be aware that initializing JavaScript functions on document render doesn't work with PJAX, since after the first page load the document render event never fires. I used [Stimulus](https://stimulusjs.org/) since it is designed to work in these situations, and like Turbolinks is made by Basecamp. Furthermore using a progressive enhancement approach actually simplified some aspects of the code. In particular I was able to replace the JavaScript for the profile chooser on the group page with plain links.
 
 It can be tempting to reach for a JavaScript framework when you want to add app-like behavior on the web, but you can achieve similar results with with a PJAX approach.

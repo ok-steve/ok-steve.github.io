@@ -3,17 +3,13 @@ const pluginNavigation = require('@11ty/eleventy-navigation');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const MarkdownIt = require('markdown-it');
-const markdownItAbbr = require('markdown-it-abbr');
-const markdownItFootnote = require('markdown-it-footnote');
 const htmlmin = require('html-minifier');
 
 const markdownLib = new MarkdownIt({
   html: true,
   linkify: true,
   typographer: true,
-})
-  .use(markdownItAbbr)
-  .use(markdownItFootnote);
+});
 
 module.exports = (eleventyConfig) => {
   eleventyConfig.setWatchJavaScriptDependencies(false);

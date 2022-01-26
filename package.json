@@ -36,8 +36,6 @@
     "eslint-plugin-compat": "^3.9.0",
     "eslint-plugin-import": "^2.22.1",
     "html-minifier": "^4.0.0",
-    "markdown-it-abbr": "^1.0.4",
-    "markdown-it-footnote": "^3.0.2",
     "rimraf": "^3.0.2",
     "stylelint": "^13.9.0",
     "stylelint-config-prettier": "^8.0.2",
