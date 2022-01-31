@@ -1,7 +1,7 @@
 ---
 title: Normcore
 date: 2019-06-19
-published: true
+published: false
 permalink: normcore/
 html:
   lang: html
