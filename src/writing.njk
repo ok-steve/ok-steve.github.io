@@ -4,9 +4,9 @@ title: Writing
 eleventyNavigation:
   key: Writing
 ---
-<div class="flow" typeof="schema:Blog">
+<div class="stack" typeof="schema:Blog">
   {% for item in collections.writing | published | reverse %}
-    <article class="flow" resource="{{ item.url | url }}" property="schema:blogPost" typeof="schema:BlogPosting">
+    <article class="stack" resource="{{ item.url | url }}" property="schema:blogPost" typeof="schema:BlogPosting">
       <header>
         <h2 property="schema:name">
           <a href="{{ item.url | url }}" property="schema:url">{{ item.data.title }}</a>

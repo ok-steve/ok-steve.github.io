@@ -14,7 +14,7 @@
     <link rel="manifest" href="{{ '/site.webmanifest' | url }}">
     <meta name="theme-color" content="{{ site.color }}">
 
-    <link rel="stylesheet" href="{{ '/normcore/style.css' | url }}">
+    <link rel="stylesheet" href="https://stevecherry.net/normcore/css/normcore.css">
     <link rel="stylesheet" href="{{ '/public/syntax-highlighting.css' | url }}" media="screen">
     <link rel="stylesheet" href="{{ '/public/style.css' | url }}" media="screen">
     <link rel="stylesheet" href="{{ '/public/print.css' | url }}" media="print">
@@ -24,14 +24,14 @@
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ '/feed.xml' | url }}">
   </head>
   <body typeof="schema:WebPage">
-    <div class="[ router ] [ flow cover ]">
-      <header class="[ row ] [ pi-2 ]" role="banner">
-        <a href="{{ '/' | url }}" class="bold block font-size-4">{{ site.name }}</a>
+    <div class="[ router ] [ cover stack ]">
+      <header class="[ row ] [ pi ]" role="banner">
+        <a href="{{ '/' | url }}" class="bold block font-size-3">{{ site.name }}</a>
 
         <nav role="navigation">
-          <ul class="flex" role="list">
+          <ul class="flex gap-01" role="list">
             {% for entry in collections.all | eleventyNavigation %}
-              <li class="{{ 'mis-1' if loop.index0 > 0 }}">
+              <li>
                 <a href="{{ entry.url | url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a>
               </li>
             {% endfor %}
@@ -39,7 +39,7 @@
         </nav>
       </header>
 
-      <main class="[ router__view ] [ container flow ] [ flex-1 fluid-type pi-2 ]" role="main">
+      <main class="[ router__view ] [ container stack ] [ flex-1 fluid-type pi ]" role="main">
         {% block content %}
           {% if title %}
             <h1 property="schema:name">{{ title }}</h1>
@@ -54,22 +54,22 @@
         {% endblock %}
       </main>
 
-      <footer class="[ row ] [ pi-2 pbe-1 ]" role="contentinfo">
+      <footer class="[ row ] [ pi pbe-01 ]" role="contentinfo">
         <p>{{ site.description }}</p>
 
-        <ul class="flex" role="list">
+        <ul class="flex gap-01" role="list">
           <li>
-            <a class="inline-block w-2" href="{{ '/feed.xml' | url }}">
+            <a class="inline-block w" href="{{ '/feed.xml' | url }}">
               {% include "icons/rss.njk" %}
             </a>
           </li>
-          <li class="mis-1">
-            <a class="inline-block w-2" href="mailto:{{ site.email }}">
+          <li>
+            <a class="inline-block w" href="mailto:{{ site.email }}">
               {% include "icons/email.njk" %}
             </a>
           </li>
-          <li class="mis-1">
-            <a class="inline-block w-2" href="https://github.com/{{ site.github_username }}">
+          <li>
+            <a class="inline-block w" href="https://github.com/{{ site.github_username }}">
               {% include "icons/github.njk" %}
             </a>
           </li>

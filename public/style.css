@@ -8,13 +8,6 @@ html {
   color: #212529;
 }
 
-pre,
-code,
-hr {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
 a {
   color: inherit;
 }
@@ -40,11 +33,33 @@ a:focus {
 \* ---------------------------------- */
 
 /**
+ * Aspect ratios for media objects.
+ */
+
+.aspect-ratio {
+  height: 0;
+  padding-block-start: var(--aspect-ratio, 56.25%);
+  position: relative;
+}
+
+
+.aspect-ratio > * {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+/**
  * Container
  */
 
 .container {
-  max-width: 36em; /* Measure */
+  --container-width: 36em; /* Measure */
 }
 
 /**
@@ -67,7 +82,7 @@ a:focus {
  * Border
  */
 
-.border-1 {
+.border {
   border: 1px solid currentColor;
 }
 
@@ -83,7 +98,7 @@ a:focus {
  * Sizing
  */
 
-.w-2 {
+.w {
   width: 1.5em;
 }
 
@@ -91,12 +106,12 @@ a:focus {
  * Spacing
  */
 
-.pi-2 {
+.pi {
   padding-left: 1.5em;
   padding-right: 1.5em;
 }
 
-.pbe-1 {
+.pbe-01 {
   padding-bottom: 0.75em;
 }
 
@@ -104,7 +119,11 @@ a:focus {
  * Typography
  */
 
-.font-size-4 {
+.bold {
+  font-weight: 700;
+}
+
+.font-size-3 {
   font-size: 1.728em;
 }
 
