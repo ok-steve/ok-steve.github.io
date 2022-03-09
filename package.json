@@ -6,9 +6,6 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
-    "lint:css": "stylelint src/css --fix",
-    "lint:js": "eslint src/js --fix",
-    "lint": "npm run lint:css & npm run lint:js",
     "prebuild": "npm run clean",
     "build:site": "eleventy --config eleventy.config.js",
     "build": "ELEVENTY_ENV=production npm run build:site",
@@ -30,20 +27,11 @@
   },
   "homepage": "https://github.com/sccherry/sccherry.github.io#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^0.12.1",
-    "@11ty/eleventy-navigation": "^0.1.6",
-    "@11ty/eleventy-plugin-rss": "^1.0.9",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.4",
-    "eslint": "^7.18.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-compat": "^3.9.0",
-    "eslint-plugin-import": "^2.22.1",
+    "@11ty/eleventy": "^1.0.0",
+    "@11ty/eleventy-navigation": "^0.3.2",
+    "@11ty/eleventy-plugin-rss": "^1.1.2",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.2.2",
     "html-minifier": "^4.0.0",
-    "rimraf": "^3.0.2",
-    "stylelint": "^13.9.0",
-    "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-standard": "^20.0.0",
-    "stylelint-no-unsupported-browser-features": "^4.1.4"
+    "rimraf": "^3.0.2"
   }
 }
