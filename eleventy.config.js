@@ -49,10 +49,6 @@ module.exports = (eleventyConfig) => {
     collectionApi.getFilteredByGlob('src/brag/*.md')
   );
 
-  eleventyConfig.addCollection('code', (collectionApi) =>
-    collectionApi.getFilteredByGlob('src/code/*.md')
-  );
-
   eleventyConfig.addCollection('writing', (collectionApi) =>
     collectionApi.getFilteredByGlob('src/writing/*.md')
   );
