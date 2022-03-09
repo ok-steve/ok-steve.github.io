@@ -19,7 +19,11 @@
     "type": "git",
     "url": "git+https://github.com/sccherry/sccherry.github.io.git"
   },
-  "author": "Steve Cherry <stevenccherry@gmail.com> (https://stevecherry.net/)",
+  "author": {
+    "name": "Steve Cherry",
+    "email": "stevenccherry@gmail.com",
+    "url": "https://stevecherry.net/"
+  },
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/sccherry/sccherry.github.io/issues"
