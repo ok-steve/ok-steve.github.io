@@ -1,9 +1,10 @@
 ---
-layout: page.njk
+layout: page
 eleventyNavigation:
   key: Home
   order: -1
 ---
+
 I develop software and play the tuba. I'm continuously trying to increase the nerdiness in my life.
 
 I currently work as a Drupal/front-end web developer for a government contractor near Washington, DC. I tackle the whole project lifecycle, including creating static templates from Photoshop files, creating themes from static templates, building functionality through site configuration and module development, QA testing, and ongoing maintenance. I'm like a jack-of-all-trades, master of...certainly more than none.

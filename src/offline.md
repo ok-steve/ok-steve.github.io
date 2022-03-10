@@ -1,5 +1,5 @@
 ---
-layout: error.njk
+layout: error
 title: Offline
 permalink: offline.html
 ---

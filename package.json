@@ -10,7 +10,7 @@
     "build:site": "eleventy --config eleventy.config.js",
     "build": "ELEVENTY_ENV=production npm run build:site",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ELEVENTY_ENV=development npm run build:site -- --serve"
+    "start": "npm run build:site -- --serve"
   },
   "repository": {
     "type": "git",
@@ -19,9 +19,9 @@
   "author": {
     "name": "Steve Cherry",
     "email": "stevenccherry@gmail.com",
-    "url": "https://stevecherry.net/"
+    "url": "https://stevecherry.net"
   },
-  "license": "GPL-3.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/sccherry/sccherry.github.io/issues"
   },

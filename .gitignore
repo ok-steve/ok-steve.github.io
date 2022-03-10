@@ -102,8 +102,3 @@ dist
 
 # TernJS port file
 .tern-port
-
-# Editor directories
-.devcontainer
-.vscode
-.DS_Store

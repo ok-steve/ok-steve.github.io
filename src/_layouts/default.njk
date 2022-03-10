@@ -1,27 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>{{ title or site.name }} | {{ site.name }}</title>
-    <meta name="description" content="{{ page.excerpt | default(content) | default(site.description) | striptags | truncate(160) }}">
+    <meta
+      name="description"
+      content="{{ page.excerpt | default(content) | default(site.description) | striptags | truncate(160) }}"
+    />
 
-    <link rel="icon" href="{{ '/public/img/favicon.ico' | url }}" size="any">
-    <link rel="icon" href="{{ '/public/img/icon.svg' | url }}" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="{{ '/public/img/apple-touch-icon.png' | url }}">
-    <link rel="manifest" href="{{ '/site.webmanifest' | url }}">
-    <meta name="theme-color" content="{{ site.color }}">
+    <link rel="icon" href="{{ '/public/img/favicon.ico' | url }}" size="any" />
+    <link
+      rel="icon"
+      href="{{ '/public/img/icon.svg' | url }}"
+      type="image/svg+xml"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="{{ '/public/img/apple-touch-icon.png' | url }}"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="{{ '/public/img/icon-512.png' | url }}"
+    />
+    <meta name="apple-mobile-web-app-title" content="{{ site.name }}" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="manifest" href="{{ '/site.webmanifest' | url }}" />
+    <meta name="theme-color" content="{{ site.color }}" />
 
-    <link rel="stylesheet" href="https://stevecherry.net/normcore/css/normcore.css">
-    <link rel="stylesheet" href="{{ '/public/syntax-highlighting.css' | url }}" media="screen">
-    <link rel="stylesheet" href="{{ '/public/style.css' | url }}" media="screen">
-    <link rel="stylesheet" href="{{ '/public/print.css' | url }}" media="print">
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+    <link rel="alternate" type="application/atom+xml" title="{{ site.name }}" href="{{ '/feed.xml' | url }}">
 
-    <link rel="canonical" href="{{ site.url }}{{ page.url | url }}">
+    <link
+      rel="stylesheet"
+      href="https://stevecherry.net/normcore/css/normcore.css"
+    />
+    <link rel="stylesheet" href="{{ '/public/syntax-highlighting.css' | url }}" media="screen" />
+    <link rel="stylesheet" href="{{ '/public/style.css' | url }}" media="screen" />
+    <link rel="stylesheet" href="{{ '/public/print.css' | url }}" media="print" />
 
-    <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ '/feed.xml' | url }}">
+    <script src="{{ '/public/script.js' | url }}" defer></script>
   </head>
   <body typeof="schema:WebPage">
     <div class="[ router ] [ cover stack ]">
@@ -77,7 +98,12 @@
       </footer>
     </div>
 
-    <script src="{{ '/public/router.js' | url }}" defer></script>
-    <script src="{{ '/public/script.js' | url }}" defer></script>
+    <script defer>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('{{ '/sw.js' | url }}', {
+          scope: '{{ '/' | url }}',
+        });
+      }
+    </script>
   </body>
 </html>
