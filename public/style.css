@@ -33,28 +33,6 @@ a:focus {
 \* ---------------------------------- */
 
 /**
- * Aspect ratios for media objects.
- */
-
-.aspect-ratio {
-  height: 0;
-  padding-block-start: var(--aspect-ratio, 56.25%);
-  position: relative;
-}
-
-
-.aspect-ratio > * {
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
-}
-
-/**
  * Container
  */
 
