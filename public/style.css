@@ -59,7 +59,7 @@ a:focus {
  */
 
 .container {
-  --container-width: 36em; /* Measure */
+  --size: 36em; /* Measure */
 }
 
 /**
