@@ -4,13 +4,26 @@ hide_body: false
 fields:
 - type: text
   name: title
-  label: title
+  label: Title
 - type: datetime
   name: date
-  label: date
+  label: Date
+  hidden: true
+  config:
+    export_format: YYYY-MM-DD
+  default: now
 - type: boolean
   name: published
-  label: published
+  label: Published
+  default: false
 - type: list
   name: tags
-  label: tags
+  label: Tags
+  config:
+    use_select: true
+    source:
+      type: simple
+    options:
+    - life
+    - music
+    - work
