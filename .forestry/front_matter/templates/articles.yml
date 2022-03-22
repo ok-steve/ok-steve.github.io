@@ -16,14 +16,18 @@ fields:
   name: published
   label: Published
   default: false
-- type: list
-  name: tags
-  label: Tags
+- name: tags
+  type: select
+  default: ''
   config:
-    use_select: true
-    source:
-      type: simple
+    required: false
     options:
     - life
     - music
     - work
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Tags
