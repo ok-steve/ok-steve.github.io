@@ -1,9 +1,10 @@
 ---
 title: Debugging Drupal in VS Code
-date: 2019-10-09
+date: 2022-03-22
 published: true
 tags:
-  - work
+- work
+
 ---
 I use [docker4drupal](https://github.com/wodby/docker4drupal), the [Drupal Composer template](https://github.com/drupal-composer/drupal-project), and VS Code for my local Drupal development. Below is a description of how to configure VS Code's debugging tools to work with this setup.
 
