@@ -30,5 +30,6 @@ fields:
     - work
   label: Tags
 pages:
+- src/writing/hello-world.md
 - src/writing/progressively-enhanced-app-like-page-transitions.md
 - src/writing/what-closes-a-github-ticket.md
