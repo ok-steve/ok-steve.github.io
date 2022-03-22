@@ -11,11 +11,11 @@ sections:
   match: "**/*"
   exclude: "*.js"
 - type: document
-  path: src/work.md
-  label: Resume
-- type: document
   path: src/index.md
   label: About
+- type: document
+  path: src/work.md
+  label: Resume
 upload_dir: public/img/uploads
 public_path: "/public/img/uploads"
 front_matter_path: ''
