@@ -4,14 +4,30 @@ hide_body: false
 fields:
 - type: text
   name: layout
-  label: layout
+  label: Layout
+  config:
+    required: true
+  default: page
+  hidden: true
 - type: text
   name: title
-  label: title
+  label: Title
+  config:
+    required: true
 - type: field_group
   name: eleventyNavigation
-  label: eleventyNavigation
+  label: Navigation
   fields:
   - type: text
     name: key
-    label: key
+    label: Name
+  - name: order
+    type: number
+    label: Order
+    description: ''
+    default: 0
+    required: true
+    config:
+      min: 
+      max: 
+      step: 
