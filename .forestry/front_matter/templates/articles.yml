@@ -30,4 +30,5 @@ fields:
     - work
   label: Tags
 pages:
+- src/writing/progressively-enhanced-app-like-page-transitions.md
 - src/writing/what-closes-a-github-ticket.md
