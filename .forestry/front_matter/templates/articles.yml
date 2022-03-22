@@ -29,3 +29,5 @@ fields:
     - music
     - work
   label: Tags
+pages:
+- src/writing/what-closes-a-github-ticket.md
