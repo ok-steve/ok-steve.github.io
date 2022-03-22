@@ -33,7 +33,6 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy('public');
   eleventyConfig.addPassthroughCopy('src/*.{txt,xml}');
   eleventyConfig.addPassthroughCopy('src/sw.js');
-  eleventyConfig.addPassthroughCopy('src/admin');
 
   /**
    * Libraries
