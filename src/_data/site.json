@@ -4,7 +4,7 @@
   "url": "{{ pkg.author.url }}",
   "author": {
     "name": "{{ pkg.author.name }}",
-    "email": "steve@stevecherry.net",
+    "email": "{{ pkg.authore.email }}",
     "url": "{{ pkg.author.url }}"
   },
   "color": "#2b8a3e",
