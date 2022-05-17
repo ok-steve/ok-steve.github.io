@@ -175,22 +175,7 @@ a:focus {
  * Hang numbers.
  */
 
-.text ol {
-  counter-reset: li;
-}
-
-.text ol > li {
-  position: relative;
-  list-style: none;
-}
-
-.text ol > li::before {
-  position: absolute;
-  padding-inline-end: 0.5em;
-  text-align: end;
-  transform: translateX(-100%);
-  content: counter(li) ".";
-  counter-increment: li;
+.text ol > li::marker {
   font-feature-settings: "kern" 0, "tnum" 1, "onum" 1, "liga" 1;
 }
 

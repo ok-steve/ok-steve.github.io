@@ -1,11 +1,11 @@
 ---
-date: 2022-05-17
+date: 2012-07-18
 title: Adding Google Analytics to Omeka
 published: false
 tags:
-- work
-
+  - work
 ---
+
 So, it’s been a long time since I posted anything, but I think I’m going to try to start back up. I’ve been learning quite a bit at my new job and there’s a lot I don’t want to forget and even some that’s worth sharing. So, I’m going to write it down here.
 
 At my job we use Google Analytics on almost all of our sites. For many of the systems we use there is a plugin available to handle the Google Analytics configuration, like these ones for[ Wordpress](http://wordpress.org/extend/plugins/google-analytics-for-wordpress) and[ Drupal](http://drupal.org/project/google_analytics). These plugins are great and make configuration a lot easier. Unfortunately there is not a similar plugin for Omeka.
@@ -20,14 +20,16 @@ The first step is to enable Omeka to hold your Google Analytics ID in the databa
 
 To do that in the `config.ini` file add the following lines:
 
-    use_google_analytics.type = "checkbox"
-    use_google_analytics.options.label = "Use Google Analytics"
-    use_google_analytics.options.description = "Check this box if you wish to enable your Google Analytics account on this site. Don't forget to enter your account number below!"
-    use_google_analytics.options.value = "1"
-    
-    google_analytics_id.type = "text"
-    google_analytics_id.options.label = "Google Analytics ID"
-    google_analytics_id.options.description = "Enter the Google Analytics ID to track this site."
+```ini
+use_google_analytics.type = "checkbox"
+use_google_analytics.options.label = "Use Google Analytics"
+use_google_analytics.options.description = "Check this box if you wish to enable your Google Analytics account on this site. Don't forget to enter your account number below!"
+use_google_analytics.options.value = "1"
+
+google_analytics_id.type = "text"
+google_analytics_id.options.label = "Google Analytics ID"
+google_analytics_id.options.description = "Enter the Google Analytics ID to track this site."
+```
 
 This creates an option in the theme configuration---Settings > Themes > Configure---where you can enter your Analytics ID. The form will have many fields that you probably have seen when setting up other Omeka sites. But there will also be a field to enter your Analytics ID (`UA-XXXXXXX-XX`). So enter it. you can also turn Analytics off and on using the checkbox available.
 
@@ -37,20 +39,22 @@ Ok, now that you have the code in the database you need to make sure it is outpu
 
 Enter the following code wherever you want it to be output.
 
-    <?php if (!has_permission('Items', 'showNotPublic') && get_theme_option('Use Google Analytics') !== '0'): ?>
-      <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-      <script>
-        var _gaq=[['_setAccount','<?php echo get_theme_option('Google Analytics ID'); ?>'],['_trackPageview']];
-        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g,s)}(document,'script'));
-      </script>
-    <?php endif; ?>
+```php
+<?php if (!has_permission('Items', 'showNotPublic') && get_theme_option('Use Google Analytics') !== '0'): ?>
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+  <script>
+    var _gaq=[['_setAccount','<?php echo get_theme_option('Google Analytics ID'); ?>'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+<?php endif; ?>
+```
 
 This code does a few things:
 
-* The first line checks if a user has permissions to view private files, which is an indicator that the user is logged in, and if the checkbox mentioned earlier is checked.
-* The next several lines are basically the code I got from Google. If you set up your Analytics account and get different code to past in, feel free to use that. The only part you really need to change is after “_setAccount”; replace the Analytics ID with the PHP function to output the value from the settings.
+- The first line checks if a user has permissions to view private files, which is an indicator that the user is logged in, and if the checkbox mentioned earlier is checked.
+- The next several lines are basically the code I got from Google. If you set up your Analytics account and get different code to past in, feel free to use that. The only part you really need to change is after “\_setAccount”; replace the Analytics ID with the PHP function to output the value from the settings.
 
 ## Conclusion
 

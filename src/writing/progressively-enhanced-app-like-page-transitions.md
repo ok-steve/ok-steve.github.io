@@ -1,11 +1,11 @@
 ---
-title: Progressively enhanced app-like page transitions
 date: 2022-03-22
+title: Progressively enhanced app-like page transitions
 published: true
 tags:
-- work
-
+  - work
 ---
+
 Many native apps effectively use page transitions to improve user experience/engagement. When replicating those same transitions on the web one might reach for a single-page application framework like React or Vue. But did you know it's also possible to design those engaging animations using the HTML you already have?
 
 [Sarah Drasner's](https://sarahdrasnerdesign.com/) article about [native-like animations on the web](https://css-tricks.com/native-like-animations-for-page-transitions-on-the-web/) demonstrates it's possible to emulate the smooth page transitions so often found on native apps. Using [nuxt.js](https://nuxtjs.org/), she created a really neat demo travel site.
@@ -17,16 +17,16 @@ To find out I set myself the goal of recreating [her travel app demo](https://pa
 To actually handle the transitions I decided to use [Turbolinks](https://github.com/turbolinks/turbolinks/), though any PJAX (pushState + Ajax) library could work. I used Turbolinks's events to add `is-loading` and `is-rendering` classes to trigger page exit and enter transitions.
 
 ```javascript
-document.addEventListener("turbolinks:click", function() {
-  document.body.classList.add("is-loading");
+document.addEventListener('turbolinks:click', function () {
+  document.body.classList.add('is-loading');
 });
 
-document.addEventListener("turbolinks:before-render", function(e) {
-  e.data.newBody.classList.add("is-rendering");
+document.addEventListener('turbolinks:before-render', function (e) {
+  e.data.newBody.classList.add('is-rendering');
 });
 
-document.addEventListener("turbolinks:load", function() {
-  document.body.classList.remove("is-rendering");
+document.addEventListener('turbolinks:load', function () {
+  document.body.classList.remove('is-rendering');
 });
 ```
 
@@ -35,7 +35,7 @@ Unfortunately using Turbolinks's default rendering method didn't work to well. R
 To fix this problem I added [morphdom](https://github.com/patrick-steele-idem/morphdom/), which will diff and patch an HTML string with the existing DOM, similar to, but not quite a virtual DOM.
 
 ```javascript
-Turbolinks.SnapshotRenderer.prototype.assignNewBody = function() {
+Turbolinks.SnapshotRenderer.prototype.assignNewBody = function () {
   morphdom(document.body, this.newBody);
 };
 ```
