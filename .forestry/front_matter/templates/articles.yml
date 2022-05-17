@@ -30,6 +30,7 @@ fields:
     - work
   label: Tags
 pages:
+- src/writing/100-things-i-learned-in-grad-school.md
 - src/writing/debugging-drupal-in-vs-code.md
 - src/writing/hello-world.md
 - src/writing/progressively-enhanced-app-like-page-transitions.md
