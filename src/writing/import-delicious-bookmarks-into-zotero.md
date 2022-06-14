@@ -6,7 +6,7 @@ tags:
 - work
 
 ---
-If you're like me when you heard the[ announcement that Yahoo will “Sunset” Delicious](http://techcrunch.com/2010/12/16/is-yahoo-shutting-down-del-icio-us) you began looking for a place to move all of your bookmarks. I decided to move mine to Zotero, even after the[ announcement that Delicious had been purchased](http://detnews.com/article/20110427/BIZ04/104270423/YouTube-founders-buy-bookmark-site-Delicious-from-Yahoo) and that I could migrate my bookmarks to[ Avos](http://www.avos.com/). For me at least Zotero had several advantages over going to Avos or another social bookmarking service:
+If you're like me when you heard the [announcement that Yahoo will “Sunset” Delicious](http://techcrunch.com/2010/12/16/is-yahoo-shutting-down-del-icio-us) you began looking for a place to move all of your bookmarks. I decided to move mine to Zotero, even after the [announcement that Delicious had been purchased](http://detnews.com/article/20110427/BIZ04/104270423/YouTube-founders-buy-bookmark-site-Delicious-from-Yahoo) and that I could migrate my bookmarks to [Avos](http://www.avos.com/). For me at least Zotero had several advantages over going to Avos or another social bookmarking service:
 
 1. I already use it.
 2. Although it isn't really a bookmarking application, it can be used as such since it has all of the functionality that Delicious had.
@@ -15,9 +15,7 @@ If you're like me when you heard the[ announcement that Yahoo will “Sunset” 
 
 Unfortunately there was no tool—that I found—that helped me get my data out of Delicious and into Zotero, so I created one and made it available for you all to use as well. Basically it converts a Delicious XML file into a MODS record that can be uploaded by Zotero. It’s pretty basic, but it gets the job done (for me at least).
 
-![](https://lh5.googleusercontent.com/C2fUEudGOSgJfWOsohwVWOH91A1rNKUvkW6kcD2-m6We5Pl22mKoMF1iin-DIkoqh4uDPXiUz8Efozwf5l8JwsNYshv8zyBnsNUcQOSe2p724HLaNEwLGcRLlJ2kPZdI615DPk1NK_CcztrLaQ =624x99)
-
-The deletion of my Delicious account.
+![The deletion of my Delicious account.](/public/img/uploads/delicious-delete.png)
 
 ### **Step 1: Download your Delicious data**
 
@@ -29,8 +27,6 @@ The Delicious API limits exports to 1,000 records so if you have a ton of bookma
 
 Then in Zotero,[ use the import function](http://www.zotero.org/support/getting_stuff_into_your_library#importing_records_from_other_reference_tools) and enter the file you just created.
 
-![](https://lh3.googleusercontent.com/mo1eydVSx5q190XB-WdlIcEJYovn-QNYJ1dzCz8JA6QYDPuzkW9X1KBt1OcM8YfGSQrMdWHAhHeQ-XAmkirP4_lWuwfM-OVV5nuDsJ2iLpbVr4I17_d4ZP4cbSBPmAmO2sx0pQXvnzMS5spS6g =292x312)
-
-Import data into Zotero
+![Import data into Zotero](/public/img/uploads/import-zotero.png)
 
 You should see a new collection named “delicious-zotero” in your Library. If you don't I'd like to know. Just shoot me a comment.
