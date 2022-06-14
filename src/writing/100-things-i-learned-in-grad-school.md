@@ -134,7 +134,7 @@ MUSICOL 506: Music and Media
 77. User experience puts users are the center and builds from there, information architecture puts understanding at the center
 78. Get allies in an organization by making sure people know how changes will help them
 79. You only understand something relative to something you understand
-80. LATCH—Location, Alphabetical, Time, Category, Hierarchy: That's 5 ways of organizing information, take that [Jon Stewart](http://arnab.org/blog/jon-stewart-vs-archivists)
+80. LATCH---Location, Alphabetical, Time, Category, Hierarchy: That's 5 ways of organizing information, take that [Jon Stewart](http://arnab.org/blog/jon-stewart-vs-archivists)
 
 ## SW 663: Grantgetting, Contracting, and Fund Raising
 
