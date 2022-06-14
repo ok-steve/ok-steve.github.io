@@ -11,7 +11,7 @@ sections:
   match: "**/*"
   exclude: "*.js"
 - type: document
-  path: src/index.md
+  path: src/about.md
   label: About
 - type: document
   path: src/work.md
