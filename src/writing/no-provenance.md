@@ -2,7 +2,8 @@
 date: 2022-06-14
 title: No Provenance
 published: false
-tags: []
+tags:
+- music
 
 ---
 2011-04-18 (Introduction)
@@ -21,9 +22,7 @@ I assume you go to concerts, but why? Is it just something to do? Do you go with
 
 Studio albums allow musicians to carefully craft pieces because of the easily manipulability of the recording medium they use. "With the ability to manipulate sound through through such technology \[magnetic tape and digital recording\], musicians have been able to transcend time, space, and human limitations, and in the process have created wholly new sounds, works, genres, and performance traditions" ([Katz 2010](http://mirlyn.lib.umich.edu/Record/009092508), p. 47). Earlier recordings that were cut onto wax cylinders or discs were virtually impossible to meaningfully alter and as such truly were "records" of the way actual musicians played. As modern studio recordings allow musicians to fine tune their music until it reaches their ideal conception of how a song should sound they simultaneously mask the musicians' innate artistry. Did they really play that awesome effect or was it a ProTools plugin? If we do not preserve live recordings will we ever be able to tell?
 
-![](https://lh3.googleusercontent.com/G1P-N9LYb1ALhUSMWD8Sqe9RTAUKCIgT_MxkAZyH9rRh7fvxTzcik1prCCCl5RgwEfn38lDs4H8lSASfmARyMX_9UKxRY5zOwD2QElXF7f_rr__51qYGuAfs0cFQgNsB-_bQUNh9YxweOZ5bSA =219x219)
-
-Picture of and early recording studio with recording horn in the center
+![Picture of and early recording studio with recording horn in the center](/public/img/uploads/recording-horn.jpg)
 
 Recordings of concerts should be collected along with more "definitive" studio recordings. This may be difficult since concerts are ephemeral and live recordings can potentially vastly outnumber studio recordings. Fortunately there is already a community of fans who tape and trade concerts. Perhaps even more fortunately this community follows several practices that line up nicely with archival and digital preservation best practices. Still trained music and audio archivists, especially those dealing with popular music, can play a role in supporting this community by facilitating perpetual access to these recordings while also enhancing their own collections.
 
@@ -138,9 +137,7 @@ Before the internet communication about which artist were friendly to taping and
 
 On the internet it is much easier to officially document which artists allow taping and which do not. Sites like etree.org maintain[ lists of "trade-friendly" artists](http://wiki.etree.org/index.php?page=TradeFriendly) which are publicly available and often contain actual email responses from artists giving permission (or not) to tape concerts. Making these permissions publicly available is a much more efficient and accurate means of communication than word-of-mouth since a single message from the artist can be communicated once to any potential taper.
 
-![](https://lh6.googleusercontent.com/NADHEasfEntEVC5klqqchmUUhJ-jvRIda3Z7KawJAh47XYE-6EHmD_oiaj-7UQjdeymdEZSN1y3rQqpt3nGMhsFRHg5ucSLdk8-1Biamsyt_BqNZ7bvv005-5x-A6xqfXnY8W2j3xBM729i_BQ =219x219)
-
-Permission to tape from Andrew Bird
+![Permission to tape from Andrew Bird](/public/img/uploads/bird-taping-permission.png)
 
 It should be noted that taping and trading is not the same thing as bootlegging ([Marshall 2003](http://journals.cambridge.org/action/displayAbstract?fromPage=online&aid=143373), p. 59). While these activities may share many similar practices, taping and trading is rigorously non-commercial and law abiding. Bootlegging, on the other hand, is usually associated with illegal (ie. unauthorized) sales of live or previously unreleased studio recordings.
 
@@ -154,9 +151,7 @@ As technology progressed from reel-to-reel to cassettes to digital audio tapes (
 
 Along with being non-commercial, the taping and trading community has a strong ethic of reciprocity ([Schultz 2006](http://btlj.org/2006/06/07/volume-21-issue-2-spring-2006), p. 656). Fans just want to spread the music that they love. Before the internet making and mailing new tapes was a significant undertaking of time and resources and freeloading could be a significant drain on those resources which could lead to tapers being lessing willing to trade the recordings they make. Online freeloading is less of a problem because fans can upload a recording once for everyone, thus significantly reducing the[ marginal cost](http://en.wikipedia.org/wiki/Marginal_cost) of distribution. Nevertheless distribution does require bandwidth and so reciprocity is still sometimes enforced.
 
-![](https://lh4.googleusercontent.com/zSW5CyfI0-JWnAr95ekLtMlvALSKJaOJnz23wsbiy2PuGaiTMo86l189_ClqFj0wr1ezQcy0AyZYFMvOAJo7u_bFJRbNjN9UDzg6Cmhw03g3Rse2TQQuarFMnD7y0AeJPTVAJR_7hmp3cJ_dbQ =219x219)
-
-Sharing ratio policy for jamtothis.com showing the required GB one must upload based on what one has downloaded as well as the required percentage of uploading to downloading
+![Sharing ratio policy for jamtothis.com showing the required GB one must upload based on what one has downloaded as well as the required percentage of uploading to downloading](/public/img/uploads/sharing-ratio.jpg)
 
 In addition to automated means of enforcing reciprocity, online forums can maintain social pressure to follow community standards. There are several statuses within the trading community: "taper, site operator, good trader, bad trader , and newbie" ([Nieckarz 2005](http://onlinelibrary.wiley.com/doi/10.1111/j.1540-6040.2005.00145.x/abstract), p. 409). When someone is a "bad trader" they can be shamed publicly on a forum.
 
@@ -174,9 +169,7 @@ _— "Satch" (_[_Whitman 2005_](http://www.whitperson.com/my-ma-thesis-univ-of-c
 
 As the following screenshot of a BitTorrent download from etree.org demonstrates, the practices of the taping and trading community align well with several archival and digital preservation best practices despite a strong likelihood that most tapers are not trained archivists.
 
-![](https://lh5.googleusercontent.com/O-GUsi9l9UVdm_2Bjyaw7uFO4LqUhIhlW_nUo2rAGhemRwqfztFCL_D6Wj4xkebVJ90kffoGpI_iLDdE9LjaBLmx_6AQZxEANCVSJX0_U5bZ177dFreEg2Tepq_k33S_b7xMz3KzlIfUhyb2xg =219x219)
-
-Metadata from bt.etree.org download
+![Metadata from bt.etree.org download](/public/img/uploads/metadata.png)
 
 ### **Open and lossless codecs**
 
@@ -206,8 +199,6 @@ Because the taping community preserves an important and otherwise unrecorded par
 
 ![Grateful Dead live: The Spectrum - 87'](https://lh5.googleusercontent.com/qsgtAO-9OdA3iYKBLr8UbM7AEiwlcqEuEoWWzj7KaOeZk5X4u4Ruhq_uyvDPOmN7q7VVRvXS1l2vWGbmmQfEWBFf-ArDNYUUjP0Qha71m6_sTchpi_Bnb5yz6pUDymupxgEXLmEUBMs6deDTAQ "Grateful Dead live: The Spectrum - 87'" =395x640)
 
-Grateful Dead live: The Spectrum - 87'
-
 ## **Sources**
 
 * [Andrew Bird. _Live Music Archive_. Retrieved 4/25/2011](http://www.archive.org/details/AndrewBird).
@@ -215,7 +206,7 @@ Grateful Dead live: The Spectrum - 87'
 * [Copyright Act of 1976, 17 U.S.C. § 101 (1976)](http://www.copyright.gov/title17/92chap1.html#101).
 * [Katz, M. (2010). _Capturing sound: how technology has changed music_. Rev. ed. Berkeley: University of California Press](http://mirlyn.lib.umich.edu/Record/009092508).
 * [Nieckarz Jr., P. (2005). Community in cyber space?: The role of the internet in facilitating and maintaining a community of live music collecting and trading. _City & Community_, 4(4). American Sociological Association, Washington, DC, 403-423](http://onlinelibrary.wiley.com/doi/10.1111/j.1540-6040.2005.00145.x/abstract).
-* [Marshall L. (2003). For and against the record industry: an introduction to bootleg collectors and tape traders. _Popular Music_, 22(1). Cambridge University Press, 57–72](http://journals.cambridge.org/action/displayAbstract?fromPage=online&amp;aid=143373).
+* [Marshall L. (2003). For and against the record industry: an introduction to bootleg collectors and tape traders. _Popular Music_, 22(1). Cambridge University Press, 57–72](http://journals.cambridge.org/action/displayAbstract?fromPage=online&aid=143373).
 * [ph1994-04-09 ::Broome County Arena Binghamton NY. _etree.org Community Bittorrent Tracker_. Retrieved 4/25/2011](http://bt.etree.org/details.php?id=543942).
 * [Schultz, M. (2006). Fear and norms and rock & roll: What jambands can teach about persuading people to obey copyright law. _Berkeley Technology Law Journal_, 21(2), 651-728](http://btlj.org/2006/06/07/volume-21-issue-2-spring-2006).
 * [Seeding Guidelines. _EtreeWiki_. Retrieved 4/25/2011](http://wiki.etree.org/index.php?page=SeedingGuidelines).
