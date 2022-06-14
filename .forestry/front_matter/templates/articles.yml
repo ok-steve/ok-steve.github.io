@@ -37,5 +37,6 @@ pages:
 - src/writing/debugging-drupal-in-vs-code.md
 - src/writing/hello-world.md
 - src/writing/import-delicious-bookmarks-into-zotero.md
+- src/writing/no-provenance.md
 - src/writing/progressively-enhanced-app-like-page-transitions.md
 - src/writing/what-closes-a-github-ticket.md
