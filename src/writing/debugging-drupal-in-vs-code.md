@@ -22,6 +22,6 @@ I use [docker4drupal](https://github.com/wodby/docker4drupal), the [Drupal Compo
 2. In the debugging panel add "launch" configuration for Firefox and/or Chrome debuggers.
 3. Edit the configuration by adding `"webRoot": "\${workspaceFolder}/web"`.
 
-I create a gist to display the complete configuration file:
+I created a gist to display the complete configuration file:
 
 <script src="https://gist.github.com/sccherry/3338e8855387e489b1bf97553348bde6.js"></script>

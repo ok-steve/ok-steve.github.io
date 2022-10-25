@@ -24,7 +24,7 @@ Washington, DC (March 2019--Present)
 #### DevOps
 
 - Reorganize version control repositories to a per-site structure to facilitate deployment.
-- Improve speeed and consistency of deployments through using Composer and a custom deployment script.
+- Improve speed and consistency of deployments through using Composer and a custom deployment script.
 - Configure Linux server as needed.
 
 #### Communication

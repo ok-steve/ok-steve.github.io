@@ -30,9 +30,9 @@ So, I recently got my masters degree from the University of Michigan School of I
 12. HTML, CSS
 13. Databases
 14. The internet was made by physicists and hippies: Tim Berners-Lee is a physicist, Richard Stallman is a hippie
-15. SOAP sucks: just ask [Dr. Chuck](http://www.dr-chuck.com/)
+15. SOAP sucks: just ask [Dr. Chuck](https://www.dr-chuck.com/)
 
-MUSICOL 506: Music and Media
+## MUSICOL 506: Music and Media
 
 16. Translate, transform, and transport: three ways media influences music
 17. As technology progressed albums became more artificial constructions than records of what musicians actually played
@@ -46,7 +46,7 @@ MUSICOL 506: Music and Media
 22. If you're going to sample a recording you're better off sampling from a motion picture than an audio recording
 23. When determining work-for-hire status, if you get a W2 you're probably an employee, if a 1099 you're probably a contractor
 24. Under current copyright law the blues probably couldn't have developed
-25. Most awesome patent ever: [Method for exercising a cat (#5,443,036)](http://www.google.com/patents?vid=5443036)
+25. Most awesome patent ever: [Method for exercising a cat (#5,443,036)](https://www.google.com/patents?vid=5443036)
 
 ## SI 539: Design of Complex Websites
 
@@ -68,9 +68,9 @@ MUSICOL 506: Music and Media
 
 36. Hallway usability testing for a quick and dirty evaluation
 37. How to do a survey
-38. [F-pattern](http://www.useit.com/alertbox/reading_pattern.html): that's where people actually look on a web page
+38. [F-pattern](https://www.useit.com/alertbox/reading_pattern.html): that's where people actually look on a web page
 39. 90% of people's time is spent on not your website
-40. [Heuristic evaluation](http://www.useit.com/papers/heuristic/heuristic_list.html): my favorite usability evaluation
+40. [Heuristic evaluation](https://www.useit.com/papers/heuristic/heuristic_list.html): my favorite usability evaluation
 
 ## SI 625: Digital Preservation
 
@@ -115,7 +115,7 @@ MUSICOL 506: Music and Media
 ## SI 647: Information Resources and Services
 
 66. The most important part of doing a reference interview is to actually do one
-67. Oranges and peaches: now I get that reference in [Party Girl](http://www.youtube.com/watch?v=V58FH_0jwjY)
+67. Oranges and peaches: now I get that reference in [Party Girl](https://www.youtube.com/watch?v=V58FH_0jwjY)
 68. You should always know where the bathroom is
 69. Librarians care more about your degrees when initially hiring you than when they want to assign additional/different responsibilities once you're hired
 70. Database searching
@@ -134,7 +134,7 @@ MUSICOL 506: Music and Media
 77. User experience puts users are the center and builds from there, information architecture puts understanding at the center
 78. Get allies in an organization by making sure people know how changes will help them
 79. You only understand something relative to something you understand
-80. LATCH---Location, Alphabetical, Time, Category, Hierarchy: That's 5 ways of organizing information, take that [Jon Stewart](http://arnab.org/blog/jon-stewart-vs-archivists)
+80. LATCH---Location, Alphabetical, Time, Category, Hierarchy: That's 5 ways of organizing information, take that [Jon Stewart](https://arnab.org/blog/jon-stewart-vs-archivists)
 
 ## SW 663: Grantgetting, Contracting, and Fund Raising
 
@@ -165,5 +165,5 @@ MUSICOL 506: Music and Media
 96. Email filtering is important because listservs have a lot of BS
 97. The difference between alternate/virtual/augmented reality
 98. Networking is important, and I suck at it
-99. Mobile phones can be [effective musical instruments](http://mopho.eecs.umich.edu/)
+99. Mobile phones can be [effective musical instruments](https://mopho.eecs.umich.edu/)
 100.  SI is a pretty unique school where you can get some mad skills that will be very valuable in current and future developments in information and technology

@@ -8,9 +8,9 @@ tags:
 
 So, it's been a long time since I posted anything, but I think I'm going to try to start back up. I've been learning quite a bit at my new job and there's a lot I don't want to forget and even some that's worth sharing. So, I'm going to write it down here.
 
-At my job we use Google Analytics on almost all of our sites. For many of the systems we use there is a plugin available to handle the Google Analytics configuration, like these ones for [Wordpress](http://wordpress.org/extend/plugins/google-analytics-for-wordpress) and [Drupal](http://drupal.org/project/google_analytics). These plugins are great and make configuration a lot easier. Unfortunately there is not a similar plugin for Omeka.
+At my job we use Google Analytics on almost all of our sites. For many of the systems we use there is a plugin available to handle the Google Analytics configuration, like these ones for [Wordpress](https://wordpress.org/extend/plugins/google-analytics-for-wordpress) and [Drupal](https://drupal.org/project/google_analytics). These plugins are great and make configuration a lot easier. Unfortunately there is not a similar plugin for Omeka.
 
-This is a problem because we have multiple Omeka sites---two at the moment, but likely more in the future---and each of these sites uses the same theme, but has a different Analytics profile. We were using the [recommended method for adding Analytics code](http://omeka.org/forums/topic/google-analytics-plugin), but this involved maintaining two sets of theme files with entirely the same code, except the Analytics ID. Talk about a pain in the rear. So, I came up with the following method to remove all site-specific information from the code and put it in the database.
+This is a problem because we have multiple Omeka sites---two at the moment, but likely more in the future---and each of these sites uses the same theme, but has a different Analytics profile. We were using the [recommended method for adding Analytics code](https://omeka.org/forums/topic/google-analytics-plugin), but this involved maintaining two sets of theme files with entirely the same code, except the Analytics ID. Talk about a pain in the rear. So, I came up with the following method to remove all site-specific information from the code and put it in the database.
 
 I'm not going to write about how to use Google Analytics; I assume you will already have that set up. I also assume you understand theming (though you probably don't need to know that much PHP).
 
@@ -35,7 +35,7 @@ This creates an option in the theme configuration---`Settings > Themes > Configu
 
 ## Enter the Google Analytics tracking code in your theme
 
-Ok, now that you have the code in the database you need to make sure it is output in a theme file. The code can go anywhere. [Google recommends](http://support.google.com/googleanalytics/bin/answer.py?hl=en&answer=174090) that it go before the closing `</head>` tag---which would be in the file `common/header.php`. However I decided to put in the footer---`common/footer.php`---right above the closing `</body>` tag as is done in HTML5 Boilerplate.
+Ok, now that you have the code in the database you need to make sure it is output in a theme file. The code can go anywhere. [Google recommends](https://support.google.com/googleanalytics/bin/answer.py?hl=en&answer=174090) that it go before the closing `</head>` tag---which would be in the file `common/header.php`. However I decided to put in the footer---`common/footer.php`---right above the closing `</body>` tag as is done in HTML5 Boilerplate.
 
 Enter the following code wherever you want it to be output.
 
