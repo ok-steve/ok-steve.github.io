@@ -78,19 +78,19 @@
       <footer class="[ row ] [ pi pbe-01 ]" role="contentinfo">
         <p>{{ site.description }}</p>
 
-        <ul class="cluster" role="list">
+        <ul class="[ icon-list ] [ cluster ]" role="list">
           <li>
-            <a class="inline-block w" href="{{ '/feed.xml' | url }}">
+            <a href="{{ '/feed.xml' | url }}">
               {% include "icons/rss.njk" %}
             </a>
           </li>
           <li>
-            <a class="inline-block w" href="mailto:{{ site.author.email }}">
+            <a href="mailto:{{ site.author.email }}">
               {% include "icons/email.njk" %}
             </a>
           </li>
           <li>
-            <a class="inline-block w" href="https://github.com/{{ site.github_username }}">
+            <a href="https://github.com/{{ site.github_username }}">
               {% include "icons/github.njk" %}
             </a>
           </li>

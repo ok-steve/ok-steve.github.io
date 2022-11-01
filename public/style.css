@@ -73,22 +73,6 @@ a:focus {
 }
 
 /**
- * Display
- */
-
-.inline-block {
-  display: inline-block;
-}
-
-/**
- * Sizing
- */
-
-.w {
-  width: 1.5em;
-}
-
-/**
  * Spacing
  */
 
@@ -120,6 +104,15 @@ a:focus {
 /* ---------------------------------- *\
   #BLOCKS
 \* ---------------------------------- */
+
+/**
+ * Icon list
+ */
+
+.icon-list a {
+  display: inline-block;
+  width: 1.5em;
+}
 
 /**
  * Router
