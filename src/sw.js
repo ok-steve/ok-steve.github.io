@@ -23,7 +23,6 @@ const STATIC_ASSETS = [
   './public/img/icon-512.png',
   './public/print.css',
   './public/style.css',
-  './public/router.js',
   './public/script.js',
   './index.html',
   './',
