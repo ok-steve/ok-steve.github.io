@@ -1,15 +1,22 @@
-const CACHE_VERSION = 'v2';
-const CONTENT_CACHE = 'content';
-const MEDIA_CACHE = 'media';
-const STATIC_CACHE = 'static';
+/**
+ * Globals
+ */
 
-const OFFLINE = {
-  page: './offline.html',
-  image: './public/img/icon.svg',
+const CACHE_VERSION = 'v2';
+
+const CACHE_NAMES = {
+  CONTENT: 'content',
+  MEDIA: 'media',
+  STATIC: 'static',
+};
+
+const OFFLINE_ASSETS = {
+  CONTENT: './OFFLINE_ASSETS.html',
+  MEDIA: './public/img/icon.svg',
 };
 
 const STATIC_ASSETS = [
-  ...Object.values(OFFLINE),
+  ...Object.values(OFFLINE_ASSETS),
   './public/img/apple-touch-icon.png',
   './public/img/favicon.ico',
   './public/img/icon-192.png',
@@ -26,38 +33,38 @@ const STATIC_ASSETS = [
  * Utility functions
  */
 
-const cacheName = (key) => {
-  return `${CACHE_VERSION}-${key}`;
-};
+function openCache(cacheName) {
+  return caches.open(`${CACHE_VERSION}-${cacheName}`);
+}
 
-const getCacheKey = (request) => {
+function getCacheKey(request) {
   const acceptHeader = request.headers.get('Accept');
 
   if (acceptHeader.indexOf('text/html') !== -1) {
-    return CONTENT_CACHE;
+    return CACHE_NAMES.CONTENT;
   }
 
   if (acceptHeader.indexOf('image') !== -1) {
-    return MEDIA_CACHE;
+    return CACHE_NAMES.MEDIA;
   }
 
-  return STATIC_CACHE;
-};
+  return CACHE_NAMES.STATIC;
+}
 
-const shouldHandleFetch = (request) => {
+function shouldHandleFetch(request) {
   const url = new URL(request.url);
 
-  const criteria = {
-    isGETRequest: request.method === 'GET',
-    isSameOrigin: url.origin === self.location.origin,
-  };
+  const criteria = [
+    // Is GET request
+    request.method === 'GET',
+    // Request is to the same origin
+    url.origin === self.location.origin,
+  ];
 
-  return Object.keys(criteria)
-    .map((key) => criteria[key])
-    .reduce((acc, curr) => acc && curr);
-};
+  return criteria.reduce((prev, curr) => prev && curr);
+}
 
-const addToCache = (key, request, response) => {
+function addToCache(key, request, response) {
   if (response.ok) {
     const req = request.clone();
     const res = response.clone();
@@ -68,19 +75,18 @@ const addToCache = (key, request, response) => {
   }
 
   return response;
-};
+}
 
-const fetchFromNetwork = (key, request) => {
+function fetchFromNetwork(key, request) {
   const req = request.clone();
 
   return fetch(req).then((response) => addToCache(key, request, response));
-};
+}
 
-const fetchFromCache = (key, request) => {
+function fetchFromCache(key, request) {
   const req = request.clone();
 
-  return caches
-    .open(cacheName(key))
+  return openCache(key)
     .then((cache) => {
       return cache.match(req).then((response) => {
         fetchFromNetwork(key, request);
@@ -89,35 +95,35 @@ const fetchFromCache = (key, request) => {
       });
     })
     .then((response) => response || Promise.reject('no-match'));
-};
+}
 
-const offlineResponse = (key) => {
-  if (key === MEDIA_CACHE) {
-    return caches.match(OFFLINE.image);
+function offlineResponse(key) {
+  if (key === CACHE_NAMES.MEDIA) {
+    return caches.match(OFFLINE_ASSETS.MEDIA);
   }
 
-  if (key === CONTENT_CACHE) {
-    return caches.match(OFFLINE.page);
+  if (key === CACHE_NAMES.CONTENT) {
+    return caches.match(OFFLINE_ASSETS.CONTENT);
   }
 
   return undefined;
-};
+}
 
 /**
  * Install event
  */
 
-const onInstall = () => {
-  return caches.open(cacheName(STATIC_CACHE)).then((cache) => {
-    return cache.addAll(STATIC_ASSETS);
-  });
-};
+function onInstall() {
+  return openCache(CACHE_NAMES.STATIC).then((cache) =>
+    cache.addAll(STATIC_ASSETS)
+  );
+}
 
 /**
  * Activate event
  */
 
-const onActivate = () => {
+function onActivate() {
   return caches
     .keys()
     .then((keys) =>
@@ -127,16 +133,16 @@ const onActivate = () => {
           .map((key) => caches.delete(key))
       )
     );
-};
+}
 
 /**
  * Fetch event
  */
 
-const onFetch = ({ request }) => {
+function onFetch() {
   const key = getCacheKey(request);
 
-  if (key === CONTENT_CACHE) {
+  if (key === CACHE_NAMES.CONTENT) {
     return fetchFromNetwork(key, request)
       .catch(() => fetchFromCache(key, request))
       .catch(() => offlineResponse(key));
@@ -145,7 +151,7 @@ const onFetch = ({ request }) => {
   return fetchFromCache(key, request)
     .catch(() => fetchFromNetwork(key, request))
     .catch(() => offlineResponse(key));
-};
+}
 
 /**
  * Event listeners
