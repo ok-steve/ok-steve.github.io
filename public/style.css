@@ -89,14 +89,6 @@ a:focus {
  * Typography
  */
 
-.bold {
-  font-weight: 700;
-}
-
-.font-size-3 {
-  font-size: 1.728em;
-}
-
 .fluid-type {
   font-size: clamp(1rem, 1.67vw + 0.67rem, 2rem);
 }
