@@ -37,7 +37,7 @@ a:focus {
  */
 
 .cluster {
-  --space: calc(var(--rhythm, 1.5em) / 2);
+  gap: 0.5em;
 }
 
 /**
@@ -45,7 +45,7 @@ a:focus {
  */
 
 .container {
-  --size: 36em; /* Measure */
+  max-width: 36em; /* Measure */
 }
 
 /**
