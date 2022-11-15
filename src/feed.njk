@@ -1,12 +1,12 @@
 ---
-permalink: feed.xml
+permalink: /feed.xml
 eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ site.url }}">
   <title>{{ site.name }}</title>
   <subtitle>{{ site.description }}</subtitle>
-  <link href="{{ '/feed.xml' | url | absoluteUrl(site.url) }}" rel="self" />
+  <link href="{{ permalink | url | absoluteUrl(site.url) }}" rel="self" />
   <link href="{{ '/' | url | absoluteUrl(site.url) }}" />
   <updated>{{ collections.writing | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
   <id>{{ '/' | url | absoluteUrl(site.url) }}</id>
@@ -14,14 +14,14 @@ eleventyExcludeFromCollections: true
     <name>{{ site.author.name }}</name>
     <email>{{ site.author.email }}</email>
   </author>
-  {% for item in collections.writing %}
-    {% set absolutePostUrl %}{{ item.url | url | absoluteUrl(site.url) }}{% endset %}
-    <entry>
-      <title>{{ item.data.title }}</title>
-      <link href="{{ absolutePostUrl }}" />
-      <updated>{{ item.date | dateToRfc3339 }}</updated>
-      <id>{{ absolutePostUrl }}</id>
-      <content type="html">{{ item.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
-    </entry>
-  {% endfor %}
+  {%- for item in collections.writing | selectattr('url') | reverse %}
+  {%- set absolutePostUrl = item.url | url | absoluteUrl(site.url) %}
+  <entry>
+    <title>{{ item.data.title }}</title>
+    <link href="{{ absolutePostUrl }}" />
+    <updated>{{ item.date | dateToRfc3339 }}</updated>
+    <id>{{ absolutePostUrl }}</id>
+    <content xml:lang="en-US" type="html">{{ item.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
+  </entry>
+  {%- endfor %}
 </feed>
