@@ -32,7 +32,7 @@
     <meta name="theme-color" content="{{ site.color }}" />
 
     <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
-    <link rel="alternate" type="application/atom+xml" title="{{ site.name }}" href="{{ '/feed.xml' | url }}">
+    {# <link rel="alternate" type="application/atom+xml" title="{{ site.name }}" href="{{ '/feed.xml' | url }}"> #}
 
     <link
       rel="stylesheet"
@@ -68,11 +68,11 @@
         <p>{{ site.description }}</p>
 
         <ul class="[ icon-list ] [ cluster ]" role="list">
-          <li>
+          {# <li>
             <a href="{{ '/feed.xml' | url }}">
               {% include "icons/rss.njk" %}
             </a>
-          </li>
+          </li> #}
           <li>
             <a href="mailto:{{ site.author.email }}">
               {% include "icons/email.njk" %}
