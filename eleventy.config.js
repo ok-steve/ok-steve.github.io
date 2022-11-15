@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const pluginNavigation = require('@11ty/eleventy-navigation');
-const pluginRss = require('@11ty/eleventy-plugin-rss');
-const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
+const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
+const eleventyRssPlugin = require('@11ty/eleventy-plugin-rss');
+const eleventySyntaxHighlightPlugin = require('@11ty/eleventy-plugin-syntaxhighlight');
 const MarkdownIt = require('markdown-it');
 const htmlmin = require('html-minifier');
 
@@ -11,16 +11,16 @@ const markdownLib = new MarkdownIt({
   typographer: true,
 });
 
-module.exports = (eleventyConfig) => {
+module.exports = function (eleventyConfig) {
   eleventyConfig.setWatchJavaScriptDependencies(false);
 
   /**
    * Plugins
    */
 
-  eleventyConfig.addPlugin(pluginNavigation);
-  eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPlugin(pluginSyntaxHighlight);
+  eleventyConfig.addPlugin(eleventyNavigationPlugin);
+  eleventyConfig.addPlugin(eleventyRssPlugin);
+  eleventyConfig.addPlugin(eleventySyntaxHighlightPlugin);
 
   /**
    * Passthrough copy
