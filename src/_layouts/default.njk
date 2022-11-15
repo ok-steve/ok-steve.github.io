@@ -61,18 +61,7 @@
       </header>
 
       <main class="[ router__view ] [ container stack ] [ flex-auto fluid-type pi ]" role="main">
-        {% block content %}
-          {% if not page.url == '/' %}
-            <h1 property="schema:name">{{ title }}</h1>
-          {% else %}
-            {# For the home page, assumes all other pages will have a title #}
-            <h1 hidden aria-hidden="false" property="schema:name">{{ title or site.name }}</h1>
-          {% endif %}
-
-          <div class="schema:mainContentOfPage">
-            {{ content | safe }}
-          </div>
-        {% endblock %}
+        {{ content | safe }}
       </main>
 
       <footer class="[ row ] [ pi pbe-01 ]" role="contentinfo">

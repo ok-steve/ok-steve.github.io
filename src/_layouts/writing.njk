@@ -1,15 +1,15 @@
-{% extends "./default.njk" %}
+---
+layout: default
+---
 
-{% block content %}
-  <article class="stack" typeof="schema:BlogPosting">
-    {% if title %}
-      <header>
-        <h1 property="schema:name">{{ title }}</h1>
-      </header>
-    {% endif %}
+<article class="stack" typeof="schema:BlogPosting">
+  {% if title %}
+    <header>
+      <h1 property="schema:name">{{ title }}</h1>
+    </header>
+  {% endif %}
 
-    <div class="[ text ] [ stack ]" property="schema:articleBody">
-      {{ content | safe }}
-    </div>
-  </article>
-{% endblock %}
+  <div class="[ text ] [ stack ]">
+    {{ content | safe }}
+  </div>
+</article>

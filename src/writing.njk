@@ -1,9 +1,10 @@
 ---
-layout: default
+layout: page
 title: Writing
 eleventyNavigation:
   key: Writing
 ---
+
 <div class="stack" typeof="schema:Blog">
   {% for item in collections.writing | selectattr('url') | reverse %}
     <article class="stack" resource="{{ item.url | url }}" property="schema:blogPost" typeof="schema:BlogPosting">
