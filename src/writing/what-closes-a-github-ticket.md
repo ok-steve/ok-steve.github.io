@@ -1,7 +1,6 @@
 ---
 date: 2022-03-22
 title: What closes a Github ticket?
-published: true
 tags:
   - work
 ---

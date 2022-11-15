@@ -1,7 +1,7 @@
 ---
 date: 2012-08-30
 title: Adding ARIA Landmarks to Omega
-published: false
+permalink: false
 tags:
   - work
 ---

@@ -1,7 +1,7 @@
 ---
 date: 2011-01-24
 title: Can YouTube teach me to play the harmonica?
-published: false
+permalink: false
 tags:
   - music
 ---

@@ -1,7 +1,6 @@
 ---
 date: 2022-03-22
 title: Progressively enhanced app-like page transitions
-published: true
 tags:
   - work
 ---

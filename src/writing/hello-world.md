@@ -1,7 +1,7 @@
 ---
 date: 2011-01-01
 title: Hello World
-published: false
+permalink: false
 tags: []
 ---
 

@@ -1,7 +1,7 @@
 ---
 date: 2011-05-11
 title: Import Delicious Bookmarks into Zotero
-published: false
+permalink: false
 tags:
   - work
 ---

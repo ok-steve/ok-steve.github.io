@@ -1,7 +1,6 @@
 ---
 date: 2022-03-22
 title: Debugging Drupal in VS Code
-published: true
 tags:
   - work
 ---

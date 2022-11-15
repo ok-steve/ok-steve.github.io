@@ -1,7 +1,7 @@
 ---
 date: 2012-07-18
 title: Adding Google Analytics to Omeka
-published: false
+permalink: false
 tags:
   - work
 ---

@@ -57,10 +57,6 @@ module.exports = function (eleventyConfig) {
     return value.split('\n')[0];
   });
 
-  eleventyConfig.addFilter('published', (value) =>
-    value.filter((item) => item.data.permalink)
-  );
-
   /**
    * Transforms
    */

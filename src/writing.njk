@@ -5,7 +5,7 @@ eleventyNavigation:
   key: Writing
 ---
 <div class="stack" typeof="schema:Blog">
-  {% for item in collections.writing | published | reverse %}
+  {% for item in collections.writing | selectattr('url') | reverse %}
     <article class="stack" resource="{{ item.url | url }}" property="schema:blogPost" typeof="schema:BlogPosting">
       <header>
         <h2 property="schema:name">

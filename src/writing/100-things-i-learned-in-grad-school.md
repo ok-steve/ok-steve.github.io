@@ -1,7 +1,7 @@
 ---
 date: 2011-08-23
 title: 100 things I learned in grad school
-published: false
+permalink: false
 tags:
   - work
 ---
