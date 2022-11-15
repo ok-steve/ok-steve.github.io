@@ -7,6 +7,8 @@ tags:
 
 I use [docker4drupal](https://github.com/wodby/docker4drupal), the [Drupal Composer template](https://github.com/drupal-composer/drupal-project), and VS Code for my local Drupal development. Below is a description of how to configure VS Code's debugging tools to work with this setup.
 
+<!-- excerpt -->
+
 ## PHP
 
 1. Install the [PHP Debug extension](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug)

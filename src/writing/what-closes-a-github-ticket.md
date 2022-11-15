@@ -7,6 +7,8 @@ tags:
 
 Github provides useful functionality to [automatically close tickets](https://help.github.com/en/articles/closing-issues-using-keywords) using keywords that reference the ticket number. But where can you add those references? I dug in to find out.
 
+<!-- excerpt -->
+
 This question came about my work when we recently did a release in which none of the tickets we fixed were closed. We use the [git-flow model](https://nvie.com/posts/a-successful-git-branching-model/) for our workflow, merging pull requests into a `develop` branch and waiting to merge to the `master` branch until we start a new deployment. Github assumes a pull request will get merged directly into the main branch. So, I did some research to determine which scenarios would actually close tickets.
 
 I added keywords in 3 places:

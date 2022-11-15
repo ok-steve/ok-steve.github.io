@@ -10,6 +10,8 @@ tags:
 
 So, I'd like to know: Can YouTube teach me to play the harmonica? I'm embarking on a project for one of [my grad school courses](https://musicmediaresearch.wordpress.com/) in which I will explore music in relation to new media. While it may seem like an odd thing to learn I do have a number of reasons for doing so:
 
+<!-- excerpt -->
+
 1. I wanted an instrument I didn't already know how to play
 2. I didn't want to spend any money
 3. I wanted it to be simple enough to learn the basics, but not so simple that I could master it after a week

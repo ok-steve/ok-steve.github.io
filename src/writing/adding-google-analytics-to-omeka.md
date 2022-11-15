@@ -8,6 +8,8 @@ tags:
 
 So, it's been a long time since I posted anything, but I think I'm going to try to start back up. I've been learning quite a bit at my new job and there's a lot I don't want to forget and even some that's worth sharing. So, I'm going to write it down here.
 
+<!-- excerpt -->
+
 At my job we use Google Analytics on almost all of our sites. For many of the systems we use there is a plugin available to handle the Google Analytics configuration, like these ones for [Wordpress](https://wordpress.org/extend/plugins/google-analytics-for-wordpress) and [Drupal](https://drupal.org/project/google_analytics). These plugins are great and make configuration a lot easier. Unfortunately there is not a similar plugin for Omeka.
 
 This is a problem because we have multiple Omeka sites---two at the moment, but likely more in the future---and each of these sites uses the same theme, but has a different Analytics profile. We were using the [recommended method for adding Analytics code](https://omeka.org/forums/topic/google-analytics-plugin), but this involved maintaining two sets of theme files with entirely the same code, except the Analytics ID. Talk about a pain in the rear. So, I came up with the following method to remove all site-specific information from the code and put it in the database.

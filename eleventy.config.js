@@ -14,6 +14,11 @@ const markdownLib = new MarkdownIt({
 module.exports = function (eleventyConfig) {
   eleventyConfig.setWatchJavaScriptDependencies(false);
 
+  eleventyConfig.setFrontMatterParsingOptions({
+    excerpt: true,
+    excerpt_separator: '<!-- excerpt -->',
+  });
+
   /**
    * Plugins
    */
@@ -52,10 +57,7 @@ module.exports = function (eleventyConfig) {
    * Filters
    */
 
-  eleventyConfig.addFilter('excerpt', (value) => {
-    if (!value) return '';
-    return value.split('\n')[0];
-  });
+  eleventyConfig.addFilter('md', (value) => markdownLib.renderInline(value));
 
   /**
    * Transforms

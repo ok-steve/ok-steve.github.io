@@ -7,6 +7,8 @@ tags:
 
 Many native apps effectively use page transitions to improve user experience/engagement. When replicating those same transitions on the web one might reach for a single-page application framework like React or Vue. But did you know it's also possible to design those engaging animations using the HTML you already have?
 
+<!-- excerpt -->
+
 [Sarah Drasner's](https://sarahdrasnerdesign.com/) article about [native-like animations on the web](https://css-tricks.com/native-like-animations-for-page-transitions-on-the-web/) demonstrates it's possible to emulate the smooth page transitions so often found on native apps. Using [nuxt.js](https://nuxtjs.org/), she created a really neat demo travel site.
 
 The demo made heavy use of Vue's `transition` and `transition-group` elements to handle the animations. It keeps the markup of the header the same between pages and applies transforms to make the page display differently. But what about site's that aren't currently using a single-page application framework or don't have the resources to refactor their site? Is is possible to add the same functionality to a site that renders static HTML, using progressive enhancement techniques?

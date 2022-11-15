@@ -15,7 +15,7 @@ eleventyNavigation:
       </header>
 
       <div property="schema:abstract">
-        {{ item.templateContent | excerpt | safe }}
+        {{ item.data.page.excerpt | md | safe }}
       </div>
     </article>
   {% endfor %}
