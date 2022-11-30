@@ -47,14 +47,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setLibrary('md', markdownLib);
 
   /**
-   * Collections
-   */
-
-  eleventyConfig.addCollection('writing', (collectionApi) =>
-    collectionApi.getFilteredByGlob('src/writing/*.md')
-  );
-
-  /**
    * Filters
    */
 

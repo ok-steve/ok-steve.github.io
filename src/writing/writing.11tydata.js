@@ -1,5 +1,6 @@
 module.exports = {
   layout: 'writing',
+  tags: ['writing'],
   eleventyComputed: {
     // Prevent unpublished pages from being rendered on production
     permalink({ env, permalink, page }) {
