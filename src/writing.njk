@@ -5,18 +5,10 @@ eleventyNavigation:
   key: Writing
 ---
 
+{% from "macros.njk" import teaser %}
+
 <div class="stack" typeof="schema:Blog">
   {% for item in collections.writing | selectattr('url') | reverse %}
-    <article class="stack" resource="{{ item.url | url }}" property="schema:blogPost" typeof="schema:BlogPosting">
-      <header>
-        <h2 property="schema:name">
-          <a href="{{ item.url | url }}" property="schema:url">{{ item.data.title }}</a>
-        </h2>
-      </header>
-
-      <div property="schema:abstract">
-        {{ item.data.page.excerpt | md | safe }}
-      </div>
-    </article>
+    {{ teaser(item) }}
   {% endfor %}
 </div>

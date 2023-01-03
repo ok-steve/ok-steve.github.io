@@ -1,0 +1,13 @@
+{% macro teaser(item) %}
+  <article class="stack" resource="{{ item.url | url }}" property="schema:blogPost" typeof="schema:BlogPosting">
+    <header>
+      <h2 property="schema:name">
+        <a href="{{ item.url | url }}" property="schema:url">{{ item.data.title }}</a>
+      </h2>
+    </header>
+
+    <div property="schema:abstract">
+      {{ item.data.page.excerpt | md | safe }}
+    </div>
+  </article>
+{% endmacro %}
