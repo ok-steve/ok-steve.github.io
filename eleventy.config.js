@@ -3,7 +3,6 @@ const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
 const eleventyRssPlugin = require('@11ty/eleventy-plugin-rss');
 const eleventySyntaxHighlightPlugin = require('@11ty/eleventy-plugin-syntaxhighlight');
 const MarkdownIt = require('markdown-it');
-const htmlmin = require('html-minifier');
 
 const markdownLib = new MarkdownIt({
   html: true,
@@ -68,28 +67,6 @@ module.exports = function (eleventyConfig) {
       require(`./lib/shortcodes/${shortcode}`)
     )
   );
-
-  /**
-   * Transforms
-   */
-
-  eleventyConfig.addTransform('htmlmin', (content, outputPath) => {
-    if (
-      process.env.ELEVENTY_ENV === 'production' &&
-      outputPath &&
-      outputPath.endsWith('.html')
-    ) {
-      const minified = htmlmin.minify(content, {
-        useShortDoctype: true,
-        removeComments: true,
-        collapseWhitespace: true,
-      });
-
-      return minified;
-    }
-
-    return content;
-  });
 
   return {
     dataTemplateEngine: 'njk',
