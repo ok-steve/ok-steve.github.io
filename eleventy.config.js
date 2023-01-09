@@ -35,9 +35,9 @@ module.exports = function (eleventyConfig) {
     './node_modules/prismjs/themes/prism-solarizedlight.css':
       './public/syntax-highlighting.css',
   });
-  eleventyConfig.addPassthroughCopy('public');
-  eleventyConfig.addPassthroughCopy('src/*.{txt,xml}');
-  eleventyConfig.addPassthroughCopy('src/sw.js');
+  eleventyConfig.addPassthroughCopy('./public');
+  eleventyConfig.addPassthroughCopy('./src/*.{txt,xml}');
+  eleventyConfig.addPassthroughCopy('./src/sw.js');
 
   /**
    * Libraries
@@ -92,8 +92,8 @@ module.exports = function (eleventyConfig) {
   });
 
   return {
-    htmlTemplateEngine: 'njk',
     dataTemplateEngine: 'njk',
+    htmlTemplateEngine: 'njk',
     markdownTemplateEngine: 'njk',
     dir: {
       input: 'src',
