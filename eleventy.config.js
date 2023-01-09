@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const EleventyFetch = require('@11ty/eleventy-fetch');
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
 const eleventyRssPlugin = require('@11ty/eleventy-plugin-rss');
 const eleventySyntaxHighlightPlugin = require('@11ty/eleventy-plugin-syntaxhighlight');
@@ -56,21 +55,19 @@ module.exports = function (eleventyConfig) {
    * Shortcodes
    */
 
-  eleventyConfig.addShortcode('audio', (value) => {
-    return `<audio controls src="${value}"></audio>`;
-  });
+  ['audio'].forEach((shortcode) =>
+    eleventyConfig.addShortcode(
+      shortcode,
+      require(`./lib/shortcodes/${shortcode}`)
+    )
+  );
 
-  eleventyConfig.addNunjucksAsyncShortcode('youtube', async (value) => {
-    const { html } = await EleventyFetch(
-      `https://www.youtube.com/oembed?url=${value}`,
-      {
-        duration: '1y',
-        type: 'json',
-      }
-    );
-
-    return html;
-  });
+  ['youtube'].forEach((shortcode) =>
+    eleventyConfig.addNunjucksAsyncShortcode(
+      shortcode,
+      require(`./lib/shortcodes/${shortcode}`)
+    )
+  );
 
   /**
    * Transforms
