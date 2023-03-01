@@ -30,6 +30,7 @@ module.exports = function (eleventyConfig) {
    * Passthrough copy
    */
 
+  eleventyConfig.setServerPassthroughCopyBehavior('passthrough');
   eleventyConfig.addPassthroughCopy({
     './node_modules/prismjs/themes/prism-solarizedlight.css':
       './public/syntax-highlighting.css',
@@ -69,7 +70,6 @@ module.exports = function (eleventyConfig) {
   );
 
   return {
-    dataTemplateEngine: 'njk',
     htmlTemplateEngine: 'njk',
     markdownTemplateEngine: 'njk',
     dir: {
