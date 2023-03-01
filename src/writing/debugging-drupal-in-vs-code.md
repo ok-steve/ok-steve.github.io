@@ -25,4 +25,4 @@ I use [docker4drupal](https://github.com/wodby/docker4drupal), the [Drupal Compo
 
 I created a gist to display the complete configuration file:
 
-<script src="https://gist.github.com/sccherry/3338e8855387e489b1bf97553348bde6.js"></script>
+<script src="https://gist.github.com/ok-steve/3338e8855387e489b1bf97553348bde6.js"></script>

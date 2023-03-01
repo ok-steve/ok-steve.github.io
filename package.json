@@ -1,5 +1,5 @@
 {
-  "name": "sccherry.github.io",
+  "name": "ok-steve.github.io",
   "private": true,
   "version": "1.0.0",
   "description": "The online home of Steve Cherry.",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sccherry/sccherry.github.io.git"
+    "url": "git+https://github.com/ok-steve/ok-steve.github.io.git"
   },
   "author": {
     "name": "Steve Cherry",
@@ -23,9 +23,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sccherry/sccherry.github.io/issues"
+    "url": "https://github.com/ok-steve/ok-steve.github.io/issues"
   },
-  "homepage": "https://github.com/sccherry/sccherry.github.io#readme",
+  "homepage": "https://github.com/ok-steve/ok-steve.github.io#readme",
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
     "@11ty/eleventy-fetch": "^3.0.0",

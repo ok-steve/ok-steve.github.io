@@ -31,7 +31,7 @@ When this project is finished I would like to achieve the following goals:
 
 I will search the web for instructional videos and despite my initial question I doubt I'll stick to just YouTube. My guess is that most videos will be targeted as the fundamentals of harmonica playing so I'll have to look far and wide to find more advanced tutorials. Of course I don't expect to reach the level of [Corky Siegal](https://www.chamberblues.com/) or that guy from Blues Traveler by the time I finish with the project, but maybe I can reach the level of Bob Dylan. If I run out of videos I may try to interact on social media sites.
 
-As I undertake this project I will post videos of myself trying to learn/play/hack at the harmonica on [my YouTube channel](https://www.youtube.com/user/sccherry) and write about my results and reflections right here on my personal blog. Occasionally I will post updates at the [website of the course for which I'm doing this project](https://musicmediaresearch.wordpress.com/). Feel free to comment with any constructive critiques or sources of tutorials. If I get any good I might even take a request or two!
+As I undertake this project I will post videos of myself trying to learn/play/hack at the harmonica on [my YouTube channel](https://www.youtube.com/user/@ok_steve) and write about my results and reflections right here on my personal blog. Occasionally I will post updates at the [website of the course for which I'm doing this project](https://musicmediaresearch.wordpress.com/). Feel free to comment with any constructive critiques or sources of tutorials. If I get any good I might even take a request or two!
 
 ## Starting Off
 

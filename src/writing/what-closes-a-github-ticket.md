@@ -24,6 +24,6 @@ I did the above 3 for the following 2 workflows (for a total of 6 tests):
 
 When merging a pull request directly into `master` tickets will automatically close if the keyword is in the pull request description (#1) or the commit message (#3). When merging first into `develop`, only a keyword in a commit message (#3) will close the ticket.
 
-You can see my work in the [Github repository](https://github.com/sccherry/close-ticket-test) I used for these tests.
+You can see my work in the [Github repository](https://github.com/ok-steve/close-ticket-test) I used for these tests.
 
 So, if you have a workflow that uses separate `master` and `develop` branches, including the keywords in the commit messages is the best way to ensure that tickets will be closed automatically.

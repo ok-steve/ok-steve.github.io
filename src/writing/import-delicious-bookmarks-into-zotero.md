@@ -21,7 +21,7 @@ Unfortunately there was no tool---that I found---that helped me get my data out 
 
 ## Step 1: Download your Delicious data
 
-You can go to [my app](https://stevenccherry2.appspot.com/) and enter your Delicious login information and follow the instructions. Don't worry, I won't do anything---dubious or otherwise---with your information. You can look at [my source code on GitHub](https://github.com/sccherry/metadataconverter) to see for yourself.
+You can go to [my app](https://stevenccherry2.appspot.com/) and enter your Delicious login information and follow the instructions. Don't worry, I won't do anything---dubious or otherwise---with your information. You can look at [my source code on GitHub](https://github.com/ok-steve/metadataconverter) to see for yourself.
 
 The Delicious API limits exports to 1,000 records so if you have a ton of bookmarks, you'll have to segment your data, which you can do by date or by tag.
 
