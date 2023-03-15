@@ -3,8 +3,8 @@ module.exports = {
   tags: ['writing'],
   eleventyComputed: {
     // Prevent unpublished pages from being rendered on production
-    permalink({ env, permalink, page }) {
-      if (env === 'production' && permalink === false) return false;
+    permalink({ site, permalink, page }) {
+      if (site.env === 'production' && permalink === false) return false;
       if (permalink) return permalink;
       return `${page.filePathStem}/`;
     },

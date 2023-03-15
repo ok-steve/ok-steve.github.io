@@ -1,21 +1,21 @@
 ---
-permalink: /feed.xml
+permalink: feed.xml
 eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ site.url }}">
+<feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ '/' | htmlBaseUrl(pkg.author.url) }}">
   <title>{{ site.name }}</title>
-  <subtitle>{{ site.description }}</subtitle>
-  <link href="{{ permalink | url | absoluteUrl(site.url) }}" rel="self" />
-  <link href="{{ '/' | url | absoluteUrl(site.url) }}" />
+  <subtitle>{{ pkg.description }}</subtitle>
+  <link href="{{ permalink | htmlBaseUrl(pkg.author.url) }}" rel="self" />
+  <link href="{{ '/' | htmlBaseUrl(pkg.author.url) }}" />
   <updated>{{ collections.writing | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
-  <id>{{ '/' | url | absoluteUrl(site.url) }}</id>
+  <id>{{ '/' | htmlBaseUrl(pkg.author.url) }}</id>
   <author>
-    <name>{{ site.author.name }}</name>
-    <email>{{ site.author.email }}</email>
+    <name>{{ pkg.author.name }}</name>
+    <email>{{ pkg.author.email }}</email>
   </author>
   {%- for item in collections.writing | selectattr('url') | reverse %}
-  {%- set absolutePostUrl = item.url | url | absoluteUrl(site.url) %}
+  {%- set absolutePostUrl = item.url | htmlBaseUrl(pkg.author.url) %}
   <entry>
     <title>{{ item.data.title }}</title>
     <link href="{{ absolutePostUrl }}" />

@@ -1,7 +1,7 @@
-/* eslint-disable import/no-extraneous-dependencies */
-const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
-const eleventyRssPlugin = require('@11ty/eleventy-plugin-rss');
-const eleventySyntaxHighlightPlugin = require('@11ty/eleventy-plugin-syntaxhighlight');
+const { EleventyHtmlBasePlugin } = require('@11ty/eleventy');
+const EleventyNavigation = require('@11ty/eleventy-navigation');
+const EleventyRssPlugin = require('@11ty/eleventy-plugin-rss');
+const EleventySyntaxHighlightPlugin = require('@11ty/eleventy-plugin-syntaxhighlight');
 const MarkdownIt = require('markdown-it');
 
 const markdownLib = new MarkdownIt({
@@ -11,20 +11,14 @@ const markdownLib = new MarkdownIt({
 });
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.setWatchJavaScriptDependencies(false);
-
-  eleventyConfig.setFrontMatterParsingOptions({
-    excerpt: true,
-    excerpt_separator: '<!-- excerpt -->',
-  });
-
   /**
    * Plugins
    */
 
-  eleventyConfig.addPlugin(eleventyNavigationPlugin);
-  eleventyConfig.addPlugin(eleventyRssPlugin);
-  eleventyConfig.addPlugin(eleventySyntaxHighlightPlugin);
+  eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
+  eleventyConfig.addPlugin(EleventyNavigation);
+  eleventyConfig.addPlugin(EleventyRssPlugin);
+  eleventyConfig.addPlugin(EleventySyntaxHighlightPlugin);
 
   /**
    * Passthrough copy
@@ -40,10 +34,15 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/sw.js');
 
   /**
-   * Libraries
+   * Markdown
    */
 
   eleventyConfig.setLibrary('md', markdownLib);
+
+  eleventyConfig.setFrontMatterParsingOptions({
+    excerpt: true,
+    excerpt_separator: '<!-- excerpt -->',
+  });
 
   /**
    * Filters
@@ -70,7 +69,6 @@ module.exports = function (eleventyConfig) {
   );
 
   return {
-    htmlTemplateEngine: 'njk',
     markdownTemplateEngine: 'njk',
     dir: {
       input: 'src',

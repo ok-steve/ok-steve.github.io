@@ -11,49 +11,39 @@
       content="{{ page.excerpt | default(content) | default(site.description) | md | striptags | truncate(160) }}"
     />
 
-    <link rel="icon" href="{{ '/public/img/favicon.ico' | url }}" size="any" />
-    <link
-      rel="icon"
-      href="{{ '/public/img/icon.svg' | url }}"
-      type="image/svg+xml"
-    />
-    <link
-      rel="apple-touch-icon"
-      href="{{ '/public/img/apple-touch-icon.png' | url }}"
-    />
-    <link
-      rel="apple-touch-startup-image"
-      href="{{ '/public/img/icon-512.png' | url }}"
-    />
+    <link rel="icon" href="/public/img/favicon.ico" size="any" />
+    <link rel="icon" href="/public/img/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/public/img/apple-touch-icon.png" />
+    <link rel="apple-touch-startup-image" href="/public/img/icon-512.png" />
     <meta name="apple-mobile-web-app-title" content="{{ site.name }}" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <link rel="manifest" href="{{ '/site.webmanifest' | url }}" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="{{ site.color }}" />
 
-    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
-    <link rel="alternate" type="application/atom+xml" title="{{ site.name }}" href="{{ '/feed.xml' | url }}">
+    <link rel="canonical" href="{{ page.url | htmlBaseUrl(pkg.author.url) }}" />
+    <link rel="alternate" type="application/atom+xml" title="{{ site.name }}" href="/feed.xml">
 
     <link
       rel="stylesheet"
       href="https://stevecherry.net/normcore/css/normcore.css"
     />
-    <link rel="stylesheet" href="{{ '/public/syntax-highlighting.css' | url }}" media="screen" />
-    <link rel="stylesheet" href="{{ '/public/style.css' | url }}" media="screen" />
-    <link rel="stylesheet" href="{{ '/public/print.css' | url }}" media="print" />
+    <link rel="stylesheet" href="/public/syntax-highlighting.css" media="screen" />
+    <link rel="stylesheet" href="/public/style.css" media="screen" />
+    <link rel="stylesheet" href="/public/print.css" media="print" />
 
-    <script src="{{ '/public/script.js' | url }}" defer></script>
+    <script src="/public/script.js" defer></script>
   </head>
   <body typeof="schema:WebPage">
     <div class="[ router ] [ cover stack ]">
       <header class="[ row ] [ pi ]" role="banner">
-        <a href="{{ '/' | url }}" class="scale-3">{{ site.name }}</a>
+        <a href="/" class="scale-3">{{ site.name }}</a>
 
         <nav role="navigation">
           <ul class="cluster" role="list">
-            {% for item in collections.all | eleventyNavigation %}
+            {% for entry in collections.all | eleventyNavigation %}
               <li>
-                <a href="{{ item.url | url }}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
+                <a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a>
               </li>
             {% endfor %}
           </ul>
@@ -69,12 +59,12 @@
 
         <ul class="[ icon-list ] [ cluster ]" role="list">
           <li>
-            <a href="{{ '/feed.xml' | url }}">
+            <a href="/feed.xml">
               {% include "icons/rss.njk" %}
             </a>
           </li>
           <li>
-            <a href="mailto:{{ site.author.email }}">
+            <a href="mailto:{{ pkg.author.email }}">
               {% include "icons/email.njk" %}
             </a>
           </li>
@@ -89,8 +79,8 @@
 
     <script defer>
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('{{ '/sw.js' | url }}', {
-          scope: '{{ '/' | url }}',
+        navigator.serviceWorker.register('{{ '/sw.js' | htmlBaseUrl }}', {
+          scope: '{{ '/' | htmlBaseUrl }}',
         });
       }
     </script>
