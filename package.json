@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "eleventy --config eleventy.config.js",
+    "build": "eleventy",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run build -- --serve --incremental --ignore-initial"
   },

@@ -8,7 +8,7 @@
     <title>{{ title or site.name }} | {{ site.name }}</title>
     <meta
       name="description"
-      content="{{ page.excerpt | default(content) | default(site.description) | md | striptags | truncate(160) }}"
+      content="{{ page.excerpt | default(content) | default(pkg.description) | md | striptags | truncate(160) }}"
     />
 
     <link rel="icon" href="/public/img/favicon.ico" size="any" />
@@ -18,7 +18,7 @@
     <meta name="apple-mobile-web-app-title" content="{{ site.name }}" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="manifest" href="/manifest.webmanifest" />
     <meta name="theme-color" content="{{ site.color }}" />
 
     <link rel="canonical" href="{{ page.url | htmlBaseUrl(pkg.author.url) }}" />
@@ -55,7 +55,7 @@
       </main>
 
       <footer class="[ row ] [ pi pbe-01 ]" role="contentinfo">
-        <p>{{ site.description }}</p>
+        <p>{{ pkg.description }}</p>
 
         <ul class="[ icon-list ] [ cluster ]" role="list">
           <li>
