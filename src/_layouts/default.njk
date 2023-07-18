@@ -36,8 +36,10 @@
   </head>
   <body typeof="schema:WebPage">
     <div class="[ router ] [ cover stack ]">
-      <header class="[ row ] [ pi ]" role="banner">
-        <a href="/" class="scale-3">{{ site.name }}</a>
+      <div class="[ row ] [ pad-inline-0 ]">
+        <header role="banner">
+          <a href="/" class="scale-3">{{ site.name }}</a>
+        </header>
 
         <nav role="navigation">
           <ul class="cluster" role="list">
@@ -48,13 +50,13 @@
             {% endfor %}
           </ul>
         </nav>
-      </header>
+      </div>
 
-      <main class="[ router__view ] [ container stack ] [ flex-auto fluid-type pi ]" role="main">
+      <main class="[ router__view ] [ container stack ] [ flex-auto fluid-type pad-inline-0 ]" role="main">
         {{ content | safe }}
       </main>
 
-      <footer class="[ row ] [ pi pbe-01 ]" role="contentinfo">
+      <footer class="[ row ] [ pad-inline-0 pad-block-end-01 ]" role="contentinfo">
         <p>{{ pkg.description }}</p>
 
         <ul class="[ icon-list ] [ cluster ]" role="list">
