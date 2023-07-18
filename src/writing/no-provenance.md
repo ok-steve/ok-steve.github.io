@@ -128,7 +128,7 @@ Before the internet communication about which artist were friendly to taping and
 
 On the internet it is much easier to officially document which artists allow taping and which do not. Sites like [etree.org](https://etree.org) maintain [lists of "trade-friendly" artists](https://wiki.etree.org/index.php?page=TradeFriendly) which are publicly available and often contain actual email responses from artists giving permission (or not) to tape concerts. Making these permissions publicly available is a much more efficient and accurate means of communication than word-of-mouth since a single message from the artist can be communicated once to any potential taper.
 
-![Permission to tape from Andrew Bird](/public/img/uploads/bird-taping-permission.png)
+![Permission to tape from Andrew Bird](/public/img/uploads/bird-taping-permission.jpg)
 
 It should be noted that taping and trading is not the same thing as bootlegging ([Marshall 2003](https://journals.cambridge.org/action/displayAbstract?fromPage=online&aid=143373), p. 59). While these activities may share many similar practices, taping and trading is rigorously non-commercial and law abiding. Bootlegging, on the other hand, is usually associated with illegal (ie. unauthorized) sales of live or previously unreleased studio recordings.
 
@@ -157,7 +157,7 @@ Seeking and publicly displaying permissions from artists, the availability of pe
 
 As the following screenshot of a BitTorrent download from [etree.org](https://etree.org) demonstrates, the practices of the taping and trading community align well with several archival and digital preservation best practices despite a strong likelihood that most tapers are not trained archivists.
 
-![Metadata from bt.etree.org download](/public/img/uploads/metadata.png)
+![Metadata from bt.etree.org download](/public/img/uploads/metadata.jpg)
 
 ### Open and lossless codecs
 

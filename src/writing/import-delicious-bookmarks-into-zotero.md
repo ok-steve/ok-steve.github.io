@@ -17,7 +17,7 @@ If you're like me when you heard the [announcement that Yahoo will "Sunset" Deli
 
 Unfortunately there was no tool---that I found---that helped me get my data out of Delicious and into Zotero, so I created one and made it available for you all to use as well. Basically it converts a Delicious XML file into a MODS record that can be uploaded by Zotero. It's pretty basic, but it gets the job done (for me at least).
 
-![The deletion of my Delicious account.](/public/img/uploads/delicious-delete.png)
+![The deletion of my Delicious account.](/public/img/uploads/delicious-delete.jpg)
 
 ## Step 1: Download your Delicious data
 
@@ -29,6 +29,6 @@ The Delicious API limits exports to 1,000 records so if you have a ton of bookma
 
 Then in Zotero, [use the import function](https://www.zotero.org/support/getting_stuff_into_your_library#importing_records_from_other_reference_tools) and enter the file you just created.
 
-![Import data into Zotero](/public/img/uploads/import-zotero.png)
+![Import data into Zotero](/public/img/uploads/import-zotero.jpg)
 
 You should see a new collection named "delicious-zotero" in your Library. If you don't I'd like to know. Just shoot me a comment.
