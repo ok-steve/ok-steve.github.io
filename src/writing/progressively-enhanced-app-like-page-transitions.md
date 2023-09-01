@@ -2,7 +2,7 @@
 date: 2022-03-22
 title: Progressively enhanced app-like page transitions
 tags:
-  - work
+  - code
 ---
 
 Many native apps effectively use page transitions to improve user experience/engagement. When replicating those same transitions on the web one might reach for a single-page application framework like React or Vue. But did you know it's also possible to design those engaging animations using the HTML you already have?

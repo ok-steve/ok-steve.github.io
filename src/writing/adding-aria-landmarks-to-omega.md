@@ -3,7 +3,7 @@ date: 2012-08-30
 title: Adding ARIA Landmarks to Omega
 permalink: false
 tags:
-  - work
+  - code
 ---
 
 So, the [Omega](https://drupal.org/project/omega) base theme for Drupal is quite awesome, but there are some features I wish it had. One of those features is adding [ARIA landmark roles](https://www.w3.org/TR/wai-aria/roles) to the different regions of my site to make it more accessible. Fortunately it's not that hard to add a preprocess function to accomplish this.

@@ -2,7 +2,7 @@
 date: 2022-03-22
 title: What closes a Github ticket?
 tags:
-  - work
+  - code
 ---
 
 Github provides useful functionality to [automatically close tickets](https://help.github.com/en/articles/closing-issues-using-keywords) using keywords that reference the ticket number. But where can you add those references? I dug in to find out.

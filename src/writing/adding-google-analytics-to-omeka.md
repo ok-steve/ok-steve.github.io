@@ -3,7 +3,7 @@ date: 2012-07-18
 title: Adding Google Analytics to Omeka
 permalink: false
 tags:
-  - work
+  - code
 ---
 
 So, it's been a long time since I posted anything, but I think I'm going to try to start back up. I've been learning quite a bit at my new job and there's a lot I don't want to forget and even some that's worth sharing. So, I'm going to write it down here.

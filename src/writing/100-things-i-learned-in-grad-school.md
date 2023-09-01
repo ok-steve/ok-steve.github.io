@@ -3,7 +3,7 @@ date: 2011-08-23
 title: 100 things I learned in grad school
 permalink: false
 tags:
-  - work
+  - life
 ---
 
 So, I recently got my masters degree from the University of Michigan School of Information. It's a very busy program and for the most part you have to just put your head down and focus on doing your work on time. Now that it's been practically an entire summer since I graduated I've had time to think: "What exactly did I learn in the past two years?". So, I decided to make a list, 5 things from each class I took plus 5 from work plus 5 others. My list contains things I was taught as well as things I just learned.
