@@ -35,19 +35,7 @@ a:focus {
  */
 
 .container {
-  --measure: 70ch;
-}
-
-/**
- * Row
- */
-
-@media (min-width: 30rem) {
-  .row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+  --container-space: var(--space-2);
 }
 
 /* ---------------------------------- *\
@@ -56,6 +44,15 @@ a:focus {
 
 .fluid-type {
   font-size: clamp(1rem, 1.67vw + 0.67rem, 2rem);
+  max-width: 70ch;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
 }
 
 /* ---------------------------------- *\
