@@ -32,6 +32,10 @@
     <link rel="stylesheet" href="/public/style.css" media="screen" />
     <link rel="stylesheet" href="/public/print.css" media="print" />
 
+    <script
+      src="https://stevecherry.net/normcore/js/normcore.js"
+      defer
+    ></script>
     <script src="/public/script.js" defer></script>
 
     <script defer>
@@ -42,7 +46,7 @@
       }
     </script>
   </head>
-  <body class="[ router ] [ container cover stack ]" typeof="schema:WebPage">
+  <body class="container cover stack" typeof="schema:WebPage">
     <div class="[ cluster ] [ align-center justify-between ]">
       <header role="banner">
         <a href="/" class="scale-3">{{ site.name }}</a>
@@ -59,7 +63,7 @@
       </nav>
     </div>
 
-    <main class="[ router__view ] [ stack ] [ flex-auto fluid-type ]" role="main">
+    <main class="[ stack ] [ flex-auto fluid-type transition-fade-out ]" role="main">
       {{ content | safe }}
     </main>
 

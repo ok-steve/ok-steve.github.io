@@ -92,16 +92,16 @@ a:focus {
   }
 }
 
-.router__view {
+.transition-fade-out {
   animation: 0.3s ease-in both fadeIn;
 }
 
-.router.is-loading,
-.router.is-loading a {
+[data-state="exiting"],
+[data-state="exiting"] a {
   cursor: progress;
 }
 
-.router.is-loading .router__view {
+[data-state="exiting"] .transition-fade-out {
   animation-name: fadeOut;
 }
 
