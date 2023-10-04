@@ -96,12 +96,12 @@ a:focus {
   animation: 0.3s ease-in both fadeIn;
 }
 
-[data-router-state="exiting"],
-[data-router-state="exiting"] a {
+[data-router-state-value='exiting'],
+[data-router-state-value='exiting'] a {
   cursor: progress;
 }
 
-[data-router-state="exiting"] .transition-fade-out {
+[data-router-state-value='exiting'] .transition-fade-out {
   animation-name: fadeOut;
 }
 
