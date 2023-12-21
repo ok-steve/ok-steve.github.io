@@ -69,43 +69,6 @@ a:focus {
 }
 
 /**
- * Router
- */
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-}
-
-.transition-fade-out {
-  animation: 0.3s ease-in both fadeIn;
-}
-
-[data-router-state-value='exiting'],
-[data-router-state-value='exiting'] a {
-  cursor: progress;
-}
-
-[data-router-state-value='exiting'] .transition-fade-out {
-  animation-name: fadeOut;
-}
-
-/**
  * Text
  */
 
