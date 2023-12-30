@@ -2,8 +2,6 @@
 layout: page
 title: Work
 permalink: false
-eleventyNavigation:
-  key: Work
 ---
 
 ## Experience
