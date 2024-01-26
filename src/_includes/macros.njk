@@ -7,7 +7,9 @@
     </header>
 
     <div property="schema:abstract">
-      {{ item.data.page.excerpt | md | safe }}
+      {% renderTemplate "md" %}
+        {{ item.data.page.excerpt }}
+      {% endrenderTemplate %}
     </div>
   </article>
 {% endmacro %}

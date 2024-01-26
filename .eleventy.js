@@ -1,14 +1,10 @@
-const { EleventyHtmlBasePlugin } = require('@11ty/eleventy');
-const EleventyNavigation = require('@11ty/eleventy-navigation');
+const {
+  EleventyHtmlBasePlugin,
+  EleventyRenderPlugin,
+} = require('@11ty/eleventy');
+const EleventyNavigationPlugin = require('@11ty/eleventy-navigation');
 const EleventyRssPlugin = require('@11ty/eleventy-plugin-rss');
 const EleventySyntaxHighlightPlugin = require('@11ty/eleventy-plugin-syntaxhighlight');
-const MarkdownIt = require('markdown-it');
-
-const markdownLib = new MarkdownIt({
-  html: true,
-  linkify: true,
-  typographer: true,
-});
 
 module.exports = function (eleventyConfig) {
   /**
@@ -16,7 +12,8 @@ module.exports = function (eleventyConfig) {
    */
 
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
-  eleventyConfig.addPlugin(EleventyNavigation);
+  eleventyConfig.addPlugin(EleventyNavigationPlugin);
+  eleventyConfig.addPlugin(EleventyRenderPlugin);
   eleventyConfig.addPlugin(EleventyRssPlugin);
   eleventyConfig.addPlugin(EleventySyntaxHighlightPlugin);
 
@@ -34,10 +31,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/sw.js');
 
   /**
-   * Markdown
+   * Libraries
    */
 
-  eleventyConfig.setLibrary('md', markdownLib);
+  ['md'].forEach((name) =>
+    eleventyConfig.setLibrary(name, require(`./lib/libraries/${name}`))
+  );
 
   eleventyConfig.setFrontMatterParsingOptions({
     excerpt: true,
@@ -45,26 +44,17 @@ module.exports = function (eleventyConfig) {
   });
 
   /**
-   * Filters
-   */
-
-  eleventyConfig.addFilter('md', (value) => markdownLib.renderInline(value));
-
-  /**
    * Shortcodes
    */
 
-  ['audio'].forEach((shortcode) =>
-    eleventyConfig.addShortcode(
-      shortcode,
-      require(`./lib/shortcodes/${shortcode}`)
-    )
+  ['audio'].forEach((name) =>
+    eleventyConfig.addShortcode(name, require(`./lib/shortcodes/${name}`))
   );
 
-  ['youtube'].forEach((shortcode) =>
+  ['youtube'].forEach((name) =>
     eleventyConfig.addNunjucksAsyncShortcode(
-      shortcode,
-      require(`./lib/shortcodes/${shortcode}`)
+      name,
+      require(`./lib/shortcodes/${name}`)
     )
   );
 
