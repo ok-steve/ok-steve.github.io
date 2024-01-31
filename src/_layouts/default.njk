@@ -15,7 +15,7 @@
 
     <meta
       name="description"
-      content="{{ excerpt | trim | default(content, true) | default(pkg.description, true) | striptags | truncate(160) }}"
+      content="{{ description | default(excerpt, true) | trim | default(content, true) | default(pkg.description, true) | striptags | truncate(160) }}"
     />
 
     <link rel="icon" href="/public/img/favicon.ico" sizes="32x32" />

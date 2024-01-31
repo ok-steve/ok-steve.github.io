@@ -1,0 +1,60 @@
+---
+layout: default
+---
+
+{% macro codeHighlight(code, lang) %}
+  <details>
+    <summary>{{ lang | upper }}</summary>
+    {% highlight lang %}
+      {{ code | safe }}
+    {% endhighlight %}
+  </details>
+{% endmacro %}
+
+{% set css %}
+  {% include page.inputPath | replace('njk', 'css') | replace('./src', '..') ignore missing %}
+{% endset %}
+
+{% set js %}
+  {% include page.inputPath | replace('njk', 'js') | replace('./src', '..') ignore missing %}
+{% endset %}
+
+{% set preview %}
+  <!DOCTYPE html>
+  <html lang="en-US">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>{{ title }}</title>
+
+      <link
+        rel="stylesheet"
+        href="{{ pkg.author.url }}/normcore/css/normcore.css"
+      />
+      {% if css %}
+        <style>{{ css | safe }}</style>
+      {% endif %}
+
+      {% if js %}
+        <script type="module">{{ js | safe }}</script>
+      {% endif %}
+    </head>
+    <body>
+      {{ content | safe }}
+    </body>
+  </html>
+{% endset %}
+
+<figure>
+  <div class="frame">
+    <iframe sandbox="allow-scripts" srcdoc="{{ preview }}"></iframe>
+  </div>
+
+  {% set items = { html: content, css: css, js: js} %}
+
+  {% for lang, code in items %}
+    {% if code | trim | length %}
+      {{ codeHighlight(code, lang) }}
+    {% endif %}
+  {% endfor %}
+</figure>

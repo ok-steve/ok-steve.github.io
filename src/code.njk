@@ -1,0 +1,17 @@
+---
+layout: page
+title: Code
+eleventyNavigation:
+  key: Code
+eleventyImport:
+  collections:
+    - demo
+---
+
+<ul>
+  {% for item in collections.demo | selectattr('url') | reverse %}
+    <li>
+      <a href="{{ item.url }}">{{ item.data.title }}</a>
+    </li>
+  {% endfor %}
+</ul>

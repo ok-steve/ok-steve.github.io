@@ -30,6 +30,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/*.{txt,xml}');
   eleventyConfig.addPassthroughCopy('./src/sw.js');
 
+  eleventyConfig.addWatchTarget('./src/code/**/*.{css,js}');
+
   /**
    * Libraries
    */
