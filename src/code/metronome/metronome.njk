@@ -1,0 +1,16 @@
+---
+title: Metronome
+description: A metronome.
+---
+
+{% from "macros.njk" import range %}
+
+{% set defaultValues = {
+  tempo: 120
+} %}
+
+<button id="toggle" aria-pressed="false">Start/Stop</button>
+
+<form>
+  {{ range('Tempo', defaultValues.tempo, min=30, max=300) }}
+</form>

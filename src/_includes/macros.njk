@@ -25,6 +25,12 @@
   </fieldset>
 {% endmacro %}
 
+{% macro range(label, value, min = 0, max = 100, step = 1) %}
+  <label for="{{ label | slugify }}">{{ label }}</label>
+  <input type="range" id="{{ label | slugify }}" name="{{ label | slugify }}" min="{{ min }}" max="{{ max }}" step="{{ step }}" value="{{ value }}">
+  <output for="{{ label | slugify }}">{{ value }}</output>
+{% endmacro %}
+
 {% macro select(label, options, value) %}
   <label for="{{ label | slugify }}">{{ label }}</label>
   <select id="{{ label | slugify }}" name="{{ label | slugify }}">
