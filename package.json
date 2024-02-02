@@ -8,7 +8,7 @@
     "clean": "rimraf dist",
     "build": "eleventy",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run build -- --serve --incremental --ignore-initial"
+    "start": "eleventy --serve --incremental"
   },
   "repository": {
     "type": "git",
