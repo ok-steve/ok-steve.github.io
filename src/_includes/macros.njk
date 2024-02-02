@@ -13,3 +13,23 @@
     </div>
   </article>
 {% endmacro %}
+
+{% macro radio(label, options, value) %}
+  <fieldset>
+    <legend>{{ label }}</legend>
+
+    {% for option in options %}
+      <input type="radio" id="{{ label | slugify }}-{{ option | slugify }}" name="{{ label | slugify }}" value="{{ option }}"{% if option === value %} checked{% endif %}>
+      <label for="{{ label | slugify }}-{{ option | slugify }}">{{ option }}</label>
+    {% endfor %}
+  </fieldset>
+{% endmacro %}
+
+{% macro select(label, options, value) %}
+  <label for="{{ label | slugify }}">{{ label }}</label>
+  <select id="{{ label | slugify }}" name="{{ label | slugify }}">
+    {% for option in options %}
+      <option{% if option === value %} selected{% endif %}>{{ option }}</option>
+    {% endfor %}
+  </select>
+{% endmacro %}
