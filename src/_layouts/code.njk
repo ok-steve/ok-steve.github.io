@@ -47,7 +47,7 @@ layout: default
 
 <figure>
   <div class="frame">
-    <iframe sandbox="allow-scripts" srcdoc="{{ preview }}"></iframe>
+    <iframe allow="microphone 'self'" sandbox="allow-scripts allow-same-origin" srcdoc="{{ preview }}"></iframe>
   </div>
 
   {% set items = { html: content, css: css, js: js} %}
