@@ -1,0 +1,9 @@
+{
+  "editor.formatOnSave": true,
+  "window.autoDetectColorScheme": true,
+  "editor.rulers": [
+    80
+  ],
+  "editor.fontSize": 16,
+  "editor.minimap.autohide": true
+}
