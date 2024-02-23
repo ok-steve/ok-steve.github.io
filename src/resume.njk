@@ -1,0 +1,184 @@
+---
+layout: page
+title: Resume
+work:
+  # - position: Senior Web Developer
+  #   name: National Air and Space Museum
+  #   location: Washington, DC
+  #   startDate: October 2023
+  #   endDate: Present
+  - position: Senior Web Developer
+    name: The George Washington University
+    location: Washington, DC
+    startDate: March 2019
+    endDate: October 2023
+    highlights:
+      - name: Back-end development
+        responsibilities:
+          - Build and update custom modules to enhance functionality of Drupal sites.
+          - Regularly update core and contributed modules to fix security issues and bugs.
+      - name: Front-end development
+        responsibilities:
+          - Build components with CSS and JavaScript to enhance existing themes.
+          - Remediate accessibility issues on all websites to ensure WCAG compliance.
+      - name: DevOps
+        responsibilities:
+          - Reorganize version control repositories to a per-site structure to facilitate deployment.
+          - Improve speed and consistency of deployments through using Composer and a custom deployment script.
+          - Configure Linux server as needed.
+      - name: Communication
+        responsibilities:
+          - Collaborate with the web designer to review code and build new features.
+          - Consult with internal stakeholders to determine priorities and plan new websites.
+          - Maintain documentation on development and deployment workflows as well as server configuration.
+  - position: Software Engineer II
+    name: Net eSolutions
+    location: McLean, VA
+    startDate: October 2015
+    endDate: March 2019
+    highlights:
+      - name: Front-end development
+        responsibilities:
+          - Built Drupal themes using a component-based approach.
+          - Transformed Photoshop mockups into static prototypes using HTML, CSS/Sass, and JavaScript/ES6.
+          - Ensured full compliance with section 508 accessibility requirements.
+          - Built complex widgets with Angular.
+      - name: Back-end development
+        responsibilities:
+          - Integrated Drupal 8 site search with the Thunderstone search API.
+          - Integrated Drupal 8 login with Active Directory and single sign on functionality.
+          - Created REST APIs to consume site content with JavaScript frameworks.
+          - Build Drupal 7 &amp; 8 modules as needed to support site functionality.
+      - name: DevOps
+        responsibilities:
+          - Wrote migration scripts to import data from external sites into Drupal.
+          - Wrote tests as part of a test-driven continuous deployment workflow.
+          - Maintained consistency between different development environments by using Drupal 8&rsquo;s configuration management features.
+      - name: Product development
+        responsibilities:
+          - Understood business requirements to provide accurate estimates of work.
+          - Planned enterprise level application architecture.
+      - name: Communication
+        responsibilities:
+          - Provided expert guidance.
+          - Maintained client relationships while serving as a point of contact for site maintenance requests.
+          - Collaborated with team members to ensure the quality and timeliness of projects.
+  - position: Electronic Services Librarian
+    name: The Catholic University of America
+    location: Washington, DC
+    startDate: October 2011
+    endDate: October 2015
+    highlights:
+      - name: Web development
+        responsibilities:
+          - Developed a responsive framework to unify branding and codebase across multiple sites and CMSs, including Drupal 7 and WordPress.
+          - Migrated multiple sites to Drupal from Filemaker Pro and Joomla.
+          - Designed &amp; implemented a Git-based automated deployment workflow for all sites.
+      - name: User-experience design
+        responsibilities:
+          - Conducted user research, including usability tests, heuristic analysis, and Google Analytics, to understand and improve the usability of sites.
+          - Redesigned intranet following user-centered design principles.
+      - name: Communication
+        responsibilities:
+          - Supervised other team members in achieving departmental goals.
+          - Consulted with other departments on new web-related projects and redesigns.
+          - Worked on a committee to develop standards for digital projects within a nine-university consortium.
+          - Developed the digitization program including drafting policies and procedures, training new staff, and project management.
+education:
+  - studyType: Master of Science in Information
+    institution: 'University of Michigan: School of Information'
+    location: Ann Arbor, MI
+    endDate: April 2011
+    highlights:
+      - Specialization in Archives and Records Management.
+      - 'Honors: Member of Phi Kappa Phi honor society, Half-tuition scholarship recipient.'
+      - 'Areas of Study: web development, user experience design, information architecture, project management, intellectual property law.'
+  - studyType: Bachelor of Music
+    institution: Wheaton College
+    location: Wheaton, IL
+    endDate: December 2004
+    highlights:
+      - "Honors: Magna cum laude, Conservatory of Music Senior Class Award, Dean&rsquo;s List."
+projects:
+  - name: Social Media Marketing Study
+    instutition: 'Smithsonian Institution: Folkways Recordings'
+    location: Washington, DC
+    startDate: Feburary 2011
+    endDate: March 2011
+    highlights:
+      - Gathered data from Google Analytics and multiple social media sites.
+      - Wrote a report detailing my findings and making recommendations for more effective use of social media.
+      - Analyzed how the social media activity affected traffic on the main Folkways website, including email newsletter subscriptions and music downloads.
+  - name: Website Usability Study
+    instutition: 'University of Michigan: Environmental Health Sciences'
+    location: Ann Arbor, MI
+    startDate: January 2010
+    endDate: April 2010
+    highlights:
+      - Interviewed and surveyed students about their use of the departmental website.
+      - Ran user evaluations to test ease of use and findability of information.
+      - Presented oral and written reports of findings to the client resulting in a number of improvements to the layout of the departmental website.
+publications:
+  - name: 'Thus Said the End Users: Summon Experience and Support for Research Workflows'
+    publisher: Poster at the CUA "Bridging the Spectrum" Symposium
+    releaseDate: February 20, 2015
+  - name: Maintaining multiple responsive designs with a small staff
+    publisher: Presentation at the ALA Midwinter Virtual Meeting
+    releaseDate: February 19, 2014
+  - name: 'Discovering Information through Summon: An Analysis of User Search Strategies and Search Success'
+    publisher: Presentation at the CUA "Bridging the Spectrum" Symposium
+    releaseDate: January 31, 2014.
+  - name: Oral History in the Digital Age
+    publisher: Poster at the SAA Research Forum
+    releaseDate: August 12, 2010
+---
+
+<h2>Experience</h2>
+
+{% for position in work %}
+  <h3>{{ position.position }} at {{ position.name }}</h3>
+  <p>{{ position.location }} ({{ position.startDate }}&ndash;{{ position.endDate }})</p>
+
+  {% for highlight in position.highlights %}
+    <h4>{{ highlight.name }}</h4>
+
+    <ul>
+      {% for responsibility in highlight.responsibilities %}
+        <li>{{ responsibility  }}</li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+{% endfor %}
+
+<h2>Education</h2>
+
+{% for degree in education %}
+  <h3>{{ degree.studyType }} at {{ degree.institution }}</h3>
+  <p>{{ degree.location }} ({{ degree.endDate }})</p>
+  <ul>
+    {% for highlight in degree.highlights %}
+      <li>{{ highlight  }}</li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+
+<h2>Projects</h2>
+
+{% for project in projects %}
+  <h3>{{ project.name }} at {{ project.instutition }}</h3>
+  <p>{{ project.location }} ({{ project.startDate }}&ndash;{{ project.endDate }})</p>
+  <ul>
+    {% for highlight in project.highlights %}
+      <li>{{ highlight  }}</li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+
+<h2>Professional activity</h2>
+
+<ul>
+  <li>Attended DrupalCon Portland 2013, Seattle 2019, Pittsburgh 2023, &amp; Drupal GovCon 2016&ndash;2019</li>
+  {% for publication in publications %}
+    <li><em>{{ publication.name }}</em>: {{ publication.publisher }}, {{ publication.releaseDate }}.</li>
+  {% endfor %}
+</ul>
