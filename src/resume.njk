@@ -133,52 +133,75 @@ publications:
     releaseDate: August 12, 2010
 ---
 
-<h2>Experience</h2>
+<div class="h-resume">
+  <h1 class="p-name">{{ pkg.author.name }}</h1>
 
-{% for position in work %}
-  <h3>{{ position.position }} at {{ position.name }}</h3>
-  <p>{{ position.location }} ({{ position.startDate }}&ndash;{{ position.endDate }})</p>
+  <h2>Experience</h2>
 
-  {% for highlight in position.highlights %}
-    <h4>{{ highlight.name }}</h4>
+  {% for position in work %}
+    <div class="p-experience h-event">
+      <h3>
+        <span class="p-name">{{ position.position }}</span>
+        (<time class="dt-start">{{ position.startDate }}</time>&ndash;<time class="dt-end">{{ position.endDate }}</time>)
+      </h3>
 
+      <p class="p-location h-card">
+        <span class="p-org">{{ position.name }}</span>:
+        <span class="p-adr">{{ position.location }}</span>
+      </p>
+
+      {% for highlight in position.highlights %}
+        <h4 class="p-skill">{{ highlight.name }}</h4>
+
+        <ul class="p-summary">
+          {% for responsibility in highlight.responsibilities %}
+            <li>{{ responsibility  }}</li>
+          {% endfor %}
+        </ul>
+      {% endfor %}
+    </div>
+  {% endfor %}
+
+  <h2>Education</h2>
+
+  {% for degree in education %}
+    <div class="p-education h-event">
+      <h3>
+        <span class="p-name">{{ degree.studyType }}</span>
+        (<time class="dt-end">{{ degree.endDate }}</time>)
+      </h3>
+
+      <p class="p-location h-card">
+        <span class="p-org"{{ degree.institution }}</span>:
+        <span class="p-adr"{{ degree.location }}</span>
+      </p>
+
+      <ul class="p-summary">
+        {% for highlight in degree.highlights %}
+          <li>{{ highlight  }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+
+  <h2>Projects</h2>
+
+  {% for project in projects %}
+    <h3>{{ project.name }} at {{ project.instutition }}</h3>
+    <p>{{ project.location }} ({{ project.startDate }}&ndash;{{ project.endDate }})</p>
     <ul>
-      {% for responsibility in highlight.responsibilities %}
-        <li>{{ responsibility  }}</li>
+      {% for highlight in project.highlights %}
+        <li>{{ highlight  }}</li>
       {% endfor %}
     </ul>
   {% endfor %}
-{% endfor %}
 
-<h2>Education</h2>
+  <h2>Professional activity</h2>
 
-{% for degree in education %}
-  <h3>{{ degree.studyType }} at {{ degree.institution }}</h3>
-  <p>{{ degree.location }} ({{ degree.endDate }})</p>
   <ul>
-    {% for highlight in degree.highlights %}
-      <li>{{ highlight  }}</li>
+    <li>Attended DrupalCon Portland 2013, Seattle 2019, Pittsburgh 2023, &amp; Drupal GovCon 2016&ndash;2019</li>
+    {% for publication in publications %}
+      <li><em>{{ publication.name }}</em>: {{ publication.publisher }}, {{ publication.releaseDate }}.</li>
     {% endfor %}
   </ul>
-{% endfor %}
-
-<h2>Projects</h2>
-
-{% for project in projects %}
-  <h3>{{ project.name }} at {{ project.instutition }}</h3>
-  <p>{{ project.location }} ({{ project.startDate }}&ndash;{{ project.endDate }})</p>
-  <ul>
-    {% for highlight in project.highlights %}
-      <li>{{ highlight  }}</li>
-    {% endfor %}
-  </ul>
-{% endfor %}
-
-<h2>Professional activity</h2>
-
-<ul>
-  <li>Attended DrupalCon Portland 2013, Seattle 2019, Pittsburgh 2023, &amp; Drupal GovCon 2016&ndash;2019</li>
-  {% for publication in publications %}
-    <li><em>{{ publication.name }}</em>: {{ publication.publisher }}, {{ publication.releaseDate }}.</li>
-  {% endfor %}
-</ul>
+</div>
