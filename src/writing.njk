@@ -8,10 +8,20 @@ eleventyImport:
     - writing
 ---
 
-{% from "macros.njk" import teaser %}
-
 <div class="stack" typeof="schema:Blog">
-  {% for item in collections.writing | selectattr('url') | reverse %}
-    {{ teaser(item) }}
-  {% endfor %}
+  {% asyncEach item in collections.writing | selectattr('url') | reverse %}
+    <article class="stack" resource="{{ item.url | url }}" property="schema:blogPost" typeof="schema:BlogPosting">
+      <header>
+        <h2 property="schema:name">
+          <a href="{{ item.url | url }}" property="schema:url">{{ item.data.title }}</a>
+        </h2>
+      </header>
+
+      <div property="schema:abstract">
+        {% renderTemplate "njk,md" %}
+          {{ item.data.page.excerpt }}
+        {% endrenderTemplate %}
+      </div>
+    </article>
+  {% endeach %}
 </div>
