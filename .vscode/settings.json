@@ -1,9 +1,14 @@
 {
   "editor.formatOnSave": true,
   "window.autoDetectColorScheme": true,
-  "editor.rulers": [
-    80
-  ],
+  "editor.rulers": [80],
   "editor.fontSize": 16,
-  "editor.minimap.autohide": true
+  "editor.minimap.autohide": true,
+  "explorer.excludeGitIgnore": true,
+  "files.exclude": {
+    "package-lock.json": true
+  },
+  "[njk]": {
+    "editor.formatOnSave": false
+  }
 }
