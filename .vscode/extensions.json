@@ -4,9 +4,9 @@
 
 	// List of extensions which should be recommended for users of this workspace.
 	"recommendations": [
+		"ronnidc.nunjucks",
     "EditorConfig.EditorConfig",
     "esbenp.prettier-vscode",
-    "eseom.nunjucks-template",
     "vscodevim.vim"
 	],
 	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
