@@ -54,3 +54,15 @@ layout: base
     {% endif %}
   {% endfor %}
 </figure>
+
+<button id="fullscreen">Fullscreen</button>
+
+<script>
+  document.querySelector("#fullscreen").addEventListener('click', () => {
+    const el = document.querySelector('.frame > iframe');
+
+    if (el.requestFullscreen) {
+      el.requestFullscreen();
+    }
+  });
+</script>
