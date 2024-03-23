@@ -1,0 +1,54 @@
+/**
+ * Router
+ */
+
+.o-router > * {
+  display: none;
+}
+
+.o-router > *:target {
+  display: block;
+}
+
+.o-router > *:last-child {
+  display: block;
+}
+
+.o-router > *:target ~ * {
+  display: none;
+}
+
+/**
+ * Shell
+ */
+
+.o-shell {
+  display: flex;
+  overflow-y: hidden;
+  height: 100vh;
+}
+
+.o-shell__content {
+  flex: 1;
+}
+
+.o-shell__navigation {
+  width: 25%;
+  order: -1;
+  overflow-y: auto;
+}
+
+.js .o-shell__navigation {
+  display: none;
+}
+
+/**
+ * Hexagrams
+ */
+
+.c-hexagram {
+  font-size: calc(1em + 5vw);
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+}
