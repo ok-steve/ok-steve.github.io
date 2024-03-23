@@ -5,9 +5,12 @@ layout: base
 {% macro codeHighlight(code, lang) %}
   <details>
     <summary>{{ lang | upper }}</summary>
-    {% highlight lang %}
-      {{ code | safe }}
-    {% endhighlight %}
+
+    <div class="frame">
+      {% highlight lang %}
+        {{ code | safe }}
+      {% endhighlight %}
+    </div>
   </details>
 {% endmacro %}
 
@@ -49,20 +52,27 @@ layout: base
 {% endset %}
 
 <figure>
-  <div class="frame">
-    <iframe allow="microphone 'self'" sandbox="allow-scripts allow-same-origin" srcdoc="{{ preview }}"></iframe>
+  <div class="cluster">
+    <div class="flex-auto">
+      <div class="frame">
+        <iframe allow="microphone 'self'" sandbox="allow-scripts allow-same-origin" srcdoc="{{ preview }}"></iframe>
+      </div>
+
+      <button id="fullscreen">Fullscreen</button>
+    </div>
+
+    <div class="flex-auto">
+      {% set items = { html: content, css: css, js: js} %}
+
+      {% for lang, code in items %}
+        {% if code | trim | length %}
+          {{ codeHighlight(code, lang) }}
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
-
-  {% set items = { html: content, css: css, js: js} %}
-
-  {% for lang, code in items %}
-    {% if code | trim | length %}
-      {{ codeHighlight(code, lang) }}
-    {% endif %}
-  {% endfor %}
 </figure>
 
-<button id="fullscreen">Fullscreen</button>
 
 <script>
   document.querySelector("#fullscreen").addEventListener('click', () => {
