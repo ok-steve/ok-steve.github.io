@@ -2,13 +2,15 @@
 layout: base
 ---
 
-{% if page.url === '/' %}
-  {# Make the home page title hidden #}
-  <h1 hidden aria-hidden="false" property="schema:name">{{ title or site.name }}</h1>
-{% else %}
-  <h1 property="schema:name">{{ title or site.name }}</h1>
-{% endif %}
+<div class="[ stack ] [ fluid-type ]">
+  {% if page.url === '/' %}
+    {# Make the home page title hidden #}
+    <h1 hidden aria-hidden="false" property="schema:name">{{ title or site.name }}</h1>
+  {% else %}
+    <h1 property="schema:name">{{ title or site.name }}</h1>
+  {% endif %}
 
-<div class="[ text ] [ stack ]" property="schema:mainContentOfPage">
-  {{ content | safe }}
+  <div class="[ text ] [ stack ]" property="schema:mainContentOfPage">
+    {{ content | safe }}
+  </div>
 </div>
