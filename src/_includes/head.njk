@@ -1,0 +1,51 @@
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>{{ title or site.name }} | {{ site.name }}</title>
+
+{% setAsync "excerpt" %}
+  {% renderTemplate "njk,md" %}
+    {{ page.excerpt }}
+  {% endrenderTemplate %}
+{% endsetAsync %}
+
+<meta
+  name="description"
+  content="{{ description | default(excerpt, true) | trim | default(content, true) | default(pkg.description, true) | striptags | truncate(160) }}"
+/>
+
+<link rel="icon" href="/public/img/favicon.ico" sizes="32x32" />
+<link rel="icon" href="/public/img/icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/public/img/apple-touch-icon.png" />
+<link rel="apple-touch-startup-image" href="/public/img/icon-512.png" />
+<meta name="apple-mobile-web-app-title" content="{{ site.name }}" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link rel="manifest" href="/manifest.webmanifest" />
+<meta name="theme-color" content="{{ site.color }}" />
+
+<link rel="canonical" href="{{ page.url | htmlBaseUrl(pkg.author.url) }}" />
+<link rel="alternate" type="application/atom+xml" title="{{ site.name }}" href="/feed.xml">
+
+<link
+  rel="stylesheet"
+  href="{{ pkg.author.url }}/normcore/css/normcore.css"
+/>
+<link rel="stylesheet" href="/public/syntax-highlighting.css" media="screen" />
+<link rel="stylesheet" href="/public/style.css" media="screen" />
+<link rel="stylesheet" href="/public/print.css" media="print" />
+
+<script
+  src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@7.3.0/dist/turbo.es2017-umd.js"
+  defer
+></script>
+<script src="/public/script.js" defer></script>
+
+<script defer>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('{{ '/sw.js' | htmlBaseUrl }}', {
+      scope: '{{ '/' | htmlBaseUrl }}',
+    });
+  }
+</script>

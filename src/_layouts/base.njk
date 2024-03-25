@@ -7,15 +7,7 @@ layout: default
     <a href="/" rel="home" class="text-3">{{ site.name }}</a>
   </header>
 
-  <nav role="navigation">
-    <ul class="cluster" role="list">
-      {% for entry in collections.all | eleventyNavigation %}
-        <li>
-          <a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-  </nav>
+  {% include "navigation.njk" %}
 </div>
 
 <main class="[ stack ] [ flex-auto ]" role="main">
