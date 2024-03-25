@@ -1,9 +1,16 @@
-<nav role="navigation">
-  <ul class="cluster" role="list">
-    {% for entry in collections.all | eleventyNavigation %}
-      <li>
-        <a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-</nav>
+{% set navPages = collections.all | eleventyNavigation %}
+
+{% if navPages | length %}
+  <nav role="navigation">
+    <ul class="cluster" role="list">
+      {% for navPage in navPages %}
+        <li>
+          <a
+            href="{{ navPage.url }}"
+            {% if navPage.url == page.url %}aria-current="page"{% endif %}
+          >{{ navPage.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+{% endif %}
