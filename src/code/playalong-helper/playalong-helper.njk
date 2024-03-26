@@ -1,0 +1,52 @@
+---
+title: Playalong helper
+description: Manipulate audio files.
+date: 2022-06-23
+---
+
+<form class="container">
+  <div data-drop>
+    <label for="upload" class="block">Upload</label>
+    <input id="upload" type="file" />
+  </div>
+
+  <div id="waveform"></div>
+
+  <fieldset>
+    <legend>Grain Player</legend>
+    <div class="grid">
+      <div class="field">
+        <label for="playback-rate" class="block">Playback rate</label>
+        <input type="range" name="playback-rate" id="playback-rate" min=".5" max="2" step=".01" />
+      </div>
+
+      <div class="field">
+        <label for="detune" class="block">Detune</label>
+        <input type="range" name="detune" id="detune" min="-1200" max="1200" step="1" />
+      </div>
+
+      <div class="field">
+        <label for="grain-size" class="block">Grain size</label>
+        <input type="range" name="grain-size" id="grain-size" min="0" max=".5" step=".01" />
+      </div>
+
+      <div class="field">
+        <label for="overlap" class="block">Overlap</label>
+        <input type="range" name="overlap" id="overlap" min="0" max=".2" step=".01" />
+      </div>
+    </div>
+
+    <!--
+    <label for="loop" class="block">Loop</label>
+    <input type="checkbox" name="loop" id="loop">
+
+    <label for="loop-start" class="block">Loop start</label>
+    <input type="range" name="loop-start" id="loop-start" min="0" max="1" step="0.1">
+
+    <label for="loop-end" class="block">Loop end</label>
+    <input type="range" name="loop-end" id="loop-end" min="0" max="1" step="0.1">
+    -->
+  </fieldset>
+
+  <button id="play-toggle">Play/Pause</button>
+</form>
