@@ -1,0 +1,17 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/picocss/1.5.3/pico.min.css");
+
+.stack > * + * {
+  margin-block-start: var(--typography-spacing-vertical, 1.5rem);
+}
+
+.flex {
+  display: flex;
+}
+
+.gap {
+  gap: var(--typography-spacing-vertical, 1.5rem);
+}
+
+.flex-1 {
+  flex: 1;
+}
