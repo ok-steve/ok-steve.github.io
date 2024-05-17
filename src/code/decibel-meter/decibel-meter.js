@@ -6,7 +6,7 @@ const pcmData = new Float32Array(analyzer.fftSize);
 navigator.mediaDevices
   .getUserMedia({
     audio: true,
-    video: false
+    video: false,
   })
   .then((mediaStream) => new MediaStreamAudioSourceNode(ctx, { mediaStream }))
   .then((source) => source.connect(analyzer));

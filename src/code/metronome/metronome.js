@@ -1,4 +1,4 @@
-const form = document.querySelector('form');
+const form = document.querySelector("form");
 const ctx = new AudioContext();
 const bufferSource = ctx.createBufferSource();
 bufferSource.connect(ctx.destination);
@@ -31,19 +31,19 @@ bufferSource.loop = true;
 
 function render() {
   const data = new FormData(form);
-  const tempo = parseFloat(data.get('tempo'));
-  console.log('render', tempo);
+  const tempo = parseFloat(data.get("tempo"));
+  console.log("render", tempo);
   bufferSource.loopEnd = 1 / (tempo / 60);
 }
 
 render();
-document.querySelector('form').addEventListener('change', (e) => {
+document.querySelector("form").addEventListener("change", (e) => {
   render();
 });
 
-document.querySelector('#toggle').addEventListener('click', async (e) => {
-  const isStarted = e.target.getAttribute('aria-pressed') === 'true';
-  e.target.setAttribute('aria-pressed', `${!isStarted}`);
+document.querySelector("#toggle").addEventListener("click", async (e) => {
+  const isStarted = e.target.getAttribute("aria-pressed") === "true";
+  e.target.setAttribute("aria-pressed", `${!isStarted}`);
 
   if (!isStarted) {
     ctx.resume();
@@ -54,7 +54,7 @@ document.querySelector('#toggle').addEventListener('click', async (e) => {
 
 // Sync input and output values
 document.querySelectorAll('input[type="range"][id]').forEach((input) => {
-  input.addEventListener('input', (e) => {
+  input.addEventListener("input", (e) => {
     const id = e.target.id;
     const output = document.querySelector(`output[for="${id}"]`);
 

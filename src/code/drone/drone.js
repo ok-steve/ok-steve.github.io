@@ -1,20 +1,20 @@
-const form = document.querySelector('form');
+const form = document.querySelector("form");
 const ctx = new AudioContext();
 const osc = new OscillatorNode(ctx);
 const gain = new GainNode(ctx, { gain: 0 });
 const notes = [
-  'C',
-  'C#/Db',
-  'D',
-  'D#Eb',
-  'E',
-  'F',
-  'F#/Gb',
-  'G',
-  'G#/Ab',
-  'A',
-  'A#/Bb',
-  'B',
+  "C",
+  "C#/Db",
+  "D",
+  "D#Eb",
+  "E",
+  "F",
+  "F#/Gb",
+  "G",
+  "G#/Ab",
+  "A",
+  "A#/Bb",
+  "B",
 ];
 
 function mtof(midi) {
@@ -42,13 +42,13 @@ async function createPeriodicWave(sound) {
 async function render(keys) {
   const data = new FormData(form);
 
-  if (!keys || keys.includes('octave') || keys.includes('note')) {
-    const note = 12 * +data.get('octave') + notes.indexOf(data.get('note'));
+  if (!keys || keys.includes("octave") || keys.includes("note")) {
+    const note = 12 * +data.get("octave") + notes.indexOf(data.get("note"));
     osc.frequency.value = mtof(note);
   }
 
-  if (!keys || keys.includes('sound')) {
-    const wave = await createPeriodicWave(data.get('sound'));
+  if (!keys || keys.includes("sound")) {
+    const wave = await createPeriodicWave(data.get("sound"));
     osc.setPeriodicWave(wave);
   }
 }
@@ -56,16 +56,16 @@ async function render(keys) {
 osc.connect(gain).connect(ctx.destination);
 
 render();
-form.addEventListener('change', (e) => {
+form.addEventListener("change", (e) => {
   render([e.target.name]);
 });
 
-document.querySelector('#toggle').addEventListener('click', async (e) => {
-  const isStarted = e.target.getAttribute('aria-pressed') === 'true';
-  e.target.setAttribute('aria-pressed', `${!isStarted}`);
+document.querySelector("#toggle").addEventListener("click", async (e) => {
+  const isStarted = e.target.getAttribute("aria-pressed") === "true";
+  e.target.setAttribute("aria-pressed", `${!isStarted}`);
 
   if (!isStarted) {
-    if (!['running', 'closed'].includes(ctx.state)) {
+    if (!["running", "closed"].includes(ctx.state)) {
       await ctx.resume();
       osc.start();
     }

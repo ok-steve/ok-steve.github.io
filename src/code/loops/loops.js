@@ -6,7 +6,7 @@ import {
   Note,
   Progression,
   RomanNumeral,
-} from 'https://cdn.skypack.dev/@tonaljs/tonal';
+} from "https://cdn.skypack.dev/@tonaljs/tonal";
 
 /**
  * Utilities
@@ -25,7 +25,7 @@ function symbolToChord(sym) {
 }
 
 function chordToId({ tonic, quality }) {
-  return intToStr(Note.chroma(tonic) + (quality === 'Minor' ? 12 : 0));
+  return intToStr(Note.chroma(tonic) + (quality === "Minor" ? 12 : 0));
 }
 
 function symbolToId(sym) {
@@ -35,15 +35,15 @@ function symbolToId(sym) {
 function idToSymbol(id) {
   const n = strToInt(id);
   const note = Note.pitchClass(Note.fromMidi(n));
-  return `${note}${n > 11 ? 'm' : ''}`;
+  return `${note}${n > 11 ? "m" : ""}`;
 }
 
 function idToLoop(id) {
-  return id.split('').map(idToSymbol);
+  return id.split("").map(idToSymbol);
 }
 
 function loopToId(loop) {
-  return loop.map(chordToId).join('');
+  return loop.map(chordToId).join("");
 }
 
 // Return all rotations of an array
@@ -74,7 +74,7 @@ function normalize(chordIds) {
     return intToStr(((num + 12 - root) % 12) + (isMinor ? 12 : 0));
   });
 
-  return ids.join('');
+  return ids.join("");
 }
 
 // Prime is the lowest id when converted to an integer
@@ -82,7 +82,7 @@ function prime(id) {
   let deduplicatedIds =
     id.length === 1
       ? [id]
-      : id.split('').filter((id, i, list) => id !== wrap(list, i - 1));
+      : id.split("").filter((id, i, list) => id !== wrap(list, i - 1));
 
   if (deduplicatedIds.length === 0) {
     deduplicatedIds.push(id.charAt(0));
@@ -99,8 +99,8 @@ function prime(id) {
   const normalizedIds = rotate(deduplicatedIds).map(normalize);
 
   const retVal = intToStr(
-    Math.min(...normalizedIds.map((id) => id.split('').map(strToInt)))
-  ).padStart(deduplicatedIds.length, '0');
+    Math.min(...normalizedIds.map((id) => id.split("").map(strToInt)))
+  ).padStart(deduplicatedIds.length, "0");
 
   return retVal;
 }
@@ -118,16 +118,16 @@ function negative(chords, axis) {
     );
 
     return Chord.detect(negative)
-      .map((symbol) => symbol.split('/')[0])
-      .filter((symbol) => symbol.toLowerCase().endsWith('m'))
+      .map((symbol) => symbol.split("/")[0])
+      .filter((symbol) => symbol.toLowerCase().endsWith("m"))
       .map((symbol) =>
-        symbol.endsWith('M') ? symbol.slice(0, -1) : symbol
+        symbol.endsWith("M") ? symbol.slice(0, -1) : symbol
       )[0];
   });
 }
 
 function getLendvaiFunctions(chordData) {
-  const functions = ['Tonic', 'Dominant', 'Subdominant'];
+  const functions = ["Tonic", "Dominant", "Subdominant"];
   return chordData
     .map(({ tonic }) => tonic)
     .map(
@@ -160,40 +160,40 @@ function getTransitions(chordData) {
       const isFromStrong = wrap(list, i - 1);
 
       if (isFromStrong && isToStrong) {
-        return 'Connector';
+        return "Connector";
       } else if (!isFromStrong && !isToStrong) {
-        return 'Island';
+        return "Island";
       } else if (isToStrong) {
-        return 'Signpost';
+        return "Signpost";
       } else if (isFromStrong) {
-        return 'Destination';
+        return "Destination";
       }
     });
 }
 
 function getLoopQuality(transitions) {
-  const numDestinations = transitions.filter((t) => t === 'Destination').length;
-  const numIslands = transitions.filter((t) => t === 'Island').length;
+  const numDestinations = transitions.filter((t) => t === "Destination").length;
+  const numIslands = transitions.filter((t) => t === "Island").length;
 
   if (numIslands === 4) {
-    return 'Archipelago';
+    return "Archipelago";
   } else if (numDestinations === 0) {
-    return 'Zero destination';
+    return "Zero destination";
   } else if (numDestinations === 2) {
-    return 'Two destination';
+    return "Two destination";
   } else if (numIslands === 2) {
-    return 'Drift';
+    return "Drift";
   } else if (numIslands === 1) {
-    return 'Piston';
+    return "Piston";
   } else if (numIslands === 0) {
-    return 'Cascade';
+    return "Cascade";
   }
 }
 
 const MODE_NUMERALS = Mode.names().reduce(
   (obj, mode) => ({
     ...obj,
-    [mode]: Progression.toRomanNumerals('C', Mode.triads(mode, 'C')),
+    [mode]: Progression.toRomanNumerals("C", Mode.triads(mode, "C")),
   }),
   {}
 );
@@ -226,47 +226,47 @@ function detectMode(chords) {
 function getLoopData(id) {
   const data = new Map();
 
-  data.set('id', id);
-  data.set('chords', idToLoop(id));
+  data.set("id", id);
+  data.set("chords", idToLoop(id));
 
-  const chordData = data.get('chords').map(symbolToChord);
+  const chordData = data.get("chords").map(symbolToChord);
 
   data.set(
-    'roman-numerals',
-    Progression.toRomanNumerals(chordData[0].tonic, data.get('chords'))
+    "roman-numerals",
+    Progression.toRomanNumerals(chordData[0].tonic, data.get("chords"))
   );
 
   data.set(
-    'nashville-numbers',
-    toNashvilleNumbers(chordData[0].tonic, data.get('chords'))
+    "nashville-numbers",
+    toNashvilleNumbers(chordData[0].tonic, data.get("chords"))
   );
 
   const { mode: parentMode, chromatic: numChromaticChords } = detectMode(
-    data.get('chords')
+    data.get("chords")
   );
 
-  data.set('parent-mode', parentMode);
-  data.set('chromatic-chords', numChromaticChords);
+  data.set("parent-mode", parentMode);
+  data.set("chromatic-chords", numChromaticChords);
 
   data.set(
-    'negative',
+    "negative",
     loopToId(
-      negative(data.get('chords'), wrap(chordData[0].notes, -1)).map(
+      negative(data.get("chords"), wrap(chordData[0].notes, -1)).map(
         symbolToChord
       )
     )
   );
 
-  data.set('prime', prime(id));
+  data.set("prime", prime(id));
 
-  data.set('lendvai-functions', getLendvaiFunctions(chordData));
+  data.set("lendvai-functions", getLendvaiFunctions(chordData));
 
-  data.set('modes', unique(rotate(chordData).map(loopToId)));
+  data.set("modes", unique(rotate(chordData).map(loopToId)));
 
-  data.set('transitions', getTransitions(chordData));
-  data.set('quality', getLoopQuality(data.get('transitions')));
+  data.set("transitions", getTransitions(chordData));
+  data.set("quality", getLoopQuality(data.get("transitions")));
 
-  data.set('unique-chords', unique(data.get('chords')).length);
+  data.set("unique-chords", unique(data.get("chords")).length);
 
   return data;
 }
@@ -275,12 +275,12 @@ function getLoopData(id) {
  * App
  */
 
-const form = document.querySelector('form');
-const keyTargets = form.querySelectorAll('select');
-const dataTargets = document.querySelectorAll('[data-target]');
+const form = document.querySelector("form");
+const keyTargets = form.querySelectorAll("select");
+const dataTargets = document.querySelectorAll("[data-target]");
 
 function render() {
-  const key = (window.location.hash || '#07l5').slice(1);
+  const key = (window.location.hash || "#07l5").slice(1);
 
   keyTargets.forEach((target, i) => {
     target.value = idToSymbol(key.charAt(i));
@@ -289,38 +289,38 @@ function render() {
   const data = getLoopData(key);
 
   dataTargets.forEach((target) => {
-    const key = target.getAttribute('data-target');
+    const key = target.getAttribute("data-target");
     let value = data.get(key);
 
     switch (key) {
-      case 'modes':
+      case "modes":
         value = value.map((id) => `<a href="#${id}">${id}</a>`);
-        target.innerHTML = value.join(' ');
+        target.innerHTML = value.join(" ");
         break;
 
       default:
-        target.textContent = Array.isArray(value) ? value.join(' ') : value;
+        target.textContent = Array.isArray(value) ? value.join(" ") : value;
     }
 
-    if (target.hasAttribute('href')) {
-      target.setAttribute('href', `#${value}`);
+    if (target.hasAttribute("href")) {
+      target.setAttribute("href", `#${value}`);
     }
   });
 }
 
 render();
 
-window.addEventListener('hashchange', render);
+window.addEventListener("hashchange", render);
 
-form.addEventListener('change', () => {
+form.addEventListener("change", () => {
   const value = Array.from(keyTargets)
     .map((target) => target.value)
     .map(symbolToId)
-    .join('');
+    .join("");
 
   window.location.hash = `#${value}`;
 });
 
-form.addEventListener('submit', (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
 });
