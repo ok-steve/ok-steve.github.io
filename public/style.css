@@ -30,11 +30,11 @@ iframe {
 \* ---------------------------------- */
 
 /**
- * Container
+ * Center
  */
 
-.container {
-  --container-padding: var(--rhythm-2);
+.center {
+  --center-padding: var(--rhythm-2);
 }
 
 /**
