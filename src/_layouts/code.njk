@@ -6,11 +6,9 @@ layout: base
   <details>
     <summary>{{ lang | upper }}</summary>
 
-    <div class="frame">
-      {% highlight lang %}
-        {{ code | safe }}
-      {% endhighlight %}
-    </div>
+    {% highlight lang %}
+      {{ code | safe }}
+    {% endhighlight %}
   </details>
 {% endmacro %}
 
@@ -54,7 +52,7 @@ layout: base
 <figure>
   <div class="cluster">
     <div class="flex-auto">
-      <div class="frame">
+      <div class="frame frame-16x9">
         <iframe allow="microphone 'self'" sandbox="allow-scripts allow-same-origin" srcdoc="{{ preview }}"></iframe>
       </div>
 
