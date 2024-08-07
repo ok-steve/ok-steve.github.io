@@ -51,7 +51,7 @@ layout: base
 
 <figure>
   <div class="cluster">
-    <div class="flex-auto">
+    <div class="[ stack ] [ fx-1 ]">
       <div class="frame frame-16x9">
         <iframe allow="microphone 'self'" sandbox="allow-scripts allow-same-origin" srcdoc="{{ preview }}"></iframe>
       </div>
@@ -59,7 +59,7 @@ layout: base
       <button id="fullscreen">Fullscreen</button>
     </div>
 
-    <div class="flex-auto">
+    <div class="fx-1">
       {% set items = { html: content, css: css, js: js} %}
 
       {% for lang, code in items %}
