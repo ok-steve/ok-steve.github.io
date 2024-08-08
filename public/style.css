@@ -55,7 +55,8 @@ iframe {
   flex: 1;
 }
 
-.fluid-type {
+/* Deprecated, sort out center width */
+._fluid-type {
   font-size: clamp(1rem, 1.67vw + 0.67rem, 2rem);
   max-width: 70ch;
 }
