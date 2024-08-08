@@ -133,14 +133,14 @@ publications:
     releaseDate: August 12, 2010
 ---
 
-<div class="h-resume" typeof="schema:Person">
+<div class="[ h-resume ] [ stack ]" typeof="schema:Person">
   <h1 class="p-name">{{ pkg.author.name }}</h1>
 
   <h2>Experience</h2>
 
   {% for position in work %}
     <div class="p-experience h-event" property="schema:hasOccupation" typeof="schema:OrganizationRole">
-      <div property="schema:hasOccupation" typeof="schema:Occupation">
+      <div class="stack" property="schema:hasOccupation" typeof="schema:Occupation">
         <h3>
           <span class="p-name" property="schema:name">{{ position.position }}</span>
           (<time class="dt-start" property="schema:startDate">{{ position.startDate }}</time>&ndash;<time class="dt-end" property="schema:endDate">{{ position.endDate }}</time>)
@@ -168,7 +168,7 @@ publications:
 
   {% for degree in education %}
     <div class="p-education h-event" property="schema:alumniOf" typeof="schama:OrganizationRole">
-      <div property="schema:alumniOf" typeof="schema:CollegeOrUniversity">
+      <div class="stack" property="schema:alumniOf" typeof="schema:CollegeOrUniversity">
         <h3>
           <span class="p-name">{{ degree.studyType }}</span>
           (<time class="dt-end" property="schema:endDate">{{ degree.endDate }}</time>)
