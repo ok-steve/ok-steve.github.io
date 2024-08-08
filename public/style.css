@@ -38,6 +38,15 @@ iframe {
 }
 
 /**
+ * Cluster
+ */
+
+.cluster-center {
+  --cluster-align: center;
+  --cluster-justify: space-between;
+}
+
+/**
  * Switcher
  */
 
@@ -53,7 +62,7 @@ iframe {
 }
 
 /* ---------------------------------- *\
-  #UTILITIES
+   #UTILITIES
 \* ---------------------------------- */
 
 .fx-1 {
@@ -63,14 +72,6 @@ iframe {
 .fluid-type {
   font-size: clamp(1rem, 1.67vw + 0.67rem, 2rem);
   max-width: 70ch;
-}
-
-.align-center {
-  align-items: center;
-}
-
-.justify-between {
-  justify-content: space-between;
 }
 
 /* ---------------------------------- *\
