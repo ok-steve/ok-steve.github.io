@@ -34,7 +34,7 @@ iframe {
  */
 
 .center {
-  --center-padding: var(--rhythm-2);
+  --center-padding: var(--scale-2);
 }
 
 /**
@@ -44,12 +44,12 @@ iframe {
 .switcher {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--rhythm-0);
+  gap: var(--scale-0);
 }
 
 .switcher > * {
   flex-grow: 1;
-  flex-basis: calc((40rem - (100% - var(--rhythm-0))) * 999);
+  flex-basis: calc((40rem - (100% - var(--scale-0))) * 999);
 }
 
 /* ---------------------------------- *\
