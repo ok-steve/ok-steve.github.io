@@ -2,10 +2,8 @@
 layout: base
 ---
 
-<div class="[ stack ] [ fluid-type ]">
-  <h1 property="schema:name">{{ title or site.name }}</h1>
+<h1 property="schema:name">{{ title or site.name }}</h1>
 
-  <div class="[ text ] [ stack ]" property="schema:mainContentOfPage">
-    {{ content | safe }}
-  </div>
+<div class="[ text ] [ stack ]" property="schema:mainContentOfPage">
+  {{ content | safe }}
 </div>
