@@ -10,6 +10,10 @@ layout: base
   {% endif %}
 
   <div class="[ text ] [ stack ]">
+    <p>
+      <time datetime="{{ date.toISOString() }}">{{ date.toLocaleDateString('en-US') }}</time>
+    </p>
+
     {{ content | safe }}
   </div>
 </article>
