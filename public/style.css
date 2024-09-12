@@ -51,6 +51,14 @@ iframe {
   --cluster-justify: space-between;
 }
 
+/**
+ * Stack
+ */
+
+.stack > [aria-hidden="true"]:first-child + * {
+  margin-block-start: 0;
+}
+
 /* ---------------------------------- *\
    #UTILITIES
 \* ---------------------------------- */

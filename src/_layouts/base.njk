@@ -3,7 +3,7 @@
   <head>
     {% include "head.njk" %}
   </head>
-  <body class="center cover stack" typeof="schema:WebPage">
+  <body class="center cover" typeof="schema:WebPage">
     <div class="cluster cluster-center">
       <header role="banner">
         <a href="/" rel="home" class="fz-3">{{ site.name }}</a>
@@ -12,11 +12,11 @@
       {% include "navigation.njk" %}
     </div>
 
-    <main class="[ stack ] [ fx-auto ]" role="main">
+    <main class="[ cover-centered stack ] [ fx-auto ]" role="main">
       {{ content | safe }}
     </main>
 
-    <footer class="[ cluster cluster-center ] [ pb-0 ]" role="contentinfo">
+    <footer class="[ cluster cluster-centered ] [ pb-0 ]" role="contentinfo">
       <p>{{ pkg.description }}</p>
 
       <ul class="[ icon-list ] [ cluster ]" role="list">
