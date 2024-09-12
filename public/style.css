@@ -39,12 +39,16 @@ iframe {
  */
 
 .center {
-  --center-padding: var(--size-2);
+  --center-space: var(--size-2);
 }
 
 /**
  * Cluster
  */
+
+.cluster {
+  --cluster-space: var(--size-0);
+}
 
 .cluster-center {
   --cluster-align: center;
@@ -70,15 +74,6 @@ iframe {
 /* ---------------------------------- *\
    #BLOCKS
 \* ---------------------------------- */
-
-/**
- * Icon list
- */
-
-.icon-list a {
-  display: inline-block;
-  inline-size: var(--size-2);
-}
 
 /**
  * Text

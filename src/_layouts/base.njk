@@ -16,22 +16,22 @@
       {{ content | safe }}
     </main>
 
-    <footer class="[ cluster cluster-centered ] [ pb-0 ]" role="contentinfo">
+    <footer class="[ cluster cluster-center ] [ pb-0 ]" role="contentinfo">
       <p>{{ pkg.description }}</p>
 
-      <ul class="[ icon-list ] [ cluster ]" role="list">
+      <ul class="cluster" role="list">
         {# <li>
-          <a href="/feed.xml">
+          <a class="icon" href="/feed.xml">
             {% include "icons/rss.njk" %}
           </a>
         </li> #}
         <li>
-          <a href="mailto:{{ pkg.author.email }}">
+          <a class="icon" href="mailto:{{ pkg.author.email }}">
             {% include "icons/email.njk" %}
           </a>
         </li>
         <li>
-          <a href="https://github.com/{{ site.github_username }}">
+          <a class="icon" href="https://github.com/{{ site.github_username }}">
             {% include "icons/github.njk" %}
           </a>
         </li>
