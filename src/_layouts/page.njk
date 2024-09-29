@@ -2,8 +2,8 @@
 layout: base
 ---
 
-<h1 property="schema:name">{{ title or site.name }}</h1>
+<h1>{{ title or site.name }}</h1>
 
-<div class="[ text ] [ stack ]" property="schema:mainContentOfPage">
+<div class="[ text ] [ stack ]">
   {{ content | safe }}
 </div>
