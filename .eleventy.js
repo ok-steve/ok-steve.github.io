@@ -3,6 +3,7 @@ import EleventyNavigationPlugin from "@11ty/eleventy-navigation";
 import EleventyRssPlugin from "@11ty/eleventy-plugin-rss";
 import EleventySyntaxHighlightPlugin from "@11ty/eleventy-plugin-syntaxhighlight";
 
+import collections from "./lib/collections/index.js";
 import libraries from "./lib/libraries/index.js";
 import shortcodes from "./lib/shortcodes/index.js";
 
@@ -12,6 +13,8 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyRenderPlugin);
   eleventyConfig.addPlugin(EleventyRssPlugin);
   eleventyConfig.addPlugin(EleventySyntaxHighlightPlugin);
+
+  eleventyConfig.addPlugin(collections);
   eleventyConfig.addPlugin(libraries);
   eleventyConfig.addPlugin(shortcodes);
 
