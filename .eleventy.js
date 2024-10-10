@@ -6,6 +6,7 @@ import EleventySyntaxHighlightPlugin from "@11ty/eleventy-plugin-syntaxhighlight
 import collections from "./lib/collections/index.js";
 import libraries from "./lib/libraries/index.js";
 import shortcodes from "./lib/shortcodes/index.js";
+import transforms from "./lib/transforms/index.js";
 
 export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
@@ -17,6 +18,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(collections);
   eleventyConfig.addPlugin(libraries);
   eleventyConfig.addPlugin(shortcodes);
+  eleventyConfig.addPlugin(transforms);
 
   eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
   eleventyConfig.addPassthroughCopy({
