@@ -1,6 +1,7 @@
 {
   "name": "ok-steve.github.io",
   "private": true,
+  "type": "module",
   "version": "1.0.0",
   "description": "The online home of Steve Cherry.",
   "main": "index.js",
@@ -28,7 +29,7 @@
   },
   "homepage": "https://github.com/ok-steve/ok-steve.github.io#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.0",
+    "@11ty/eleventy": "^3.0.0",
     "@11ty/eleventy-fetch": "^3.0.0",
     "@11ty/eleventy-navigation": "^0.3.2",
     "@11ty/eleventy-plugin-rss": "^1.2.0",

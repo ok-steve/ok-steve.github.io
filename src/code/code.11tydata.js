@@ -1,4 +1,4 @@
-module.exports = {
-  layout: 'code',
-  tags: ['demo'],
+export default {
+  layout: "code",
+  tags: ["demo"],
 };

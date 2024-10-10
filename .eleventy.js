@@ -1,25 +1,19 @@
-const {
-  EleventyHtmlBasePlugin,
-  EleventyRenderPlugin,
-} = require("@11ty/eleventy");
-const EleventyNavigationPlugin = require("@11ty/eleventy-navigation");
-const EleventyRssPlugin = require("@11ty/eleventy-plugin-rss");
-const EleventySyntaxHighlightPlugin = require("@11ty/eleventy-plugin-syntaxhighlight");
+import { EleventyHtmlBasePlugin, EleventyRenderPlugin } from "@11ty/eleventy";
+import EleventyNavigationPlugin from "@11ty/eleventy-navigation";
+import EleventyRssPlugin from "@11ty/eleventy-plugin-rss";
+import EleventySyntaxHighlightPlugin from "@11ty/eleventy-plugin-syntaxhighlight";
 
-module.exports = function (eleventyConfig) {
-  /**
-   * Plugins
-   */
+import libraries from "./lib/libraries/index.js";
+import shortcodes from "./lib/shortcodes/index.js";
 
+export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
   eleventyConfig.addPlugin(EleventyNavigationPlugin);
   eleventyConfig.addPlugin(EleventyRenderPlugin);
   eleventyConfig.addPlugin(EleventyRssPlugin);
   eleventyConfig.addPlugin(EleventySyntaxHighlightPlugin);
-
-  /**
-   * Passthrough copy
-   */
+  eleventyConfig.addPlugin(libraries);
+  eleventyConfig.addPlugin(shortcodes);
 
   eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
   eleventyConfig.addPassthroughCopy({
@@ -32,33 +26,10 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addWatchTarget("./src/code/**/*.{css,js}");
 
-  /**
-   * Libraries
-   */
-
-  ["md"].forEach((name) =>
-    eleventyConfig.setLibrary(name, require(`./lib/libraries/${name}`))
-  );
-
   eleventyConfig.setFrontMatterParsingOptions({
     excerpt: true,
     excerpt_separator: "<!-- excerpt -->",
   });
-
-  /**
-   * Shortcodes
-   */
-
-  ["audio"].forEach((name) =>
-    eleventyConfig.addShortcode(name, require(`./lib/shortcodes/${name}`))
-  );
-
-  ["youtube"].forEach((name) =>
-    eleventyConfig.addNunjucksAsyncShortcode(
-      name,
-      require(`./lib/shortcodes/${name}`)
-    )
-  );
 
   return {
     markdownTemplateEngine: "njk",
@@ -68,4 +39,4 @@ module.exports = function (eleventyConfig) {
       layouts: "_layouts",
     },
   };
-};
+}

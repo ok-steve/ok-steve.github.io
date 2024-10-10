@@ -1,4 +1,4 @@
-module.exports = {
-  layout: 'writing',
-  tags: ['writing'],
+export default {
+  layout: "writing",
+  tags: ["writing"],
 };
