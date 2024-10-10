@@ -2,30 +2,30 @@
  * Globals
  */
 
-const CACHE_VERSION = 'v2';
+const CACHE_VERSION = "v2";
 
 const CACHE_NAMES = {
-  CONTENT: 'content',
-  MEDIA: 'media',
-  STATIC: 'static',
+  CONTENT: "content",
+  MEDIA: "media",
+  STATIC: "static",
 };
 
 const OFFLINE_ASSETS = {
-  CONTENT: './OFFLINE_ASSETS.html',
-  MEDIA: './public/img/icon.svg',
+  CONTENT: "./offline.html",
+  MEDIA: "./public/img/icon.svg",
 };
 
 const STATIC_ASSETS = [
   ...Object.values(OFFLINE_ASSETS),
-  './public/img/apple-touch-icon.png',
-  './public/img/favicon.ico',
-  './public/img/icon-192.png',
-  './public/img/icon-512.png',
-  './public/print.css',
-  './public/style.css',
-  './public/script.js',
-  './index.html',
-  './',
+  "./public/img/apple-touch-icon.png",
+  "./public/img/favicon.ico",
+  "./public/img/icon-192.png",
+  "./public/img/icon-512.png",
+  "./public/print.css",
+  "./public/style.css",
+  "./public/script.js",
+  "./index.html",
+  "./",
 ];
 
 /**
@@ -37,13 +37,13 @@ function openCache(cacheName) {
 }
 
 function getCacheKey(request) {
-  const acceptHeader = request.headers.get('Accept');
+  const acceptHeader = request.headers.get("Accept");
 
-  if (acceptHeader.indexOf('text/html') !== -1) {
+  if (acceptHeader.indexOf("text/html") !== -1) {
     return CACHE_NAMES.CONTENT;
   }
 
-  if (acceptHeader.indexOf('image') !== -1) {
+  if (acceptHeader.indexOf("image") !== -1) {
     return CACHE_NAMES.MEDIA;
   }
 
@@ -55,7 +55,7 @@ function shouldHandleFetch(request) {
 
   const criteria = [
     // Is GET request
-    request.method === 'GET',
+    request.method === "GET",
     // Request is to the same origin
     url.origin === self.location.origin,
   ];
@@ -93,7 +93,7 @@ function fetchFromCache(key, request) {
         return response;
       });
     })
-    .then((response) => response || Promise.reject('no-match'));
+    .then((response) => response || Promise.reject("no-match"));
 }
 
 function offlineResponse(key) {
@@ -156,15 +156,15 @@ function onFetch() {
  * Event listeners
  */
 
-self.addEventListener('install', (e) => {
+self.addEventListener("install", (e) => {
   e.waitUntil(onInstall(e).then(() => self.skipWaiting()));
 });
 
-self.addEventListener('activate', (e) => {
+self.addEventListener("activate", (e) => {
   e.waitUntil(onActivate(e).then(() => self.clients.claim()));
 });
 
-self.addEventListener('fetch', (e) => {
+self.addEventListener("fetch", (e) => {
   if (!shouldHandleFetch(e.request)) {
     return;
   }
