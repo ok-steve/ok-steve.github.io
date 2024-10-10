@@ -2,10 +2,10 @@
 layout: base
 ---
 
-<article class="stack">
+<article class="stack" typeof="schema:BlogPosting">
   {% if title %}
     <header>
-      <h1>{{ title }}</h1>
+      <h1 property="schema:name">{{ title }}</h1>
     </header>
   {% endif %}
 

@@ -9,18 +9,20 @@ eleventyImport:
     - writing
 ---
 
-<div class="stack">
+<div class="stack" typeof="schema:Blog">
   {% asyncEach item in collections.writing | selectattr('url') | reverse %}
-    <article class="stack">
+    <article class="stack" resource="{{ item.url | url }}" property="schema:blogPost" typeof="schema:BlogPosting">
       <header>
-        <h2>
-          <a href="{{ item.url | url }}">{{ item.data.title }}</a>
+        <h2 property="schema:name">
+          <a href="{{ item.url | url }}" property="schema:url">{{ item.data.title }}</a>
         </h2>
       </header>
 
-      {% renderTemplate "njk,md" %}
-        {{ item.data.page.excerpt }}
-      {% endrenderTemplate %}
+      <div property="schema:abstract">
+        {% renderTemplate "njk,md" %}
+          {{ item.data.page.excerpt }}
+        {% endrenderTemplate %}
+      </div>
     </article>
   {% endeach %}
 </div>
