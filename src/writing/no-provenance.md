@@ -40,7 +40,7 @@ To demonstrate how the different contexts of studio recording and live performan
 
 ### Imitosis
 
-{% youtube 'http://www.youtube.com/watch?v=hnXCzFnkxtY' %}
+{% embed 'http://www.youtube.com/watch?v=hnXCzFnkxtY' %}
 
 11/24/2006
 
@@ -101,7 +101,7 @@ There is actually more to the history of _Imitosis_ than is present in these rec
 
 Listen to how the slowly developed intros on the live recordings more closely resemble the studio version of _I_ than they do _Imitosis_.
 
-{% youtube 'https://www.youtube.com/watch?v=8qMORdg8uWc' %}
+{% embed 'https://www.youtube.com/watch?v=8qMORdg8uWc' %}
 
 Finally, listen to this version of _Capitol I_, the earliest one available at the Internet Archive. It predates the _Weather Systems_ album by two years and _Imitosis_ by almost six years. This recording contains much of the lyrics that appear later in _Imitosis_ rather than just the repeated refrain of the studio version. However, significantly this live version contains a different chorus than _Imitosis_ and a very different arrangement neither of which are documented in studio recordings.
 

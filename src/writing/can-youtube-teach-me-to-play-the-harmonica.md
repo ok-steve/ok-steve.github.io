@@ -41,7 +41,7 @@ Here is my first video, demonstrating my lack of harmonica skills. I had quite a
 
 With the equipment I had on hand, a computer with a not particularly fast processor and a webcam, the video is certainly not a high quality production, but it gets the job done.
 
-{% youtube 'https://www.youtube.com/watch?v=VElqijFCzSw' %}
+{% embed 'https://www.youtube.com/watch?v=VElqijFCzSw' %}
 
 ## First lesson
 
@@ -63,7 +63,7 @@ In this video Allen talked about drawing (breathing out) and sucking (breathing 
 
 And now here I am, taking my first steps on the path to becoming a harmonica god!
 
-{% youtube 'https://www.youtube.com/watch?v=UsZYB2urqEA' %}
+{% embed 'https://www.youtube.com/watch?v=UsZYB2urqEA' %}
 
 ## Second Lesson
 
@@ -89,7 +89,7 @@ One other thing to note: I really believe some of the instructions were wrong (I
 
 So here is what I can play now. Maybe next time I should play with some cool sunglasses.
 
-{% youtube 'https://www.youtube.com/watch?v=Xjywii5zgI8' %}
+{% embed 'https://www.youtube.com/watch?v=Xjywii5zgI8' %}
 
 ## Third lesson
 
@@ -101,11 +101,11 @@ Even though I didn't watch any new videos I would say this has been the most val
 
 So, while I didn't watch an instructional video, I used the following performance by Muddy Waters to figure out how _Mannish Boy_ went.
 
-{% youtube 'https://www.youtube.com/watch?v=MxwUOIlqhGA' %}
+{% embed 'https://www.youtube.com/watch?v=MxwUOIlqhGA' %}
 
 And here's me attempting to play the song somewhat decently. Even though this project is about learning and I don't feel the need to prove my musical skills it was hard not to think of this video as a performance and feel the requisite nervousness. Maybe I could have mitigated that nervousness by watching a video of someone not as good at Muddy Waters playing the same song. Oh well. After several takes I quit caring about all the mistakes I was making and remembered that if I already could play well I wouldn't need to learn.
 
-{% youtube 'https://www.youtube.com/watch?v=i6LnrvMdjHQ' %}
+{% embed 'https://www.youtube.com/watch?v=i6LnrvMdjHQ' %}
 
 ## Fourth lesson
 
@@ -119,7 +119,7 @@ Finally I decided to just do it myself. I made sure to keep all the parts in ord
 
 And then in the spirit of other harmonica maintenance videos I created a video that demonstrates that I know something about the problem I was facing, but which you probably won't ever find helpful.
 
-{% youtube 'https://www.youtube.com/watch?v=WqzCuME2IRk' %}
+{% embed 'https://www.youtube.com/watch?v=WqzCuME2IRk' %}
 
 ## Fifth lesson
 
@@ -131,7 +131,7 @@ Nevertheless these videos do at least have a much higher production value than o
 
 Now onto what I learned to do on the harmonica which is bend. Apparently there's a "right" way and a "wrong" way to do it, the right way being arching your tongue and the wrong way being tilting the harmonica. I tried and tried and tried the right way and on the rarest occasions I could hear a difference. However, I have a big tongue which I already had arched in my mouth; I couldn't figure out where else to put it to bend the pitches. At first when I tried the wrong way it didn't work either, but I realized that if I partially covered the hole with my lower lip I was able to bend the pitches. I think the wrong way is "wrong" because it muffles the sound. However, I found that when I blew (or drew) more air as I tilted the harmonica I could still get a decent sound.
 
-{% youtube 'https://www.youtube.com/watch?v=Bikhsi0Sbbg' %}
+{% embed 'https://www.youtube.com/watch?v=Bikhsi0Sbbg' %}
 
 ## Recap
 
@@ -187,4 +187,4 @@ At the start of the projec I said I thought I could learn to play the harmonica 
 
 This was my basic question that I wanted to answer. While I didn't accomplish as much as I had wanted I was able to learn enough to say that I can (barely) play the harmonica, and I could learn more just by watching YouTube videos.
 
-{% youtube 'https://www.youtube.com/watch?v=Lpp_bzsfPV8' %}
+{% embed 'https://www.youtube.com/watch?v=Lpp_bzsfPV8' %}
