@@ -1,0 +1,16 @@
+---
+layout: base
+title: Tag Index
+#eleventyNavigation:
+#  key: Tags
+---
+
+{% set tags = collections | keys | includes(['all', 'demo', 'writing'], true) %}
+
+<ul>
+  {% for tag in tags | sort %}
+    <li>
+      <a href="/tags/{{ tag | slugify }}/">{{ tag }}</a>
+    </li>
+  {% endfor %}
+</ul>
