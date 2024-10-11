@@ -7,6 +7,12 @@
   --color-primary: #40c057;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #fff;
+  }
+}
+
 html {
   color: var(--color-text);
 }
@@ -101,7 +107,7 @@ iframe {
  */
 
 .text ol > li::marker {
-  font-feature-settings: 'kern' 0, 'tnum' 1, 'onum' 1, 'liga' 1;
+  font-feature-settings: "kern" 0, "tnum" 1, "onum" 1, "liga" 1;
 }
 
 /* Lead paragraph */
@@ -122,12 +128,12 @@ iframe {
 /* Run-ins */
 .text h3 + p::first-line {
   font-size: 1.2em;
-  font-feature-settings: 'onum', 'smcp', 'c2sc' 0;
+  font-feature-settings: "onum", "smcp", "c2sc" 0;
 }
 
 @supports (font-variant: small-caps) {
   .text h3 + p::first-line {
-    font-feature-settings: 'c2sc';
+    font-feature-settings: "c2sc";
     font-variant: small-caps;
   }
 }
