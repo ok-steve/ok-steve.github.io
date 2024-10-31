@@ -1,5 +1,4 @@
 import { EleventyHtmlBasePlugin, EleventyRenderPlugin } from "@11ty/eleventy";
-import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import EleventyNavigationPlugin from "@11ty/eleventy-navigation";
 import EleventyRssPlugin from "@11ty/eleventy-plugin-rss";
 
@@ -13,13 +12,6 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyNavigationPlugin);
   eleventyConfig.addPlugin(EleventyRenderPlugin);
   eleventyConfig.addPlugin(EleventyRssPlugin);
-  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
-    extensions: "html",
-    defaultAttributes: {
-      loading: "lazy",
-      decoding: "async",
-    },
-  });
 
   eleventyConfig.addPlugin(collections);
   eleventyConfig.addPlugin(filters);
