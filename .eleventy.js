@@ -26,7 +26,6 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(filters);
   eleventyConfig.addPlugin(libraries);
   eleventyConfig.addPlugin(shortcodes);
-  eleventyConfig.addPlugin(transforms);
 
   eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
   eleventyConfig.addPassthroughCopy("./public");
