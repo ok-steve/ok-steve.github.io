@@ -8,8 +8,6 @@ tags:
 
 If you're like me when you heard the [announcement that Yahoo will "Sunset" Delicious](https://techcrunch.com/2010/12/16/is-yahoo-shutting-down-del-icio-us) you began looking for a place to move all of your bookmarks. I decided to move mine to Zotero, even after the [announcement that Delicious had been purchased](https://detnews.com/article/20110427/BIZ04/104270423/YouTube-founders-buy-bookmark-site-Delicious-from-Yahoo) and that I could migrate my bookmarks to [Avos](https://www.avos.com/). For me at least Zotero had several advantages over going to Avos or another social bookmarking service:
 
-<!-- excerpt -->
-
 1. I already use it.
 2. Although it isn't really a bookmarking application, it can be used as such since it has all of the functionality that Delicious had.
 3. In case I ever do need to cite a website I've bookmarked, it will already be in the same application.

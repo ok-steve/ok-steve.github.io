@@ -17,6 +17,8 @@ eleventyComputed:
 
 <ul>
   {% for item in taglist | selectattr('url') | reverse %}
-    <li><a href="{{ item.url }}">{{ item.data.title }}</a></li>
+    <li>
+      <a href="{{ item.url }}">{{ item.data.title }}</a>
+    </li>
   {% endfor %}
 </ul>
