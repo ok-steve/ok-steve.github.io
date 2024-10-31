@@ -2,7 +2,6 @@ import { EleventyHtmlBasePlugin, EleventyRenderPlugin } from "@11ty/eleventy";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import EleventyNavigationPlugin from "@11ty/eleventy-navigation";
 import EleventyRssPlugin from "@11ty/eleventy-plugin-rss";
-import EleventySyntaxHighlightPlugin from "@11ty/eleventy-plugin-syntaxhighlight";
 
 import collections from "./lib/collections/index.js";
 import filters from "./lib/filters/index.js";
@@ -15,7 +14,6 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyNavigationPlugin);
   eleventyConfig.addPlugin(EleventyRenderPlugin);
   eleventyConfig.addPlugin(EleventyRssPlugin);
-  eleventyConfig.addPlugin(EleventySyntaxHighlightPlugin);
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
     extensions: "html",
     defaultAttributes: {
@@ -31,10 +29,6 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(transforms);
 
   eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
-  eleventyConfig.addPassthroughCopy({
-    "./node_modules/prismjs/themes/prism-solarizedlight.css":
-      "./public/syntax-highlighting.css",
-  });
   eleventyConfig.addPassthroughCopy("./public");
   eleventyConfig.addPassthroughCopy("./src/*.{txt,xml}");
   eleventyConfig.addPassthroughCopy("./src/sw.js");

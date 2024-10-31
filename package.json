@@ -36,7 +36,6 @@
     "@11ty/eleventy-img": "^5.0.0",
     "@11ty/eleventy-navigation": "^0.3.2",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
     "html-minifier": "^4.0.0",
     "rimraf": "^3.0.2"
   }
