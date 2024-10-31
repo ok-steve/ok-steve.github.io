@@ -7,7 +7,6 @@ import collections from "./lib/collections/index.js";
 import filters from "./lib/filters/index.js";
 import libraries from "./lib/libraries/index.js";
 import shortcodes from "./lib/shortcodes/index.js";
-import transforms from "./lib/transforms/index.js";
 
 export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
