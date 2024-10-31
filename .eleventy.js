@@ -1,4 +1,4 @@
-import { EleventyHtmlBasePlugin, EleventyRenderPlugin } from "@11ty/eleventy";
+import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
 import EleventyNavigationPlugin from "@11ty/eleventy-navigation";
 import EleventyRssPlugin from "@11ty/eleventy-plugin-rss";
 
@@ -10,7 +10,6 @@ import shortcodes from "./lib/shortcodes/index.js";
 export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
   eleventyConfig.addPlugin(EleventyNavigationPlugin);
-  eleventyConfig.addPlugin(EleventyRenderPlugin);
   eleventyConfig.addPlugin(EleventyRssPlugin);
 
   eleventyConfig.addPlugin(collections);
@@ -24,11 +23,6 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/sw.js");
 
   eleventyConfig.addWatchTarget("./src/code/**/*.{css,js}");
-
-  eleventyConfig.setFrontMatterParsingOptions({
-    excerpt: true,
-    excerpt_separator: "<!-- excerpt -->",
-  });
 
   return {
     markdownTemplateEngine: "njk",

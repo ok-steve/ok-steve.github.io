@@ -9,20 +9,10 @@ eleventyImport:
     - posts
 ---
 
-<div class="stack" typeof="schema:Blog">
-  {% asyncEach item in collections.posts | selectattr('url') | reverse %}
-    <article class="stack" resource="{{ item.url | url }}" property="schema:blogPost" typeof="schema:BlogPosting">
-      <header>
-        <h2 property="schema:name">
-          <a href="{{ item.url | url }}" property="schema:url">{{ item.data.title }}</a>
-        </h2>
-      </header>
-
-      <div property="schema:abstract">
-        {% renderTemplate "njk,md" %}
-          {{ item.data.page.excerpt }}
-        {% endrenderTemplate %}
-      </div>
-    </article>
-  {% endeach %}
-</div>
+<ul typeof="schema:Blog">
+  {% for item in collections.posts | selectattr('url') | reverse %}
+    <li resource="{{ item.url }}" property="schema:blogPost" typeof="schema:BlogPosting">
+      <a href="{{ item.url }}" property="schema:name">{{ item.data.title }}</a>
+    </li>
+  {% endfor %}
+</ul>

@@ -10,8 +10,6 @@ tags:
 
 I assume you go to concerts, but why? Is it just something to do? Do you go with your friends? Do you go for the energy of the crowd? To be the same room with your favorite artist? What about the music? How does it compare to the studio album? Can you hear everything clearly? Do you hear when "mistakes" happen? Are there bands you actually prefer live?
 
-<!-- excerpt -->
-
 > There's a certain conversation lost, /
 > and that loss incurred /
 > with nobody remaining to register /
