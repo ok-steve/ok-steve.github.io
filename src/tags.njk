@@ -1,8 +1,8 @@
 ---
 layout: base
 title: Tag Index
-#eleventyNavigation:
-#  key: Tags
+eleventyNavigation:
+  key: Tags
 ---
 
 {% set tags = collections | keys | includes(['all', 'demo', 'writing'], true) %}
