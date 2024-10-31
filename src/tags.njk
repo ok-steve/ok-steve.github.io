@@ -5,7 +5,7 @@ eleventyNavigation:
   key: Tags
 ---
 
-{% set tags = collections | keys | includes(['all', 'demo', 'writing'], true) %}
+{% set tags = collections | keys | includes(['all', 'demo', 'posts'], true) %}
 
 <ul>
   {% for tag in tags | sort %}

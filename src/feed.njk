@@ -8,13 +8,13 @@ eleventyExcludeFromCollections: true
   <subtitle>{{ pkg.description }}</subtitle>
   <link href="{{ permalink | htmlBaseUrl(pkg.author.url) }}" rel="self" />
   <link href="{{ '/' | htmlBaseUrl(pkg.author.url) }}" />
-  <updated>{{ collections.writing | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+  <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
   <id>{{ '/' | htmlBaseUrl(pkg.author.url) }}</id>
   <author>
     <name>{{ pkg.author.name }}</name>
     <email>{{ pkg.author.email }}</email>
   </author>
-  {%- for item in collections.writing | selectattr('url') | reverse %}
+  {%- for item in collections.posts | selectattr('url') | reverse %}
   {%- set absolutePostUrl = item.url | htmlBaseUrl(pkg.author.url) %}
   <entry>
     <title>{{ item.data.title }}</title>
