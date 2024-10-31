@@ -2,9 +2,9 @@
 layout: front
 title: About
 permalink: /
-# eleventyNavigation:
-#   key: Home
-#   order: -1
+eleventyNavigation:
+  key: Home
+  order: -1
 ---
 
 I develop software and play the tuba. I'm continuously trying to increase the nerdiness in my life.
