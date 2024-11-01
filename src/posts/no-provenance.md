@@ -42,43 +42,43 @@ To demonstrate how the different contexts of studio recording and live performan
 
 11/24/2006
 
-{% audio 'https://www.archive.org/download/abird2006-11-24.flac8/abird2006-11-24-d1t07_vbr.mp3' %}
+<audio controls src="https://www.archive.org/download/abird2006-11-24.flac8/abird2006-11-24-d1t07_vbr.mp3"></audio>
 
 11/25/2006
 
-{% audio 'https://www.archive.org/download/abird2006-11-25.flac8/abird2006-11-25-d1t06_vbr.mp3' %}
+<audio controls src="https://www.archive.org/download/abird2006-11-25.flac8/abird2006-11-25-d1t06_vbr.mp3"></audio>
 
 1/15/2007
 
-{% audio 'https://www.archive.org/download/abird2007-01-15.Audixf15.flac16/Abird2007-01-15d1t03_vbr.mp3' %}
+<audio controls src="https://www.archive.org/download/abird2007-01-15.Audixf15.flac16/Abird2007-01-15d1t03_vbr.mp3"></audio>
 
 3/21/2007 (Day after the album was released)
 
-{% audio 'https://www.archive.org/download/abird2007-03-21.flac16/abird2007-03-21t03_vbr.mp3' %}
+<audio controls src="https://www.archive.org/download/abird2007-03-21.flac16/abird2007-03-21t03_vbr.mp3"></audio>
 
 3/29/2007
 
-{% audio 'https://www.archive.org/download/abird2007-03-29.fm/abird-2007-03-29_t03_vbr.mp3' %}
+<audio controls src="https://www.archive.org/download/abird2007-03-29.fm/abird-2007-03-29_t03_vbr.mp3"></audio>
 
 4/16/2007
 
-{% audio 'https://www.archive.org/download/abird2007-04-16.cmc4.flacf/abird2007-04-16t02-imitosis_vbr.mp3' %}
+<audio controls src="https://www.archive.org/download/abird2007-04-16.cmc4.flacf/abird2007-04-16t02-imitosis_vbr.mp3"></audio>
 
 4/30/2007
 
-{% audio 'https://www.archive.org/download/abird2007-04-30.dpa4061.flac16/abird2007-04-30t02_vbr.mp3' %}
+<audio controls src="https://www.archive.org/download/abird2007-04-30.dpa4061.flac16/abird2007-04-30t02_vbr.mp3"></audio>
 
 5/4/2007
 
-{% audio 'https://www.archive.org/download/abird2007-05-04.aud/abird2007-05-04-d1t02_vbr.mp3' %}
+<audio controls src="https://www.archive.org/download/abird2007-05-04.aud/abird2007-05-04-d1t02_vbr.mp3"></audio>
 
 5/30/2007
 
-{% audio 'https://www.archive.org/download/A.Bird2007-05-30.Coimbra.AT943/AB2007-05-30d1t05_vbr.mp3' %}
+<audio controls src="https://www.archive.org/download/A.Bird2007-05-30.Coimbra.AT943/AB2007-05-30d1t05_vbr.mp3"></audio>
 
 11/3/2007
 
-{% audio 'https://www.archive.org/download/abird2007-11-03.flac16/abird_2007_11_03t10_vbr.mp3' %}
+<audio controls src="https://www.archive.org/download/abird2007-11-03.flac16/abird_2007_11_03t10_vbr.mp3"></audio>
 
 Here are some of the differences I noticed:
 
@@ -107,7 +107,7 @@ Without live recordings it would be much harder to trace the progression of _I/I
 
 9/12/2001
 
-{% audio 'https://www.archive.org/download/bof2001-09-12.shnf/bof2001-09-12t09_vbr.mp3' %}
+<audio controls src="https://www.archive.org/download/bof2001-09-12.shnf/bof2001-09-12t09_vbr.mp3"></audio>
 
 ## What makes taping possible?
 
