@@ -1,0 +1,23 @@
+{% macro codeHighlight(code, lang) %}
+  <details>
+    <summary>{{ lang | upper }}</summary>
+
+    <syntax-highlight>
+      <pre><code class="language-{{ lang }}">{{ code }}</code></pre>
+    </syntax-highlight>
+  </details>
+{% endmacro %}
+
+<code-preview>
+  {% if html %}
+    {{ codeHighlight(html, 'html') }}
+  {% endif %}
+
+  {% if css %}
+    {{ codeHighlight(css, 'css') }}
+  {% endif %}
+
+  {% if js %}
+    {{ codeHighlight(js, 'js') }}
+  {% endif %}
+</code-preview>

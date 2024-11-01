@@ -5,6 +5,7 @@ date: 2022-10-24
 permalink: false
 ---
 
+{% set html %}
 <div class="center">
   <div class="field">
     <label for="generators">Generators</label>
@@ -12,3 +13,15 @@ permalink: false
     <output for="generators"></output>
   </div>
 </div>
+{% endset %}
+
+{% set css %}
+  {% include './schillinger-rhythm.css' %}
+{% endset %}
+
+{% set js %}
+  {% include './schillinger-rhythm.js' %}
+{% endset %}
+
+{% include "code-preview.njk" %}
+
