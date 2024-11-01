@@ -6,11 +6,11 @@ eleventyNavigation:
   key: Posts
 eleventyImport:
   collections:
-    - posts
+    - post
 ---
 
 <ul typeof="schema:Blog">
-  {% for item in collections.posts | selectattr('url') | reverse %}
+  {% for item in collections.post | selectattr('url') | reverse %}
     <li resource="{{ item.url }}" property="schema:blogPost" typeof="schema:BlogPosting">
       <a href="{{ item.url }}" property="schema:name">{{ item.data.title }}</a>
     </li>
