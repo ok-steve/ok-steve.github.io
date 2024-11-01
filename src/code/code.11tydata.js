@@ -1,3 +1,3 @@
 export default {
-  layout: "code",
+  layout: "post",
 };

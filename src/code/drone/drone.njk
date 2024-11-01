@@ -4,6 +4,7 @@ description: A practice drone.
 date: 2024-02-02
 ---
 
+{% set html %}
 {% from "macros.njk" import radio, select %}
 
 {% set defaultValues = {
@@ -33,3 +34,14 @@ date: 2024-02-02
   {{ radio('Note', ['C', 'C#/Db', 'D', 'D#Eb', 'E', 'F', 'F#/Gb', 'G', 'G#/Ab', 'A', 'A#/Bb', 'B'], defaultValues.note) }}
   {{ radio('Octave', [1, 2, 3, 4, 5, 6, 7], defaultValues.octave) }}
 </form>
+{% endset %}
+
+{% set css %}
+  {% include './drone.css' %}
+{% endset %}
+
+{% set js %}
+  {% include './drone.js' %}
+{% endset %}
+
+{% include "code-preview.njk" %}

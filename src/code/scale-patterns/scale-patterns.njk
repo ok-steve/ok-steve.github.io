@@ -4,6 +4,14 @@ description: Combinatorial scale patterns.
 date: 2022-06-14
 ---
 
+{% set html %}
 <div id="root">
   <div id="app"></div>
 </div>
+{% endset %}
+
+{% set js %}
+  {% include './scale-patterns.js' %}
+{% endset %}
+
+{% include "code-preview.njk" %}

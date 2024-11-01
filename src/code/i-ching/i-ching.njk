@@ -198,6 +198,7 @@ hexagrams:
     character: 未濟
 ---
 
+{% set html %}
 <div class="o-shell">
   <div class="o-shell__content">
     <main class="o-router" role="main">
@@ -226,3 +227,14 @@ hexagrams:
     </nav>
   </div>
 </div>
+{% endset %}
+
+{% set css %}
+  {% include './i-ching.css' %}
+{% endset %}
+
+{% set js %}
+  {% include './i-ching.js' %}
+{% endset %}
+
+{% include "code-preview.njk" %}
