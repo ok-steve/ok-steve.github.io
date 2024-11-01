@@ -38,7 +38,7 @@ To demonstrate how the different contexts of studio recording and live performan
 
 ### Imitosis
 
-{% embed 'http://www.youtube.com/watch?v=hnXCzFnkxtY' %}
+<lite-youtube videoid="hnXCzFnkxtY"></lite-youtube>
 
 11/24/2006
 
