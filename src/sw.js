@@ -2,7 +2,7 @@
  * Globals
  */
 
-const CACHE_VERSION = "v2";
+const CACHE_VERSION = "v3";
 
 const CACHE_NAMES = {
   CONTENT: "content",
@@ -63,45 +63,26 @@ function shouldHandleFetch(request) {
   return criteria.reduce((prev, curr) => prev && curr);
 }
 
-function addToCache(key, request, response) {
-  if (response.ok) {
-    const req = request.clone();
-    const res = response.clone();
+async function staleWhileRevalidate(cacheName, request) {
+  const cache = await openCache(cacheName);
+  const cachedResponse = await cache.match(request);
 
-    caches.open(cacheName(key)).then((cache) => {
-      cache.put(req, res);
-    });
-  }
+  // Don't block cached response by waiting for promise to fulfill.
+  const fetchedResponse = fetch(request).then((networkResponse) => {
+    cache.put(request, networkResponse.clone());
 
-  return response;
+    return networkResponse;
+  });
+
+  return cachedResponse || fetchedResponse;
 }
 
-function fetchFromNetwork(key, request) {
-  const req = request.clone();
-
-  return fetch(req).then((response) => addToCache(key, request, response));
-}
-
-function fetchFromCache(key, request) {
-  const req = request.clone();
-
-  return openCache(key)
-    .then((cache) => {
-      return cache.match(req).then((response) => {
-        fetchFromNetwork(key, request);
-
-        return response;
-      });
-    })
-    .then((response) => response || Promise.reject("no-match"));
-}
-
-function offlineResponse(key) {
-  if (key === CACHE_NAMES.MEDIA) {
+function offlineResponse(cacheName) {
+  if (cacheName === CACHE_NAMES.MEDIA) {
     return caches.match(OFFLINE_ASSETS.MEDIA);
   }
 
-  if (key === CACHE_NAMES.CONTENT) {
+  if (cacheName === CACHE_NAMES.CONTENT) {
     return caches.match(OFFLINE_ASSETS.CONTENT);
   }
 
@@ -112,44 +93,32 @@ function offlineResponse(key) {
  * Install event
  */
 
-function onInstall() {
-  return openCache(CACHE_NAMES.STATIC).then((cache) =>
-    cache.addAll(STATIC_ASSETS)
-  );
+async function onInstall() {
+  const cache = await openCache(CACHE_NAMES.STATIC);
+
+  return cache.addAll(STATIC_ASSETS);
 }
 
 /**
  * Activate event
  */
 
-function onActivate() {
-  return caches
-    .keys()
-    .then((keys) =>
-      Promise.all(
-        keys
-          .filter((key) => key.indexOf(CACHE_VERSION) !== 0)
-          .map((key) => caches.delete(key))
-      )
-    );
+async function onActivate() {
+  const keys = await caches.keys();
+  const cachesToDelete = keys.filter((key) => !key.startsWith(CACHE_VERSION))
+
+  return Promise.all(cachesToDelete.map((key) => caches.delete(key)));
 }
 
 /**
  * Fetch event
  */
 
-function onFetch() {
-  const key = getCacheKey(request);
+async function onFetch(request) {
+  const cacheName = getCacheKey(request);
 
-  if (key === CACHE_NAMES.CONTENT) {
-    return fetchFromNetwork(key, request)
-      .catch(() => fetchFromCache(key, request))
-      .catch(() => offlineResponse(key));
-  }
-
-  return fetchFromCache(key, request)
-    .catch(() => fetchFromNetwork(key, request))
-    .catch(() => offlineResponse(key));
+  return staleWhileRevalidate(cacheName, request)
+    .catch(() => offlineResponse(cacheName));
 }
 
 /**
@@ -157,11 +126,11 @@ function onFetch() {
  */
 
 self.addEventListener("install", (e) => {
-  e.waitUntil(onInstall(e).then(() => self.skipWaiting()));
+  e.waitUntil(onInstall().finally(() => self.skipWaiting()));
 });
 
 self.addEventListener("activate", (e) => {
-  e.waitUntil(onActivate(e).then(() => self.clients.claim()));
+  e.waitUntil(onActivate().finally(() => self.clients.claim()));
 });
 
 self.addEventListener("fetch", (e) => {
@@ -169,5 +138,5 @@ self.addEventListener("fetch", (e) => {
     return;
   }
 
-  e.respondWith(onFetch(e));
+  e.respondWith(onFetch(e.request));
 });
