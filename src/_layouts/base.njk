@@ -20,24 +20,7 @@
 
     <footer class="[ cluster cluster-center ] [ pb-0 ]" role="contentinfo">
       <p>{{ pkg.description }}</p>
-
-      <ul class="cluster" role="list">
-        {# <li>
-          <a class="[ icon ][ fz-3 ]" href="/feed.xml">
-            {% include "icons/rss.njk" %}
-          </a>
-        </li> #}
-        <li>
-          <a class="[ icon ][ fz-3 ]" href="mailto:{{ pkg.author.email }}">
-            {% include "icons/email.njk" %}
-          </a>
-        </li>
-        <li>
-          <a class="[ icon ][ fz-3 ]" href="https://github.com/{{ site.github_username }}">
-            {% include "icons/github.njk" %}
-          </a>
-        </li>
-      </ul>
+      {% include "social-icons.njk" %}
     </footer>
  </body>
 </html>
