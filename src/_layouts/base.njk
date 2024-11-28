@@ -9,7 +9,9 @@
         <a href="/" rel="home" class="fz-3">{{ site.name }}</a>
       </header>
 
-      {# {% include "navigation.njk" %} #}
+      {% if site.env == 'development' %}
+      {% include "navigation.njk" %}
+      {% endif %}
     </div>
 
     <main class="[ cover-centered stack ] [ fx-auto ]" role="main">

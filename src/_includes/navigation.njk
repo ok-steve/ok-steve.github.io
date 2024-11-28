@@ -1,15 +1,10 @@
-{% set navPages = collections.all | eleventyNavigation %}
+{% set tags = collections | keys | includes(['all', 'post'], true) %}
 
-{% if navPages | length %}
+{% if tags | length %}
   <nav role="navigation">
     <ul class="cluster" role="list">
-      {% for navPage in navPages %}
-        <li>
-          <a
-            href="{{ navPage.url }}"
-            {% if navPage.url == page.url %}aria-current="page"{% endif %}
-          >{{ navPage.title }}</a>
-        </li>
+      {% for tag in collections | keys | includes(['all', 'post'], true) | sort %}
+        <li><a href="/tags/{{ tag | slugify }}/">{{ tag | capitalize }}</a></li>
       {% endfor %}
     </ul>
   </nav>
