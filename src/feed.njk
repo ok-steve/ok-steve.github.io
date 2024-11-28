@@ -14,7 +14,7 @@ eleventyExcludeFromCollections: true
     <name>{{ pkg.author.name }}</name>
     <email>{{ pkg.author.email }}</email>
   </author>
-  {%- for item in collections.post | selectattr('url') | reverse %}
+  {%- for item in collections.post | selectattr('url') | reverse | limit(12) %}
   {%- set absolutePostUrl = item.url | htmlBaseUrl(pkg.author.url) %}
   <entry>
     <title>{{ item.data.title }}</title>
