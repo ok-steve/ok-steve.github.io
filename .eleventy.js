@@ -15,10 +15,9 @@ export default async function (eleventyConfig) {
 
   eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
   eleventyConfig.addPassthroughCopy("./public");
-  eleventyConfig.addPassthroughCopy("./src/*.{txt,xml}");
-  eleventyConfig.addPassthroughCopy("./src/sw.js");
+  eleventyConfig.addPassthroughCopy("./src/*.{js,txt,xml}");
 
-  eleventyConfig.addWatchTarget("./src/code/**/*.{css,js}");
+  eleventyConfig.addWatchTarget("./src/posts/**/*.{css,js}");
 
   return {
     markdownTemplateEngine: "njk",
