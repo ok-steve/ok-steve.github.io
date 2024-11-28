@@ -31,7 +31,6 @@
   "homepage": "https://github.com/ok-steve/ok-steve.github.io#readme",
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
-    "@11ty/eleventy-navigation": "^0.3.2",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "rimraf": "^3.0.2"
   }

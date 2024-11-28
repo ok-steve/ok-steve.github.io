@@ -9,7 +9,7 @@ pagination:
     - post
 permalink: tags/{{ tag }}/
 eleventyComputed:
-  title: "Tagged: {{ tag }}"
+  title: "{{ tag | capitalize }}"
 ---
 
 {% set taglist = collections[tag] %}
