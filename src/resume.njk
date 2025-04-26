@@ -5,13 +5,13 @@ work:
   # - position: Senior Web Developer
   #   name: National Air and Space Museum
   #   location: Washington, DC
-  #   startDate: October 2023
+  #   startDate: 2023-10
   #   endDate: Present
   - position: Senior Web Developer
     name: The George Washington University
     location: Washington, DC
-    startDate: March 2019
-    endDate: October 2023
+    startDate: 2019-03
+    endDate: 2023-10
     highlights:
       - name: Back-end development
         responsibilities:
@@ -34,8 +34,8 @@ work:
   - position: Software Engineer II
     name: Net eSolutions
     location: McLean, VA
-    startDate: October 2015
-    endDate: March 2019
+    startDate: 2015-10
+    endDate: 2019-03
     highlights:
       - name: Front-end development
         responsibilities:
@@ -66,8 +66,8 @@ work:
   - position: Electronic Services Librarian
     name: The Catholic University of America
     location: Washington, DC
-    startDate: October 2011
-    endDate: October 2015
+    startDate: 2011-10
+    endDate: 2015-10
     highlights:
       - name: Web development
         responsibilities:
@@ -88,7 +88,7 @@ education:
   - studyType: Master of Science in Information
     institution: 'University of Michigan: School of Information'
     location: Ann Arbor, MI
-    endDate: April 2011
+    endDate: 2011-04
     highlights:
       - Specialization in Archives and Records Management.
       - 'Honors: Member of Phi Kappa Phi honor society, Half-tuition scholarship recipient.'
@@ -96,15 +96,15 @@ education:
   - studyType: Bachelor of Music
     institution: Wheaton College
     location: Wheaton, IL
-    endDate: December 2004
+    endDate: 2004-12
     highlights:
       - "Honors: Magna cum laude, Conservatory of Music Senior Class Award, Dean&rsquo;s List."
 projects:
   - name: Social Media Marketing Study
     instutition: 'Smithsonian Institution: Folkways Recordings'
     location: Washington, DC
-    startDate: Feburary 2011
-    endDate: March 2011
+    startDate: 2011-02
+    endDate: 2011-03
     highlights:
       - Gathered data from Google Analytics and multiple social media sites.
       - Wrote a report detailing my findings and making recommendations for more effective use of social media.
@@ -112,8 +112,8 @@ projects:
   - name: Website Usability Study
     instutition: 'University of Michigan: Environmental Health Sciences'
     location: Ann Arbor, MI
-    startDate: January 2010
-    endDate: April 2010
+    startDate: 2010-01
+    endDate: 2010-04
     highlights:
       - Interviewed and surveyed students about their use of the departmental website.
       - Ran user evaluations to test ease of use and findability of information.
@@ -121,16 +121,16 @@ projects:
 publications:
   - name: 'Thus Said the End Users: Summon Experience and Support for Research Workflows'
     publisher: Poster at the CUA "Bridging the Spectrum" Symposium
-    releaseDate: February 20, 2015
+    releaseDate: 2015-02-20
   - name: Maintaining multiple responsive designs with a small staff
     publisher: Presentation at the ALA Midwinter Virtual Meeting
-    releaseDate: February 19, 2014
+    releaseDate: 2014-02-19
   - name: 'Discovering Information through Summon: An Analysis of User Search Strategies and Search Success'
     publisher: Presentation at the CUA "Bridging the Spectrum" Symposium
-    releaseDate: January 31, 2014.
+    releaseDate: 2014-01-31
   - name: Oral History in the Digital Age
     publisher: Poster at the SAA Research Forum
-    releaseDate: August 12, 2010
+    releaseDate: 2010-08-12
 ---
 
 <div class="[ h-resume ] [ stack ]" typeof="schema:Person">
@@ -143,7 +143,7 @@ publications:
       <div class="stack" property="schema:hasOccupation" typeof="schema:Occupation">
         <h3>
           <span class="p-name" property="schema:name">{{ position.position }}</span>
-          (<time class="dt-start" property="schema:startDate">{{ position.startDate }}</time>&ndash;<time class="dt-end" property="schema:endDate">{{ position.endDate }}</time>)
+          (<time class="dt-start" property="schema:startDate">{{ position.startDate | date({ year: 'numeric', month: 'long' }) }}</time>&ndash;<time class="dt-end" property="schema:endDate">{{ position.endDate | date({ year: 'numeric', month: 'long' }) }}</time>)
         </h3>
 
         <p class="p-location h-card">
@@ -171,7 +171,7 @@ publications:
       <div class="stack" property="schema:alumniOf" typeof="schema:CollegeOrUniversity">
         <h3>
           <span class="p-name">{{ degree.studyType }}</span>
-          (<time class="dt-end" property="schema:endDate">{{ degree.endDate }}</time>)
+          (<time class="dt-end" property="schema:endDate">{{ degree.endDate | date({ year: 'numeric', month: 'long' }) }}</time>)
         </h3>
 
         <p class="p-location h-card">
@@ -192,7 +192,7 @@ publications:
 
   {% for project in projects %}
     <h3>{{ project.name }} at {{ project.instutition }}</h3>
-    <p>{{ project.location }} ({{ project.startDate }}&ndash;{{ project.endDate }})</p>
+    <p>{{ project.location }} ({{ project.startDate | date({ year: 'numeric', month: 'long' }) }}&ndash;{{ project.endDate | date({ year: 'numeric', month: 'long' }) }})</p>
     <ul>
       {% for highlight in project.highlights %}
         <li>{{ highlight  }}</li>
@@ -205,7 +205,7 @@ publications:
   <ul>
     <li>Attended DrupalCon Portland 2013, Seattle 2019, Pittsburgh 2023, &amp; Drupal GovCon 2016&ndash;2019</li>
     {% for publication in publications %}
-      <li><em>{{ publication.name }}</em>: {{ publication.publisher }}, {{ publication.releaseDate }}.</li>
+      <li><em>{{ publication.name }}</em>: {{ publication.publisher }}, {{ publication.releaseDate | date({ year: 'numeric', month: 'long', day: 'numeric' }) }}.</li>
     {% endfor %}
   </ul>
 </div>
