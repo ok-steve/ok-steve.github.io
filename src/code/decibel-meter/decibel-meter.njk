@@ -4,15 +4,7 @@ description: A decibel meter.
 date: 2024-02-05
 ---
 
-{% set html %}
 <button id="toggle" aria-pressed="false">Start/Stop</button>
 
 <label for="db">Decibels</label>
 <meter id="db" min="0" low="0.25" high="0.75" max="1" />
-{% endset %}
-
-{% set js %}
-  {% include './decibel-meter.js' %}
-{% endset %}
-
-{% include "code-preview.njk" %}

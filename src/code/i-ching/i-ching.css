@@ -1,0 +1,33 @@
+/* ---------------------------------- *\
+   #BASE
+\* ---------------------------------- */
+
+.js .sidebar nav {
+  display: none;
+}
+
+/* ---------------------------------- *\
+   #UTILITIES
+\* ---------------------------------- */
+
+.ovy-auto {
+  overflow-y: auto;
+}
+
+/* ---------------------------------- *\
+   #BLOCKS
+\* ---------------------------------- */
+
+/**
+ * Hexagrams
+ */
+
+.hexagram {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+
+.hexagram > * {
+  margin-inline: auto;
+}

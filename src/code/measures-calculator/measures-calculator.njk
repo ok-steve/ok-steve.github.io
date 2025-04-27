@@ -4,7 +4,6 @@ description: Calculate measures based on time and tempo.
 date: 2022-06-21
 ---
 
-{% set html %}
 <form class="center stack">
   <div class="input">
     <label for="bpm">BPM</label>
@@ -23,14 +22,3 @@ date: 2022-06-21
 
   <output><span id="output"></span> measures</output>
 </form>
-{% endset %}
-
-{% set css %}
-  {% include './measures-calculator.css' %}
-{% endset %}
-
-{% set js %}
-  {% include './measures-calculator.js' %}
-{% endset %}
-
-{% include "code-preview.njk" %}

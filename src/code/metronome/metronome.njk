@@ -4,7 +4,6 @@ description: A metronome.
 date: 2024-02-02
 ---
 
-{% set html %}
 {% from "macros.njk" import range %}
 
 {% set defaultValues = {
@@ -16,10 +15,3 @@ date: 2024-02-02
 <form>
   {{ range('Tempo', defaultValues.tempo, min=30, max=300) }}
 </form>
-{% endset %}
-
-{% set js %}
-  {% include './metronome.js' %}
-{% endset %}
-
-{% include "code-preview.njk" %}
