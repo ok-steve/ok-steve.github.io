@@ -4,7 +4,6 @@ description: Manipulate audio files.
 date: 2022-06-23
 ---
 
-{% set html %}
 <form class="center">
   <div data-drop>
     <label for="upload" class="block">Upload</label>
@@ -51,14 +50,3 @@ date: 2022-06-23
 
   <button id="play-toggle">Play/Pause</button>
 </form>
-{% endset %}
-
-{% set css %}
-  {% include './playalong-helper.css' %}
-{% endset %}
-
-{% set js %}
-  {% include './playalong-helper.js' %}
-{% endset %}
-
-{% include "code-preview.njk" %}

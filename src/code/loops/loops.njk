@@ -4,7 +4,6 @@ description: Explore four chord loops.
 date: 2024-02-07
 ---
 
-{% set html %}
 {% from "macros.njk" import select %}
 
 {% set notes = [
@@ -71,14 +70,3 @@ date: 2024-02-07
     {% endif %}
   {% endfor %}
 </dl>
-{% endset %}
-
-{% set css %}
-  {% include './loops.css' %}
-{% endset %}
-
-{% set js %}
-  {% include './loops.js' %}
-{% endset %}
-
-{% include "code-preview.njk" %}

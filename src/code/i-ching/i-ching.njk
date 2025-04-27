@@ -198,13 +198,22 @@ hexagrams:
     character: 未濟
 ---
 
-{% set html %}
-<div class="o-shell">
-  <div class="o-shell__content">
-    <main class="o-router" role="main">
+<div class="center cover">
+  <div class="sidebar cover-centered">
+    <nav class="ovy-auto" role="navigation">
+      <ul>
+        {% for hexagram in hexagrams %}
+          <li>
+            <a href="#{{ hexagram.key }}">{{ hexagram.character }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <main role="main">
       {% for hexagram in hexagrams %}
-        <section id="{{ hexagram.key }}">
-          <a class="[ c-hexagram ] [ cover ]" href="https://en.wikipedia.org/wiki/List_of_hexagrams_of_the_I_Ching#Hexagram_{{ loop.index }}">
+        <section class="view" id="{{ hexagram.key }}">
+          <a class="hexagram" href="https://en.wikipedia.org/wiki/List_of_hexagrams_of_the_I_Ching#Hexagram_{{ loop.index }}">
             <span>{{ loop.index }}</span>
             <img src="{{ hexagram.image }}" alt="">
             <span>{{ hexagram.character }}</span>
@@ -214,27 +223,4 @@ hexagrams:
       {% endfor %}
     </main>
   </div>
-
-  <div class="o-shell__navigation">
-    <nav role="navigation">
-      <ul>
-        {% for hexagram in hexagrams %}
-          <li>
-            <a href="#{{ hexagram.key }}">{{ hexagram.character }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    </nav>
-  </div>
 </div>
-{% endset %}
-
-{% set css %}
-  {% include './i-ching.css' %}
-{% endset %}
-
-{% set js %}
-  {% include './i-ching.js' %}
-{% endset %}
-
-{% include "code-preview.njk" %}

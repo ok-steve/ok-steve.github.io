@@ -4,7 +4,6 @@ description: Generate a melody based on probabilities.
 date: 2022-06-22
 ---
 
-{% set html %}
 <div class="center">
   <output id="output" form="form"></output>
   <form id="form" class="stack">
@@ -102,14 +101,3 @@ date: 2022-06-22
     <button type="submit">Generate</button>
   </form>
 </div>
-{% endset %}
-
-{% set css %}
-  {% include './melody-generator.css' %}
-{% endset %}
-
-{% set js %}
-  {% include './melody-generator.js' %}
-{% endset %}
-
-{% include "code-preview.njk" %}

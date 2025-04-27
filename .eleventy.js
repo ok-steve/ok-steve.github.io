@@ -18,7 +18,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addBundle("css");
   eleventyConfig.addBundle("js");
 
-  eleventyConfig.addWatchTarget("./src/posts/**/*.{css,js}");
+  eleventyConfig.addWatchTarget("./src/code/**/*.{css,js}");
 
   return {
     markdownTemplateEngine: "njk",

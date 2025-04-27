@@ -4,7 +4,6 @@ description: Rory's story cubes.
 date: 2022-09-12
 ---
 
-{% set html %}
 <button>Roll</button>
 <ul>
   <li hidden>tree</li>
@@ -78,10 +77,3 @@ date: 2022-09-12
   <li hidden>sad face</li>
   <li hidden>question mark</li>
 </ul>
-{% endset %}
-
-{% set js %}
-  {% include './story-generator.js' %}
-{% endset %}
-
-{% include "code-preview.njk" %}
