@@ -15,6 +15,9 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./public");
   eleventyConfig.addPassthroughCopy("./src/*.{js,txt,xml}");
 
+  eleventyConfig.addBundle("css");
+  eleventyConfig.addBundle("js");
+
   eleventyConfig.addWatchTarget("./src/posts/**/*.{css,js}");
 
   return {
