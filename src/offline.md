@@ -1,5 +1,5 @@
 ---
-layout: error
+layout: error.njk
 title: Offline
 permalink: offline.html
 eleventyExcludeFromCollections: true
