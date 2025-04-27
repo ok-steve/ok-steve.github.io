@@ -1,5 +1,5 @@
 ---
-layout: front
+layout: front.njk
 title: About
 permalink: /
 ---
