@@ -3,7 +3,7 @@
   <head>
     {% include "head.njk" %}
   </head>
-  <body class="center cover" typeof="schema:WebPage">
+  <body class="center cover stack" typeof="schema:WebPage">
     <div class="cluster cluster-center">
       <header role="banner">
         <a href="/" rel="home" class="fz-3">{{ site.name }}</a>
@@ -14,7 +14,7 @@
       {% endif %}
     </div>
 
-    <main class="[ cover-centered stack ] [ fx-auto ]" role="main">
+    <main class="cover-start stack" role="main">
       {{ content | safe }}
     </main>
 
