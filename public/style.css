@@ -45,7 +45,7 @@ iframe {
  */
 
 .center {
-  --center-space: var(--size-2);
+  --center-space: var(--size--2);
 }
 
 /**
