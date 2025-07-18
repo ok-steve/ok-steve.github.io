@@ -3,18 +3,14 @@
 \* ---------------------------------- */
 
 :root {
-  --color-text: #030507;
+  --color-ink: #030507;
   --color-primary: #40c057;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-text: #fff;
+    --color-ink: #fff;
   }
-}
-
-html {
-  color: var(--color-text);
 }
 
 a {
@@ -65,67 +61,6 @@ iframe {
  * Stack
  */
 
-.stack > [aria-hidden="true"]:first-child + * {
+.stack > :is([hidden], [aria-hidden="true"]):first-child + * {
   margin-block-start: 0;
-}
-
-/* ---------------------------------- *\
-   #BLOCKS
-\* ---------------------------------- */
-
-/**
- * Text
- */
-
-.text hr {
-  clear: both;
-}
-
-/* Overhanging lists, module needs padding to display list-style-type */
-.text ul,
-.text ol {
-  padding-left: 0;
-}
-
-.text ul ul,
-.text ol ul,
-.text ul ol,
-.text ol ol {
-  padding-left: 40px; /* Browser default */
-}
-
-/**
- * Hang numbers.
- */
-
-.text ol > li::marker {
-  font-feature-settings: "kern" 0, "tnum" 1, "onum" 1, "liga" 1;
-}
-
-/* Lead paragraph */
-.text > p:first-child {
-  font-size: 1.2em;
-  line-height: 1.8;
-}
-
-/* Drop caps, placed on lead paragraph */
-.text > p:first-child::first-letter {
-  float: left;
-  font-size: 3.1em;
-  line-height: 0.9;
-  padding-right: 0.1em;
-  padding-top: 0.1em;
-}
-
-/* Run-ins */
-.text h3 + p::first-line {
-  font-size: 1.2em;
-  font-feature-settings: "onum", "smcp", "c2sc" 0;
-}
-
-@supports (font-variant: small-caps) {
-  .text h3 + p::first-line {
-    font-feature-settings: "c2sc";
-    font-variant: small-caps;
-  }
 }

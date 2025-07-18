@@ -2,10 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content="{{ eleventy.generator }}" />
-    <title>{{ title or site.name }} | {{ site.name }}</title>
+    <meta name="viewport" content="width=device-width" />
+    <title>Page Not Found | Steve Cherry</title>
     <style>
       * {
         box-sizing: border-box;
@@ -49,9 +47,9 @@
     </style>
   </head>
   <body>
-    <h1>{{ title or site.name }}</h1>
+    <h1>Page Not Found</h1>
 
-    {{ content | safe }}
+    <p>Sorry, but the page you were trying to view does not exist.</p>
   </body>
 </html>
 <!-- IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx -->

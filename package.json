@@ -6,19 +6,13 @@
   "description": "The online home of Steve Cherry.",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf dist",
-    "build": "eleventy",
-    "preview": "eleventy --watch --incremental --ignore-initial",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "eleventy --serve --incremental --ignore-initial"
+    "start": "live-server"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ok-steve/ok-steve.github.io.git"
   },
-  "keywords": [
-    "eleventy"
-  ],
   "author": {
     "name": "Steve Cherry",
     "email": "steve@stevecherry.net",
@@ -30,8 +24,6 @@
   },
   "homepage": "https://github.com/ok-steve/ok-steve.github.io#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^3.0.0",
-    "@11ty/eleventy-plugin-rss": "^1.2.0",
-    "rimraf": "^6.0.1"
+    "live-server": "^1.2.2"
   }
 }
