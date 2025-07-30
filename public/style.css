@@ -64,3 +64,30 @@ iframe {
 .stack > :is([hidden], [aria-hidden="true"]):first-child + * {
   margin-block-start: 0;
 }
+
+/* ---------------------------------- *\
+   #BLOCKS
+\* ---------------------------------- */
+
+/**
+ * Text
+ */
+
+.text {
+  text-wrap: pretty;
+}
+
+.text hr {
+  clear: both;
+}
+
+/* Overhanging lists, module needs padding to display list-style-type */
+.text > ul,
+.text > ol {
+  padding-left: 0;
+}
+
+/* Hang numbers */
+.text ol > li::marker {
+  font-variant-numeric: oldstyle-nums tabular-nums;
+}
