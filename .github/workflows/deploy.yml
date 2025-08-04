@@ -30,7 +30,7 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - 20
+          - 22
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -46,12 +46,6 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v3
-
-      - name: Cache assets
-        uses: actions/cache@v3
-        with:
-          path: .cache
-          key: ${{ runner.os }}-cache-assets
 
       - name: Install dependencies
         run: npm ci

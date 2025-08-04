@@ -1,0 +1,28 @@
+---
+import CommonHead from "../components/CommonHead.astro";
+import SocialIcons from "../components/SocialIcons.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts.ts";
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <CommonHead title={title} description={description} />
+  </head>
+  <body class="center cover stack" typeof="schema:WebPage">
+    <header role="banner">
+      <a href="/" rel="home" class="fz-3">{SITE_TITLE}</a>
+    </header>
+
+    <main class="cover-start stack" role="main">
+      <slot />
+    </main>
+
+    <footer class="[ cluster cluster-center ] [ pb-0 ]" role="contentinfo">
+      <p>{SITE_DESCRIPTION}</p>
+      <SocialIcons />
+    </footer>
+  </body>
+</html>

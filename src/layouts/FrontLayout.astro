@@ -1,0 +1,13 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <h1 hidden aria-hidden="false" property="schema:name">{title}</h1>
+
+  <div class="[ text ] [ stack ]" property="schema:mainContentOfPage">
+    <slot />
+  </div>
+</BaseLayout>
