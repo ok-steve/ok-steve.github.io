@@ -3,18 +3,24 @@
 \* ---------------------------------- */
 
 :root {
-  --color-text: #030507;
-  --color-primary: #40c057;
-}
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+  --font-serif: "IBM Plex Serif", ui-serif, Georgia, Cambria, "Times New Roman",
+    Times, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Monaco, "Cascadia Mono",
+    "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace",
+    "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  --font-text: var(--font-serif);
+  --font-display: var(--font-sans);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-text: #fff;
-  }
+  --color-paper: oklch(0.8939 0.0464 103.26);
+  --color-ink: #000;
+  --color-primary: oklch(0.5659 0.2087 32.46);
 }
 
 html {
-  color: var(--color-text);
+  font-size: clamp(var(--size-0), var(--size--1) + 0.5vw, var(--size-2));
 }
 
 a {
@@ -46,6 +52,7 @@ iframe {
 
 .center {
   --center-space: var(--size--2);
+  --center-size: 80rem;
 }
 
 /**
@@ -65,7 +72,7 @@ iframe {
  * Stack
  */
 
-.stack > [aria-hidden="true"]:first-child + * {
+.stack > [hidden]:first-child + * {
   margin-block-start: 0;
 }
 
@@ -77,21 +84,17 @@ iframe {
  * Text
  */
 
+.text {
+  text-wrap: pretty;
+}
+
 .text hr {
   clear: both;
 }
 
 /* Overhanging lists, module needs padding to display list-style-type */
-.text ul,
-.text ol {
+.text > :where(ul, ol) {
   padding-left: 0;
-}
-
-.text ul ul,
-.text ol ul,
-.text ul ol,
-.text ol ol {
-  padding-left: 40px; /* Browser default */
 }
 
 /**
@@ -99,33 +102,17 @@ iframe {
  */
 
 .text ol > li::marker {
-  font-feature-settings: "kern" 0, "tnum" 1, "onum" 1, "liga" 1;
+  font-variant-numeric: oldstyle-nums tabular-nums;
 }
 
-/* Lead paragraph */
-.text > p:first-child {
-  font-size: 1.2em;
-  line-height: 1.8;
-}
+/**
+* Banner
+*/
 
-/* Drop caps, placed on lead paragraph */
-.text > p:first-child::first-letter {
-  float: left;
-  font-size: 3.1em;
-  line-height: 0.9;
-  padding-right: 0.1em;
-  padding-top: 0.1em;
-}
-
-/* Run-ins */
-.text h3 + p::first-line {
-  font-size: 1.2em;
-  font-feature-settings: "onum", "smcp", "c2sc" 0;
-}
-
-@supports (font-variant: small-caps) {
-  .text h3 + p::first-line {
-    font-feature-settings: "c2sc";
-    font-variant: small-caps;
-  }
+[role="banner"] a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-variation-settings: "wdth" 75;
 }
