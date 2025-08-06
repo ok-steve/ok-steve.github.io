@@ -51,8 +51,8 @@ iframe {
  */
 
 .center {
-  --center-space: var(--size--2);
-  --center-size: 80rem;
+  --center-space: 1lh;
+  --center-size: 60em;
 }
 
 /**
