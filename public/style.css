@@ -51,8 +51,8 @@ iframe {
  */
 
 .center {
-  --center-space: 1lh;
-  --center-size: 60em;
+  /* Make the size of a 4 column grid if the measure was 3 columns. */
+  --center-size: calc(var(--measure) / 3 * 4 + 3rlh);
 }
 
 /**
@@ -60,7 +60,7 @@ iframe {
  */
 
 .cluster {
-  --cluster-space: var(--size-0);
+  --cluster-space: var(--space--1);
 }
 
 .cluster-center {
@@ -72,7 +72,7 @@ iframe {
  * Stack
  */
 
-.stack > [hidden]:first-child + * {
+.stack > [hidden] + * {
   margin-block-start: 0;
 }
 
