@@ -3,9 +3,9 @@
 \* ---------------------------------- */
 
 :root {
-  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
-    "Open Sans", "Helvetica Neue", sans-serif;
+  --font-sans: "IBM Plex Sans", Bahnschrift, "DIN Alternate",
+    "Franklin Gothic Medium", "Nimbus Sans Narrow", sans-serif-condensed,
+    sans-serif;
   --font-serif: "IBM Plex Serif", ui-serif, Georgia, Cambria, "Times New Roman",
     Times, serif;
   --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Monaco, "Cascadia Mono",
@@ -58,10 +58,6 @@ iframe {
 /**
  * Cluster
  */
-
-.cluster {
-  --cluster-space: var(--space--1);
-}
 
 .cluster-center {
   --cluster-align: center;

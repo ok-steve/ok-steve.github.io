@@ -11,7 +11,7 @@ const { title, description } = Astro.props;
   <head>
     <CommonHead title={title} description={description} />
   </head>
-  <body class="center cover stack" typeof="schema:WebPage">
+  <body class="[ center cover ] [ py--1 ]" typeof="schema:WebPage">
     <header role="banner">
       <a href="/" rel="home" class="fz-6 ff-display">{SITE_TITLE}</a>
     </header>
@@ -20,7 +20,7 @@ const { title, description } = Astro.props;
       <slot />
     </main>
 
-    <footer class="[ cluster cluster-center ] [ pb-0 ]" role="contentinfo">
+    <footer class="cluster cluster-center" role="contentinfo">
       <p>{SITE_DESCRIPTION}</p>
       <SocialIcons />
     </footer>
