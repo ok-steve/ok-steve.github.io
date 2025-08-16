@@ -47,15 +47,6 @@ iframe {
 \* ---------------------------------- */
 
 /**
- * Center
- */
-
-.center {
-  /* Make the size of a 4 column grid if the measure was 3 columns. */
-  --center-size: calc(var(--measure) / 3 * 4 + 3rlh);
-}
-
-/**
  * Cluster
  */
 
