@@ -54,7 +54,7 @@ iframe {
  * Stack
  */
 
-.stack>[hidden]+* {
+.stack > [hidden] + * {
   margin-block-start: 0;
 }
 
@@ -75,7 +75,7 @@ iframe {
 }
 
 /* Overhanging lists, module needs padding to display list-style-type */
-.text> :where(ul, ol) {
+.text > :where(ul, ol) {
   padding-left: 0;
 }
 
@@ -88,8 +88,8 @@ iframe {
 }
 
 /**
-* Banner
-*/
+ * Banner
+ */
 
 [role="banner"] a {
   text-decoration: none;
