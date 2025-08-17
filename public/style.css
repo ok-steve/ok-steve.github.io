@@ -3,14 +3,9 @@
 \* ---------------------------------- */
 
 :root {
-  --font-sans: "IBM Plex Sans", Bahnschrift, "DIN Alternate",
-    "Franklin Gothic Medium", "Nimbus Sans Narrow", sans-serif-condensed,
-    sans-serif;
-  --font-serif: "IBM Plex Serif", ui-serif, Georgia, Cambria, "Times New Roman",
-    Times, serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Monaco, "Cascadia Mono",
-    "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace",
-    "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  --font-sans: Bahnschrift, "DIN Alternate", "Franklin Gothic Medium",
+    "Nimbus Sans Narrow", sans-serif-condensed, sans-serif;
+  --font-serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
   --font-text: var(--font-serif);
   --font-display: var(--font-sans);
 
@@ -59,7 +54,7 @@ iframe {
  * Stack
  */
 
-.stack > [hidden] + * {
+.stack>[hidden]+* {
   margin-block-start: 0;
 }
 
@@ -80,7 +75,7 @@ iframe {
 }
 
 /* Overhanging lists, module needs padding to display list-style-type */
-.text > :where(ul, ol) {
+.text> :where(ul, ol) {
   padding-left: 0;
 }
 
@@ -88,7 +83,7 @@ iframe {
  * Hang numbers.
  */
 
-.text ol > li::marker {
+.text ol>li::marker {
   font-variant-numeric: oldstyle-nums tabular-nums;
 }
 
