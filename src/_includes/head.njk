@@ -41,11 +41,3 @@
 ></script>
 <script src="/public/script.js" type="module"></script>
 <script src="{% getBundleFileUrl 'js' %}" type="module"></script>
-
-<script defer>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('{{ '/sw.js' | htmlBaseUrl }}', {
-      scope: '{{ '/' | htmlBaseUrl }}',
-    });
-  }
-</script>
