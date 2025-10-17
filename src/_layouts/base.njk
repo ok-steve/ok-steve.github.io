@@ -3,10 +3,10 @@
   <head>
     {% include "head.njk" %}
   </head>
-  <body class="center cover stack" typeof="schema:WebPage">
+  <body class="[ center cover ] [ py--1 ]" typeof="schema:WebPage">
     <div class="cluster cluster-center">
       <header role="banner">
-        <a href="/" rel="home" class="fz-3">{{ site.name }}</a>
+        <a href="/" rel="home" class="fz-6 ff-display">{{ site.name }}</a>
       </header>
 
       {% if site.env == 'development' %}
@@ -18,7 +18,7 @@
       {{ content | safe }}
     </main>
 
-    <footer class="[ cluster cluster-center ] [ pb-0 ]" role="contentinfo">
+    <footer class="cluster cluster-center" role="contentinfo">
       <p>{{ pkg.description }}</p>
       {% include "social-icons.njk" %}
     </footer>

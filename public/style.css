@@ -3,18 +3,20 @@
 \* ---------------------------------- */
 
 :root {
-  --color-text: #030507;
-  --color-primary: #40c057;
-}
+  --font-sans: Bahnschrift, "DIN Condensed", "DIN Alternate",
+    "Franklin Gothic Medium", "Nimbus Sans Narrow", sans-serif-condensed,
+    sans-serif;
+  --font-serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
+  --font-text: var(--font-serif);
+  --font-display: var(--font-sans);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-text: #fff;
-  }
+  --color-paper: oklch(0.8939 0.0464 103.26);
+  --color-ink: #000;
+  --color-primary: oklch(0.5659 0.2087 32.46);
 }
 
 html {
-  color: var(--color-text);
+  font-size: clamp(var(--size-0), var(--size--1) + 0.5vw, var(--size-2));
 }
 
 a {
@@ -41,20 +43,8 @@ iframe {
 \* ---------------------------------- */
 
 /**
- * Center
- */
-
-.center {
-  --center-space: var(--size--2);
-}
-
-/**
  * Cluster
  */
-
-.cluster {
-  --cluster-space: var(--size-0);
-}
 
 .cluster-center {
   --cluster-align: center;
@@ -65,13 +55,25 @@ iframe {
  * Stack
  */
 
-.stack > [aria-hidden="true"]:first-child + * {
+.stack > [hidden] + * {
   margin-block-start: 0;
 }
 
 /* ---------------------------------- *\
    #BLOCKS
 \* ---------------------------------- */
+
+/**
+ * Banner
+ */
+
+[role="banner"] a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-variation-settings: "wdth" 75;
+}
 
 /**
  * Text
@@ -82,16 +84,9 @@ iframe {
 }
 
 /* Overhanging lists, module needs padding to display list-style-type */
-.text ul,
-.text ol {
+.text > ul,
+.text > ol {
   padding-left: 0;
-}
-
-.text ul ul,
-.text ol ul,
-.text ul ol,
-.text ol ol {
-  padding-left: 40px; /* Browser default */
 }
 
 /**
@@ -99,7 +94,7 @@ iframe {
  */
 
 .text ol > li::marker {
-  font-feature-settings: "kern" 0, "tnum" 1, "onum" 1, "liga" 1;
+  font-variant-numeric: oldstyle-nums tabular-nums;
 }
 
 /* Lead paragraph */
@@ -120,12 +115,5 @@ iframe {
 /* Run-ins */
 .text h3 + p::first-line {
   font-size: 1.2em;
-  font-feature-settings: "onum", "smcp", "c2sc" 0;
-}
-
-@supports (font-variant: small-caps) {
-  .text h3 + p::first-line {
-    font-feature-settings: "c2sc";
-    font-variant: small-caps;
-  }
+  font-variant-caps: small-caps;
 }
