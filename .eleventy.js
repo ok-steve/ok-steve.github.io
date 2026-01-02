@@ -12,8 +12,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(libraries);
 
   eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
-  eleventyConfig.addPassthroughCopy("./public");
-  eleventyConfig.addPassthroughCopy("./src/*.{js,txt,xml}");
+  eleventyConfig.addPassthroughCopy({ "./public": "." });
 
   eleventyConfig.addBundle("css");
   eleventyConfig.addBundle("js");
