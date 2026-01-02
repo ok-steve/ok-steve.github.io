@@ -1,6 +1,6 @@
 ---
 layout: front.njk
-title: About
+title: Home
 permalink: /
 ---
 
