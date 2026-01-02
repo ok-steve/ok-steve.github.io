@@ -10,10 +10,10 @@
   content="{{ description | default(content, true) | default(pkg.description, true) | striptags | truncate(160) }}"
 />
 
-<link rel="icon" href="/public/img/favicon.ico" sizes="32x32" />
-<link rel="icon" href="/public/img/icon.svg" type="image/svg+xml" />
-<link rel="apple-touch-icon" href="/public/img/apple-touch-icon.png" />
-<link rel="apple-touch-startup-image" href="/public/img/icon-512.png" />
+<link rel="icon" href="/img/favicon.ico" sizes="32x32" />
+<link rel="icon" href="/img/icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+<link rel="apple-touch-startup-image" href="/img/icon-512.png" />
 <meta name="apple-mobile-web-app-title" content="{{ site.name }}" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -27,7 +27,7 @@
   rel="stylesheet"
   href="{{ pkg.author.url }}/normcore/css/normcore.css"
 />
-<link rel="stylesheet" href="/public/style.css" media="screen" />
+<link rel="stylesheet" href="/style.css" media="screen" />
 
 <script
   src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@7.3.0/dist/turbo.es2017-umd.js"
