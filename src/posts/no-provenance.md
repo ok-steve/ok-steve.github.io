@@ -18,7 +18,7 @@ I assume you go to concerts, but why? Is it just something to do? Do you go with
 
 Studio albums allow musicians to carefully craft pieces because of the easily manipulability of the recording medium they use. "With the ability to manipulate sound through through such technology \[magnetic tape and digital recording\], musicians have been able to transcend time, space, and human limitations, and in the process have created wholly new sounds, works, genres, and performance traditions" ([Katz 2010](https://mirlyn.lib.umich.edu/Record/009092508), p. 47). Earlier recordings that were cut onto wax cylinders or discs were virtually impossible to meaningfully alter and as such truly were "records" of the way actual musicians played. As modern studio recordings allow musicians to fine tune their music until it reaches their ideal conception of how a song should sound they simultaneously mask the musicians' innate artistry. Did they really play that awesome effect or was it a ProTools plugin? If we do not preserve live recordings will we ever be able to tell?
 
-![Picture of and early recording studio with recording horn in the center](/public/img/uploads/recording-horn.jpg)
+![Picture of and early recording studio with recording horn in the center](/public/uploads/recording-horn.jpg)
 
 Recordings of concerts should be collected along with more "definitive" studio recordings. This may be difficult since concerts are ephemeral and live recordings can potentially vastly outnumber studio recordings. Fortunately there is already a community of fans who tape and trade concerts. Perhaps even more fortunately this community follows several practices that line up nicely with archival and digital preservation best practices. Still trained music and audio archivists, especially those dealing with popular music, can play a role in supporting this community by facilitating perpetual access to these recordings while also enhancing their own collections.
 
@@ -34,7 +34,7 @@ Throughout the rest of this series I shall discuss in greater detail what we can
 
 Albums may reflect an artist's ideal intentions, but they only reflect one perspective. Through "studio magic" musicians can make any sound in any sequence. However, the technologies available for live performance have different [affordances](https://en.wikipedia.org/wiki/Affordance), significantly the necessity that they be operated in real time. In addition to technology performing live differs from studio recording in that concerts are performed in front of fans that artists can see and with whom they can interact.
 
-To demonstrate how the different contexts of studio recording and live performance can affect the performance of the same song we can examine the song _Imitosis_ by Andrew Bird. _Imitosis_ appears on Bird's album _Armchair Apochrypha_ which was released on 3/20/2007. Andrew Bird is a "trade friendly" artist and recordings of many of his concerts are available at the [Internet Archive](https://www.archive.org/details/AndrewBird). I have compiled every live recording I could find as well as a YouTube video of the studio version for comparison.
+To demonstrate how the different contexts of studio recording and live performance can affect the performance of the same song we can examine the song _Imitosis_ by Andrew Bird. _Imitosis_ appears on Bird's album _Armchair Apochrypha_ which was released on 3/20/2007. Andrew Bird is a "trade friendly" artist and recordings of many of his concerts are available at the [Internet Archive](https://archive.org/details/AndrewBird). I have compiled every live recording I could find as well as a YouTube video of the studio version for comparison.
 
 ### Imitosis
 
@@ -42,43 +42,43 @@ To demonstrate how the different contexts of studio recording and live performan
 
 11/24/2006
 
-<audio controls src="https://www.archive.org/download/abird2006-11-24.flac8/abird2006-11-24-d1t07_vbr.mp3"></audio>
+<audio controls src="https://archive.org/download/abird2006-11-24.flac8/abird2006-11-24-d1t07.mp3"></audio>
 
 11/25/2006
 
-<audio controls src="https://www.archive.org/download/abird2006-11-25.flac8/abird2006-11-25-d1t06_vbr.mp3"></audio>
+<audio controls src="https://archive.org/download/abird2006-11-25.flac8/abird2006-11-25-d1t06.mp3"></audio>
 
 1/15/2007
 
-<audio controls src="https://www.archive.org/download/abird2007-01-15.Audixf15.flac16/Abird2007-01-15d1t03_vbr.mp3"></audio>
+<audio controls src="https://archive.org/download/abird2007-01-15.Audixf15.flac16/Abird2007-01-15d1t03.mp3"></audio>
 
 3/21/2007 (Day after the album was released)
 
-<audio controls src="https://www.archive.org/download/abird2007-03-21.flac16/abird2007-03-21t03_vbr.mp3"></audio>
+<audio controls src="https://archive.org/download/abird2007-03-21.flac16/abird2007-03-21t03.mp3"></audio>
 
 3/29/2007
 
-<audio controls src="https://www.archive.org/download/abird2007-03-29.fm/abird-2007-03-29_t03_vbr.mp3"></audio>
+<audio controls src="https://archive.org/download/abird2007-03-29.fm/abird-2007-03-29_t03.mp3"></audio>
 
 4/16/2007
 
-<audio controls src="https://www.archive.org/download/abird2007-04-16.cmc4.flacf/abird2007-04-16t02-imitosis_vbr.mp3"></audio>
+<audio controls src="https://archive.org/download/abird2007-04-16.cmc4.flacf/abird2007-04-16t02-imitosis.mp3"></audio>
 
 4/30/2007
 
-<audio controls src="https://www.archive.org/download/abird2007-04-30.dpa4061.flac16/abird2007-04-30t02_vbr.mp3"></audio>
+<audio controls src="https://archive.org/download/abird2007-04-30.dpa4061.flac16/abird2007-04-30t02.mp3"></audio>
 
 5/4/2007
 
-<audio controls src="https://www.archive.org/download/abird2007-05-04.aud/abird2007-05-04-d1t02_vbr.mp3"></audio>
+<audio controls src="https://archive.org/download/abird2007-05-04.aud/abird2007-05-04-d1t02.mp3"></audio>
 
 5/30/2007
 
-<audio controls src="https://www.archive.org/download/A.Bird2007-05-30.Coimbra.AT943/AB2007-05-30d1t05_vbr.mp3"></audio>
+<audio controls src="https://archive.org/download/A.Bird2007-05-30.Coimbra.AT943/AB2007-05-30d1t05.mp3"></audio>
 
 11/3/2007
 
-<audio controls src="https://www.archive.org/download/abird2007-11-03.flac16/abird_2007_11_03t10_vbr.mp3"></audio>
+<audio controls src="https://archive.org/download/abird2007-11-03.flac16/abird_2007_11_03t10.mp3"></audio>
 
 Here are some of the differences I noticed:
 
@@ -107,7 +107,7 @@ Without live recordings it would be much harder to trace the progression of _I/I
 
 9/12/2001
 
-<audio controls src="https://www.archive.org/download/bof2001-09-12.shnf/bof2001-09-12t09_vbr.mp3"></audio>
+<audio controls src="https://archive.org/download/bof2001-09-12.shnf/bof2001-09-12t09.mp3"></audio>
 
 ## What makes taping possible?
 
@@ -126,7 +126,7 @@ Before the internet communication about which artist were friendly to taping and
 
 On the internet it is much easier to officially document which artists allow taping and which do not. Sites like [etree.org](https://etree.org) maintain [lists of "trade-friendly" artists](https://wiki.etree.org/index.php?page=TradeFriendly) which are publicly available and often contain actual email responses from artists giving permission (or not) to tape concerts. Making these permissions publicly available is a much more efficient and accurate means of communication than word-of-mouth since a single message from the artist can be communicated once to any potential taper.
 
-![Permission to tape from Andrew Bird](/public/img/uploads/bird-taping-permission.jpg)
+![Permission to tape from Andrew Bird](/public/uploads/bird-taping-permission.jpg)
 
 It should be noted that taping and trading is not the same thing as bootlegging ([Marshall 2003](https://journals.cambridge.org/action/displayAbstract?fromPage=online&aid=143373), p. 59). While these activities may share many similar practices, taping and trading is rigorously non-commercial and law abiding. Bootlegging, on the other hand, is usually associated with illegal (ie. unauthorized) sales of live or previously unreleased studio recordings.
 
@@ -140,7 +140,7 @@ As technology progressed from reel-to-reel to cassettes to digital audio tapes (
 
 Along with being non-commercial, the taping and trading community has a strong ethic of reciprocity ([Schultz 2006](https://btlj.org/2006/06/07/volume-21-issue-2-spring-2006), p. 656). Fans just want to spread the music that they love. Before the internet making and mailing new tapes was a significant undertaking of time and resources and freeloading could be a significant drain on those resources which could lead to tapers being lessing willing to trade the recordings they make. Online freeloading is less of a problem because fans can upload a recording once for everyone, thus significantly reducing the [marginal cost](https://en.wikipedia.org/wiki/Marginal_cost) of distribution. Nevertheless distribution does require bandwidth and so reciprocity is still sometimes enforced.
 
-![Sharing ratio policy for jamtothis.com showing the required GB one must upload based on what one has downloaded as well as the required percentage of uploading to downloading](/public/img/uploads/sharing-ratio.jpg)
+![Sharing ratio policy for jamtothis.com showing the required GB one must upload based on what one has downloaded as well as the required percentage of uploading to downloading](/public/uploads/sharing-ratio.jpg)
 
 In addition to automated means of enforcing reciprocity, online forums can maintain social pressure to follow community standards. There are several statuses within the trading community: "taper, site operator, good trader, bad trader , and newbie" ([Nieckarz 2005](https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6040.2005.00145.x/abstract), p. 409). When someone is a "bad trader" they can be shamed publicly on a forum.
 
@@ -155,7 +155,7 @@ Seeking and publicly displaying permissions from artists, the availability of pe
 
 As the following screenshot of a BitTorrent download from [etree.org](https://etree.org) demonstrates, the practices of the taping and trading community align well with several archival and digital preservation best practices despite a strong likelihood that most tapers are not trained archivists.
 
-![Metadata from bt.etree.org download](/public/img/uploads/metadata.jpg)
+![Metadata from bt.etree.org download](/public/uploads/metadata.jpg)
 
 ### Open and lossless codecs
 
@@ -179,11 +179,11 @@ Tapers create basic descriptive and technical metadata for each recording. Altho
 
 This series has been a brief introduction to the concert taping and trading community. Even though most of the current tools are digital and editing would be easy, the ethic of the taping community is to preserve concerts as they happened. These recordings transform the music into an experience. Crowd noise is not edited out of the mix so one can get as close as possible to being at the concert without actually going.
 
-Because the taping community preserves an important and otherwise unrecorded part of current musical life, archivists should find was of connecting with this community and supporting it. This might be easier than collecting other kinds of materials because archivists and tapers have many of the same goals and practices, such as free access to recordings and the use of lossless formats. Archivists could provide a number of useful services to the community. They could provide a permanent repository for recordings [like the Internet Archive does](https://www.archive.org/details/etree) so that the availability of recordings does not depend on one individual or a group of BitTorrent seeders. Also archivists could provide guidance on best practices for metadata which could help users discover new music.
+Because the taping community preserves an important and otherwise unrecorded part of current musical life, archivists should find was of connecting with this community and supporting it. This might be easier than collecting other kinds of materials because archivists and tapers have many of the same goals and practices, such as free access to recordings and the use of lossless formats. Archivists could provide a number of useful services to the community. They could provide a permanent repository for recordings [like the Internet Archive does](https://archive.org/details/etree) so that the availability of recordings does not depend on one individual or a group of BitTorrent seeders. Also archivists could provide guidance on best practices for metadata which could help users discover new music.
 
 ## Sources
 
-- [Andrew Bird. _Live Music Archive_. Retrieved 4/25/2011](https://www.archive.org/details/AndrewBird).
+- [Andrew Bird. _Live Music Archive_. Retrieved 4/25/2011](https://archive.org/details/AndrewBird).
 - [Brett. (2009). NEW Sharing Ratio Policy - Effective 02.01.09. _JamToThis_. Retrieved 4/25/2011](https://www.jamtothis.com/showthread.php?t=3117).
 - [Copyright Act of 1976, 17 U.S.C. § 101 (1976)](https://www.copyright.gov/title17/92chap1.html#101).
 - [Katz, M. (2010). _Capturing sound: how technology has changed music_. Rev. ed. Berkeley: University of California Press](https://mirlyn.lib.umich.edu/Record/009092508).
