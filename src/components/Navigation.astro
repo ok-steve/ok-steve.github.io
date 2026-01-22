@@ -1,0 +1,21 @@
+---
+import { getContent, capitalize, slugify } from "../utils";
+
+const posts = await getContent("posts");
+
+const tags = Array.from(
+  new Set(posts.map((post: any) => post.data.tags).flat()),
+).sort();
+---
+
+<nav role="navigation">
+  <ul class="cluster" role="list">
+    {
+      tags.map((tag) => (
+        <li>
+          <a href={`/tags/${slugify(tag)}/`}>{capitalize(tag)}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

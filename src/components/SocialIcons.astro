@@ -1,0 +1,40 @@
+---
+const links = [
+  ...(import.meta.env.DEV
+    ? [
+        {
+          url: "/feed.xml",
+          title: "RSS",
+          icon: "rss",
+        },
+      ]
+    : []),
+  {
+    url: "mailto:steve@stevecherry.net",
+    title: "Email",
+    icon: "email",
+  },
+  {
+    url: "https://github.com/ok-steve",
+    title: "GitHub",
+    icon: "github",
+  },
+];
+---
+
+<ul class="cluster" role="list">
+  {
+    links.map(({ url, title, icon }) => (
+      <li>
+        <a class="fz-3" href={url}>
+          <img
+            src={`/img/icon/${icon}.svg`}
+            alt={title}
+            width="24"
+            height="24"
+          />
+        </a>
+      </li>
+    ))
+  }
+</ul>

@@ -3,9 +3,9 @@
 \* ---------------------------------- */
 
 :root {
-  --font-sans: Bahnschrift, "DIN Condensed", "DIN Alternate",
-    "Franklin Gothic Medium", "Nimbus Sans Narrow", sans-serif-condensed,
-    sans-serif;
+  --font-sans:
+    Bahnschrift, "DIN Condensed", "DIN Alternate", "Franklin Gothic Medium",
+    "Nimbus Sans Narrow", sans-serif-condensed, sans-serif;
   --font-serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
   --font-text: var(--font-serif);
   --font-display: var(--font-sans);
@@ -99,17 +99,16 @@ iframe {
 
 /* Lead paragraph */
 .text > p:first-child {
-  font-size: 1.2em;
-  line-height: 1.8;
+  font-size: var(--size-1);
+  line-height: 1.5;
 }
 
 /* Drop caps, placed on lead paragraph */
 .text > p:first-child::first-letter {
   float: left;
-  font-size: 3.1em;
-  line-height: 0.9;
-  padding-right: 0.1em;
-  padding-top: 0.1em;
+  font-size: 2lh;
+  line-height: 1;
+  padding-inline-end: 0.25ch;
 }
 
 /* Run-ins */

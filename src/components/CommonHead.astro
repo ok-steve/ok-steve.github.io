@@ -1,0 +1,30 @@
+---
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+import { site } from "../config";
+
+const { title, description } = Astro.props;
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="generator" content={Astro.generator} />
+
+<title>{title} | {site.name}</title>
+
+<meta name="description" content={description} />
+
+<link rel="icon" href="/img/favicon.ico" sizes="32x32" />
+<link rel="icon" href="/img/icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+<link rel="manifest" href="/manifest.webmanifest" />
+
+<link rel="canonical" href={canonicalURL} />
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title={site.name}
+  href="/feed.xml"
+/>
+
+<link rel="stylesheet" href={`${Astro.site}normcore/css/normcore.css`} />
+<link rel="stylesheet" href="/style.css" media="screen" />

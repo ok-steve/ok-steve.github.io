@@ -1,0 +1,22 @@
+{
+  "name": "Steve Cherry",
+  "short_name": "Steve Cherry",
+  "description": "The online home of Steve Cherry.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "minimal-ui",
+  "icons": [
+    {
+      "src": "/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#d52b06",
+  "background_color": "#e1debb"
+}

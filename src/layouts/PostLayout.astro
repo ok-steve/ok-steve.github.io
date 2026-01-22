@@ -1,0 +1,22 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout {...frontmatter}>
+  <article class="stack" typeof="schema:BlogPosting">
+    <header>
+      <h1 property="schema:name">{frontmatter.title}</h1>
+      <p>
+        <time datetime={frontmatter.pubDate.toISOString()}
+          >{frontmatter.pubDate.toLocaleDateString("en-US")}</time
+        >
+      </p>
+    </header>
+
+    <div class="[ text ] [ stack ]">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
