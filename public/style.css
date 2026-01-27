@@ -86,29 +86,12 @@ iframe {
 /* Overhanging lists, module needs padding to display list-style-type */
 .text > ul,
 .text > ol {
-  padding-left: 0;
-}
-
-/**
- * Hang numbers.
- */
-
-.text ol > li::marker {
-  font-variant-numeric: oldstyle-nums tabular-nums;
+  padding-inline-start: 0;
 }
 
 /* Lead paragraph */
 .text > p:first-child {
-  font-size: var(--size-1);
-  line-height: 1.5;
-}
-
-/* Drop caps, placed on lead paragraph */
-.text > p:first-child::first-letter {
-  float: left;
-  font-size: 2lh;
-  line-height: 1;
-  padding-inline-end: 0.25ch;
+  font-size: var(--size-2);
 }
 
 /* Run-ins */
