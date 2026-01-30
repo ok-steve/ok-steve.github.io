@@ -1,0 +1,28 @@
+---
+const { text } = Astro.props;
+---
+
+<span aria-hidden="false" hidden>{text}</span>
+
+<span class="[ lettering ] [ cluster cluster--center ]" aria-hidden="true">
+  {
+    text.split(" ").map((word: string) => (
+      <span class={`[ lettering-word ] [ cluster cluster--center ]`}>
+        {word.split("").map((char: string) => (
+          <span class="lettering-char">{char}</span>
+        ))}
+      </span>
+    ))
+  }
+</span>
+
+<style>
+  .lettering {
+    column-gap: 2ch;
+  }
+
+  .lettering-word {
+    flex: 1;
+    flex-wrap: nowrap;
+  }
+</style>

@@ -1,6 +1,7 @@
 ---
 import { site } from "../config";
 import CommonHead from "../components/CommonHead.astro";
+import Lettering from "../components/Lettering.astro";
 import Navigation from "../components/Navigation.astro";
 import SocialIcons from "../components/SocialIcons.astro";
 
@@ -13,19 +14,19 @@ const { title, description } = Astro.props;
     <CommonHead title={title} description={description} />
   </head>
   <body class="[ center cover ] [ py--1 ]" typeof="schema:WebPage">
-    <div class="cluster cluster-center">
-      <header role="banner">
-        <a href="/" rel="home" class="fz-6 ff-display">{site.name}</a>
-      </header>
+    <header role="banner">
+      <a href="/" rel="home" class="fz-10 ff-display">
+        <Lettering text={site.name} />
+      </a>
+    </header>
 
-      {import.meta.env.DEV && <Navigation />}
-    </div>
+    {import.meta.env.DEV && <Navigation />}
 
     <main class="cover-start stack" role="main">
       <slot />
     </main>
 
-    <footer class="cluster cluster-center" role="contentinfo">
+    <footer class="cluster cluster--center" role="contentinfo">
       <p>{site.description}</p>
       <SocialIcons />
     </footer>

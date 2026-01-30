@@ -19,6 +19,12 @@ html {
   font-size: clamp(var(--size-0), var(--size--1) + 0.5vw, var(--size-2));
 }
 
+:where(h1, h2, h3, h4, h5, h6) {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5ch;
+}
+
 a {
   color: inherit;
 }
@@ -46,7 +52,7 @@ iframe {
  * Cluster
  */
 
-.cluster-center {
+.cluster--center {
   --cluster-align: center;
   --cluster-justify: space-between;
 }

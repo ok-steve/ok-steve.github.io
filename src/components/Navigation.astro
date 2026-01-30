@@ -8,8 +8,8 @@ const tags = Array.from(
 ).sort();
 ---
 
-<nav role="navigation">
-  <ul class="cluster" role="list">
+<nav class="fz-2 ff-display" role="navigation">
+  <ul class="cluster cluster--center" role="list">
     {
       tags.map((tag) => (
         <li>
@@ -19,3 +19,9 @@ const tags = Array.from(
     }
   </ul>
 </nav>
+
+<style>
+  nav {
+    text-transform: uppercase;
+  }
+</style>
