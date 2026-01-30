@@ -1,0 +1,22 @@
+---
+import Lettering from "./Lettering.astro";
+
+const { title } = Astro.props;
+---
+
+<header class="ff-display" role="banner">
+  <a href="/" rel="home">
+    <Lettering text={title} />
+  </a>
+</header>
+
+<style>
+  a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    font-size: var(--size-10);
+    font-weight: 700;
+    font-variation-settings: "wdth" 75;
+  }
+</style>

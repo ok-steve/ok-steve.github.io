@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import Text from "../components/Text.astro";
 
 const { frontmatter } = Astro.props;
 ---
@@ -15,8 +16,8 @@ const { frontmatter } = Astro.props;
       </p>
     </header>
 
-    <div class="[ text ] [ stack ]">
+    <Text>
       <slot />
-    </div>
+    </Text>
   </article>
 </BaseLayout>

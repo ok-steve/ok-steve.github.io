@@ -10,6 +10,8 @@
   --font-text: var(--font-serif);
   --font-display: var(--font-sans);
 
+  --size-10: calc(var(--size-0) * pow(var(--size-ratio), 10));
+
   --color-paper: oklch(0.8939 0.0464 103.26);
   --color-ink: #000;
   --color-primary: oklch(0.5659 0.2087 32.46);
@@ -63,45 +65,4 @@ iframe {
 
 .stack > [hidden] + * {
   margin-block-start: 0;
-}
-
-/* ---------------------------------- *\
-   #BLOCKS
-\* ---------------------------------- */
-
-/**
- * Banner
- */
-
-[role="banner"] a {
-  text-decoration: none;
-  text-transform: uppercase;
-  color: var(--color-primary);
-  font-weight: 700;
-  font-variation-settings: "wdth" 75;
-}
-
-/**
- * Text
- */
-
-.text hr {
-  clear: both;
-}
-
-/* Overhanging lists, module needs padding to display list-style-type */
-.text > ul,
-.text > ol {
-  padding-inline-start: 0;
-}
-
-/* Lead paragraph */
-.text > p:first-child {
-  font-size: var(--size-2);
-}
-
-/* Run-ins */
-.text h3 + p::first-line {
-  font-size: 1.2em;
-  font-variant-caps: small-caps;
 }

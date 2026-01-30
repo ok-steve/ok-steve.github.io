@@ -1,0 +1,29 @@
+---
+
+---
+
+<div class="[ text ] [ stack ]">
+  <slot />
+</div>
+
+<style>
+  .text :global(hr) {
+    clear: both;
+  }
+
+  /* Overhanging lists, module needs padding to display list-style-type */
+  .text :global(> :where(ul, ol)) {
+    padding-inline-start: 0;
+  }
+
+  /* Lead paragraph */
+  .text :global(> p:first-child) {
+    font-size: var(--size-2);
+  }
+
+  /* Run-ins */
+  .text :global(h3 + p::first-line) {
+    font-size: var(--size-1);
+    font-variant-caps: small-caps;
+  }
+</style>
