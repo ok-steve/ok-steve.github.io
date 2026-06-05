@@ -3,18 +3,32 @@
 \* ---------------------------------- */
 
 :root {
-  --color-text: #030507;
-  --color-primary: #40c057;
-}
+  --font-sans:
+    Bahnschrift, "DIN Condensed", "DIN Alternate", "Franklin Gothic Medium",
+    "Nimbus Sans Narrow", sans-serif-condensed, sans-serif;
+  --font-serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
+  --font-text: var(--font-serif);
+  --font-display: var(--font-sans);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-text: #fff;
-  }
+  --size-10: calc(var(--size-0) * pow(var(--size-ratio), 10));
+
+  --color-paper: oklch(0.8939 0.0464 103.26);
+  --color-ink: #000;
+  --color-primary: oklch(0.5659 0.2087 32.46);
 }
 
 html {
-  color: var(--color-text);
+  font-size: clamp(var(--size-0), var(--size--1) + 0.5vw, var(--size-2));
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5ch;
+}
+
+nav {
+  text-transform: uppercase;
 }
 
 a {
@@ -41,22 +55,10 @@ iframe {
 \* ---------------------------------- */
 
 /**
- * Center
- */
-
-.center {
-  --center-space: var(--size--2);
-}
-
-/**
  * Cluster
  */
 
-.cluster {
-  --cluster-space: var(--size-0);
-}
-
-.cluster-center {
+.cluster--center {
   --cluster-align: center;
   --cluster-justify: space-between;
 }
@@ -65,13 +67,26 @@ iframe {
  * Stack
  */
 
-.stack > [aria-hidden="true"]:first-child + * {
+.stack > [hidden] + * {
   margin-block-start: 0;
 }
 
 /* ---------------------------------- *\
    #BLOCKS
 \* ---------------------------------- */
+
+/**
+ * Banner
+ */
+
+[role="banner"] a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  font-size: var(--size-10);
+  font-weight: 700;
+  font-variation-settings: "wdth" 75;
+}
 
 /**
  * Text
@@ -82,50 +97,17 @@ iframe {
 }
 
 /* Overhanging lists, module needs padding to display list-style-type */
-.text ul,
-.text ol {
-  padding-left: 0;
-}
-
-.text ul ul,
-.text ol ul,
-.text ul ol,
-.text ol ol {
-  padding-left: 40px; /* Browser default */
-}
-
-/**
- * Hang numbers.
- */
-
-.text ol > li::marker {
-  font-feature-settings: "kern" 0, "tnum" 1, "onum" 1, "liga" 1;
+.text > :where(ul, ol) {
+  padding-inline-start: 0;
 }
 
 /* Lead paragraph */
 .text > p:first-child {
-  font-size: 1.2em;
-  line-height: 1.8;
-}
-
-/* Drop caps, placed on lead paragraph */
-.text > p:first-child::first-letter {
-  float: left;
-  font-size: 3.1em;
-  line-height: 0.9;
-  padding-right: 0.1em;
-  padding-top: 0.1em;
+  font-size: var(--size-2);
 }
 
 /* Run-ins */
 .text h3 + p::first-line {
-  font-size: 1.2em;
-  font-feature-settings: "onum", "smcp", "c2sc" 0;
-}
-
-@supports (font-variant: small-caps) {
-  .text h3 + p::first-line {
-    font-feature-settings: "c2sc";
-    font-variant: small-caps;
-  }
+  font-size: var(--size-1);
+  font-variant-caps: small-caps;
 }

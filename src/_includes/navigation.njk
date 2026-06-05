@@ -1,8 +1,8 @@
 {% set tags = collections | keys | includes(['all', 'post'], true) %}
 
 {% if tags | length %}
-  <nav role="navigation">
-    <ul class="cluster" role="list">
+  <nav class="fz-2 ff-display" role="navigation">
+    <ul class="cluster cluster--center" role="list">
       {% for tag in tags | sort %}
         <li><a href="/tags/{{ tag | slugify }}/">{{ tag | capitalize }}</a></li>
       {% endfor %}
