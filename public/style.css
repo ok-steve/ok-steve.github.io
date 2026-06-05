@@ -89,6 +89,19 @@ iframe {
 }
 
 /**
+ * Lettering
+ */
+
+.lettering {
+  column-gap: 2ch;
+}
+
+.lettering-word {
+  flex: 1;
+  flex-wrap: nowrap;
+}
+
+/**
  * Text
  */
 
