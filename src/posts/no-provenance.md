@@ -38,47 +38,47 @@ To demonstrate how the different contexts of studio recording and live performan
 
 ### Imitosis
 
-<o-embed src="https://www.youtube.com/watch?v=hnXCzFnkxtY"></o-embed>
+{% youtube 'https://www.youtube.com/watch?v=hnXCzFnkxtY' %}
 
 11/24/2006
 
-<audio controls src="https://archive.org/download/abird2006-11-24.flac8/abird2006-11-24-d1t07.mp3"></audio>
+{% audio 'https://archive.org/download/abird2006-11-24.flac8/abird2006-11-24-d1t07.mp3' %}
 
 11/25/2006
 
-<audio controls src="https://archive.org/download/abird2006-11-25.flac8/abird2006-11-25-d1t06.mp3"></audio>
+{% audio 'https://archive.org/download/abird2006-11-25.flac8/abird2006-11-25-d1t06.mp3' %}
 
 1/15/2007
 
-<audio controls src="https://archive.org/download/abird2007-01-15.Audixf15.flac16/Abird2007-01-15d1t03.mp3"></audio>
+{% audio 'https://archive.org/download/abird2007-01-15.Audixf15.flac16/Abird2007-01-15d1t03.mp3' %}
 
 3/21/2007 (Day after the album was released)
 
-<audio controls src="https://archive.org/download/abird2007-03-21.flac16/abird2007-03-21t03.mp3"></audio>
+{% audio 'https://archive.org/download/abird2007-03-21.flac16/abird2007-03-21t03.mp3' %}
 
 3/29/2007
 
-<audio controls src="https://archive.org/download/abird2007-03-29.fm/abird-2007-03-29_t03.mp3"></audio>
+{% audio 'https://archive.org/download/abird2007-03-29.fm/abird-2007-03-29_t03.mp3' %}
 
 4/16/2007
 
-<audio controls src="https://archive.org/download/abird2007-04-16.cmc4.flacf/abird2007-04-16t02-imitosis.mp3"></audio>
+{% audio 'https://archive.org/download/abird2007-04-16.cmc4.flacf/abird2007-04-16t02-imitosis.mp3' %}
 
 4/30/2007
 
-<audio controls src="https://archive.org/download/abird2007-04-30.dpa4061.flac16/abird2007-04-30t02.mp3"></audio>
+{% audio 'https://archive.org/download/abird2007-04-30.dpa4061.flac16/abird2007-04-30t02.mp3' %}
 
 5/4/2007
 
-<audio controls src="https://archive.org/download/abird2007-05-04.aud/abird2007-05-04-d1t02.mp3"></audio>
+{% audio 'https://archive.org/download/abird2007-05-04.aud/abird2007-05-04-d1t02.mp3' %}
 
 5/30/2007
 
-<audio controls src="https://archive.org/download/A.Bird2007-05-30.Coimbra.AT943/AB2007-05-30d1t05.mp3"></audio>
+{% audio 'https://archive.org/download/A.Bird2007-05-30.Coimbra.AT943/AB2007-05-30d1t05.mp3' %}
 
 11/3/2007
 
-<audio controls src="https://archive.org/download/abird2007-11-03.flac16/abird_2007_11_03t10.mp3"></audio>
+{% audio 'https://archive.org/download/abird2007-11-03.flac16/abird_2007_11_03t10.mp3' %}
 
 Here are some of the differences I noticed:
 
@@ -99,7 +99,7 @@ There is actually more to the history of _Imitosis_ than is present in these rec
 
 Listen to how the slowly developed intros on the live recordings more closely resemble the studio version of _I_ than they do _Imitosis_.
 
-<o-embed src="https://www.youtube.com/watch?v=8qMORdg8uWc"></o-embed>
+{% youtube 'https://www.youtube.com/watch?v=8qMORdg8uWc' %}
 
 Finally, listen to this version of _Capitol I_, the earliest one available at the Internet Archive. It predates the _Weather Systems_ album by two years and _Imitosis_ by almost six years. This recording contains much of the lyrics that appear later in _Imitosis_ rather than just the repeated refrain of the studio version. However, significantly this live version contains a different chorus than _Imitosis_ and a very different arrangement neither of which are documented in studio recordings.
 
@@ -107,7 +107,7 @@ Without live recordings it would be much harder to trace the progression of _I/I
 
 9/12/2001
 
-<audio controls src="https://archive.org/download/bof2001-09-12.shnf/bof2001-09-12t09.mp3"></audio>
+{% audio 'https://archive.org/download/bof2001-09-12.shnf/bof2001-09-12t09.mp3' %}
 
 ## What makes taping possible?
 
