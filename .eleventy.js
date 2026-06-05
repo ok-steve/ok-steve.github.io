@@ -3,6 +3,7 @@ import EleventyRssPlugin from "@11ty/eleventy-plugin-rss";
 
 import filters from "./lib/filters/index.js";
 import libraries from "./lib/libraries/index.js";
+import shortcodes from "./lib/shortcodes/index.js";
 
 export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
@@ -26,6 +27,7 @@ export default async function (eleventyConfig) {
 
   eleventyConfig.addPlugin(filters);
   eleventyConfig.addPlugin(libraries);
+  eleventyConfig.addPlugin(shortcodes);
 
   eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
   eleventyConfig.addPassthroughCopy({ "./public": "." });
