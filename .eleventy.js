@@ -6,7 +6,23 @@ import libraries from "./lib/libraries/index.js";
 
 export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
-  eleventyConfig.addPlugin(EleventyRssPlugin);
+
+  eleventyConfig.addPlugin(EleventyRssPlugin, {
+    collection: {
+      name: "post",
+      limit: 10,
+    },
+    metadata: {
+      language: "en-US",
+      title: "Steve Cherry",
+      subtitle: "The online home of Steve Cherry.",
+      base: "https://stevecherry.net/",
+      author: {
+        name: "Steve Cherry",
+        email: "steve@stevecherry.net",
+      },
+    },
+  });
 
   eleventyConfig.addPlugin(filters);
   eleventyConfig.addPlugin(libraries);
