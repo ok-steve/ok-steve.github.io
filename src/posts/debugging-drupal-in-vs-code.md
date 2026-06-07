@@ -20,7 +20,3 @@ I use [docker4drupal](https://github.com/wodby/docker4drupal), the [Drupal Compo
 1. Install the [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=firefox-devtools.vscode-firefox-debug) and/or [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
 2. In the debugging panel add "launch" configuration for Firefox and/or Chrome debuggers.
 3. Edit the configuration by adding `"webRoot": "\${workspaceFolder}/web"`.
-
-I created a gist to display the complete configuration file:
-
-<script src="https://gist.github.com/ok-steve/3338e8855387e489b1bf97553348bde6.js"></script>
