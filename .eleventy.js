@@ -10,7 +10,7 @@ export default async function (eleventyConfig) {
 
   eleventyConfig.addPlugin(EleventyRssPlugin, {
     collection: {
-      name: "post",
+      name: "note",
       limit: 10,
     },
     metadata: {

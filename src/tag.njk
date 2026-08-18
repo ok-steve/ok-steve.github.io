@@ -6,11 +6,11 @@ pagination:
   alias: tag
   filter:
     - all
-    - post
+    - note
 permalink: tags/{{ tag }}/
 eleventyComputed:
   title: "{{ tag | capitalize }}"
-  description: "Posts tagged with: {{ tag }}"
+  description: "Notes tagged with: {{ tag }}"
 ---
 
 {% set taglist = collections[tag] %}
