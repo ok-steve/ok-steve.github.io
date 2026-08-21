@@ -27,10 +27,6 @@ html {
   letter-spacing: 0.5ch;
 }
 
-nav {
-  text-transform: uppercase;
-}
-
 a {
   color: inherit;
 }
@@ -44,31 +40,6 @@ a:focus {
   a {
     text-decoration-color: var(--color-primary);
   }
-}
-
-iframe {
-  border: 1px solid currentColor;
-}
-
-/* ---------------------------------- *\
-   #COMPOSITION
-\* ---------------------------------- */
-
-/**
- * Cluster
- */
-
-.cluster--center {
-  --cluster-align: center;
-  --cluster-justify: space-between;
-}
-
-/**
- * Stack
- */
-
-.stack > [hidden] + * {
-  margin-block-start: 0;
 }
 
 /* ---------------------------------- *\
